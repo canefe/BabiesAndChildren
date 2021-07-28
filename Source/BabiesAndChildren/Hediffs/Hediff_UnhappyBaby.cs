@@ -28,7 +28,6 @@ namespace BabiesAndChildren
                 SoundInfo info = SoundInfo.InMap (new TargetInfo (pawn.PositionHeld, pawn.MapHeld));
                 info.volumeFactor = BnCSettings.cryVolume;
                 SoundDef.Named ("Pawn_BabyCry").PlayOneShot(info);
-                ChildrenUtility.WakeNearbyPawns(pawn);
             }
         }
 
