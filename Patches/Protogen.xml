@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+       <mods>
+           <li>Protogen! Marley Race Mod</li>
+       </mods>
+        <match Class="PatchOperationReplace">
+            <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName = "Alien_Protogen"]/race/lifeStageAges</xpath>
+            <value>
+                <lifeStageAges>
+                    <li>
+                        <def>HumanlikeBaby</def>
+                        <minAge>0</minAge>
+                    </li>
+                    <li>
+                        <def>BabyStageProtogen</def>
+                        <minAge>1</minAge>
+                    </li>
+                    <li>
+                        <def>ChildStageProtogen</def>
+                        <minAge>4</minAge>
+                    </li>
+                    <li>
+                        <def>TeenStageProtogen</def>
+                        <minAge>13</minAge>
+                    </li>
+                    <li>
+                        <def>AdultStageProtogen</def>
+                        <minAge>18</minAge>
+                    </li>
+                    <li>
+                        <def>ElderStageProtogen</def>
+                        <minAge>60</minAge>
+                    </li>
+                    <li>
+                        <def>AncestorStageProtogen</def>
+                        <minAge>120</minAge>
+                    </li>
+                    <li>
+                        <def>ProgenitorStageProtogen</def>
+                        <minAge>240</minAge>
+                    </li>
+                </lifeStageAges>
+            </value>
+        </match>
+    </Operation>
+</Patch>

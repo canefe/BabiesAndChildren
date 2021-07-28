@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ScoldChild.label>scold</ScoldChild.label>
+  <ScoldChild.logRulesInitiator.rulesStrings.0>r_logentry->Scolded [RECIPIENT_nameDef].</ScoldChild.logRulesInitiator.rulesStrings.0>
+  <ScoldChild.logRulesRecipient.rulesStrings.0>r_logentry->Was scolded by [INITIATOR_nameDef].</ScoldChild.logRulesRecipient.rulesStrings.0>
+
+  <HugFriend.label>hug</HugFriend.label>
+  <HugFriend.logRulesInitiator.rulesStrings.0>r_logentry->Hugged [RECIPIENT_nameDef].</HugFriend.logRulesInitiator.rulesStrings.0>
+  <HugFriend.logRulesRecipient.rulesStrings.0>r_logentry->Was hugged by [INITIATOR_nameDef].</HugFriend.logRulesRecipient.rulesStrings.0>
+
+  <BabyGames.label>play</BabyGames.label>
+  <BabyGames.logRulesInitiator.rulesStrings.0>r_logentry->[INITIATOR_nameDef] and [RECIPIENT_nameDef] played [babygame].</BabyGames.logRulesInitiator.rulesStrings.0>
+  <BabyGames.logRulesInitiator.rulesStrings.1>r_logentry->[INITIATOR_nameDef] played [babygame] with [RECIPIENT_nameDef].</BabyGames.logRulesInitiator.rulesStrings.1>
+  <BabyGames.logRulesInitiator.rulesStrings.2>babygame->peek-a-boo</BabyGames.logRulesInitiator.rulesStrings.2>
+  <BabyGames.logRulesInitiator.rulesStrings.3>babygame->pattycake</BabyGames.logRulesInitiator.rulesStrings.3>
+  <BabyGames.logRulesInitiator.rulesStrings.4>babygame->tickle</BabyGames.logRulesInitiator.rulesStrings.4>
+
+
+</LanguageData>

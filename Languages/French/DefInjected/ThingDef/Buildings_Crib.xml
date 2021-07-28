@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Crib.label>berceau</Crib.label>
+  <Crib.description>Un joli petit berceau parfait pour garder un jeune enfant en sécurité et au chaud la nuit.</Crib.description>
+  <Crib_Blueprint.label>berceau (plan)</Crib_Blueprint.label>
+  <Crib_Blueprint_Install.label>berceau (installer)</Crib_Blueprint_Install.label>
+  <Crib_Frame.label>berceau (construire)</Crib_Frame.label>
+  <Crib_Frame.description>Un joli petit berceau parfait pour garder un jeune enfant en sécurité et au chaud la nuit.</Crib_Frame.description>
+
+
+</LanguageData>

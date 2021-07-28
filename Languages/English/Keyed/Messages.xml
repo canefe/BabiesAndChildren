@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <LabelGaveBirth>Newborn baby</LabelGaveBirth>
+  <WordHumanPregnancy>Pregnancy</WordHumanPregnancy>
+  <Unnamed>Unnamed</Unnamed>
+  <MessageIsPregnant>{0} is pregnant!</MessageIsPregnant>
+  <MessageHumanBirth>{0} has given birth! She has decided to name the child "{1}".</MessageHumanBirth>
+  <MessageHavingContractions>{0} has started having contractions.</MessageHavingContractions>
+  <WordStillborn>stillborn!</WordStillborn>
+  <MessageStillborn>{0} has a stillbirth for an unknown reason.</MessageStillborn>
+  <MessageWeaponTooLarge>Warning: A {0} is too large a weapon for {1} to safely handle.</MessageWeaponTooLarge>
+  <MessageAdultClothesOnBaby>Normal clothes are too large for {0}.</MessageAdultClothesOnBaby>
+  <MessageBabyClothesOnAdult>Baby clothes are too small for {0}.</MessageBabyClothesOnAdult>
+  <MessageBabyCannotWearClothes>A baby who can't walk can't wear clothes.</MessageBabyCannotWearClothes>
+  <ReasonNoCribs>No cribs available</ReasonNoCribs>
+  <ReasonCannotBreastfeed>{0} cannot breastfeed</ReasonCannotBreastfeed>
+  <MessageMiscarriedHediff>{0} has miscarried due to another health condition: {1}.</MessageMiscarriedHediff>
+  <Newtype>Newtype</Newtype>
+  <MessageNewtype>This kid is a genius. {0} was born with a new type of awakening, and I look forward to a great performance in the future at RimWorld.</MessageNewtype>
+  <MessageGrewUpChild>{0} grew up as a child.</MessageGrewUpChild>
+  <MessageGrewUpTeenager>{0} grew up as a teenager.</MessageGrewUpTeenager>
+  <MessageGrewUpAdult>{0} grew up as a adult.</MessageGrewUpAdult>
+  <OnlyChildrenCanEquip>Only children can equip</OnlyChildrenCanEquip>
+  <OnlyForUprightToddler>Only toddler can dress</OnlyForUprightToddler>
+  <BabyCantEquipNormal>Toddler is not allowed to wear</BabyCantEquipNormal>
+  <NoCrib>No crib to take.</NoCrib>
+
+</LanguageData>

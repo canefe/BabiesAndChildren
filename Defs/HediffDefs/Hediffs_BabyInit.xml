@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!--These defs are designed to be applied once to newborns just after birth in order to setup traits, skills, passions, etc.-->
+    <HediffDef>
+        <defName>BabyState</defName>
+        <description>This child is still growing. Encourage them to perform activities that help them develop.</description>
+        <hediffClass>BabiesAndChildren.Hediff_BabyState</hediffClass>
+        <label>BabyState</label>
+        <initialSeverity>0.001</initialSeverity>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>
+                    <min>5</min>
+                    <max>5</max>
+                </disappearsAfterTicks>
+            </li>
+        </comps>
+    </HediffDef>
+</Defs>

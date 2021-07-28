@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HediffDef>
+        <defName>UnhappyBaby</defName>
+        <description>Baby is unhappy and needs attention</description>
+        <hediffClass>BabiesAndChildren.Hediff_UnhappyBaby</hediffClass>
+        <label>unhappy baby</label>
+    </HediffDef>
+</Defs>

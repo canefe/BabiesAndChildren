@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <DisciplineChild.reportString>TargetA(을)를 가르치는 중.</DisciplineChild.reportString>
+  <ScoldChild.reportString>TargetA(을)를 꾸짖는 중.</ScoldChild.reportString>
+  <BreastfeedBaby.reportString>TargetA에게 젖을 주는 중.</BreastfeedBaby.reportString>
+  <FoodFeedBaby.reportString>TargetA에게 젖 주는 중.</FoodFeedBaby.reportString>
+  <TakeBabyToBedAndFeed.reportString>젖 주려고 TargetA(을)를 아기침대에 데려가는 중.</TakeBabyToBedAndFeed.reportString>
+  <TakeBabyToCrib.reportString>TargetA(을)를 아기침대에 데려가는 중.</TakeBabyToCrib.reportString>
+  <PlayWithBaby.reportString>TargetA(와)과 놀아주는 중.</PlayWithBaby.reportString>
+
+
+</LanguageData>

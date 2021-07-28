@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!--<MaxTraitsSetting_title>Max Childhood Traits</MaxTraitsSetting_title>
+  <MaxTraitsSetting_desc>The maximum number of traits that can be applied to a pawn during childhood. Requires another mod to support &gt; 3 traits per pawn.</MaxTraitsSetting_desc>-->
+  <BnCSettings1>Babies And Children</BnCSettings1>
+  <BnCSetting_Init>Reset BnC settings</BnCSetting_Init>
+  <AcceleratedGrowth_title>Accelerated growth</AcceleratedGrowth_title>
+  <AcceleratedGrowth_desc>Children age faster</AcceleratedGrowth_desc>
+  <AcceleratedGrowthEndAge_title1>End age of accelerated growth</AcceleratedGrowthEndAge_title1>
+  <AcceleratedGrowthEndAge_desc1>End age of accelerated growth\n Default: 18</AcceleratedGrowthEndAge_desc1>
+  <BabyAcceleratedGrowth_title>Baby accelerated growth factor</BabyAcceleratedGrowth_title>
+  <BabyAcceleratedGrowth_desc>Baby accelerated growth factor\n Default: 7</BabyAcceleratedGrowth_desc>
+  <ToddlerAcceleratedGrowth_title>Toddler accelerated growth factor</ToddlerAcceleratedGrowth_title>
+  <ToddlerAcceleratedGrowth_desc>Toddler accelerated growth factor\n Default: 7</ToddlerAcceleratedGrowth_desc>
+  <ChildAcceleratedGrowth_title>Child accelerated growth factor</ChildAcceleratedGrowth_title>
+  <ChildAcceleratedGrowth_desc>Child accelerated growth factor\n Default: 7</ChildAcceleratedGrowth_desc>
+  <TeenagerAcceleratedGrowth_title>Teenager accelerated growth factor</TeenagerAcceleratedGrowth_title>
+  <TeenagerAcceleratedGrowth_desc>Teenager accelerated growth factor\n Default: 1</TeenagerAcceleratedGrowth_desc>
+  <BabyInheritPercentage_Title>Inherit traits and skills</BabyInheritPercentage_Title>
+  <BabyInheritPercentage_Desc>The probability of inheriting traits and skills.  (not apply to CSL)</BabyInheritPercentage_Desc>
+  <BabyInheritPercentage_Desc_None>None</BabyInheritPercentage_Desc_None>
+  <BabyInheritPercentage_Desc_25>25%</BabyInheritPercentage_Desc_25>
+  <BabyInheritPercentage_Desc_50>50%</BabyInheritPercentage_Desc_50>
+  <BabyInheritPercentage_Desc_75>75%</BabyInheritPercentage_Desc_75>
+  <BabyInheritPercentage_Desc_90>90%</BabyInheritPercentage_Desc_90>
+  <BabyInheritPercentage_Desc_Random>Random</BabyInheritPercentage_Desc_Random>
+  <OptionChildrenDropWeapons>Children drop weapons</OptionChildrenDropWeapons>
+  <OptionChildrenDropWeaponsDesc>Children drop weapons when they fire to simulate their lack of recoil control and strength to hold the weapon.</OptionChildrenDropWeaponsDesc>
+  <OptionChildMaxWeaponMass>Children's max weapon mass</OptionChildMaxWeaponMass>
+  <OptionChildMaxWeaponMass_desc>Children's max weapon mass\n Default: 2</OptionChildMaxWeaponMass_desc>
+  <GestationPeriodDays_Enable>Enable gestation period setting</GestationPeriodDays_Enable>
+  <GestationPeriodDays_Enable_Desc>Adjust the gestation period of all humanlike races in the game. Applies when the game is loaded. It doesn't work on Rim who are already pregnant.</GestationPeriodDays_Enable_Desc>  
+  <GestationPeriodDays_Title>Gestation period days</GestationPeriodDays_Title>
+  <GestationPeriodDays_desc>Adjust the gestation period of all humanlike races in the game. Applies when the game is loaded. It doesn't work on Rim who are already pregnant.</GestationPeriodDays_desc>
+  <GestationPeriodDays_Days>days</GestationPeriodDays_Days>
+  <EnablePostPartum_title>Enable post partum</EnablePostPartum_title>
+  <EnablePostPartum_desc>When enabled, female pawns will enter post partum after giving birth, preventing them from getting pregnant again for two quadrums. RJW Only</EnablePostPartum_desc>
+  <CryVolumeSetting_title>Baby cry volume</CryVolumeSetting_title>
+  <CryVolumeSetting_desc>Volume percent for the baby's crying audio clip. 0 to mute.</CryVolumeSetting_desc>
+  <DebugInfoMessagesEnabled_Title>Enable graphic setting and debug logging</DebugInfoMessagesEnabled_Title>
+  <DebugInfoMessagesEnabled_desc>When enabled, will show graphic setting and will post frequent debugging logs to the console.</DebugInfoMessagesEnabled_desc>
+  <ChildCuteActEnabled_Title>Enable Child Cute Act</ChildCuteActEnabled_Title>
+  <ChildCuteActEnabled_desc>Enable Child Cute Act.</ChildCuteActEnabled_desc>
+  <humanlikeHeadEnabled_Title>Ratkin, kurin face style change</humanlikeHeadEnabled_Title>
+  <humanlikeHeadEnabled_desc>The face styles of the Ratkins and the Kurin look like human children.</humanlikeHeadEnabled_desc>
+  <RabbieChildHeadEnabled_Title>Rabbie face style change</RabbieChildHeadEnabled_Title>
+  <RabbieChildHeadEnabled_desc>The face styles of the Rabbie look like human children.</RabbieChildHeadEnabled_desc>
+  <HumanChildrenBodysize_Title>Human children body size</HumanChildrenBodysize_Title>
+  <HumanChildrenBodysize_desc>It applies when you adjust the slide.</HumanChildrenBodysize_desc>
+  <HumanChildrenHeadsize_Title>Human children headsize</HumanChildrenHeadsize_Title>
+  <HumanChildrenHeadsize_desc>It applies when you adjust the slide.</HumanChildrenHeadsize_desc>
+  <HumanChildrenHairsize_Title>Human children hair size</HumanChildrenHairsize_Title>
+  <HumanChildrenHairsize_desc>It applies when you adjust the slide.</HumanChildrenHairsize_desc>
+  <HumanChildrenZroc_Title>Human children Z roc</HumanChildrenZroc_Title>
+  <HumanChildrenZroc_desc>It applies when you adjust the slide.</HumanChildrenZroc_desc>
+  <AlienChildrenBodysize_Title>Alien children body size</AlienChildrenBodysize_Title>
+  <AlienChildrenBodysize_desc>It applies when you adjust the slide.</AlienChildrenBodysize_desc>
+  <AlienChildrenOriginalHeadsize_Title>Alien children original headsize</AlienChildrenOriginalHeadsize_Title>
+  <AlienChildrenOriginalHeadsize_desc>It applies when you adjust the slide.</AlienChildrenOriginalHeadsize_desc>
+  <AlienChildrenHumanlikeHeadsize_Title>Alien children human like head size</AlienChildrenHumanlikeHeadsize_Title>
+  <AlienChildrenHumanlikeHeadsize_desc>It applies when you adjust the slide.</AlienChildrenHumanlikeHeadsize_desc>
+  <AlienChildrenHairsize_Title>Alien children hair size</AlienChildrenHairsize_Title>
+  <AlienChildrenHairsize_desc>It applies when you adjust the slide.</AlienChildrenHairsize_desc>
+  <AlienChildrenZroc_Title>Alien children Z roc</AlienChildrenZroc_Title>
+  <AlienChildrenZroc_desc>It applies when you adjust the slide.</AlienChildrenZroc_desc>
+  <ShowHairSize_Title>Child's hair size (ShowHair)</ShowHairSize_Title>
+  <ShowHairSize_desc>It applies when you adjust the slide.</ShowHairSize_desc>
+  <ShowHairLocY_Title>Child's hair LocY (ShowHair)</ShowHairLocY_Title>
+  <ShowHairLocY_desc>It applies when you adjust the slide.</ShowHairLocY_desc>
+  <ShowHairHumanZLoc_Title>Child's hair human head ZLoc (ShowHair)</ShowHairHumanZLoc_Title>
+  <ShowHairHumanZLoc_desc>It applies when you adjust the slide.</ShowHairHumanZLoc_desc>
+  <ShowHairAlienZLoc_Title>Child's hair alien head ZLoc (ShowHair)</ShowHairAlienZLoc_Title>
+  <ShowHairAlienZLoc_desc>It applies when you adjust the slide.</ShowHairAlienZLoc_desc>
+  <ShowHairAlienHFLocZ_Title>Child's hair HFLocZ (ShowHair)</ShowHairAlienHFLocZ_Title>
+  <ShowHairAlienHFLocZ_desc>It applies when you adjust the slide.</ShowHairAlienHFLocZ_desc>
+  <WakeThresholdPatchEnabled_Title>Wake Threshold Patch Enabled</WakeThresholdPatchEnabled_Title>
+  <WakeThresholdPatchEnabled_desc>This option toggles babies/colonists wake up when a baby is unhappy/crying. This option is added because this feature may cause performance issues with too many babies/colonists. It is suggested that only disable if you experience high performance loss when colonists are sleeping.</WakeThresholdPatchEnabled_desc>
+</LanguageData>

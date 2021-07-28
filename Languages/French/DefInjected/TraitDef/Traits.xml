@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Innocent.degreeDatas.0.label>innocence</Innocent.degreeDatas.0.label>
+  <Innocent.degreeDatas.0.description>[PAWN_nameDef] n'est qu'innocence. C'est peut-être parce qu'il n'a jamais connu de difficultés auparavant.
+[PAWN_pronoun] sera plus traumatisé par des actes violents tels que le cannibalisme, le prélèvement d'organes et la vue de cadavres.</Innocent.degreeDatas.0.description>
+
+  <Newtype.degreeDatas.0.label>nouveau genre</Newtype.degreeDatas.0.label>
+  <Newtype.degreeDatas.0.description>{PAWN_nameDef} s'est réveillé avec de nouvelles capacités. {PAWN_pronoun} est incroyable pour esquiver, et gagne +5 points pour la mêlée et le tir.</Newtype.degreeDatas.0.description>
+
+
+</LanguageData>

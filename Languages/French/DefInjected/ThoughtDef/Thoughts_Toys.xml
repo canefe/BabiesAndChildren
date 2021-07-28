@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ChildWithToys.stages.0.label>pas de poupées (pauvres)</ChildWithToys.stages.0.label>
+  <ChildWithToys.stages.0.description>Notre base est si pauvre que nous ne pouvons pas nous permettre de fabriquer des poupées. Eh bien, je vais le retenir.</ChildWithToys.stages.0.description>
+  <ChildWithToys.stages.1.label>pas de poupées (moyen)</ChildWithToys.stages.1.label>
+  <ChildWithToys.stages.1.description>Si nous pouvons nous le permettre, nous ferions mieux de fabriquer une poupée. J'aurais aimé en avoir au moins une. Si j'avais une poupée, ce serait bien de dormir avec.</ChildWithToys.stages.1.description>
+  <ChildWithToys.stages.2.label>pas de poupées (riche)</ChildWithToys.stages.2.label>
+  <ChildWithToys.stages.2.description>Les adultes portent de beaux vêtements, mais je n'ai pas de poupée! C'est trop!!!</ChildWithToys.stages.2.description>
+  <ChildWithToys.stages.3.label>no dolls(poor)(greedy)</ChildWithToys.stages.3.label>
+  <ChildWithToys.stages.3.description>Je comprends que notre base est pauvre, mais n'avons-nous pas assez de temps pour me fabriquer une poupée? Je ne peux pas dormir sans poupée.</ChildWithToys.stages.3.description>
+  <ChildWithToys.stages.4.label>pas de poupées (moyen) (gourmand)</ChildWithToys.stages.4.label>
+  <ChildWithToys.stages.4.description>If we can afford it, I should have a doll! Something's wrong with this!!</ChildWithToys.stages.4.description>
+  <ChildWithToys.stages.5.label>pas de poupées (riche) (gâté)</ChildWithToys.stages.5.label>
+  <ChildWithToys.stages.5.description>L'enfant de la base d'à côté a une poupée légendaire. Si tu ne me donne pas la poupée maintenant, je vais faire sauter notre base!</ChildWithToys.stages.5.description>
+  <ChildWithToys.stages.6.label>pas de poupées (pauvre) (ascétique)</ChildWithToys.stages.6.label>
+  <ChildWithToys.stages.6.description>Notre base est pauvre, nous devrions donc économiser des fournitures.</ChildWithToys.stages.6.description>
+  <ChildWithToys.stages.7.label>pas de poupées (moyen) (ascétique)</ChildWithToys.stages.7.label>
+  <ChildWithToys.stages.7.description>Je n'ai pas besoin de poupées.</ChildWithToys.stages.7.description>
+  <ChildWithToys.stages.8.label>pas de poupées (riche) (ascétique)</ChildWithToys.stages.8.label>
+  <ChildWithToys.stages.8.description>J'aurais aimé en avoir au moins une.</ChildWithToys.stages.8.description>
+  <ChildWithToys.stages.9.label>détester une terrible poupée</ChildWithToys.stages.9.label>
+  <ChildWithToys.stages.9.description>C'est une poupée monstre !! Je déteste les poupées monstres! Arghhh!</ChildWithToys.stages.9.description>
+  <ChildWithToys.stages.10.label>légèrement déçu par une pauvre poupée</ChildWithToys.stages.10.label>
+  <ChildWithToys.stages.10.description>Merci de l'avoir fait, mais c'est un peu ...</ChildWithToys.stages.10.description>
+  <ChildWithToys.stages.11.label>satisfait d'une poupée normale</ChildWithToys.stages.11.label>
+  <ChildWithToys.stages.11.description>C'est bien d'avoir une poupée. Je peux jouer à de nombreux jeux avec ça.</ChildWithToys.stages.11.description>
+  <ChildWithToys.stages.12.label>se sentir bien avec une belle poupée</ChildWithToys.stages.12.label>
+  <ChildWithToys.stages.12.description>Wow! La poupée est cool. Je suis si heureux d'avoir quelqu'un avec des compétences de couture élevées.</ChildWithToys.stages.12.description>
+  <ChildWithToys.stages.13.label>se sentir si bien avec une excellente poupée</ChildWithToys.stages.13.label>
+  <ChildWithToys.stages.13.description>J'adore cette poupée. Je dors toujours avec quand je dors.</ChildWithToys.stages.13.description>
+  <ChildWithToys.stages.14.label>impressionné par une poupée chef-d'œuvre</ChildWithToys.stages.14.label>
+  <ChildWithToys.stages.14.description>Je fais attention quand j'embrasse cette poupée au cas où elle se casserait. merci beaucoup de l'avoir fait.</ChildWithToys.stages.14.description>
+  <ChildWithToys.stages.15.label>Impressionné par la poupée légendaire</ChildWithToys.stages.15.label>
+  <ChildWithToys.stages.15.description>Je suis le seul au monde à avoir une poupée comme celle-ci, non? À droite? Je suis tellement heureux.</ChildWithToys.stages.15.description>
+  <ChildWithToys.stages.16.label>détestant une poupée terrible (gâté)</ChildWithToys.stages.16.label>
+  <ChildWithToys.stages.16.description>Argh! La poupée est si horrible. C'est tellement dégoûtant. Ahhhh!!</ChildWithToys.stages.16.description>
+  <ChildWithToys.stages.17.label>déçu d'une pauvre poupée (gâté)</ChildWithToys.stages.17.label>
+  <ChildWithToys.stages.17.description>Est-ce une poupée? Je préfère l'utiliser comme une arme, donc je pense qu'il vaut mieux frapper le mécanoïde avec ça.</ChildWithToys.stages.17.description>
+  <ChildWithToys.stages.18.label>légèrement déçu par une poupée (gâté)</ChildWithToys.stages.18.label>
+  <ChildWithToys.stages.18.description>Eh bien, je vais la prendre. Si je n'ai pas de poupée, les enfants de la base d'à côté vont se moquer de moi.</ChildWithToys.stages.18.description>
+  <ChildWithToys.stages.19.label>satisfait d'une poupée cool (gâté)</ChildWithToys.stages.19.label>
+  <ChildWithToys.stages.19.description>La poupée de bonne qualité n'est pas mauvaise, mais j'ai besoin d'une excellente poupée que j'ai vu à la télé.</ChildWithToys.stages.19.description>
+  <ChildWithToys.stages.20.label>se sentir bien avec l'excellente poupée (gâté)</ChildWithToys.stages.20.label>
+  <ChildWithToys.stages.20.description>C'est une poupée qui me convient. C'est beau et cool. C'est cool quand je l'emmène partout.</ChildWithToys.stages.20.description>
+  <ChildWithToys.stages.21.label>impressionné par la poupée chef-d'oeuvre (gâté)</ChildWithToys.stages.21.label>
+  <ChildWithToys.stages.21.description>C'est une poupée qui me va si bien. Vous devez faire attention lorsque vous serrez cette poupée dans vos bras, elle est trop précieuse pour être cassée!</ChildWithToys.stages.21.description>
+  <ChildWithToys.stages.22.label>impressionné par la poupée légendaire (gourmande)</ChildWithToys.stages.22.label>
+  <ChildWithToys.stages.22.description>Hehe! Je suis le seul au monde à avoir une poupée comme celle-ci, non? Je vais me vanter auprès de mes amis! Heh heh heh heh.</ChildWithToys.stages.22.description>
+  <ChildWithToys.stages.23.label>satisfait de la terrible poupée (ascétique)</ChildWithToys.stages.23.label>
+  <ChildWithToys.stages.23.description>Les poupées peuvent être laides. Mais je vais bien. Je me sens mieux car je n'ai pas à me soucier de la durabilité.</ChildWithToys.stages.23.description>
+  <ChildWithToys.stages.24.label>se sentir bien avec une pauvre poupée (ascétique)</ChildWithToys.stages.24.label>
+  <ChildWithToys.stages.24.description>J'aime ce genre de poupée. J'aime la simplicité.</ChildWithToys.stages.24.description>
+  <ChildWithToys.stages.25.label>une poupée normale (ascétique)</ChildWithToys.stages.25.label>
+  <ChildWithToys.stages.25.description>Eh bien, c'est bien de jouer avec des poupées, mais ce n'est pas bon pour moi de transporter ça à peu près.</ChildWithToys.stages.25.description>
+  <ChildWithToys.stages.26.label>un peu mal à l'aise avec une poupée cool (ascétique)</ChildWithToys.stages.26.label>
+  <ChildWithToys.stages.26.description>Cette poupée est trop belle pour moi. J'ai peur que ça se brise.</ChildWithToys.stages.26.description>
+  <ChildWithToys.stages.27.label>mal à l'aise avec une poupée excellente(ascétique)</ChildWithToys.stages.27.label>
+  <ChildWithToys.stages.27.description>Cette poupée ne me convient pas. C'est inconfortable de transporter ça.</ChildWithToys.stages.27.description>
+  <ChildWithToys.stages.28.label>très mal à l'aise avec une poupée chef d'oeuvre (ascétique)</ChildWithToys.stages.28.label>
+  <ChildWithToys.stages.28.description>Je ne peux rien faire parce que j'ai peur que cette poupée se brise. Que fais-je?!</ChildWithToys.stages.28.description>
+  <ChildWithToys.stages.29.label>extrêmement mal à l'aise avec une poupée légendaire (ascétique)</ChildWithToys.stages.29.label>
+  <ChildWithToys.stages.29.description>Si ça casse, dois-je retirer mes organes et les vendre? Quoi? Dites-moi que non.</ChildWithToys.stages.29.description>
+
+
+</LanguageData>

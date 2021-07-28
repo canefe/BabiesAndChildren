@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <success>Always</success>
+    <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/raceRestriction[onlyUseRaceRestrictedApparel="true"]/whiteApparelList</xpath>
+    <value>
+      <!-- For Babygear -->
+      <li>Apparel_Baby_Onesie</li>
+      <li>Apparel_Baby_Beanie</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <success>Always</success>
+    <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/raceRestriction[onlyUseRaceRestrictedWeapons="true"]/whiteWeaponList</xpath>
+    <value>
+      <!-- For Doll -->
+      <li>Dino_Doll</li>
+      <li>Girl_Doll</li>
+      <li>Teddybear_Doll</li>
+      <li>Toyrobot_Doll</li>
+    </value>
+  </Operation>
+</Patch>

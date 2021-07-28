@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <DisciplineChild.reportString>Discipline TargetA.</DisciplineChild.reportString>
+  <ScoldChild.reportString>Réprimande TargetA.</ScoldChild.reportString>
+  <BreastfeedBaby.reportString>Allaite TargetA.</BreastfeedBaby.reportString>
+  <FoodFeedBaby.reportString>Alimente TargetA.</FoodFeedBaby.reportString>
+  <TakeBabyToBedAndFeed.reportString>Amenène TargetB au berceau pour nourrir TargetA.</TakeBabyToBedAndFeed.reportString>
+  <TakeBabyToCrib.reportString>Emmène TargetA au berceau.</TakeBabyToCrib.reportString>
+  <PlayWithBaby.reportString>Joue avec TargetA.</PlayWithBaby.reportString>
+
+
+</LanguageData>

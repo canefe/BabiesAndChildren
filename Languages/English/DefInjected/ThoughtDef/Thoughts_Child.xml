@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <NearParent.stages.0.label>near mom</NearParent.stages.0.label>
+  <NearParent.stages.0.description>My mother is near me. I feel safe.</NearParent.stages.0.description>
+  <NearParent.stages.1.label>near dad</NearParent.stages.1.label>
+  <NearParent.stages.1.description>My father is near me. I feel safe.</NearParent.stages.1.description>
+  <NearParent.stages.2.label>near mom and dad</NearParent.stages.2.label>
+  <NearParent.stages.2.description>My parents are with me. I feel safe and loved.</NearParent.stages.2.description>
+
+  <ScaredOfTheDark.stages.0.label>scared of the dark</ScaredOfTheDark.stages.0.label>
+  <ScaredOfTheDark.stages.0.description>It's too dark! I can see monsters creeping in the shadows!</ScaredOfTheDark.stages.0.description>
+
+  <GotToldOff.stages.0.label>got in trouble</GotToldOff.stages.0.label>
+  <GotToldOff.stages.0.description>I got in trouble for doing something I shouldn't have.</GotToldOff.stages.0.description>
+
+  <GotDisciplined.stages.0.label>got a beating</GotDisciplined.stages.0.label>
+  <GotDisciplined.stages.0.description>I got beaten as punishment.</GotDisciplined.stages.0.description>
+
+  <GotFed.stages.0.label>was fed</GotFed.stages.0.label>
+  <GotFed.stages.0.description>I was fed by a loving caretaker.</GotFed.stages.0.description>
+
+  <BabyGames.stages.0.label>played with me</BabyGames.stages.0.label>
+
+  <JustBorn.stages.0.label>just born</JustBorn.stages.0.label>
+  <JustBorn.stages.0.description>What's going on? It's too bright out here, I don't like it!</JustBorn.stages.0.description>
+
+
+</LanguageData>

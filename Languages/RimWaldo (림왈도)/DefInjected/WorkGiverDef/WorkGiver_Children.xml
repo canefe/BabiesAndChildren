@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Basic -->
+
+  <FeedBaby.label>아기 젖주기</FeedBaby.label>
+  <FeedBaby.verb>아기 젖주기</FeedBaby.verb>
+  <FeedBaby.gerund>아기 젖주기</FeedBaby.gerund>
+
+
+  <!-- Childcare -->
+
+  <FoodFeedBaby.label>아기에게 먹이기</FoodFeedBaby.label>
+  <FoodFeedBaby.verb>아기에게 먹이기</FoodFeedBaby.verb>
+  <FoodFeedBaby.gerund>아기에게 먹이기</FoodFeedBaby.gerund>
+
+  <TakeBabyToCribAndFeed.label>아기를 침대에 눕히기</TakeBabyToCribAndFeed.label>
+  <TakeBabyToCribAndFeed.verb>아기를 침대에 눕히기</TakeBabyToCribAndFeed.verb>
+  <TakeBabyToCribAndFeed.gerund>아기를 침대에 눕히기</TakeBabyToCribAndFeed.gerund>
+
+  <TakeBabyToCrib.label>아기침대로 데려가기</TakeBabyToCrib.label>
+  <TakeBabyToCrib.verb>아기침대로 데려가기</TakeBabyToCrib.verb>
+  <TakeBabyToCrib.gerund>아기침대로 데려가기</TakeBabyToCrib.gerund>
+
+  <PlayWithBaby.label>아기와 놀아주기</PlayWithBaby.label>
+  <PlayWithBaby.verb>아기와 놀아주기</PlayWithBaby.verb>
+  <PlayWithBaby.gerund>아기와 놀아주기</PlayWithBaby.gerund>
+
+
+</LanguageData>

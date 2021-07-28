@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <TraitDef>
+    <defName>Innocent</defName>
+    <commonality>0.07</commonality>
+    <commonalityFemale>0.10</commonalityFemale>
+    <degreeDatas>
+      <li>
+        <label>innocence</label>
+        <description>[PAWN_nameDef]'s heart has innocence. Maybe it's because you've never experienced a tough world before.
+[PAWN_pronoun] will be more traumatized by violent acts such as cannibalism, organ harvesting and sight of dead bodies.</description>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <li>Psychopath</li>
+      <li>Bloodlust</li>
+      <li>Cannibal</li>
+      <!--<li>BleedingHeart</li>-->
+    </conflictingTraits>
+    <requiredWorkTags>
+      <li>Social</li>
+    </requiredWorkTags>
+  </TraitDef>
+  <TraitDef>
+    <defName>Newtype</defName>
+    <commonality>0.05</commonality>
+    <degreeDatas>
+      <li>
+        <label>new type</label>
+        <description>{PAWN_nameDef} awakened with a new type. {PAWN_pronoun} is amazing at dodging, and get +5 points for melee and shooting. </description>
+        <statOffsets>
+          <MeleeDodgeChance>25</MeleeDodgeChance>
+        </statOffsets>
+        <skillGains>
+          <li>
+            <key>Melee</key>
+            <value>5</value>
+          </li>
+          <li>
+            <key>Shooting</key>
+            <value>5</value>
+          </li>
+        </skillGains>
+        <statFactors>
+          <PawnTrapSpringChance>0.2</PawnTrapSpringChance>
+        </statFactors>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <li>Nimble</li>
+    </conflictingTraits>
+  </TraitDef>
+</Defs>

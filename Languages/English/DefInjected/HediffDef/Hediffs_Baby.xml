@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <BabyState0.label>child is growing</BabyState0.label>
+  <BabyState0.description>This child is still growing. Encourage them to perform activities that help them develop.</BabyState0.description>
+  <BabyState0.stages.0.label>baby</BabyState0.stages.0.label>
+  <BabyState0.stages.1.label>toddler</BabyState0.stages.1.label>
+  <BabyState0.stages.2.label>child</BabyState0.stages.2.label>
+  <BabyState0.stages.3.label>teenager</BabyState0.stages.3.label>
+
+  <BabyState.label>BabyState</BabyState.label>
+  <BabyState.description>This child is still growing. Encourage them to perform activities that help them develop.</BabyState.description>
+
+  <NoManipulationFlag.label>disable manipulation</NoManipulationFlag.label>
+  <NoManipulationFlag.description>No Manipulation.</NoManipulationFlag.description>
+
+  <UnhappyBaby.label>unhappy baby</UnhappyBaby.label>
+  <UnhappyBaby.description>Baby is unhappy and needs attention</UnhappyBaby.description>
+
+
+</LanguageData>

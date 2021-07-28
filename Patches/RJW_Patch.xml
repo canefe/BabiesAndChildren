@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>RimJobWorld</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/HediffDef[defName = "BnC_RJW_PostPregnancy"]/stages</xpath>
+      <value>
+        <stages>
+          <li>
+            <label>Contracepted</label>
+            <capMods>
+              <li>
+                <capacity>RJW_Fertility</capacity>
+                <setMax>0.1</setMax>
+              </li>
+            </capMods>
+          </li>
+        </stages>
+      </value>
+    </match>
+  </Operation>
+</Patch>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Dino_Doll.label>dino doll</Dino_Doll.label>
+  <Dino_Doll.description>Dino doll. Boys like it.</Dino_Doll.description>
+  <Dino_Doll.tools.0.label>Body</Dino_Doll.tools.0.label>
+  <Dino_Doll.tools.1.label>head</Dino_Doll.tools.1.label>
+
+  <Girl_Doll.label>girl doll</Girl_Doll.label>
+  <Girl_Doll.description>Cute girl doll. Girls like it.</Girl_Doll.description>
+  <Girl_Doll.tools.0.label>Body</Girl_Doll.tools.0.label>
+  <Girl_Doll.tools.1.label>head</Girl_Doll.tools.1.label>
+
+  <Teddybear_Doll.label>teddybear doll</Teddybear_Doll.label>
+  <Teddybear_Doll.description>Cute teddybear doll. Boys and Girls all like it.</Teddybear_Doll.description>
+  <Teddybear_Doll.tools.0.label>Body</Teddybear_Doll.tools.0.label>
+  <Teddybear_Doll.tools.1.label>head</Teddybear_Doll.tools.1.label>
+
+  <Toyrobot_Doll.label>toyrobot doll</Toyrobot_Doll.label>
+  <Toyrobot_Doll.description>Toy robot. Boys like it.</Toyrobot_Doll.description>
+  <Toyrobot_Doll.tools.0.label>Body</Toyrobot_Doll.tools.0.label>
+  <Toyrobot_Doll.tools.1.label>head</Toyrobot_Doll.tools.1.label>
+
+
+</LanguageData>

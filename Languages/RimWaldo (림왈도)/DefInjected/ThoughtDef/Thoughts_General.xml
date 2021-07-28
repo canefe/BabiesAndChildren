@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GotHugged.stages.0.label>안아줌</GotHugged.stages.0.label>
+  <GotHugged.stages.0.description>신경 써 주는 사람이 있어 좋아.</GotHugged.stages.0.description>
+
+  <ColonyBirth.stages.0.label>아이</ColonyBirth.stages.0.label>
+  <ColonyBirth.stages.0.description>새로운 아이가 우리 정착지에 태어났어. 너무 멋져!</ColonyBirth.stages.0.description>
+
+  <ChildDied.stages.0.label>아이의 죽음</ChildDied.stages.0.label>
+  <ChildDied.stages.0.description>아이가 죽었어. 어떻게 이런 끔찍한 일이 일어날 수 있지?</ChildDied.stages.0.description>
+
+  <CryingBaby.stages.0.label>아기 울음 소리</CryingBaby.stages.0.label>
+  <CryingBaby.stages.0.description>근처에 아기가 울고 있어. 좀 시끄러워.</CryingBaby.stages.0.description>
+  <CryingBaby.stages.1.label>시끄러운 아기 울음</CryingBaby.stages.1.label>
+  <CryingBaby.stages.1.description>울부 짖는 아기들이 있다고. 누군가 우는 것 좀 멈춰줘!</CryingBaby.stages.1.description>
+  <CryingBaby.stages.2.label>울부짖는 아기 울음</CryingBaby.stages.2.label>
+  <CryingBaby.stages.2.description>나는 지금 작은 사람 모양의 공습 사이렌 떼거리에 둘러싸여있어! 차라리 나를 죽여줘!!!</CryingBaby.stages.2.description>
+
+
+</LanguageData>

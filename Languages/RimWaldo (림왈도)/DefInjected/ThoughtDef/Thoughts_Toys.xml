@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ChildWithToys.stages.0.label>인형이 없음(빈곤함)</ChildWithToys.stages.0.label>
+  <ChildWithToys.stages.0.description>우리 기지는 가난해서 인형을 만들어줄 여유도 없는 것 같아요. 뭐 내가 참아야죠.</ChildWithToys.stages.0.description>
+  <ChildWithToys.stages.1.label>인형이 없음(보통)</ChildWithToys.stages.1.label>
+  <ChildWithToys.stages.1.description>우리 정도 형편이면 인형을 만들어줄수도 있잖아요. 하나쯤 있으면 좋겠어요. \n인형이 있으면 잠잘때 좋을텐데.</ChildWithToys.stages.1.description>
+  <ChildWithToys.stages.2.label>인형이 없음(넉넉함)</ChildWithToys.stages.2.label>
+  <ChildWithToys.stages.2.description>어른들은 좋은 옷 입고다니는데 나는 인형하나 없어요! 너무해요!!!</ChildWithToys.stages.2.description>
+  <ChildWithToys.stages.3.label>인형이 없음(빈곤함)(탐욕)</ChildWithToys.stages.3.label>
+  <ChildWithToys.stages.3.description>우리 기지가 가난한건 이해하지만, 나한테 인형을 만들어줄 여유쯤은 있는거 아니야? \n난 인형이 없으면 잠을 못잔다구.</ChildWithToys.stages.3.description>
+  <ChildWithToys.stages.4.label>인형이 없음(보통)(탐욕)</ChildWithToys.stages.4.label>
+  <ChildWithToys.stages.4.description>우리 정도 형편이면 나한테 당연이 인형이 있어야 한다고! 이건 뭔가 잘못됐어!!</ChildWithToys.stages.4.description>
+  <ChildWithToys.stages.5.label>인형이 없음(넉넉함)(탐욕)</ChildWithToys.stages.5.label>
+  <ChildWithToys.stages.5.description>옆 기지에 사는 아이는 전설 인형을 가지고 있다고. 당장 인형을 바치지 않으면 우리 기지를 폭파시켜버리겠어!</ChildWithToys.stages.5.description>
+  <ChildWithToys.stages.6.label>인형이 없음(빈곤함)(검소)</ChildWithToys.stages.6.label>
+  <ChildWithToys.stages.6.description>우리 기지가 가난하니 나라도 아껴야죠.</ChildWithToys.stages.6.description>
+  <ChildWithToys.stages.7.label>인형이 없음(보통)(검소)</ChildWithToys.stages.7.label>
+  <ChildWithToys.stages.7.description>별로 인형같은거 안가져도 되요.</ChildWithToys.stages.7.description>
+  <ChildWithToys.stages.8.label>인형이 없음(넉넉함)(검소)</ChildWithToys.stages.8.label>
+  <ChildWithToys.stages.8.description>음 하나쯤 있으면 좋겠다는 생각도 들긴 해요.</ChildWithToys.stages.8.description>
+  <ChildWithToys.stages.9.label>끔찍한 인형을 싫어함</ChildWithToys.stages.9.label>
+  <ChildWithToys.stages.9.description>이건 괴물 인형이야!! 난 괴물인형 싫어한다고!! 으아아앙!</ChildWithToys.stages.9.description>
+  <ChildWithToys.stages.10.label>빈약한 인형에 좀 실망함</ChildWithToys.stages.10.label>
+  <ChildWithToys.stages.10.description>만들어준건 고맙지만.. 조금 그래요.</ChildWithToys.stages.10.description>
+  <ChildWithToys.stages.11.label>평범한 인형에 만족함</ChildWithToys.stages.11.label>
+  <ChildWithToys.stages.11.description>인형이 있으니 좋아요. 이걸로 이제 여러 놀이도 할 수 있어요.</ChildWithToys.stages.11.description>
+  <ChildWithToys.stages.12.label>멋진 인형에 좋아함</ChildWithToys.stages.12.label>
+  <ChildWithToys.stages.12.description>와!! 인형이 멋져요. 재봉 스킬이 높은 사람이 있어서 너무 좋아요.</ChildWithToys.stages.12.description>
+  <ChildWithToys.stages.13.label>완벽한 인형에 너무 좋아함</ChildWithToys.stages.13.label>
+  <ChildWithToys.stages.13.description>이 인형이 너무너무 좋아요. 잘때도 항상 옆에 두고 같이 자요.</ChildWithToys.stages.13.description>
+  <ChildWithToys.stages.14.label>걸작 인형에 감동함</ChildWithToys.stages.14.label>
+  <ChildWithToys.stages.14.description>혹시나, 부서질까봐 이 인형을 안을 때도 조심하고 있어요. 만들어줘서 너무너무 고마워요.</ChildWithToys.stages.14.description>
+  <ChildWithToys.stages.15.label>전설 인형에 감격함</ChildWithToys.stages.15.label>
+  <ChildWithToys.stages.15.description>이런 인형 세상에 나밖에 없겠죠? 그렇죠? 너무너무 행복해요.</ChildWithToys.stages.15.description>
+  <ChildWithToys.stages.16.label>끔찍한 인형을 증오함(탐욕)</ChildWithToys.stages.16.label>
+  <ChildWithToys.stages.16.description>으아아아! 인형이 너무 끔찍해. 너무 징그러. 으아아아아아!!</ChildWithToys.stages.16.description>
+  <ChildWithToys.stages.17.label>빈약한 인형에 실망함(탐욕)</ChildWithToys.stages.17.label>
+  <ChildWithToys.stages.17.description>이게 인형이야? 무기로 쓸 수 있으니 차라리 이걸로 메카노이드를 때려 잡는게 더 나아보여.</ChildWithToys.stages.17.description>
+  <ChildWithToys.stages.18.label>인형에 좀 실망함(탐욕)</ChildWithToys.stages.18.label>
+  <ChildWithToys.stages.18.description>음. 이런거라도 가지고 다녀야지. 혹시 인형이 없다고 하면 옆 기지 애들이 놀리거든.</ChildWithToys.stages.18.description>
+  <ChildWithToys.stages.19.label>멋진 인형에 만족함(탐욕)</ChildWithToys.stages.19.label>
+  <ChildWithToys.stages.19.description>상급 인형도 나쁘지 않지만, TV에 나오는 완벽한 인형이 필요한데. </ChildWithToys.stages.19.description>
+  <ChildWithToys.stages.20.label>완벽한 인형에 좋아함(탐욕)</ChildWithToys.stages.20.label>
+  <ChildWithToys.stages.20.description>이건 나한테 어울리는 인형이야. 아름답고 멋지고. 가지고 다닐때 폼이 나.</ChildWithToys.stages.20.description>
+  <ChildWithToys.stages.21.label>걸작 인형에 감동함(탐욕)</ChildWithToys.stages.21.label>
+  <ChildWithToys.stages.21.description>너무너무 나한테 어울리는 인형이야. 너무 아껴서 부서질까봐 이 인형을 안을 때도 조심해야해!\n 아. 내구도 벌써 달았어! 으앙..</ChildWithToys.stages.21.description>
+  <ChildWithToys.stages.22.label>전설 인형에 감격함(탐욕)</ChildWithToys.stages.22.label>
+  <ChildWithToys.stages.22.description>헤헤! 이런 인형 세상에 나밖에 없겠지? 친구들한테 자랑해야지! 헤헤헤헤.</ChildWithToys.stages.22.description>
+  <ChildWithToys.stages.23.label>끔찍한 인형을 만족함(검소)</ChildWithToys.stages.23.label>
+  <ChildWithToys.stages.23.description>인형이 못생길수도 있죠. 그래도 전 괜찮아요. 뭐 내구도 신경안써도 되니 오히려 마음이 편해요.</ChildWithToys.stages.23.description>
+  <ChildWithToys.stages.24.label>빈약한 인형에 좋아함(검소)</ChildWithToys.stages.24.label>
+  <ChildWithToys.stages.24.description>이런 인형 좋아요. 소박한게 마음에 들어요.</ChildWithToys.stages.24.description>
+  <ChildWithToys.stages.25.label>그저그런 평범한 인형(검소)</ChildWithToys.stages.25.label>
+  <ChildWithToys.stages.25.description>음. 인형으로 놀이할때 좋지만, 함부로 가지고 다니긴 그러네요.</ChildWithToys.stages.25.description>
+  <ChildWithToys.stages.26.label>조금 불편한 멋진 인형(검소)</ChildWithToys.stages.26.label>
+  <ChildWithToys.stages.26.description>이 인형 나한테는 지나치게 좋아요. 부서질까봐 겁나요.</ChildWithToys.stages.26.description>
+  <ChildWithToys.stages.27.label>너무 불편한 완벽한 인형(검소)</ChildWithToys.stages.27.label>
+  <ChildWithToys.stages.27.description>이건 나한테 안 어울리는 인형이에요. 이런거 가지고 다니면 마음이 불편해요.</ChildWithToys.stages.27.description>
+  <ChildWithToys.stages.28.label>굉장히 불편한 걸작 인형(검소)</ChildWithToys.stages.28.label>
+  <ChildWithToys.stages.28.description>이 인형이 망가질까봐 아무것도 못하겠어요. 어쪄죠?! 어쪄죠?!</ChildWithToys.stages.28.description>
+  <ChildWithToys.stages.29.label>극심히 불편한 전설 인형편(검소)</ChildWithToys.stages.29.label>
+  <ChildWithToys.stages.29.description>이거 망가지면, 내 장기 빼다 팔아야 하나요? 네? 제발 그렇지 않다고 말해줘요.</ChildWithToys.stages.29.description>
+</LanguageData>

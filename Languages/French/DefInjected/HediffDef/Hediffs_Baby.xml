@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <BabyState0.label>l'enfant grandit</BabyState0.label>
+  <BabyState0.description>Cet enfant grandit encore. Encouragez-les à effectuer des activités qui les aident à se développer.</BabyState0.description>
+  <BabyState0.stages.0.label>bébé</BabyState0.stages.0.label>
+  <BabyState0.stages.1.label>tout-petit</BabyState0.stages.1.label>
+  <BabyState0.stages.2.label>enfant</BabyState0.stages.2.label>
+  <BabyState0.stages.3.label>adolescent</BabyState0.stages.3.label>
+
+  <BabyState.label>Etat du bébé</BabyState.label>
+  <BabyState.description>Cet enfant grandit encore. Encouragez-les à effectuer des activités qui les aident à se développer.</BabyState.description>
+
+  <NoManipulationFlag.label>désactiver la manipulation</NoManipulationFlag.label>
+  <NoManipulationFlag.description>désactiver la manipulation.</NoManipulationFlag.description>
+
+  <UnhappyBaby.label>bébé malheureux</UnhappyBaby.label>
+  <UnhappyBaby.description>Le bébé est malheureux et a besoin d'attention</UnhappyBaby.description>
+
+
+</LanguageData>

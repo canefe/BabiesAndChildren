@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <IAmPregnant.stages.0.label>Enceinte</IAmPregnant.stages.0.label>
+  <IAmPregnant.stages.0.description>Je vais avoir un bébé!</IAmPregnant.stages.0.description>
+
+  <PartnerIsPregnant.stages.0.label>La partenaire est enceinte</PartnerIsPregnant.stages.0.label>
+  <PartnerIsPregnant.stages.0.description>Nous allons avoir un bébé!</PartnerIsPregnant.stages.0.description>
+
+  <WeGotPregnant.stages.0.label> nous sommes enceintes</WeGotPregnant.stages.0.label>
+  <WeHadBabies.stages.0.label>ont eu des enfants ensemble</WeHadBabies.stages.0.label>
+
+  <PostPartumDepression.stages.0.label>dépression postpartum</PostPartumDepression.stages.0.label>
+  <PostPartumDepression.stages.0.description>Ne devrais-je pas me sentir heureux d'avoir un enfant ...? Je me sens juste dépassé. Je ne pense pas pouvoir faire ça.</PostPartumDepression.stages.0.description>
+  <PostPartumDepression.stages.1.label>dépression postpartum</PostPartumDepression.stages.1.label>
+  <PostPartumDepression.stages.1.description>Je ne peux pas m'occuper d'un enfant; Je ne peux même pas prendre soin de moi. Je suis une mère horrible.</PostPartumDepression.stages.1.description>
+
+  <BabyStillborn.stages.0.label>mon bébé était mort-né</BabyStillborn.stages.0.label>
+  <BabyStillborn.stages.0.description>Mon enfant est mort in utero.</BabyStillborn.stages.0.description>
+
+  <IGaveBirthFirstTime.stages.0.label>nouvelle maman</IGaveBirthFirstTime.stages.0.label>
+  <IGaveBirthFirstTime.stages.0.description>J'ai mis au monde un enfant; Je suis maman maintenant!</IGaveBirthFirstTime.stages.0.description>
+
+  <IGaveBirth.stages.0.label>a donné naissance</IGaveBirth.stages.0.label>
+  <IGaveBirth.stages.0.description>J'ai mis un autre enfant au monde!</IGaveBirth.stages.0.description>
+
+  <PartnerGaveBirth.stages.0.label>nouvel enfant</PartnerGaveBirth.stages.0.label>
+  <PartnerGaveBirth.stages.0.description>Mon enfant est né!</PartnerGaveBirth.stages.0.description>
+
+  <LateTermAbortion.stages.0.label>avortement tardif</LateTermAbortion.stages.0.label>
+  <LateTermAbortion.stages.0.description>Mon fœtus a été avorté. Cela ressemblait à un petit bébé, mais si immobile et calme.</LateTermAbortion.stages.0.description>
+  <LateTermAbortion.stages.1.label>mon bébé a été avorté</LateTermAbortion.stages.1.label>
+  <LateTermAbortion.stages.1.description>Mon bébé a été avorté juste avant de pouvoir naître. Le voir étendu là immobile - il y a une douleur horrible dans mon cœur qui ne disparaîtra pas.</LateTermAbortion.stages.1.description>
+
+
+</LanguageData>

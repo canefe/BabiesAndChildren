@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!--TraitsSetting_title>아이의 최대 특성 갯수</MaxTraitsSetting_title>
+  <MaxTraitsSetting_desc>아이에게 적용할 수 있는 최대 특성 갯수 입니다. 특성을 3개 이상 지원하려면 다른 모드가 필요합니다.</MaxTraitsSetting_desc>-->
+  <BnCSettings1>BnC</BnCSettings1>
+  <BnCSetting_Init>BnC 설정 초기화</BnCSetting_Init>
+  <AcceleratedGrowth_title>성장 가속</AcceleratedGrowth_title>
+  <AcceleratedGrowth_desc>어린이들이 빠르게 성장합니다.</AcceleratedGrowth_desc>
+  <AcceleratedGrowthEndAge_title1>성장 가속 종료 연령</AcceleratedGrowthEndAge_title1>
+  <AcceleratedGrowthEndAge_desc1>성장 가속 종료 연령\n 기본값: 14</AcceleratedGrowthEndAge_desc1>
+  <BabyAcceleratedGrowth_title>아기 성장 가속 배율</BabyAcceleratedGrowth_title>
+  <BabyAcceleratedGrowth_desc>아기 성장 가속 배율\n 기본값: 7</BabyAcceleratedGrowth_desc>
+  <ToddlerAcceleratedGrowth_title>유아 성장 가속 배율</ToddlerAcceleratedGrowth_title>
+  <ToddlerAcceleratedGrowth_desc>유아 성장 가속 배율\n 기본값: 7</ToddlerAcceleratedGrowth_desc>
+  <ChildAcceleratedGrowth_title>아이 성장 가속 배율</ChildAcceleratedGrowth_title>
+  <ChildAcceleratedGrowth_desc>아이 성장 가속 배율\n 기본값: 7</ChildAcceleratedGrowth_desc>
+  <TeenagerAcceleratedGrowth_title>청소년 성장 가속 배율</TeenagerAcceleratedGrowth_title>
+  <TeenagerAcceleratedGrowth_desc>청소년 아이 성장 가속 배율 \n 기본값: 1</TeenagerAcceleratedGrowth_desc>
+  <BabyInheritPercentage_Title>특성과 스킬 물려받기</BabyInheritPercentage_Title>
+  <BabyInheritPercentage_Desc>특성과 스킬을 물려받을 확률입니다. (CSL에는 적용하지 않음)</BabyInheritPercentage_Desc>
+  <BabyInheritPercentage_Desc_None>없음</BabyInheritPercentage_Desc_None>
+  <BabyInheritPercentage_Desc_25>25%</BabyInheritPercentage_Desc_25>
+  <BabyInheritPercentage_Desc_50>50%</BabyInheritPercentage_Desc_50>
+  <BabyInheritPercentage_Desc_75>75%</BabyInheritPercentage_Desc_75>
+  <BabyInheritPercentage_Desc_90>90%</BabyInheritPercentage_Desc_90>
+  <BabyInheritPercentage_Desc_Random>랜덤</BabyInheritPercentage_Desc_Random>
+  <OptionChildMaxWeaponMass>아이의 최대 무기 무게</OptionChildMaxWeaponMass>
+  <OptionChildMaxWeaponMass_desc>아이가 들 수 있는 최대 무기 무게입니다.\n 기본값: 2</OptionChildMaxWeaponMass_desc>
+  <GestationPeriodDays_Enable>임신 기간 조정 활성화</GestationPeriodDays_Enable>
+  <GestationPeriodDays_Enable_Desc>게임 내 모든 인간형 종족의 임신기간을 조정합니다. 게임을 로드하면 적용됩니다. 이미 임신한 정착민에게는 효과가 없습니다.</GestationPeriodDays_Enable_Desc>  
+  <GestationPeriodDays_Title>임신 기간</GestationPeriodDays_Title>
+  <GestationPeriodDays_desc>게임 내 모든 인간형 종족의 임신기간을 조정합니다. 게임을 로드하면 적용됩니다. 이미 임신한 정착민에게는 효과가 없습니다.</GestationPeriodDays_desc>
+  <GestationPeriodDays_Days>일</GestationPeriodDays_Days>
+  <EnablePostPartum_title>출산 후 임신기피(RJW)</EnablePostPartum_title>
+  <EnablePostPartum_desc>활성화하면 출산한 산모는 두 분기 동안 생식력이 매우 떨어집니다. 오직 RJW만 적용.</EnablePostPartum_desc>
+  <CryVolumeSetting_title>아기 울음소리 볼륨</CryVolumeSetting_title>
+  <CryVolumeSetting_desc>아기 울음소리의 볼륨입니다. 0은 소리를 끕니다.</CryVolumeSetting_desc>
+  <DebugInfoMessagesEnabled_Title>그래픽 셋팅, 디버그 로그</DebugInfoMessagesEnabled_Title>
+  <DebugInfoMessagesEnabled_desc>활성화 하면 그래픽 셋팅이 보이고 콘솔창에 디버그 로그가 나타납니다.</DebugInfoMessagesEnabled_desc>
+  <ChildCuteActEnabled_Title>아기와 어린이 애교 활성화</ChildCuteActEnabled_Title>
+  <ChildCuteActEnabled_desc>아기와 어린이 애교를 활성화합니다.</ChildCuteActEnabled_desc>
+  <humanlikeHeadEnabled_Title>랫킨과 쿠린 얼굴 바꾸기</humanlikeHeadEnabled_Title>
+  <humanlikeHeadEnabled_desc>랫킨과 쿠린의 얼굴이 인간 어린이 얼굴처럼 바뀝니다.</humanlikeHeadEnabled_desc>
+  <RabbieChildHeadEnabled_Title>래비 얼굴 바꾸기</RabbieChildHeadEnabled_Title>
+  <RabbieChildHeadEnabled_desc>래비 어린이 얼굴이 인간 어린이 얼굴처럼 바뀝니다.</RabbieChildHeadEnabled_desc>
+  <HumanChildrenBodysize_Title>인간 어린이 보디 사이즈</HumanChildrenBodysize_Title>
+  <HumanChildrenBodysize_desc>슬라이드를 조절하면 적용됩니다.</HumanChildrenBodysize_desc>
+  <HumanChildrenHeadsize_Title>인간 어린이 얼굴 사이즈</HumanChildrenHeadsize_Title>
+  <HumanChildrenHeadsize_desc>슬라이드를 조절하면 적용됩니다.</HumanChildrenHeadsize_desc>
+  <HumanChildrenHairsize_Title>인간 어린이 헤어 사이즈</HumanChildrenHairsize_Title>
+  <HumanChildrenHairsize_desc>슬라이드를 조절하면 적용됩니다.</HumanChildrenHairsize_desc>
+  <HumanChildrenZroc_Title>인간 어린이 Z축 위치</HumanChildrenZroc_Title>
+  <HumanChildrenZroc_desc>슬라이드를 조절하면 적용됩니다.</HumanChildrenZroc_desc>
+  <AlienChildrenBodysize_Title>외계인 어린이 보디 사이즈</AlienChildrenBodysize_Title>
+  <AlienChildrenBodysize_desc>슬라이드를 조절하면 적용됩니다.</AlienChildrenBodysize_desc>
+  <AlienChildrenOriginalHeadsize_Title>외계인 어린이 본래 얼굴 사이즈</AlienChildrenOriginalHeadsize_Title>
+  <AlienChildrenOriginalHeadsize_desc>슬라이드를 조절하면 적용됩니다.</AlienChildrenOriginalHeadsize_desc>
+  <AlienChildrenHumanlikeHeadsize_Title>인간 닮은 외계인 얼굴 사이즈</AlienChildrenHumanlikeHeadsize_Title>
+  <AlienChildrenHumanlikeHeadsize_desc>슬라이드를 조절하면 적용됩니다.</AlienChildrenHumanlikeHeadsize_desc>
+  <AlienChildrenHairsize_Title>외계인 어린이 헤어 사이즈</AlienChildrenHairsize_Title>
+  <AlienChildrenHairsize_desc>슬라이드를 조절하면 적용됩니다.</AlienChildrenHairsize_desc>
+  <AlienChildrenZroc_Title>외계인 어린이 Z축 위치</AlienChildrenZroc_Title>
+  <AlienChildrenZroc_desc>슬라이드를 조절하면 적용됩니다.</AlienChildrenZroc_desc>
+  <ShowHairSize_Title>어린이 헤어 사이즈 (ShowHair)</ShowHairSize_Title>
+  <ShowHairSize_desc>슬라이드를 조절하면 적용됩니다.</ShowHairSize_desc>
+  <ShowHairLocY_Title>어린이 헤어 Y축 위치 (ShowHair)</ShowHairLocY_Title>
+  <ShowHairLocY_desc>슬라이드를 조절하면 적용됩니다.</ShowHairLocY_desc>
+  <ShowHairHumanZLoc_Title>인간 어린이 헤어 Z축 위치 (ShowHair)</ShowHairHumanZLoc_Title>
+  <ShowHairHumanZLoc_desc>슬라이드를 조절하면 적용됩니다.</ShowHairHumanZLoc_desc>
+  <ShowHairAlienZLoc_Title>외계 어린이 헤어 Z축 위치 (ShowHair)</ShowHairAlienZLoc_Title>
+  <ShowHairAlienZLoc_desc>슬라이드를 조절하면 적용됩니다.</ShowHairAlienZLoc_desc>
+  <ShowHairAlienHFLocZ_Title>외계 어린이 인간형 헤어 Z축 위치 (ShowHair)</ShowHairAlienHFLocZ_Title>
+  <ShowHairAlienHFLocZ_desc>슬라이드를 조절하면 적용됩니다.</ShowHairAlienHFLocZ_desc>
+</LanguageData>
