@@ -166,8 +166,7 @@ namespace BabiesAndChildren.Harmony
         static void Postfix(ref ThingWithComps eq, ref Pawn_EquipmentTracker __instance)
         {
             Pawn pawn = (Pawn) __instance?.ParentHolder;
-            Log.Message("T: "+ pawn + eq.def + eq.def.BaseMass + pawn.Faction);
-            if (pawn == null || 
+            if (pawn == null || pawn.Faction == null ||
                 eq.def == null ||
                 !RaceUtility.PawnUsesChildren(pawn) || 
                 AgeStages.IsOlderThan(pawn, AgeStages.Child) ||

@@ -256,14 +256,28 @@ namespace BabiesAndChildren.Harmony
                             offsetVector.x = -offsetVector.x;
                         }
 
-                        /* //special code 4.2 (instantiate offset vector)
-                        Vector3 offsetVector = new Vector3(x: moffsetX, y: moffsetY,
-                            z: (moffsetZ * Tweaks.G_offsetfac) + Tweaks.G_offset);
+                         //special code 4.2 (instantiate offset vector)
 
-                        GenDraw.DrawMeshNowOrLater(mesh,
-                            vector + offsetVector.RotatedBy(Mathf.Acos(Quaternion.Dot(Quaternion.identity, quat)) * 2f * 57.29578f),
-                            Quaternion.AngleAxis(baAngle, Vector3.up) * quat,
-                            alienComp.addonGraphics[i].MatAt(rotation, null), portrait); */
+
+
+                        Graphic addonGraphic = alienComp.addonGraphics[i];
+                        addonGraphic.drawSize = (renderFlags.FlagSet(PawnRenderFlags.Portrait) && ba.drawSizePortrait != Vector2.zero ?
+                                                     ba.drawSizePortrait :
+                                                     ba.drawSize) *
+                                                (ba.scaleWithPawnDrawsize ?
+                                                     ba.alignWithHead ?
+                                                         renderFlags.FlagSet(PawnRenderFlags.Portrait) ?
+                                                            alienComp.customPortraitHeadDrawSize :
+                                                            alienComp.customHeadDrawSize :
+                                                         renderFlags.FlagSet(PawnRenderFlags.Portrait) ?
+                                                            alienComp.customPortraitDrawSize :
+                                                            alienComp.customDrawSize :
+                                                     Vector2.one) *
+                                                1.5f;
+
+
+                        GenDraw.DrawMeshNowOrLater(addonGraphic.MeshAt(rotation), vector + (ba.alignWithHead ? headOffset : Vector3.zero) + offsetVector.RotatedBy(Mathf.Acos(Quaternion.Dot(Quaternion.identity, quat)) * 2f * 57.29578f),
+                                                                   Quaternion.AngleAxis(num, Vector3.up) * quat, addonGraphic.MatAt(rotation), renderFlags.FlagSet(PawnRenderFlags.DrawNow));
                     }
 
                     return false;
