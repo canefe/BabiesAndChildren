@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using Verse;
 
 namespace BabiesAndChildren.Harmony
 {
@@ -13,9 +15,8 @@ namespace BabiesAndChildren.Harmony
         public static void Patch()
         {
             HarmonyLib.Harmony harmony = new HarmonyLib.Harmony("RimWorld.babies.and.children." + nameof(FacialAnimationPatches));
-            
+
             drawFaceGraphicsCompType = AccessTools.TypeByName("FacialAnimation.DrawFaceGraphicsComp");
-            
             MethodInfo original = AccessTools.Method(drawFaceGraphicsCompType, "DrawBodyPart", generics:new[] {AccessTools.TypeByName("IFacialAnimationController")});
             HarmonyMethod transpiler = new HarmonyMethod(typeof(FacialAnimationPatches), "DrawBodyPartTranspiler");
             harmony.Patch(original, transpiler: transpiler);
@@ -25,7 +26,7 @@ namespace BabiesAndChildren.Harmony
         
         private static IEnumerable<CodeInstruction> DrawBodyPartTranspiler(IEnumerable<CodeInstruction> instructions)
         {
-            List<CodeInstruction> list = new List<CodeInstruction>(instructions);
+            var list = new List<CodeInstruction>(instructions);
             
             //find call to DrawMeshNowOrLaterWithScale
             int index = -1;
@@ -60,8 +61,8 @@ namespace BabiesAndChildren.Harmony
             CodeInstruction callGetBodySizeScaling =
                 CodeInstruction.Call(typeof(GraphicTools), "GetBodySizeScaling");
             list.InsertRange(index, new[] {loadThis, loadPawn, callGetBodySizeScaling});
-            
-            return (IEnumerable<CodeInstruction>) list;
+
+            return list.AsEnumerable();
         }
     }
 }

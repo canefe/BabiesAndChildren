@@ -31,12 +31,6 @@ namespace BabiesAndChildren
                 FacialAnimationPatches.Patch();
             }
 
-            if (ChildrenBase.ModFacialAnimation_ON)
-            {
-                CLog.Message("Patching Facial Animation");
-                FacialAnimationPatches.Patch();
-            }
-
             if (ChildrenBase.ModDressPatients_ON)
             {
                 CLog.Message("Patching Dress Patients");

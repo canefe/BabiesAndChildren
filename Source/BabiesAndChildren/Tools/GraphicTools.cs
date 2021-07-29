@@ -160,6 +160,11 @@ namespace BabiesAndChildren
             {
                 // Ignored
             }
+            if (RaceUtility.IsHuman(pawn)) { }
+            else if (AgeStages.IsYoungerThan(pawn, AgeStages.Adult))
+            {
+                num = num * BnCSettings.FAModifier;
+            }
             return num * num2;
             
         }
