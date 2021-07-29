@@ -66,18 +66,12 @@ namespace BabiesAndChildren
             SoundDef.Named("Pawn_BabyCry").PlayOneShot(info);
 
             HealthUtility.ClearImplantAndAddiction(pawn);
-            ChildrenUtility.RenamePawn(pawn, mother, father);
+            //ChildrenUtility.RenamePawn(pawn, mother, father); don't rename them because they are already named?
 
             //For rabbie
             if (pawn.def.defName == "Rabbie")
             {
                 HealthUtility.TryAddHediff(pawn, HediffDef.Named("PlanetariumAddiction"));
-            }
-
-            if (!ChildrenBase.ModCSL_ON)
-            {
-                BabyTools.SetBabyTraits(pawn, mother, father, rand);
-                BabyTools.SetBabySkillsAndPassions(pawn, mother, father, rand);
             }
 
             comp.Props.ColonyBorn = true;
