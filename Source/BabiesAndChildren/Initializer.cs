@@ -15,6 +15,22 @@ namespace BabiesAndChildren
             ChildrenBase.ModDressPatients_ON = ModTools.IsModOn("Dress Patients");
             ChildrenBase.ModDubsBadHygiene_ON = ModTools.IsModOn("Dubs Bad Hygiene");
             ChildrenBase.ModRimsecSecurity_ON = ModTools.IsModOn("Rimsec Security");
+            if (ChildrenBase.ModCSL_ON)
+            {
+                CLog.Message("CSL is active.");
+            }
+
+            if (ChildrenBase.ModRimJobWorld_ON)
+            {
+                CLog.Message("RJW is active.");
+            }
+
+            if (ChildrenBase.ModFacialAnimation_ON)
+            {
+                CLog.Message("Patching Facial Animation");
+                FacialAnimationPatches.Patch();
+            }
+
             if (ChildrenBase.ModFacialAnimation_ON)
             {
                 CLog.Message("Patching Facial Animation");
