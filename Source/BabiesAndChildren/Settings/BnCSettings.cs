@@ -128,8 +128,8 @@ namespace BabiesAndChildren
                 listingStandard.Label("ShowHairAlienHFLocZ_Title".Translate() + ": " + Math.Round(ShowHairAlienHFLocZ, 4), -1f, "ShowHairAlienHFLocZ_desc".Translate());
                 ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
                 listingStandard.Gap(5f);
-                listingStandard.Label("Facial Animation head size modifier" + ": " + Math.Round(ShowHairAlienHFLocZ, 4), -1f, "Use this setting to manually modify the best size for facial animation head");
-                ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
+                listingStandard.Label("Facial Animation head size modifier" + ": " + Math.Round(FAModifier, 4), -1f, "Use this setting to manually modify the best size for facial animation head");
+                FAModifier = listingStandard.Slider(FAModifier, -2f, 2f);
         }
         public static void DoWindowContents(Rect inRect)
         {           
