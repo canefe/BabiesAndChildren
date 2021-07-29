@@ -129,13 +129,13 @@ namespace BabiesAndChildren.Harmony
 
             
             //Patch to draw addons for children
-            [HarmonyPrefix]
             static bool Prefix(PawnRenderFlags renderFlags, Vector3 vector, Vector3 headOffset, Pawn pawn, Quaternion quat, Rot4 rotation)
             {
                 try
                 {
                     
                     if (!(pawn.def is ThingDef_AlienRace alienProps) ||
+                        renderFlags.FlagSet(PawnRenderFlags.Invisible) ||
                         !RaceUtility.PawnUsesChildren(pawn) || 
                         AgeStages.IsOlderThan(pawn, AgeStages.Child)) //draw addons normally
                         return true;
@@ -237,16 +237,16 @@ namespace BabiesAndChildren.Harmony
 
 
                         //special code 4.1 (initialize offset vector coords)
-                        /* if (ba.bodyPart.Contains("tail"))
+                         if (ba.bodyPart.Contains("tail"))
                          {
-                             moffsetX *= bodySizeFactor * moffsetXfa;
-                             moffsetZ *= bodySizeFactor * moffsetZfa;
+                             offsetVector.x *= bodySizeFactor * moffsetXfa;
+                             offsetVector.y *= bodySizeFactor * moffsetZfa;
                          }
                          else
                          {
-                             moffsetX *= bodySizeFactor * moffsetXfb;
-                             moffsetZ *= bodySizeFactor * moffsetZfb;
-                         }*/
+                             offsetVector.x *= bodySizeFactor * moffsetXfb;
+                             offsetVector.z *= bodySizeFactor * moffsetZfb;
+                         }
 
                         //straight from alien race
 
@@ -256,11 +256,13 @@ namespace BabiesAndChildren.Harmony
                             offsetVector.x = -offsetVector.x;
                         }
 
-                         //special code 4.2 (instantiate offset vector)
+                        //special code 4.2 (instantiate offset vector)
 
+                        offsetVector.z = (offsetVector.z * Tweaks.G_offsetfac) + Tweaks.G_offset;
+                       /* Vector3 offsetVector = Vector3(x: moffsetX, y: moffsetY,
+                            z: (moffsetZ * Tweaks.G_offsetfac) + Tweaks.G_offset);*/
 
-
-                        Graphic addonGraphic = alienComp.addonGraphics[i];
+                    /*    Graphic addonGraphic = alienComp.addonGraphics[i];
                         addonGraphic.drawSize = (renderFlags.FlagSet(PawnRenderFlags.Portrait) && ba.drawSizePortrait != Vector2.zero ?
                                                      ba.drawSizePortrait :
                                                      ba.drawSize) *
@@ -273,11 +275,11 @@ namespace BabiesAndChildren.Harmony
                                                             alienComp.customPortraitDrawSize :
                                                             alienComp.customDrawSize :
                                                      Vector2.one) *
-                                                1.5f;
+                                                1.5f; */
 
 
-                        GenDraw.DrawMeshNowOrLater(addonGraphic.MeshAt(rotation), vector + (ba.alignWithHead ? headOffset : Vector3.zero) + offsetVector.RotatedBy(Mathf.Acos(Quaternion.Dot(Quaternion.identity, quat)) * 2f * 57.29578f),
-                                                                   Quaternion.AngleAxis(num, Vector3.up) * quat, addonGraphic.MatAt(rotation), renderFlags.FlagSet(PawnRenderFlags.DrawNow));
+                        GenDraw.DrawMeshNowOrLater(mesh, vector + (ba.alignWithHead ? headOffset : Vector3.zero) + offsetVector.RotatedBy(Mathf.Acos(Quaternion.Dot(Quaternion.identity, quat)) * 2f * 57.29578f),
+                                                                   Quaternion.AngleAxis(num, Vector3.up) * quat, alienComp.addonGraphics[i].MatAt(rotation), renderFlags.FlagSet(PawnRenderFlags.DrawNow));
                     }
 
                     return false;
