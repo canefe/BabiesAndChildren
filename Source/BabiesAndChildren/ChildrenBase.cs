@@ -59,6 +59,7 @@ namespace BabiesAndChildren
                                 pawn.story.bodyType = ((pawn.gender == Gender.Female) ? BodyTypeDefOf.Female : BodyTypeDefOf.Male);
                             
                             Growing_Comp comp = pawn.TryGetComp<Growing_Comp>();
+                            
                             comp?.Initialize(true);
                         }
                     }

@@ -77,7 +77,7 @@ namespace BabiesAndChildren
         public static bool OncePerGame = false;
 
         private static Vector2 scrollPosition;
-        private static float height_modifier = 300f;
+        private static float height_modifier = 350f;
 
         public static void AddDebugSettings(Listing_Standard listingStandard)
         {
@@ -129,7 +129,7 @@ namespace BabiesAndChildren
                 ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
                 listingStandard.Gap(5f);
                 listingStandard.Label("Facial Animation head size modifier" + ": " + Math.Round(FAModifier, 4), -1f, "Use this setting to manually modify the best size for facial animation head");
-                FAModifier = listingStandard.Slider(FAModifier, -2f, 2f);
+                FAModifier = listingStandard.Slider(FAModifier, 1f, 2f);
         }
         public static void DoWindowContents(Rect inRect)
         {           
@@ -323,7 +323,7 @@ namespace BabiesAndChildren
             ShowHairAlienLocZ = 0.035f;
             ShowHairAlienHFLocZ = 0.048f;
             FAModifier = 1f;
-            OncePerGame = false;
+            //OncePerGame = false; possibly unnecessary and game breaking?
         }
     }
 }
