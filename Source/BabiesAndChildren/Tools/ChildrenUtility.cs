@@ -447,8 +447,7 @@ namespace BabiesAndChildren
                 return false;
             }
             Pawn pawn = (Pawn) verb?.caster;
-            
-            if (pawn == null || verb.EquipmentSource.def.BaseMass > GetMaxWeaponMass(pawn))
+            if (pawn == null || !(verb.EquipmentSource.def.BaseMass > GetMaxWeaponMass(pawn)))
             {
                 return false;
             }
