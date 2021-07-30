@@ -66,7 +66,7 @@ namespace BabiesAndChildren
             SoundDef.Named("Pawn_BabyCry").PlayOneShot(info);
 
             HealthUtility.ClearImplantAndAddiction(pawn);
-            //ChildrenUtility.RenamePawn(pawn, mother, father); don't rename them because they are already named?
+            pawn.style.beardDef = BeardDefOf.NoBeard;
 
             //For rabbie
             if (pawn.def.defName == "Rabbie")

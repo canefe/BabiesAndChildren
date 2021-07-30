@@ -139,6 +139,7 @@ namespace BabiesAndChildren.Tools
             if (RaceUtility.IsHuman(pawn) || force)
             {
                 pawn.story.bodyType = bodyTypeDef;
+                pawn.style.beardDef = BeardDefOf.NoBeard;
                 return true;
             } 
             if (pawn.def is ThingDef_AlienRace thingDef)
@@ -231,16 +232,22 @@ namespace BabiesAndChildren.Tools
             {
                 case AgeStages.Baby: 
                     newBodyType = BodyTypeDefOf.Fat;
+                    pawn.style.beardDef = BeardDefOf.NoBeard;
                     force = true;
                     break;
                 
                 case AgeStages.Toddler:
                     newBodyType = ChildrenUtility.ToddlerIsUpright(pawn) ? BodyTypeDefOf.Thin : BodyTypeDefOf.Fat;
+                    pawn.style.beardDef = BeardDefOf.NoBeard;
                     force = true;
                     break;
                 
                 case AgeStages.Child:
                     newBodyType = BodyTypeDefOf.Thin;
+                    if (pawn.gender == Gender.Male)
+                    {
+                        pawn.style.beardDef = BeardDefOf.NoBeard;
+                    }
                     break;
 
                 case AgeStages.Teenager:
@@ -250,6 +257,10 @@ namespace BabiesAndChildren.Tools
                     if (rand.Fixed_RandChance(0.35f))
                     {
                         newBodyType = BodyTypeDefOf.Thin;
+                        if (pawn.gender == Gender.Male)
+                        {
+                            pawn.style.beardDef = BeardDefOf.NoBeard;
+                        }
                     }
                     else if(pawn.gender == Gender.Male)
                     {
