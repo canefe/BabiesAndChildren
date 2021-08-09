@@ -19,6 +19,7 @@ namespace BabiesAndChildren
             !AgeStages.IsAgeStage(pawn, AgeStages.Child) ||
             pawn.story.traits.HasTrait(TraitDefOf.Psychopath) || 
             pawn.WorkTagIsDisabled(WorkTags.Violent) ||
+            pawn.Faction == null ||
             !pawn.Faction.IsPlayer)
                 return false;
             ThingWithComps toy = pawn.equipment.Primary;
