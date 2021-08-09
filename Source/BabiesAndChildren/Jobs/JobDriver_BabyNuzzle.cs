@@ -12,7 +12,7 @@ namespace BabiesAndChildren
     public class ThinkNode_ChancePerHour_BabyNuzzle : ThinkNode_ChancePerHour
     {
         private const float BabyMtbHours = 18f;
-        public override float MtbHours(Pawn pawn)
+        protected override float MtbHours(Pawn pawn)
         {
             if (!RaceUtility.PawnUsesChildren(pawn) || 
                 AgeStages.IsOlderThan(pawn, AgeStages.Child) ||
@@ -38,7 +38,7 @@ namespace BabiesAndChildren
     public class JobGiver_BabyNuzzle : ThinkNode_JobGiver
     {
         private const float MaxNuzzleDistance = 30f;
-        public override Job TryGiveJob(Pawn pawn)
+        protected override Job TryGiveJob(Pawn pawn)
         {
             if (!RaceUtility.PawnUsesChildren(pawn) || 
                 AgeStages.IsOlderThan(pawn, AgeStages.Child) ||
@@ -71,7 +71,7 @@ namespace BabiesAndChildren
             return true;
         }
 
-        public override IEnumerable<Toil> MakeNewToils()
+        protected override IEnumerable<Toil> MakeNewToils()
         {
             InteractionDef iDef = DefDatabase<InteractionDef>.GetNamed("BabyNuzzle", true);
 

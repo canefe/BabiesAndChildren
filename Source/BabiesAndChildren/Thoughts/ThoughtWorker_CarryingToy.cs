@@ -13,7 +13,7 @@ namespace BabiesAndChildren
             return pawn.story.traits.HasTrait(TraitDefOf.Greedy) || pawn.story.traits.HasTrait(TraitDefOf.Jealous);
         }
 
-        public override ThoughtState CurrentStateInternal(Pawn pawn)
+        protected override ThoughtState CurrentStateInternal(Pawn pawn)
         {
             if (!RaceUtility.PawnUsesChildren(pawn) || 
             !AgeStages.IsAgeStage(pawn, AgeStages.Child) ||

@@ -22,12 +22,12 @@ namespace BabiesAndChildren.Harmony
     }
 
     [HarmonyPatch(typeof(PawnRenderer))]
-    [HarmonyPatch(nameof(PawnRenderer.RenderPawnInternal))]
-    [HarmonyPatch(new Type[] { typeof(Vector3), typeof(float), typeof(bool), typeof(Rot4), typeof(RotDrawMode), typeof(PawnRenderFlags) })]
+    [HarmonyPatch(nameof(PawnRenderer.RenderPawnAt))]
+    [HarmonyPatch(new Type[] { typeof(Vector3), typeof(Rot4?), typeof(bool) })]
     public static class PawnRenderer_RenderPawnInternal_Patch
     {
         [HarmonyBefore(new string[] {"rimworld.Nals.FacialAnimation"})]
-        static bool Prefix(PawnRenderer __instance, ref Vector3 rootLoc)
+        static bool Prefix(PawnRenderer __instance, Vector3 rootLoc)
         {
 
             //if (!(__instance.graphics.pawn is Pawn ___pawn) || renderBody == false ) return false;

@@ -19,8 +19,8 @@ namespace BabiesAndChildren.Harmony
             {
                 StoryUtility.ChangeBodyType(pawn);
                 pawn.style.beardDef = BeardDefOf.NoBeard;
-                pawn.style.bodyTattoo = TattooDefOf.NoTattoo_Body;
-                pawn.style.faceTattoo = TattooDefOf.NoTattoo_Face;
+                pawn.style.BodyTattoo = TattooDefOf.NoTattoo_Body;
+                pawn.style.FaceTattoo = TattooDefOf.NoTattoo_Face;
             }
         }
     }
@@ -34,8 +34,8 @@ namespace BabiesAndChildren.Harmony
             {
                 StoryUtility.ChangeBodyType(__result);
                 __result.style.beardDef = BeardDefOf.NoBeard;
-                __result.style.bodyTattoo = TattooDefOf.NoTattoo_Body;
-                __result.style.faceTattoo = TattooDefOf.NoTattoo_Face;
+                __result.style.BodyTattoo = TattooDefOf.NoTattoo_Body;
+                __result.style.FaceTattoo = TattooDefOf.NoTattoo_Face;
             }
         }
     }

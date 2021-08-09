@@ -7,7 +7,7 @@ namespace BabiesAndChildren
 {
     public class ThoughtWorker_CryingBaby : ThoughtWorker
     {
-        public override ThoughtState CurrentStateInternal (Pawn p)
+        protected override ThoughtState CurrentStateInternal (Pawn p)
         {
             // Does not affect babies and toddlers
             if (AgeStages.IsYoungerThan(p, AgeStages.Teenager) || p.health.capacities.GetLevel(PawnCapacityDefOf.Hearing) <= 0.1f)
