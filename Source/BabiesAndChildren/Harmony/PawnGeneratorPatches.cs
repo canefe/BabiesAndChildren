@@ -32,7 +32,6 @@ namespace BabiesAndChildren.Harmony
         {
             if (__result != null && RaceUtility.PawnUsesChildren(__result) && AgeStages.IsYoungerThan(__result, AgeStages.Teenager))
             {
-                StoryUtility.ChangeBodyType(__result);
                 __result.style.beardDef = BeardDefOf.NoBeard;
                 __result.style.BodyTattoo = TattooDefOf.NoTattoo_Body;
                 __result.style.FaceTattoo = TattooDefOf.NoTattoo_Face;
