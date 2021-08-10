@@ -23,7 +23,6 @@ namespace BabiesAndChildren
         
         //constants
         public const int MAX_TRAIT_COUNT = 3;
-        public const double STILLBORN_CHANCE = 0.09;
         public const double GET_NEW_TYPE_CHANCE = 0.08;
         public const double GET_SPECIFIC_SEXUALITY = 0.08;
         public const double GET_GAY_SEXUALITY = 0.05;
@@ -47,6 +46,7 @@ namespace BabiesAndChildren
         public static float GestationPeriodDays = 45f;
         public static bool enable_postpartum = true;
         public static float cryVolume = 0.8f;
+        public static float STILLBORN_CHANCE = 0.09f;
 
         public static bool debug_and_gsetting = false;
         public static bool child_cute_act_enabled = true;
@@ -225,6 +225,11 @@ namespace BabiesAndChildren
             //Cry volume slider
             listingStandard.Label("CryVolumeSetting_title".Translate() + ": " + Math.Round(cryVolume * 100, 0) + "%", -1f, "CryVolumeSetting_desc".Translate());
             cryVolume = listingStandard.Slider(cryVolume, 0f, 1f);
+
+            listingStandard.Gap(5f);
+
+            listingStandard.Label("Stillborn chance: " + Math.Round(STILLBORN_CHANCE, 4), -1f, "Chance of babies born dead");
+            STILLBORN_CHANCE = listingStandard.Slider(STILLBORN_CHANCE, 0f, 0.5f);
 
             //////////////////////////// right column
             listingStandard.NewColumn();
