@@ -74,7 +74,6 @@ namespace BabiesAndChildren
         
         //special flag to reinitialize all childeren on all maps (not saves) at map load once per "game"/ once per mod added
         //TODO make this a game component
-        public static bool OncePerGame = false;
 
         private static Vector2 scrollPosition;
         private static float height_modifier = 350f;
@@ -128,7 +127,7 @@ namespace BabiesAndChildren
                 listingStandard.Label("ShowHairAlienHFLocZ_Title".Translate() + ": " + Math.Round(ShowHairAlienHFLocZ, 4), -1f, "ShowHairAlienHFLocZ_desc".Translate());
                 ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
                 listingStandard.Gap(5f);
-                listingStandard.Label("Facial Animation head size modifier" + ": " + Math.Round(FAModifier, 4), -1f, "Use this setting to manually modify the best size for facial animation head");
+                listingStandard.Label("Facial Animation head size modifier (alien children)" + ": " + Math.Round(FAModifier, 4), -1f, "Use this setting to manually modify the best size for facial animation head");
                 FAModifier = listingStandard.Slider(FAModifier, 1f, 2f);
         }
         public static void DoWindowContents(Rect inRect)
@@ -291,7 +290,6 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref ShowHairAlienLocZ, "ShowHairAlienLocZ");
             Scribe_Values.Look(ref ShowHairAlienHFLocZ, "ShowHairAlienHFLocZ");
             Scribe_Values.Look(ref FAModifier, "FAModifier");
-            Scribe_Values.Look(ref OncePerGame, "OncePerGame");
         }
 
         public static void Reset_Settings()
