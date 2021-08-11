@@ -31,11 +31,11 @@ namespace BabiesAndChildren
                 FacialAnimationPatches.Patch();
             }
 
-            //if (ChildrenBase.ModDressPatients_ON)
-            //{
+            if (ChildrenBase.ModDressPatients_ON)
+            {
                 CLog.Message("Patching Dress Patients");
                 DressPatientsPatches.Patch();
-           // }
+            }
 
             if (ChildrenBase.ModDubsBadHygiene_ON)
             {
