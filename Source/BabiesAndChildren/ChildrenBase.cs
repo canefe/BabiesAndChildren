@@ -26,6 +26,8 @@ namespace BabiesAndChildren
         public static bool ModDubsBadHygiene_ON;
         //Rimsec Security
         public static bool ModRimsecSecurity_ON;
+        //Mechadroids
+        public static bool ModMechadroids_ON;
 
         private ChildrenBase()
         {
