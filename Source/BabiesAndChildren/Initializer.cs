@@ -15,6 +15,7 @@ namespace BabiesAndChildren
             ChildrenBase.ModDressPatients_ON = ModTools.IsModOn("Dress Patients");
             ChildrenBase.ModDubsBadHygiene_ON = ModTools.IsModOn("Dubs Bad Hygiene");
             ChildrenBase.ModRimsecSecurity_ON = ModTools.IsModOn("Rimsec Security");
+            ChildrenBase.ModMechadroids_ON = ModTools.IsModOn("[O21] Mechadroids");
             if (ChildrenBase.ModCSL_ON)
             {
                 CLog.Message("CSL is active.");
@@ -42,6 +43,12 @@ namespace BabiesAndChildren
                 CLog.Message("Patching Dubs Bad Hygiene");
                 DubsBadHygienePatches.Patch();
             }
+
+            if (ChildrenBase.ModMechadroids_ON)
+            {
+                CLog.Message("[O21] Mechadroids is active.");
+            }
+
         }
     }
 }

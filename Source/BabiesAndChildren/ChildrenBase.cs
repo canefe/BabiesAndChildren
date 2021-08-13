@@ -26,6 +26,8 @@ namespace BabiesAndChildren
         public static bool ModDubsBadHygiene_ON;
         //Rimsec Security
         public static bool ModRimsecSecurity_ON;
+        //Mechadroids
+        public static bool ModMechadroids_ON;
 
         private ChildrenBase()
         {
@@ -69,14 +71,6 @@ namespace BabiesAndChildren
         public override void MapLoaded(Map map)
         {
             if (map != Current.Game.CurrentMap) return;
-            if (!BnCSettings.OncePerGame)
-            {
-                foreach (Map tmap in Current.Game.Maps)
-                {
-                    ReinitializeChildren(tmap);
-                }
-                BnCSettings.OncePerGame = true;
-            }
             if (BnCSettings.GestationPeriodDays_Enable)
             {
                 foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefs)

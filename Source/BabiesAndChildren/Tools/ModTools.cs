@@ -43,6 +43,12 @@ namespace BabiesAndChildren
                 
             }
 
+            if (!isRobot && ChildrenBase.ModMechadroids_ON)
+            {
+                string defName = thingDef.defName;
+                isRobot = defName.Contains("O21_Alien_MechadroidAlpha") || defName.Contains("O21_Alien_MechadroidDelta") || defName.Contains("O21_Alien_MechadroidGamma");
+            }
+
             return isRobot;
         }
 

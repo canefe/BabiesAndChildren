@@ -132,7 +132,7 @@ namespace BabiesAndChildren
 		}
 
 		[DebuggerHidden]
-		public override IEnumerable<Toil> MakeNewToils()
+		protected override IEnumerable<Toil> MakeNewToils()
 		{
 			
 			this.FailOnDestroyedNullOrForbidden(DelivereeInd);

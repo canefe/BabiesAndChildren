@@ -21,12 +21,10 @@ namespace BabiesAndChildren.Harmony
         }
     }
 
-    [HarmonyPatch(typeof(PawnRenderer))]
-    [HarmonyPatch(nameof(PawnRenderer.RenderPawnInternal))]
-    [HarmonyPatch(new Type[] { typeof(Vector3), typeof(float), typeof(bool), typeof(Rot4), typeof(RotDrawMode), typeof(PawnRenderFlags) })]
+    [HarmonyPatch(typeof(PawnRenderer), "RenderPawnInternal")]
     public static class PawnRenderer_RenderPawnInternal_Patch
     {
-        [HarmonyBefore(new string[] {"rimworld.Nals.FacialAnimation"})]
+        [HarmonyBefore(new string[] { "rimworld.Nals.FacialAnimation" })]
         static bool Prefix(PawnRenderer __instance, ref Vector3 rootLoc)
         {
 
@@ -36,10 +34,10 @@ namespace BabiesAndChildren.Harmony
             // Change the root location of the child's draw position
             if (AgeStages.IsYoungerThan(___pawn, AgeStages.Teenager))
                 rootLoc = GraphicTools.ModifyChildYPosOffset(rootLoc, ___pawn);
-                //__instance.RenderPawnInternal(rootLoc, angle, true, bodyFacing, bodyDrawType, flags );
+            //__instance.RenderPawnInternal(rootLoc, angle, true, bodyFacing, bodyDrawType, flags );
 
             //facial animation compatibility for babies and toddlers
-            if (ChildrenBase.ModFacialAnimation_ON && AgeStages.IsYoungerThan(___pawn, AgeStages.Child)) 
+            if (ChildrenBase.ModFacialAnimation_ON && AgeStages.IsYoungerThan(___pawn, AgeStages.Child))
                 ModTools.RemoveFacialAnimationComps(___pawn);
 
             return true;

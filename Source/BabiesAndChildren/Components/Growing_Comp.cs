@@ -161,12 +161,12 @@ namespace BabiesAndChildren
                     initSize = true;
                     break;
                 case AgeStages.Child:
-                    if (pawn.Faction.IsPlayer && initialized)
+                    if (pawn.Faction != null && pawn.Faction.IsPlayer && initialized)
                         Messages.Message("MessageGrewUpChild".Translate(pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
                     break;
                 case AgeStages.Teenager:
 
-                    if (pawn.Faction.IsPlayer && initialized)
+                    if (pawn.Faction != null && pawn.Faction.IsPlayer && initialized)
                         Messages.Message("MessageGrewUpTeenager".Translate(pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
                     break;
             }

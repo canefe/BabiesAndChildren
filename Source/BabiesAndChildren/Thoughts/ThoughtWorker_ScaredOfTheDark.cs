@@ -6,7 +6,7 @@ namespace BabiesAndChildren
 {
     public class ThoughtWorker_ScaredOfTheDark : ThoughtWorker_Dark
     {
-        public override ThoughtState CurrentStateInternal (Pawn p)
+        protected override ThoughtState CurrentStateInternal (Pawn p)
         {
             // Make sure it only gets applied to kids
             if (!AgeStages.IsAgeStage(p, AgeStages.Child))

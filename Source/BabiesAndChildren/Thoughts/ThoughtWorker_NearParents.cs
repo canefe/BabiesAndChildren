@@ -8,7 +8,7 @@ namespace BabiesAndChildren
     public class ThoughtWorker_NearParents : ThoughtWorker
     {
         const int maxDist = 8;
-        public override ThoughtState CurrentStateInternal (Pawn p)
+        protected override ThoughtState CurrentStateInternal (Pawn p)
         {
             if (AgeStages.IsOlderThan(p, AgeStages.Toddler) || !RaceUtility.PawnUsesChildren(p))
                 return false;

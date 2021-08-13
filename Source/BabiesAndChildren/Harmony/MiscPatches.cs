@@ -63,7 +63,7 @@ namespace BabiesAndChildren.Harmony
             // prevent babies and toddlers from equipping adult clothes
             if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Child))
             {
-                if (thing.def.thingSetMakerTags == null || !thing.def.thingSetMakerTags.Contains("BabyGear") || !thing.def.thingSetMakerTags.Contains("BabyGear1"))
+                if (thing.def.thingSetMakerTags == null || !thing.def.thingSetMakerTags.Contains("BabyGear"))
                 {
                     cantReason = "BabyCantEquipNormal".Translate();
                     __result = false;

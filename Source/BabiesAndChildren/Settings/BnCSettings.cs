@@ -23,7 +23,6 @@ namespace BabiesAndChildren
         
         //constants
         public const int MAX_TRAIT_COUNT = 3;
-        public const double STILLBORN_CHANCE = 0.09;
         public const double GET_NEW_TYPE_CHANCE = 0.08;
         public const double GET_SPECIFIC_SEXUALITY = 0.08;
         public const double GET_GAY_SEXUALITY = 0.05;
@@ -47,6 +46,7 @@ namespace BabiesAndChildren
         public static float GestationPeriodDays = 45f;
         public static bool enable_postpartum = true;
         public static float cryVolume = 0.8f;
+        public static float STILLBORN_CHANCE = 0.09f;
 
         public static bool debug_and_gsetting = false;
         public static bool child_cute_act_enabled = true;
@@ -74,7 +74,6 @@ namespace BabiesAndChildren
         
         //special flag to reinitialize all childeren on all maps (not saves) at map load once per "game"/ once per mod added
         //TODO make this a game component
-        public static bool OncePerGame = false;
 
         private static Vector2 scrollPosition;
         private static float height_modifier = 350f;
@@ -128,7 +127,7 @@ namespace BabiesAndChildren
                 listingStandard.Label("ShowHairAlienHFLocZ_Title".Translate() + ": " + Math.Round(ShowHairAlienHFLocZ, 4), -1f, "ShowHairAlienHFLocZ_desc".Translate());
                 ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
                 listingStandard.Gap(5f);
-                listingStandard.Label("Facial Animation head size modifier" + ": " + Math.Round(FAModifier, 4), -1f, "Use this setting to manually modify the best size for facial animation head");
+                listingStandard.Label("Facial Animation head size modifier (alien children)" + ": " + Math.Round(FAModifier, 4), -1f, "Use this setting to manually modify the best size for facial animation head");
                 FAModifier = listingStandard.Slider(FAModifier, 1f, 2f);
         }
         public static void DoWindowContents(Rect inRect)
@@ -226,6 +225,11 @@ namespace BabiesAndChildren
             listingStandard.Label("CryVolumeSetting_title".Translate() + ": " + Math.Round(cryVolume * 100, 0) + "%", -1f, "CryVolumeSetting_desc".Translate());
             cryVolume = listingStandard.Slider(cryVolume, 0f, 1f);
 
+            listingStandard.Gap(5f);
+
+            listingStandard.Label("Stillborn chance: " + Math.Round(STILLBORN_CHANCE, 4), -1f, "Chance of babies born dead");
+            STILLBORN_CHANCE = listingStandard.Slider(STILLBORN_CHANCE, 0f, 0.5f);
+
             //////////////////////////// right column
             listingStandard.NewColumn();
             GUI.contentColor = Color.white;
@@ -286,7 +290,6 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref ShowHairAlienLocZ, "ShowHairAlienLocZ");
             Scribe_Values.Look(ref ShowHairAlienHFLocZ, "ShowHairAlienHFLocZ");
             Scribe_Values.Look(ref FAModifier, "FAModifier");
-            Scribe_Values.Look(ref OncePerGame, "OncePerGame");
         }
 
         public static void Reset_Settings()
