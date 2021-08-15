@@ -23,6 +23,10 @@ namespace BabiesAndChildren
                 CLog.Message("Humanoid Alien Races 2.0 is active. Enabling Alien children support.");
                 AlienRacePatches.Patch();
             }
+            else
+            {
+                ChildrenSizePatch.Patch();
+            }
 
             if (ChildrenBase.ModCSL_ON)
             {

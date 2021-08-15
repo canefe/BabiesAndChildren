@@ -53,7 +53,7 @@ namespace BabiesAndChildren.Harmony
             return humanlikeHeadSetModified[headSizeFactor];
         }
 
-        static GraphicMeshSet GetModifiedHairMeshSet(float hairSizeFactor, Pawn pawn)
+        public static GraphicMeshSet GetModifiedHairMeshSet(float hairSizeFactor, Pawn pawn)
         {
             GraphicMeshSet result;
             if (pawn.story.crownType == CrownType.Average)
