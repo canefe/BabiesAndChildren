@@ -12,6 +12,8 @@ namespace BabiesAndChildren
         
         public override string ModIdentifier => "Babies_and_Children";
 
+        //Humanoid Alien Races
+        public static bool ModHAR_ON = false;
         //Children School and Learning
         public static bool ModCSL_ON = false;
         //RimJobWorld

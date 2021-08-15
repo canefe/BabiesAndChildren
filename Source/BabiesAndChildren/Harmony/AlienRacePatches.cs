@@ -10,9 +10,17 @@ using Verse;
 
 namespace BabiesAndChildren.Harmony
 {
-    [HarmonyPatch]
-    internal static class AlienRacePatches
+    public class AlienRacePatches
     {
+        public static void Patch()
+        {
+            HarmonyLib.Harmony harmony = new HarmonyLib.Harmony("RimWorld.babies.and.children." + nameof(AlienRacePatches));
+
+            harmony.Patch(AccessTools.Method(typeof(HarmonyPatches), "GetPawnMesh"), postfix: new HarmonyMethod(typeof(AlienRacePatches), nameof(GetPawnMesh_Patch)));
+            harmony.Patch(AccessTools.Method(typeof(HarmonyPatches), "GetPawnHairMesh"), postfix: new HarmonyMethod(typeof(AlienRacePatches), nameof(GetPawnHairMesh_Patch)));
+            harmony.Patch(AccessTools.Method(typeof(HarmonyPatches), "DrawAddons"), prefix: new HarmonyMethod(typeof(AlienRacePatches), nameof(DrawAddons_Patch)));
+        }
+
         static Dictionary<float, GraphicMeshSet> humanlikeBodySetModified = new Dictionary<float, GraphicMeshSet>();
         static Dictionary<float, GraphicMeshSet> humanlikeHeadSetModified = new Dictionary<float, GraphicMeshSet>();
 
@@ -25,7 +33,7 @@ namespace BabiesAndChildren.Harmony
         static MethodInfo meshInfo = AccessTools.Method(AccessTools.TypeByName("MeshMakerPlanes"), "NewPlaneMesh", new[]
             {typeof(Vector2), typeof(bool), typeof(bool), typeof(bool)}, null);
 
-        static GraphicMeshSet GetModifiedBodyMeshSet(float bodySizeFactor, Pawn pawn)
+        public static GraphicMeshSet GetModifiedBodyMeshSet(float bodySizeFactor, Pawn pawn)
         {
             if (!humanlikeBodySetModified.ContainsKey(bodySizeFactor))
             {
@@ -35,7 +43,7 @@ namespace BabiesAndChildren.Harmony
             return humanlikeBodySetModified[bodySizeFactor];
         }
 
-        static GraphicMeshSet GetModifiedHeadMeshSet(float headSizeFactor, Pawn pawn)
+        public static GraphicMeshSet GetModifiedHeadMeshSet(float headSizeFactor, Pawn pawn)
         {
             if (!humanlikeHeadSetModified.ContainsKey(headSizeFactor))
             {
@@ -83,33 +91,25 @@ namespace BabiesAndChildren.Harmony
             return result;
         }
 
-
         //get scaled mesh sets for children bodies and heads
-        [HarmonyPatch(typeof(HarmonyPatches), "GetPawnMesh")]
-        static class GetPawnMesh_Patch
+        public static void GetPawnMesh_Patch(PawnRenderFlags renderFlags, Pawn pawn, Rot4 facing, bool wantsBody, ref Mesh __result)
         {
-            [HarmonyPostfix]
-            static void Postfix(PawnRenderFlags renderFlags, Pawn pawn, Rot4 facing, bool wantsBody, ref Mesh __result)
-            {
-                if (pawn == null ||
-                    !RaceUtility.PawnUsesChildren(pawn) ||
-                    !AgeStages.IsAgeStage(pawn, AgeStages.Child))
-                    return;
 
-                __result = wantsBody ? 
-                    GetModifiedBodyMeshSet(ChildrenUtility.GetBodySize(pawn), pawn).MeshAt(facing) : 
-                    GetModifiedHeadMeshSet(ChildrenUtility.GetHeadSize(pawn), pawn).MeshAt(facing);
-            }
+            if (pawn == null ||
+                !RaceUtility.PawnUsesChildren(pawn) ||
+                !AgeStages.IsAgeStage(pawn, AgeStages.Child))
+                return;
+
+            __result = wantsBody ? 
+                GetModifiedBodyMeshSet(ChildrenUtility.GetBodySize(pawn), pawn).MeshAt(facing) : 
+                GetModifiedHeadMeshSet(ChildrenUtility.GetHeadSize(pawn), pawn).MeshAt(facing);
+
         }
 
         
         //Get scaled hair meshes for children bodies and heads
-        [HarmonyPatch(typeof(HarmonyPatches), "GetPawnHairMesh")]
-        static class GetPawnHairMesh_Patch
+        static void GetPawnHairMesh_Patch(PawnRenderFlags renderFlags, Pawn pawn, Rot4 headFacing, PawnGraphicSet graphics, ref Mesh __result)
         {
-            [HarmonyPostfix]
-            static void Postfix(PawnRenderFlags renderFlags, Pawn pawn, Rot4 headFacing, PawnGraphicSet graphics, ref Mesh __result)
-            {
                 if (pawn == null || 
                     !RaceUtility.PawnUsesChildren(pawn) ||
                     !AgeStages.IsAgeStage(pawn, AgeStages.Child)) 
@@ -117,20 +117,17 @@ namespace BabiesAndChildren.Harmony
                 
                 float hairSizeFactor = ChildrenUtility.GetHairSize(0, pawn);
                 __result = GetModifiedHairMeshSet(hairSizeFactor, pawn).MeshAt(headFacing);
-            }
+
         }
 
-        [HarmonyPatch(typeof(HarmonyPatches), "DrawAddons")]
-        static class DrawAddons_Patch
+        static bool DrawAddons_Patch(PawnRenderFlags renderFlags, Vector3 vector, Vector3 headOffset, Pawn pawn, Quaternion quat, Rot4 rotation)
         {
-            static Dictionary<Vector2, Mesh> addonMeshs = new Dictionary<Vector2, Mesh>();
-            static Dictionary<Vector2, Mesh> addonMeshsFlipped = new Dictionary<Vector2, Mesh>();
+            Dictionary<Vector2, Mesh> addonMeshs = new Dictionary<Vector2, Mesh>();
+            Dictionary<Vector2, Mesh> addonMeshsFlipped = new Dictionary<Vector2, Mesh>();
 
 
             
             //Patch to draw addons for children
-            static bool Prefix(PawnRenderFlags renderFlags, Vector3 vector, Vector3 headOffset, Pawn pawn, Quaternion quat, Rot4 rotation)
-            {
                 try
                 {
                     
@@ -291,6 +288,6 @@ namespace BabiesAndChildren.Harmony
 
                 return true;
             }
-        }
+        
     }
 }

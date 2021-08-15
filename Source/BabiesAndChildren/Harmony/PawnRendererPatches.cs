@@ -21,6 +21,24 @@ namespace BabiesAndChildren.Harmony
         }
     }
 
+    [HarmonyPatch(typeof(PawnRenderer), "DrawPawnBody")]
+    public static class PawnRenderer_DrawPawnBody_Patch
+    {
+        static bool Prefix(PawnRenderer __instance, Vector3 rootLoc, float angle, Rot4 facing, RotDrawMode bodyDrawType, PawnRenderFlags flags, ref Mesh bodyMesh)
+        {
+            Pawn pawn = __instance.graphics.pawn;
+            if (pawn != null &&
+                RaceUtility.PawnUsesChildren(pawn) &&
+                AgeStages.IsAgeStage(pawn, AgeStages.Child)) {
+
+                bodyMesh = AlienRacePatches.GetModifiedBodyMeshSet(ChildrenUtility.GetBodySize(pawn), pawn).MeshAt(facing);
+            }
+
+
+            return true;
+        }
+    }
+
     [HarmonyPatch(typeof(PawnRenderer), "RenderPawnInternal")]
     public static class PawnRenderer_RenderPawnInternal_Patch
     {
