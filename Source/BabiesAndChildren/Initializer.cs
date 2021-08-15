@@ -8,6 +8,7 @@ namespace BabiesAndChildren
     {
         static Initializer()
         {
+            ChildrenBase.ModHAR_ON = ModTools.IsModOn("Humanoid Alien Races");
             ChildrenBase.ModFacialAnimation_ON = ModTools.IsModOn("[NL] Facial Animation - WIP");
             ChildrenBase.ModCSL_ON = ModTools.IsModOn("Children, school and learning");
             ChildrenBase.ModRimJobWorld_ON = ModTools.IsModOn("RimJobWorld");
@@ -16,6 +17,17 @@ namespace BabiesAndChildren
             ChildrenBase.ModDubsBadHygiene_ON = ModTools.IsModOn("Dubs Bad Hygiene");
             ChildrenBase.ModRimsecSecurity_ON = ModTools.IsModOn("Rimsec Security");
             ChildrenBase.ModMechadroids_ON = ModTools.IsModOn("[O21] Mechadroids");
+            
+            if (ChildrenBase.ModHAR_ON)
+            {
+                CLog.Message("Humanoid Alien Races 2.0 is active. Enabling Alien children support.");
+                AlienRacePatches.Patch();
+            }
+            else
+            {
+                ChildrenSizePatch.Patch();
+            }
+
             if (ChildrenBase.ModCSL_ON)
             {
                 CLog.Message("CSL is active.");

@@ -142,7 +142,7 @@ namespace BabiesAndChildren.Tools
                 pawn.style.beardDef = BeardDefOf.NoBeard;
                 return true;
             } 
-            if (pawn.def is ThingDef_AlienRace thingDef)
+            if (ChildrenBase.ModHAR_ON && pawn.def is ThingDef_AlienRace thingDef)
             {
                 List<BodyTypeDef> bodyTypes = thingDef.alienRace.generalSettings.alienPartGenerator.alienbodytypes;
                 if (bodyTypes.NullOrEmpty())
@@ -280,7 +280,19 @@ namespace BabiesAndChildren.Tools
                 force = false;
             }
 
-            bool result = TrySetPawnBodyType(pawn, newBodyType, force);
+            bool result = false;
+            if (ChildrenBase.ModHAR_ON)
+            {
+                result = TrySetPawnBodyType(pawn, newBodyType, force);
+            }
+            else {
+                if (RaceUtility.IsHuman(pawn) || force)
+                {
+                    pawn.story.bodyType = newBodyType;
+                    pawn.style.beardDef = BeardDefOf.NoBeard;
+                    result = true;
+                }
+            }
             if (result)
                 CLog.DevMessage(pawn.Name.ToStringShort + " bodyType was changed to: " + newBodyType);
             else
