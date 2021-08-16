@@ -75,4 +75,5 @@
   <ShowHairAlienHFLocZ_desc>It applies when you adjust the slide.</ShowHairAlienHFLocZ_desc>
   <WakeThresholdPatchEnabled_Title>Wake Threshold Patch Enabled</WakeThresholdPatchEnabled_Title>
   <WakeThresholdPatchEnabled_desc>This option toggles babies/colonists wake up when a baby is unhappy/crying. This option is added because this feature may cause performance issues with too many babies/colonists. It is suggested that only disable if you experience high performance loss when colonists are sleeping.</WakeThresholdPatchEnabled_desc>
+  <LockConfigToddlers>toddler filter</LockConfigToddlers>
 </LanguageData>
