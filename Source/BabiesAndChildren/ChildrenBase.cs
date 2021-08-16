@@ -30,6 +30,10 @@ namespace BabiesAndChildren
         public static bool ModRimsecSecurity_ON;
         //Mechadroids
         public static bool ModMechadroids_ON;
+        //ModKVShowHair_ON
+        public static bool ModKVShowHair_ON;
+        //Age Matters
+        public static bool ModAgeMatters_ON;
 
         private ChildrenBase()
         {

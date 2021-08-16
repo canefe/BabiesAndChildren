@@ -17,6 +17,8 @@ namespace BabiesAndChildren
             ChildrenBase.ModDubsBadHygiene_ON = ModTools.IsModOn("Dubs Bad Hygiene");
             ChildrenBase.ModRimsecSecurity_ON = ModTools.IsModOn("Rimsec Security");
             ChildrenBase.ModMechadroids_ON = ModTools.IsModOn("[O21] Mechadroids");
+            ChildrenBase.ModKVShowHair_ON = ModTools.IsModOn("[KV] Show Hair With Hats or Hide All Hats");
+            ChildrenBase.ModAgeMatters_ON = ModTools.IsModOn("Age Matters 2.0 [1.2]");
             
             if (ChildrenBase.ModHAR_ON)
             {
@@ -59,6 +61,12 @@ namespace BabiesAndChildren
             if (ChildrenBase.ModMechadroids_ON)
             {
                 CLog.Message("[O21] Mechadroids is active.");
+            }
+
+            if (ChildrenBase.ModKVShowHair_ON)
+            {
+                CLog.Message("Patching [KV] Show Hair");
+                ShowHairPatches.Patch();
             }
 
         }
