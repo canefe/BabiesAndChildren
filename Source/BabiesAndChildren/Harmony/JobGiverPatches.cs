@@ -52,6 +52,18 @@ namespace BabiesAndChildren.Harmony
         }
     }
 
+    [HarmonyPatch(typeof(JobGiver_OptimizeApparel), "TryGiveJob")]
+    internal static class JobGiver_OptimizeApparel_Patch
+    {
+        static void Postfix(ref Pawn pawn, ref Job __result)
+        {
+            if (AgeStages.IsYoungerThan(pawn, AgeStages.Child) && RaceUtility.PawnUsesChildren(pawn))
+            {
+                __result = null;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(JoyGiver_InPrivateRoom), "TryGiveJobWhileInBed")]
     static class JoyGiver_InPrivateRoom_Patch // babies and toddlers no longer pray
     {
