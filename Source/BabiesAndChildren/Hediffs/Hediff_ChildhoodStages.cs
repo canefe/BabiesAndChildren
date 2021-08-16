@@ -5,6 +5,6 @@ namespace BabiesAndChildren
     //hediff class for the hediff that describes the current age stage of the pawn
     public class Hediff_ChildhoodStages : HediffWithComps
     {
-        
+        public override bool Visible => !ChildrenBase.ModAgeMatters_ON;
     }
 }
