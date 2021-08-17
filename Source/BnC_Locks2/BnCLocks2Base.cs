@@ -9,7 +9,7 @@ namespace BabiesAndChildren
     {
         public static BnCLocks2 Instance { get; private set; }
         
-        public override string ModIdentifier => "Babies_and_Children Locks2 Patch";
+        public override string ModIdentifier => "Babies_and_Children_Locks2_Patch";
 
         private BnCLocks2()
         {
@@ -18,7 +18,7 @@ namespace BabiesAndChildren
 
         public override void DefsLoaded()
         {
-            Log.Message("BnC_Locks2_Patch");
+            CLog.Message("Locks2 Patch loaded!");
 
         }
 
