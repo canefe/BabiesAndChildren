@@ -1,9 +1,12 @@
 using BabiesAndChildren.api;
 using BabiesAndChildren.Tools;
 using HarmonyLib;
+using System.Collections.Generic;
+using System;
 using RimWorld;
 using Verse;
 using Verse.AI;
+using RimWorld.BaseGen;
 
 namespace BabiesAndChildren.Harmony
 {
@@ -52,14 +55,27 @@ namespace BabiesAndChildren.Harmony
         }
     }
 
-    [HarmonyPatch(typeof(JobGiver_OptimizeApparel), "TryGiveJob")]
-    internal static class JobGiver_OptimizeApparel_Patch
+    //ApparelScoreGain
+    [HarmonyPatch(typeof(JobGiver_OptimizeApparel), "ApparelScoreGain")]
+    internal static class ApparelScoreGain_Patch
     {
-        static void Postfix(ref Pawn pawn, ref Job __result)
+        static void Postfix(ref Pawn pawn, ref Apparel ap, ref List<float> wornScoresCache, ref float __result)
         {
+            string[] babyCloth = { "Apparel_Baby_Beanie", "Apparel_Baby_Onesie", "Apparel_Newborn_Onesie", "Apparel_Newborn_Beanie" };
+            List<string> babyClothes = new List<string>(babyCloth);
+            if (AgeStages.IsOlderThan(pawn, AgeStages.Toddler)) {
+                if (babyClothes.Contains(ap.def.defName))
+                {
+                    __result = -1000f;
+                }
+            }
             if (AgeStages.IsYoungerThan(pawn, AgeStages.Child) && RaceUtility.PawnUsesChildren(pawn))
             {
-                __result = null;
+                if (AgeStages.IsAgeStage(pawn, AgeStages.Toddler) && babyClothes.Contains(ap.def.defName) && ap.def.defName.Contains("Newborn")) __result = -1000f;
+                if (!babyClothes.Contains(ap.def.defName))
+                {
+                    __result = -1000f;
+                }
             }
         }
     }
