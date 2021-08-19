@@ -5,6 +5,7 @@ using Verse;
 using Verse.AI;
 using RimWorld;
 using BabiesAndChildren.api;
+using BabiesAndChildren.Tools;
 
 namespace BabiesAndChildren.Harmony
 {
@@ -23,7 +24,7 @@ namespace BabiesAndChildren.Harmony
             HarmonyMethod postfix = new HarmonyMethod(typeof(DubsBadHygienePatches), nameof(ShouldBeWashedBySomeonePostfix));
 
             harmony.Patch(original, postfix: postfix);
-            harmony.Patch(AccessTools.Method(AccessTools.TypeByName("Need_Bladder"), "NeedInterval"), postfix: new HarmonyMethod(typeof(DubsBadHygienePatches), nameof(NeedIntervalPostfix)));
+            harmony.Patch(AccessTools.Method(AccessTools.TypeByName("Need_Bladder"), "NeedInterval"), prefix: new HarmonyMethod(typeof(DubsBadHygienePatches), nameof(NeedIntervalPrefix)));
             harmony.Patch(AccessTools.Method(AccessTools.TypeByName("JobGiver_HaveWash"), "GetPriority"), postfix: new HarmonyMethod(typeof(DubsBadHygienePatches), nameof(GetPriorityPostfix)));
             harmony.Patch(AccessTools.Method(AccessTools.TypeByName("WorkGiver_washPatient"), "HasJobOnThing"), postfix: new HarmonyMethod(typeof(DubsBadHygienePatches), nameof(HasJobOnThingPostfix)));//HasJobOnThing
         }
@@ -35,14 +36,16 @@ namespace BabiesAndChildren.Harmony
                 __result = true;
             }
         }
-        private static void NeedIntervalPostfix(Need __instance, Pawn ___pawn)
+        private static bool NeedIntervalPrefix(Need __instance, Pawn ___pawn)
         {
-            if (__instance.CurLevel < 0.15 && AgeStages.IsAgeStage(___pawn, AgeStages.Toddler))
+            if (__instance.CurLevel < 0.15 && RaceUtility.PawnUsesChildren(___pawn) && AgeStages.IsAgeStage(___pawn, AgeStages.Toddler))
             {
                 __instance.CurLevel = 1f;
                 Thing thing;
                 GenThing.TryDropAndSetForbidden(ThingMaker.MakeThing(ThingDef.Named("BedPan"), null), ___pawn.Position, ___pawn.Map, ThingPlaceMode.Near, out thing, false);
+                return true;
             }
+            return true;
         }
         private static void GetPriorityPostfix(Pawn pawn, ref float __result)
         {

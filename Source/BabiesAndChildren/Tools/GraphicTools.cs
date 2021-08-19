@@ -88,20 +88,20 @@ namespace BabiesAndChildren
                 // Babies and toddlers get drawn further down along the bed
                 if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Child))
                 {
-                    Vector3 vector = new Vector3(0, 0, 0.35f).RotatedBy(bed.Rotation);
+                    Vector3 vector = new Vector3(0, 0, 0.35f).RotatedBy(bed.Rotation);                    
                     if (bed.Rotation == Rot4.East)
                     {
-                        newPos.z += 0.35f;
-                        newPos.x += 0.35f;
+                        newPos.z -= 0.2f;
+                        newPos.x -= 0.2f;
                     }
                     if (bed.Rotation == Rot4.West)
                     {
-                        newPos.z += 0.35f;
-                        newPos.x -= 0.35f;
+                        newPos.z -= 0.2f;
+                        newPos.x += 0.2f;
                     }
                     if (bed.Rotation == Rot4.North)
                     {
-                        newPos.z += 0.45f;
+                        newPos.z -= 0.2f;
                     }
                     newPos -= vector;
                     // ... as do children, but to a lesser extent
@@ -174,7 +174,9 @@ namespace BabiesAndChildren
             {
                 // Ignored
             }
-            if (RaceUtility.IsHuman(pawn)) { }
+            if (RaceUtility.IsHuman(pawn)) {
+                num = num * BnCSettings.HumanHeadSize;
+            }
             else if (AgeStages.IsYoungerThan(pawn, AgeStages.Adult))
             {
                 num = num * BnCSettings.FAModifier;

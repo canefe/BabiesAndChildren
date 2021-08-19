@@ -70,7 +70,7 @@ namespace BabiesAndChildren
         public static float ShowHairHumanLocZ = 0.092f;
         public static float ShowHairAlienLocZ = 0.035f;
         public static float ShowHairAlienHFLocZ = 0.048f;
-        public static float FAModifier = 1f;
+        public static float FAModifier = 1.3f;
         
         //special flag to reinitialize all childeren on all maps (not saves) at map load once per "game"/ once per mod added
         //TODO make this a game component
@@ -325,7 +325,7 @@ namespace BabiesAndChildren
             ShowHairHumanLocZ = 0.092f;
             ShowHairAlienLocZ = 0.035f;
             ShowHairAlienHFLocZ = 0.048f;
-            FAModifier = 1f;
+            FAModifier = 1.3f;
             //OncePerGame = false; possibly unnecessary and game breaking?
         }
     }
