@@ -50,8 +50,7 @@ namespace BabiesAndChildren
         {
             
             if(p == null || 
-               !p.Spawned || 
-               p.GetPosture() == PawnPosture.Standing) 
+               !p.Spawned) 
                 return false;
 
             if (p.playerSettings?.medCare != null && p.playerSettings.medCare == MedicalCareCategory.NoCare)
