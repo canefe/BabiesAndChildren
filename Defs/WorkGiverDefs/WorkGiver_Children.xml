@@ -8,7 +8,7 @@
 		<workType>Childcare</workType>
 		<verb>breastfeed</verb>
 		<gerund>breastfeeding</gerund>
-		<priorityInType>75</priorityInType>
+		<priorityInType>45</priorityInType>
 		<requiredCapacities>
 			<li>Manipulation</li>
 		</requiredCapacities>
