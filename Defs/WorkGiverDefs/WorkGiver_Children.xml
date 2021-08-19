@@ -5,7 +5,7 @@
 		<defName>FeedBaby</defName>
 		<label>breastfeed baby</label>
 		<giverClass>BabiesAndChildren.WorkGiver_BreastfeedBaby</giverClass>
-		<workType>BasicWorker</workType>
+		<workType>Childcare</workType>
 		<verb>breastfeed</verb>
 		<gerund>breastfeeding</gerund>
 		<priorityInType>75</priorityInType>
