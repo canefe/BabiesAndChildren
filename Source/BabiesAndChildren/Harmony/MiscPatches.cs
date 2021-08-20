@@ -99,7 +99,7 @@ namespace BabiesAndChildren.Harmony
         [HarmonyPostfix]
         static void Postfix(Pawn pawn, ref bool __result)
         {
-            if (!__result && ChildrenUtility.ShouldBeFed(pawn))
+            if (!__result && ChildrenUtility.ShouldBeFed(pawn) && pawn.InBed())
             {
                 __result = true;
             }
@@ -112,7 +112,7 @@ namespace BabiesAndChildren.Harmony
         [HarmonyPostfix]
         static void Postfix(Pawn p, ref bool __result)
         {
-            if (!__result && p.IsPrisonerOfColony && ChildrenUtility.ShouldBeFed(p))
+            if (!__result && p.IsPrisonerOfColony && ChildrenUtility.ShouldBeFed(p) && p.InBed())
             {
                 __result = true;
             }
@@ -126,7 +126,7 @@ namespace BabiesAndChildren.Harmony
         [HarmonyPostfix]
         static void Postfix(Pawn p, ref bool __result)
         {
-            if (!__result && ChildrenUtility.ShouldBeFed(p))
+            if (!__result && ChildrenUtility.ShouldBeFed(p) && p.InBed())
             {
                 __result = true;
             }
