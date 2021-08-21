@@ -22,16 +22,20 @@ namespace BabiesAndChildren
                 if (AgeStages.IsOlderThan(graphics.pawn, AgeStages.Child)) return;                
 
                 // The pawn is a baby
-                if (AgeStages.IsAgeStage(graphics.pawn, AgeStages.Baby))
+                if (AgeStages.IsAgeStage(graphics.pawn, AgeStages.Baby) && RaceUtility.IsHuman(graphics.pawn))
                 {
                     graphics.nakedGraphic = GraphicDatabase.Get<Graphic_Single>("Things/Pawn/Humanlike/Children/Bodies/Newborn", ShaderDatabase.CutoutSkin, Vector2.one, graphics.pawn.story.SkinColor);
                     graphics.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/Children/Bodies/Newborn", ShaderDatabase.CutoutSkin, Vector2.one, PawnGraphicSet.RottingColorDefault);
                     graphics.headGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/null", ShaderDatabase.Cutout, Vector2.one, Color.white);
                     graphics.hairGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/null", ShaderDatabase.Cutout, Vector2.one, Color.white);
+                }else if (!RaceUtility.IsHuman(graphics.pawn) && AgeStages.IsAgeStage(graphics.pawn, AgeStages.Baby))
+                {
+
                 }
 
+
                 // The pawn is a toddler
-                if (AgeStages.IsAgeStage(graphics.pawn, AgeStages.Toddler))
+                if (AgeStages.IsAgeStage(graphics.pawn, AgeStages.Toddler) && RaceUtility.IsHuman(graphics.pawn))
                 {
                     string upright = "";
                     if (ChildrenUtility.ToddlerIsUpright(graphics.pawn))
@@ -76,7 +80,7 @@ namespace BabiesAndChildren
             Vector3 newPos = pos;
 
             // move the draw target down to compensate for child shortness
-            if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsAgeStage(pawn, AgeStages.Child) && !pawn.InBed())
+            if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Teenager) && !pawn.InBed())
             {
                 if (RaceUtility.IsHuman(pawn)) newPos.z += BnCSettings.HumanrootlocZ;
                 else newPos.z += BnCSettings.AlienrootlocZ;
@@ -89,6 +93,8 @@ namespace BabiesAndChildren
                 if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Child))
                 {
                     Vector3 vector = new Vector3(0, 0, 0.35f).RotatedBy(bed.Rotation);
+
+                   /* Vector3 vector = new Vector3(0, 0, 0.35f).RotatedBy(bed.Rotation);                    
                     if (bed.Rotation == Rot4.East)
                     {
                         newPos.z += 0.35f;
@@ -104,7 +110,7 @@ namespace BabiesAndChildren
                         newPos.z += 0.45f;
                     }
                     newPos -= vector;
-                    // ... as do children, but to a lesser extent
+                    // ... as do children, but to a lesser extent*/
                 }
                 else if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsAgeStage(pawn, AgeStages.Child))
                 {

@@ -107,7 +107,7 @@ namespace BabiesAndChildren.Harmony
         {
                 if (pawn != null &&
                     RaceUtility.PawnUsesChildren(pawn) &&
-                    AgeStages.IsAgeStage(pawn, AgeStages.Child))
+                    AgeStages.IsYoungerThan(pawn, AgeStages.Teenager))
                 {
                     if (wantsBody)
                     {
@@ -126,7 +126,7 @@ namespace BabiesAndChildren.Harmony
         {
             if (pawn == null ||
                 !RaceUtility.PawnUsesChildren(pawn) ||
-                !AgeStages.IsAgeStage(pawn, AgeStages.Child))
+                !AgeStages.IsYoungerThan(pawn, AgeStages.Teenager))
                 return graphics.HairMeshSet.MeshAt(headFacing);
 
             float hairSizeFactor = ChildrenUtility.GetHairSize(0, pawn);
@@ -196,7 +196,7 @@ namespace BabiesAndChildren.Harmony
 
             if (pawn == null || 
                 !RaceUtility.PawnUsesChildren(pawn) ||
-                !AgeStages.IsAgeStage(pawn, AgeStages.Child)) return;
+                AgeStages.IsOlderThan(pawn, AgeStages.Child)) return;
             
             float bodySizeFactor = ChildrenUtility.GetBodySize(pawn);
             float num2 = 1f;

@@ -364,7 +364,7 @@ namespace BabiesAndChildren
         public static Vector3 ModifiedHairLoc(Vector3 pos, Pawn pawn)
         {
             Vector3 newPos = new Vector3(pos.x, pos.y, pos.z);
-            if (!AgeStages.IsAgeStage(pawn, AgeStages.Child)) return newPos;
+            if (AgeStages.IsOlderThan(pawn, AgeStages.Teenager)) return newPos;
             newPos.y += BnCSettings.ShowHairLocY;
 
             if (RaceUtility.IsHuman(pawn))
@@ -391,16 +391,16 @@ namespace BabiesAndChildren
         public static float AgeFactor(Pawn pawn)
         {   
             //Age factor only relevant for children and teens
-            if (!RaceUtility.PawnUsesChildren(pawn) || AgeStages.IsYoungerThan(pawn, AgeStages.Child) || AgeStages.IsOlderThan(pawn, AgeStages.Teenager))
+            if (!RaceUtility.PawnUsesChildren(pawn) || AgeStages.IsOlderThan(pawn, AgeStages.Teenager))
                 return 1f; 
             
             
-            float agechild = LifeStageUtility.GetLifeStageAge(pawn, AgeStages.Child).minAge;
+            float agechild = LifeStageUtility.GetLifeStageAge(pawn, AgeStages.Baby).minAge;
             float ageteen = LifeStageUtility.GetLifeStageAge(pawn, AgeStages.Teenager).minAge;
 
             float childLifeStageDuration = ageteen - agechild;
             
-            float now = pawn.ageTracker.AgeBiologicalYearsFloat + 0.1f; // prevent 0 + 0.1f
+            float now = pawn.ageTracker.AgeBiologicalYearsFloat + 0.1f + 4; // prevent 0 + 0.1f
 
             float yearsSinceToddler = now - agechild;
 
@@ -413,7 +413,12 @@ namespace BabiesAndChildren
             //+ offset -> 0.8 < x < 1.4
             
             float agefac = offset + scalar * yearsSinceToddler / childLifeStageDuration;
-            
+
+            if (AgeStages.IsAgeStage(pawn, AgeStages.Baby))
+                agefac = agefac * 0.7f;
+            if (AgeStages.IsAgeStage(pawn, AgeStages.Toddler))
+                agefac = agefac * 0.8f;
+
             return agefac;
         }
 
