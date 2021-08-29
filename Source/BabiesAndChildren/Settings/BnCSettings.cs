@@ -175,25 +175,6 @@ namespace BabiesAndChildren
                 teenager_accelerated_growth = (int)listingStandard.Slider(teenager_accelerated_growth, 1, MAX_ACCELERATED_GROWTH_FACTOR);
             }
 
-            listingStandard.Gap(10f);
-            
-            //Baby trait and skill inheritance percentages
-            listingStandard.Label("BabyInheritPercentage_Title".Translate() + ": ", -1f, "BabyInheritPercentage_Desc".Translate());
-            listingStandard.Gap(5f);
-            string t = "BabyInheritPercentage_Desc" + baby_Inherit_percentage;
-            if (listingStandard.ButtonText(t.Translate()))
-            {
-                Find.WindowStack.Add(new FloatMenu(new List<FloatMenuOption>()
-                {
-                    new FloatMenuOption("BabyInheritPercentage_Desc_None".Translate(), (() => baby_Inherit_percentage = BabyInheritPercentageHandleEnum._None)),
-                    new FloatMenuOption("BabyInheritPercentage_Desc_25".Translate(), (() => baby_Inherit_percentage = BabyInheritPercentageHandleEnum._25)),
-                    new FloatMenuOption("BabyInheritPercentage_Desc_50".Translate(), (() => baby_Inherit_percentage = BabyInheritPercentageHandleEnum._50)),
-                    new FloatMenuOption("BabyInheritPercentage_Desc_75".Translate(), (() => baby_Inherit_percentage = BabyInheritPercentageHandleEnum._75)),
-                    new FloatMenuOption("BabyInheritPercentage_Desc_90".Translate(), (() => baby_Inherit_percentage = BabyInheritPercentageHandleEnum._90)),
-                    new FloatMenuOption("BabyInheritPercentage_Desc_Random".Translate(), (() => baby_Inherit_percentage = BabyInheritPercentageHandleEnum._Random)),
-                }));
-            }
-
             //Children drop weapons
             listingStandard.CheckboxLabeled("OptionChildrenDropWeapons".Translate(), ref OptionChildrenDropWeapons, "OptionChildrenDropWeaponsDesc".Translate());
             if (OptionChildrenDropWeapons)

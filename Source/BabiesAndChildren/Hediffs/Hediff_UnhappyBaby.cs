@@ -24,7 +24,7 @@ namespace BabiesAndChildren
                 pawn.health.RemoveHediff(this);
             } else if(CanBabyCry()){
                 // Whine and cry
-                MoteMaker.MakeStaticMote(pawn.Position, pawn.Map, ThingDefOf.Mote_ColonistFleeing);
+                FleckMaker.ThrowMetaIcon(pawn.Position, pawn.Map, FleckDefOf.IncapIcon);
                 SoundInfo info = SoundInfo.InMap (new TargetInfo (pawn.PositionHeld, pawn.MapHeld));
                 info.volumeFactor = BnCSettings.cryVolume;
                 SoundDef.Named ("Pawn_BabyCry").PlayOneShot(info);

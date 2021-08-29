@@ -141,7 +141,7 @@ namespace BabiesAndChildren.Harmony
         [HarmonyPostfix]
         static void Postfix(ref bool __result, ref Pawn pawn, ref ThoughtDef def)
         {
-            if (!RaceUtility.PawnUsesChildren(pawn))
+            if (!RaceUtility.PawnUsesChildren(pawn) || AgeStages.IsAgeStage(pawn, AgeStages.Adult))
             {
                 return;
             }
@@ -237,5 +237,61 @@ namespace BabiesAndChildren.Harmony
                     !__instance.capacities.CapableOf(PawnCapacityDefOf.Moving);
             }
         }
+    }
+    // Cribs won't make a bedroom => barracks
+    [HarmonyPatch(typeof(RoomRoleWorker_Barracks), "GetScore")]
+    public static class RoomRoleWorker_Barracks_GetScore_Patch
+    {
+        public static void Postfix(RoomRoleWorker_Bedroom __instance, Room room, ref float __result)
+        {
+            int num = 0;
+            int num2 = 0;
+            List<Thing> containedAndAdjacentThings = room.ContainedAndAdjacentThings;
+            List<Pawn> list = null;
+            for (int i = 0; i < containedAndAdjacentThings.Count; i++)
+            {
+                Building_Bed building_Bed;
+                if ((building_Bed = (containedAndAdjacentThings[i] as Building_Bed)) != null && building_Bed.def.building.bed_humanlike && building_Bed.def.defName != "Crib")
+                {
+                    if (building_Bed.ForPrisoners)
+                    {
+                        __result = 0f;
+                    }
+                    num++;
+                    if (!building_Bed.Medical)
+                    {
+                        List<Pawn> assignedPawnsForReading = building_Bed.CompAssignableToPawn.AssignedPawnsForReading;
+                        if (!assignedPawnsForReading.NullOrEmpty<Pawn>())
+                        {
+                            if (list == null)
+                            {
+                                list = assignedPawnsForReading[0].GetLoveCluster();
+                            }
+                            using (List<Pawn>.Enumerator enumerator = assignedPawnsForReading.GetEnumerator())
+                            {
+                                while (enumerator.MoveNext())
+                                {
+                                    Pawn item = enumerator.Current;
+                                    if (!list.Contains(item))
+                                    {
+                                        num2++;
+                                        break;
+                                    }
+                                }
+                                goto IL_C5;
+                            }
+                        }
+                        num2++;
+                    }
+                }
+            IL_C5:;
+            }
+            if (num <= 1)
+            {
+                __result = 0f;
+            }
+            __result = (float)num2 * 100100f;
+        }
+
     }
 }
