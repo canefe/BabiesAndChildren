@@ -91,6 +91,7 @@
     <Compile Include="api\Thoughts.cs" />
     <Compile Include="Components\Growing_Comp.cs" />
     <Compile Include="Defs\AgeStageExtensions.cs" />
+    <Compile Include="Defs\AlienChildDef.cs" />
     <Compile Include="Defs\BnCHediffDefOf.cs" />
     <Compile Include="Harmony\DressPatientsPatches.cs" />
     <Compile Include="Harmony\DubsBadHygienePatches.cs" />

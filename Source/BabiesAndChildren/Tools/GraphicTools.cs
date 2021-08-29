@@ -28,6 +28,15 @@ namespace BabiesAndChildren
                     graphics.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/Children/Bodies/Newborn", ShaderDatabase.CutoutSkin, Vector2.one, PawnGraphicSet.RottingColorDefault);
                     graphics.headGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/null", ShaderDatabase.Cutout, Vector2.one, Color.white);
                     graphics.hairGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/null", ShaderDatabase.Cutout, Vector2.one, Color.white);
+                    if (!RaceUtility.IsHuman(graphics.pawn))
+                    {
+                        AlienChildDef childDef = DefDatabase<AlienChildDef>.GetNamed(graphics.pawn.def.defName, false);
+                        if (childDef != null)
+                        {
+                            graphics.nakedGraphic = GraphicDatabase.Get<Graphic_Single>(childDef.babyGraphic, ShaderDatabase.CutoutSkin, Vector2.one, graphics.pawn.story.SkinColor);
+                            graphics.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>(childDef.babyGraphic, ShaderDatabase.CutoutSkin, Vector2.one, PawnGraphicSet.RottingColorDefault);
+                        }
+                    }
                 }
 
                 // The pawn is a toddler
@@ -41,7 +50,16 @@ namespace BabiesAndChildren
                     graphics.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/Children/Bodies/Toddler" + upright, ShaderDatabase.CutoutSkin, Vector2.one, graphics.pawn.story.SkinColor);
                     graphics.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/Children/Bodies/Toddler" + upright, ShaderDatabase.CutoutSkin, Vector2.one, PawnGraphicSet.RottingColorDefault);
                     graphics.headGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/null", ShaderDatabase.Cutout, Vector2.one, Color.white);
-                    graphics.hairGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/null", ShaderDatabase.Cutout, Vector2.one, Color.white);                    
+                    graphics.hairGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/null", ShaderDatabase.Cutout, Vector2.one, Color.white);
+                    if (!RaceUtility.IsHuman(graphics.pawn))
+                    {
+                        AlienChildDef childDef = DefDatabase<AlienChildDef>.GetNamed(graphics.pawn.def.defName, false);
+                        if (childDef != null)
+                        {
+                            graphics.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(childDef.toddlerGraphic, ShaderDatabase.CutoutSkin, Vector2.one, graphics.pawn.story.SkinColor);
+                            graphics.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>(childDef.toddlerGraphic, ShaderDatabase.CutoutSkin, Vector2.one, PawnGraphicSet.RottingColorDefault);
+                        }
+                    }
                 }
                 // The pawn is a child
                 else if (AgeStages.IsAgeStage(graphics.pawn, AgeStages.Child))
@@ -88,22 +106,7 @@ namespace BabiesAndChildren
                 // Babies and toddlers get drawn further down along the bed
                 if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Child))
                 {
-                    Vector3 vector = new Vector3(0, 0, 0.35f).RotatedBy(bed.Rotation);                    
-                    if (bed.Rotation == Rot4.East)
-                    {
-                        newPos.z -= 0.2f;
-                        newPos.x -= 0.2f;
-                    }
-                    if (bed.Rotation == Rot4.West)
-                    {
-                        newPos.z -= 0.2f;
-                        newPos.x += 0.2f;
-                    }
-                    if (bed.Rotation == Rot4.North)
-                    {
-                        newPos.z -= 0.2f;
-                    }
-                    newPos -= vector;
+                    newPos.z += 0.2f;
                     // ... as do children, but to a lesser extent
                 }
                 else if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsAgeStage(pawn, AgeStages.Child))
