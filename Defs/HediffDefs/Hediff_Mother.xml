@@ -40,8 +40,8 @@
       <!-- Disappears after two quadrams -->
       <li Class="HediffCompProperties_Disappears">
         <disappearsAfterTicks>
-          <min>1800000</min>
-          <max>2000000</max>
+          <min>3600000</min>
+          <max>3800000</max>
         </disappearsAfterTicks>
       </li>
     </comps>
