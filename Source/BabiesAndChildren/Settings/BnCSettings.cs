@@ -47,6 +47,8 @@ namespace BabiesAndChildren
         public static bool enable_postpartum = true;
         public static float cryVolume = 0.8f;
         public static float STILLBORN_CHANCE = 0.09f;
+        public static bool patchhumans = true;
+        public static bool playtime_enabled = true;
 
         public static bool debug_and_gsetting = false;
         public static bool child_cute_act_enabled = true;
@@ -175,6 +177,14 @@ namespace BabiesAndChildren
                 teenager_accelerated_growth = (int)listingStandard.Slider(teenager_accelerated_growth, 1, MAX_ACCELERATED_GROWTH_FACTOR);
             }
 
+            listingStandard.Gap(5f);
+
+            //Patch humans
+            listingStandard.CheckboxLabeled("Enable human children to be spawned", ref patchhumans, "RESTART REQUIRED.\nIf enabled you will see human children in raids, quests, empire reinforcements etc.\nRESTART REQUIRED.");
+
+            listingStandard.Gap(5f);
+
+            listingStandard.CheckboxLabeled("Enable children playing interaction", ref playtime_enabled, "Enable children playing together.");
             //Children drop weapons
             listingStandard.CheckboxLabeled("OptionChildrenDropWeapons".Translate(), ref OptionChildrenDropWeapons, "OptionChildrenDropWeaponsDesc".Translate());
             if (OptionChildrenDropWeapons)
@@ -250,6 +260,8 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref GestationPeriodDays_Enable, "GestationPeriodDays_Enable");
             Scribe_Values.Look(ref GestationPeriodDays, "GestationPeriodDays");
             Scribe_Values.Look(ref enable_postpartum, "enable_postpartum");
+            Scribe_Values.Look(ref patchhumans, "patchhumans");
+            Scribe_Values.Look(ref playtime_enabled, "playtime_enabled");
             Scribe_Values.Look(ref cryVolume, "cryVolume");
 
             Scribe_Values.Look(ref debug_and_gsetting, "debug_and_gsetting");
@@ -287,6 +299,8 @@ namespace BabiesAndChildren
             GestationPeriodDays_Enable = false;
             GestationPeriodDays = 45f;
             enable_postpartum = true;
+            patchhumans = true;
+            playtime_enabled = true;
             cryVolume = 0.8f;
             debug_and_gsetting = false;
             child_cute_act_enabled = true;

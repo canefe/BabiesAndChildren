@@ -92,6 +92,7 @@
     <Compile Include="Components\Growing_Comp.cs" />
     <Compile Include="Defs\AgeStageExtensions.cs" />
     <Compile Include="Defs\AlienChildDef.cs" />
+    <Compile Include="Defs\BnCDutyDefOf.cs" />
     <Compile Include="Defs\BnCHediffDefOf.cs" />
     <Compile Include="Harmony\DressPatientsPatches.cs" />
     <Compile Include="Harmony\DubsBadHygienePatches.cs" />
@@ -110,8 +111,12 @@
     <Compile Include="Initializer.cs" />
     <Compile Include="Jobs\JobDriver_FeedBaby.cs" />
     <Compile Include="Jobs\JobDriver_BabyNuzzle.cs" />
+    <Compile Include="Jobs\JobDriver_PlayAround.cs" />
     <Compile Include="Jobs\JobDriver_PlayWithBaby.cs" />
     <Compile Include="Defs\BnCTraitDefOf.cs" />
+    <Compile Include="Jobs\JobGiver_PlayTime.cs" />
+    <Compile Include="Jobs\LordJob_PlayTime.cs" />
+    <Compile Include="Jobs\LordToil_PlayTime.cs" />
     <Compile Include="Jobs\WorkGiver_TakeBabyToCrib.cs" />
     <Compile Include="Jobs\WorkGiver_TakeBabyToBedAndFeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

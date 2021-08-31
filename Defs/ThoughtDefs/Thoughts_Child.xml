@@ -101,6 +101,22 @@
 </ThoughtDef>
 
 <ThoughtDef>
+  <defName>ChildGames</defName>
+  <thoughtClass>Thought_MemorySocialCumulative</thoughtClass>
+  <stackLimit>300</stackLimit>
+  <maxCumulatedOpinionOffset>10</maxCumulatedOpinionOffset>
+  <nullifyingTraits>
+    <li>Psychopath</li>
+  </nullifyingTraits>
+  <stages>
+    <li>
+      <label>played together</label>
+      <baseOpinionOffset>0.66</baseOpinionOffset>
+    </li>
+  </stages>
+</ThoughtDef>
+
+<ThoughtDef>
   <defName>JustBorn</defName>
   <durationDays>7</durationDays>
   <stackLimit>1</stackLimit>

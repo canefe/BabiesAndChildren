@@ -45,5 +45,11 @@
 	<joyGainRate>1</joyGainRate>
 	<joyKind>Social</joyKind>
   </JobDef>
-  
+
+  <JobDef>
+    <defName>PlayAround</defName>
+    <driverClass>BabiesAndChildren.JobDriver_PlayAround</driverClass>
+    <reportString>playing.</reportString>
+  </JobDef>
+
 </Defs>

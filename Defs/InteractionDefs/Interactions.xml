@@ -58,5 +58,18 @@
       </rulesStrings>
     </logRulesInitiator>
   </InteractionDef>
-  
+
+
+  <InteractionDef>
+    <defName>PlayTime</defName>
+    <label>play</label>
+    <workerClass>BabiesAndChildren.InteractionWorker_PlayTime</workerClass>
+    <symbol>Things/Mote/SpeechSymbols/KindWords</symbol>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] asked [RECIPIENT_nameDef] to play with [INITIATOR_objective].</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+
 </Defs>

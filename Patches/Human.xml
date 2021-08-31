@@ -22,35 +22,37 @@
     </value>
   </Operation>
   
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName = "Human"]/race/ageGenerationCurve/points</xpath>
-    <value>
-      <points>
-        <li>(5,0)</li>
-        <li>(6,10)</li>
-        <li>(7,20)</li>
-        <li>(8,40)</li>
-        <li>(14,90)</li>
-        <li>(16,100)</li>
-        <li>(50,100)</li>
-        <li>(60,30)</li>
-        <li>(70,18)</li>
-        <li>(80,10)</li>
-        <li>(90,3)</li>
-        <li>(100,0)</li>
-      </points>
-    </value>
-  </Operation>
-  
-  <!-- No children for pirates -->
-  <Operation Class="PatchOperationSequence">
-    <success>Always</success>
+  <Operation Class="BabiesAndChildren.HumanPatchConditional">
     <operations>
-      <li Class="PatchOperationAdd">
-        <xpath>Defs/PawnKindDef[@Name="MercenaryBase" or @Name="PirateBase"]</xpath>
-        <value>
-          <minGenerationAge>8</minGenerationAge>
-        </value>
+      <li Class="PatchOperationSequence">
+        <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName = "Human"]/race/ageGenerationCurve/points</xpath>
+          <value>
+            <points>
+              <li>(5,0)</li>
+              <li>(6,10)</li>
+              <li>(7,20)</li>
+              <li>(8,40)</li>
+              <li>(14,90)</li>
+              <li>(16,100)</li>
+              <li>(50,100)</li>
+              <li>(60,30)</li>
+              <li>(70,18)</li>
+              <li>(80,10)</li>
+              <li>(90,3)</li>
+              <li>(100,0)</li>
+            </points>
+          </value>
+        </li>
+      
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/PawnKindDef[@Name="MercenaryBase" or @Name="PirateBase"]</xpath>
+          <value>
+            <minGenerationAge>8</minGenerationAge>
+          </value>
+        </li>
+      </operations>
       </li>
     </operations>
   </Operation>
