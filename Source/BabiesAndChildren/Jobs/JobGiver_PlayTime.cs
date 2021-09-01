@@ -138,7 +138,6 @@ namespace BabiesAndChildren
 	{
 		public override float RandomSelectionWeight(Pawn initiator, Pawn recipient)
 		{
-			bool flag = !GatheringsUtility.ShouldGuestKeepAttendingGathering(initiator) || !GatheringsUtility.ShouldGuestKeepAttendingGathering(recipient);
 			
 			if (!BnCSettings.playtime_enabled)
             {
@@ -168,21 +167,21 @@ namespace BabiesAndChildren
 			bool flag9 = initiator.GetTimeAssignment() == TimeAssignmentDefOf.Anything;
 			if (flag9)
 			{
-				num3 = 0.33f;
+				num3 = 1.1f;
 			}
 			else
 			{
 				bool flag10 = initiator.GetTimeAssignment() == TimeAssignmentDefOf.Joy;
 				if (flag10)
 				{
-					num3 = 1f;
+					num3 = 1.4f;
 				}
 			}
 			if (initiator.mindState.IsIdle && recipient.mindState.IsIdle && initiator.GetTimeAssignment() != TimeAssignmentDefOf.Work && recipient.GetTimeAssignment() != TimeAssignmentDefOf.Work)
 			{
-				num3 = 5f;
+				num3 = 2f;
 			}
-			return 0.1f * num3;
+			return 0.5f * num3;
 		}
 
 		public override void Interacted(Pawn initiator, Pawn recipient, List<RulePackDef> extraSentencePacks, out string letterText, out string letterLabel, out LetterDef letterDef, out LookTargets lookTargets)

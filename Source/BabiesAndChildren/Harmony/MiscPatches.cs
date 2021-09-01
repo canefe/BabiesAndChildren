@@ -294,4 +294,42 @@ namespace BabiesAndChildren.Harmony
         }
 
     }
+
+    [HarmonyPatch(typeof(InteractionUtility), "CanInitiateInteraction")]
+    internal static class Pawn_InteractionUtility_CanInitiateInteraction_Patch
+    {
+        [HarmonyPostfix]
+        static void Postfix(Pawn pawn, InteractionDef interactionDef, ref bool __result)
+        {
+            if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsAgeStage(pawn, AgeStages.Toddler))
+            {
+                if (interactionDef != null && interactionDef.defName == "PlayTime")
+                {
+                    __result = true;
+                }
+                else
+                {
+                    __result = true;
+                }
+                if (interactionDef != null && interactionDef.defName != "PlayTime")
+                {
+                    __result = false;
+                }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(PawnUtility), "IsInteractionBlocked")]
+    internal static class Pawn_PawnUtility_IsInteractionBlocked_Patch
+    {
+        [HarmonyPostfix]
+        static void Postfix(Pawn pawn, InteractionDef interaction, ref bool __result)
+        {
+            if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsAgeStage(pawn, AgeStages.Toddler))
+            {
+                __result = false;
+            }
+        }
+    }
+
 }

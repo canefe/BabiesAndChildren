@@ -1,5 +1,7 @@
 using System;
 using BabiesAndChildren.api;
+using BabiesAndChildren.Tools;
+using RimWorld.BaseGen;
 using UnityEngine;
 using Verse;
 
@@ -113,6 +115,13 @@ namespace BabiesAndChildren
         {
             ThingComp comp = ChildrenUtility.GetCompByClassName(thing, "FacialAnimation.DrawFaceGraphicsComp");
             return comp != null && thing.AllComps.Remove(comp);
+        }
+
+        public static bool ShouldHideHair(Pawn pawn)
+        {
+            if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Child)) return true;
+
+            return false;
         }
         
     }

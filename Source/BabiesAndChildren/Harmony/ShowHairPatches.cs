@@ -49,8 +49,7 @@ namespace BabiesAndChildren.Harmony
 			var instructionsToInsert = new List<CodeInstruction>();
 			CodeInstruction loadPawn = CodeInstruction.LoadField(showHairType, "pawn");
 			instructionsToInsert.Add(loadPawn);
-			instructionsToInsert.Add(new CodeInstruction(OpCodes.Ldc_I4, 2));
-			instructionsToInsert.Add(new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(AgeStages), "IsYoungerThan")));
+			instructionsToInsert.Add(new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(ModTools), "ShouldHideHair")));
 			instructionsToInsert.Add(new CodeInstruction(OpCodes.Stloc_0));
 			instructionsToInsert.Add(new CodeInstruction(OpCodes.Ldloc_0));
 			instructionsToInsert.Add(new CodeInstruction(OpCodes.Brfalse_S, return566Label));
