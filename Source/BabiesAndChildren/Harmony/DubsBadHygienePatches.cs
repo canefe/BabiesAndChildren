@@ -61,7 +61,8 @@ namespace BabiesAndChildren.Harmony
             {
                 __result = false;
             }
-            if (AgeStages.IsAgeStage(pawn2, AgeStages.Toddler) && pawn2.needs.TryGetNeed(DefDatabase<NeedDef>.GetNamed("Hygiene")).CurLevel < 0.3f && pawn.CanReserve(pawn2, 1, -1, null, false))
+            
+            if (RaceUtility.PawnUsesChildren(pawn2) && AgeStages.IsAgeStage(pawn2, AgeStages.Toddler) && pawn2.needs.TryGetNeed(DefDatabase<NeedDef>.GetNamed("Hygiene")) != null && pawn2.needs.TryGetNeed(DefDatabase<NeedDef>.GetNamed("Hygiene")).CurLevel < 0.3f && pawn.CanReserve(pawn2, 1, -1, null, false))
             {
                 __result = true;
             }
