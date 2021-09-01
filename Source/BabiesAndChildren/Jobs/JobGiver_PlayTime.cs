@@ -144,14 +144,22 @@ namespace BabiesAndChildren
             {
 				return 0f;
             }
+			if (!RaceUtility.PawnUsesChildren(initiator) || !RaceUtility.PawnUsesChildren(recipient))
+            {
+				return 0f;
+            }
 			if (initiator.IsSlave || recipient.IsSlave) // since they cant gain joy
             {
 				return 0f;
             }
-			if (!AgeStages.IsAgeStage(recipient, AgeStages.Child) || !AgeStages.IsAgeStage(initiator, AgeStages.Child))
+			if (!AgeStages.IsYoungerThan(recipient, AgeStages.Teenager) || !AgeStages.IsYoungerThan(initiator, AgeStages.Teenager))
             {
 				return 0f;
             }
+			if (AgeStages.IsAgeStage(recipient, AgeStages.Baby) || AgeStages.IsAgeStage(recipient, AgeStages.Baby))
+			{
+				return 0f;
+			}
 			if (initiator.GetLord() != null || recipient.GetLord() != null)
 			{
 				return 0f;
