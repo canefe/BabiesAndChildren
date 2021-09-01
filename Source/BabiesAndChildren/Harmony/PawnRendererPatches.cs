@@ -215,7 +215,7 @@ namespace BabiesAndChildren.Harmony
             }
             if (ChildrenBase.ModFacialAnimation_ON)
             {
-                __result += GraphicTools.ModifyChildYPosOffset(Vector3.zero, ___pawn);
+                __result += GraphicTools.ModifyChildYPosOffset(Vector3.zero, ___pawn, true);
             }
         }
     }

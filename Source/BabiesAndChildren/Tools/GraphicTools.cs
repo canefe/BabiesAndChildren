@@ -89,7 +89,7 @@ namespace BabiesAndChildren
             return graphic;
         }
 
-        public static Vector3 ModifyChildYPosOffset(Vector3 pos, Pawn pawn)
+        public static Vector3 ModifyChildYPosOffset(Vector3 pos, Pawn pawn, bool forHead = false)
         {
             Vector3 newPos = pos;
 
@@ -100,7 +100,7 @@ namespace BabiesAndChildren
                 else newPos.z += BnCSettings.AlienrootlocZ;
                 //newPos.z -= 0.15f;            
             }
-            if (pawn.InBed() && pawn.CurrentBed().def.size.z == 1)
+            if (pawn.InBed() && pawn.CurrentBed().def.size.z == 1 && AgeStages.IsYoungerThan(pawn, AgeStages.Child))
             {
                 Building_Bed bed = pawn.CurrentBed();
                 // Babies and toddlers get drawn further down along the bed
@@ -109,17 +109,12 @@ namespace BabiesAndChildren
                     newPos.z += 0.2f;
                     // ... as do children, but to a lesser extent
                 }
-                else if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsAgeStage(pawn, AgeStages.Child))
-                {
-                    if (RaceUtility.IsHuman(pawn)) newPos.z += BnCSettings.HumanrootlocZ;
-                    else newPos.z += BnCSettings.AlienrootlocZ;
-                    // Are we in a crib?
-                    Vector3 vector = new Vector3(0, 0, 0.2f).RotatedBy(bed.Rotation.AsAngle);
-                    
-                    newPos -= vector;
-                }
                 newPos += new Vector3(0, 0, 0.2f);
 
+            }else if(pawn.InBed() && pawn.CurrentBed().def.size.z == 1 && AgeStages.IsAgeStage(pawn, AgeStages.Child))
+            {
+                if (forHead) newPos.z -= 0.1f;
+                else newPos.z += 0.2f;
             }
             return newPos;
         }
