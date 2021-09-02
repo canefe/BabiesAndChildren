@@ -69,7 +69,7 @@ namespace BabiesAndChildren.api
             {
                 ageStages = AgeStages.AllChildAgeStages;
             }
-            thoughtBlacklist.Add(thoughtDef, new HashSet<int> {1, 2});
+            thoughtBlacklist.Add(thoughtDef, new HashSet<int> {});
             thoughtBlacklist[thoughtDef].UnionWith(ageStages);
             return true;
 
