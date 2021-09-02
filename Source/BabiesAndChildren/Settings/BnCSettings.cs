@@ -260,8 +260,8 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref GestationPeriodDays_Enable, "GestationPeriodDays_Enable");
             Scribe_Values.Look(ref GestationPeriodDays, "GestationPeriodDays");
             Scribe_Values.Look(ref enable_postpartum, "enable_postpartum");
-            Scribe_Values.Look(ref patchhumans, "patchhumans");
-            Scribe_Values.Look(ref playtime_enabled, "playtime_enabled");
+            Scribe_Values.Look(ref patchhumans, "patchhumans", true);
+            Scribe_Values.Look(ref playtime_enabled, "playtime_enabled", true);
             Scribe_Values.Look(ref cryVolume, "cryVolume");
 
             Scribe_Values.Look(ref debug_and_gsetting, "debug_and_gsetting");
