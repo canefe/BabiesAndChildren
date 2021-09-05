@@ -107,6 +107,16 @@ namespace BabiesAndChildren
                 if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Child))
                 {
                     newPos.z += 0.2f;
+                    if (!GlobalTextureAtlasManager.TryMarkPawnFrameSetDirty(pawn))
+                    {
+                        if ((bed.Rotation == Rot4.East) || (bed.Rotation == Rot4.West))
+                        {
+                            newPos.z -= 0.35f;
+                            newPos.x = (bed.Rotation == Rot4.East ? newPos.x - 0.35f : newPos.x + 0.35f);
+                        }
+                        if (bed.Rotation == Rot4.North)
+                            newPos.z -= 0.8f;
+                    }
                     // ... as do children, but to a lesser extent
                 }
                 newPos += new Vector3(0, 0, 0.2f);
