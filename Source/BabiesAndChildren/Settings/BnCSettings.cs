@@ -263,6 +263,7 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref patchhumans, "patchhumans", true);
             Scribe_Values.Look(ref playtime_enabled, "playtime_enabled", true);
             Scribe_Values.Look(ref cryVolume, "cryVolume");
+            Scribe_Values.Look(ref STILLBORN_CHANCE, "STILLBORN_CHANCE", 0.09f);
 
             Scribe_Values.Look(ref debug_and_gsetting, "debug_and_gsetting");
             Scribe_Values.Look(ref child_cute_act_enabled, "child_cute_act_enabled");
@@ -302,6 +303,7 @@ namespace BabiesAndChildren
             patchhumans = true;
             playtime_enabled = true;
             cryVolume = 0.8f;
+            STILLBORN_CHANCE = 0.09f;
             debug_and_gsetting = false;
             child_cute_act_enabled = true;
             human_like_head_enabled = false;
