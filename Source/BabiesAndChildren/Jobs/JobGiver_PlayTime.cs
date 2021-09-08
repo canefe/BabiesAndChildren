@@ -151,6 +151,10 @@ namespace BabiesAndChildren
             {
 				return 0f;
             }
+			if (initiator.IsPrisoner || recipient.IsPrisoner) // since they cant gain joy
+			{
+				return 0f;
+			}
 			if (!AgeStages.IsYoungerThan(recipient, AgeStages.Teenager) || !AgeStages.IsYoungerThan(initiator, AgeStages.Teenager))
             {
 				return 0f;
