@@ -128,7 +128,63 @@ namespace BabiesAndChildren
             }
             return newPos;
         }
+        public static float GetAgeFactor(Pawn pawn)
+        {
+            float num = 1f;
+            float num2 = 1f;
+            Pawn_AgeTracker ageTracker = pawn.ageTracker;
 
+            float RoundFloat(float x) => (float)Math.Round((double)x, 2);
+
+            try
+            {
+                int curLifeStageIndex = AgeStages.GetAgeStage(pawn);
+                int lastLifeStageIndex = pawn.RaceProps.lifeStageAges.Count - 1;
+
+                LifeStageAge curLifeStageAge = LifeStageUtility.GetLifeStageAge(pawn, curLifeStageIndex);
+                float curBodySizeFactor = curLifeStageAge.def.bodySizeFactor;
+                float currLifeStageProgression = ageTracker.AgeBiologicalYearsFloat - curLifeStageAge.minAge;
+
+                num = curBodySizeFactor;
+
+                //at the last lifestage and the last lifestage is not the first
+                if ((lastLifeStageIndex == curLifeStageIndex) && (curLifeStageIndex != 0) && (curBodySizeFactor != 1f))
+                {
+                    LifeStageAge prevLifeStageAge = LifeStageUtility.GetPreviousLifeStageAge(pawn);
+                    float prevBodySizeFactor = prevLifeStageAge.def.bodySizeFactor;
+                    float prevLifeStageDuration = curLifeStageAge.minAge - prevLifeStageAge.minAge;
+
+                    num = prevBodySizeFactor + RoundFloat(
+                        (curBodySizeFactor - prevBodySizeFactor) /
+                        (curLifeStageAge.minAge - prevLifeStageAge.minAge) *
+                        (currLifeStageProgression + prevLifeStageDuration));
+                }
+                else if (pawn.RaceProps.lifeStageAges.Count <= 1)
+                {
+                    num = pawn.RaceProps.baseBodySize;
+                }
+                else
+                {
+                    LifeStageAge nextLifeStageAge = LifeStageUtility.GetNextLifeStageAge(pawn);
+                    float nextBodySizeFactor = nextLifeStageAge.def.bodySizeFactor;
+                    float currLifeStageDuration = nextLifeStageAge.minAge - curLifeStageAge.minAge;
+
+                    num = curLifeStageAge.def.bodySizeFactor + RoundFloat((nextBodySizeFactor - curBodySizeFactor) /
+                        currLifeStageDuration * currLifeStageProgression);
+                }
+                if (pawn.RaceProps.baseBodySize > 0f)
+                {
+                    num2 = pawn.RaceProps.baseBodySize;
+                }
+            }
+            catch
+            {
+                // Ignored
+            }
+
+            return num * num2 * 1.5f;
+
+        }
         public static float GetBodySizeScaling(Pawn pawn)
         {
             float num = 1f;

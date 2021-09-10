@@ -207,6 +207,11 @@ namespace BabiesAndChildren.Harmony
                 num2 = 1.4f;
                 num3 = 1.4f;
             }
+            if (pawn.def.defName == "Alien_Cutebold")
+            {
+                num2 = 1.2f;
+                num3 = 1.2f;
+            }
             __result.z *= bodySizeFactor * num2;
             __result.x *= bodySizeFactor * num3;
             if (RaceUtility.IsHuman(pawn))

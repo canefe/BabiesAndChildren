@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using BabiesAndChildren.api;
 using BabiesAndChildren.Tools;
 using UnityEngine;
@@ -392,28 +393,8 @@ namespace BabiesAndChildren
             //Age factor only relevant for children and teens
             if (!RaceUtility.PawnUsesChildren(pawn) || AgeStages.IsYoungerThan(pawn, AgeStages.Child) || AgeStages.IsOlderThan(pawn, AgeStages.Teenager))
                 return 1f; 
-            
-            
-            float agechild = LifeStageUtility.GetLifeStageAge(pawn, AgeStages.Child).minAge;
-            float ageteen = LifeStageUtility.GetLifeStageAge(pawn, AgeStages.Teenager).minAge;
 
-            float childLifeStageDuration = ageteen - agechild;
-            
-            float now = pawn.ageTracker.AgeBiologicalYearsFloat + 0.1f; // prevent 0 + 0.1f
-
-            float yearsSinceToddler = now - agechild;
-
-            const float offset = 0.8f;
-            const float scalar = 0.3f;
-            
-            //x = yearsSinceToddler / childLifeStageDuration
-            //0 < x < 2
-            //* scalar -> 0 < x < 0.6
-            //+ offset -> 0.8 < x < 1.4
-            
-            float agefac = offset + scalar * yearsSinceToddler / childLifeStageDuration;
-            
-            return agefac;
+            return GraphicTools.GetAgeFactor(pawn);
         }
 
         /// <summary>

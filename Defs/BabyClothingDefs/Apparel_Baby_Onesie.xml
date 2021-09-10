@@ -30,7 +30,7 @@
       <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
       <Insulation_Cold>20</Insulation_Cold>
-      <Insulation_Heat>-2</Insulation_Heat>
+      <Insulation_Heat>10</Insulation_Heat>
     </statBases>
     <thingCategories>
       <li>Apparel</li>
@@ -103,7 +103,7 @@
       <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
       <Insulation_Cold>20</Insulation_Cold>
-      <Insulation_Heat>-2</Insulation_Heat>
+      <Insulation_Heat>10</Insulation_Heat>
     </statBases>
     <thingCategories>
       <li>Apparel</li>

@@ -12,7 +12,12 @@ namespace BabiesAndChildren.api
 
         public static bool IsBlacklisted(ThingDef thing)
         {
-            return raceBlacklist.Contains(thing);
+            AlienChildDef childDef = DefDatabase<AlienChildDef>.GetNamed(thing.defName, false);
+            if (childDef != null && childDef.disabled)
+            {
+                return true;
+            }
+                return raceBlacklist.Contains(thing);
         }
 
         public static bool Blacklist(ThingDef thing)
