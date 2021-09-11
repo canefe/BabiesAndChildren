@@ -238,6 +238,10 @@ namespace BabiesAndChildren
             {
                 // Ignored
             }
+            if(AgeStages.IsAgeStage(pawn, AgeStages.Adult))
+            {
+                return 1f;
+            }
             if (RaceUtility.IsHuman(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Adult)) {
                 num = num * BnCSettings.HumanHeadSize;
             }
