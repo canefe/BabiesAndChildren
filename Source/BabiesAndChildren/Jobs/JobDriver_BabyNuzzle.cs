@@ -114,7 +114,7 @@ namespace BabiesAndChildren
             {
                 recipient.needs.mood.thoughts.memories.TryGainMemory(recipentThought, null);
             }
-            if (initiator.needs.mood != null)
+            if (initiator.needs.mood != null && !initiator.IsSlave)
             {
                 initiator.needs.mood.thoughts.memories.TryGainMemory(initiatorThought, null);
                 initiator.needs.joy.GainJoy(3.5E-05f * JoyAmount, JoyKindDefOf.Social);
