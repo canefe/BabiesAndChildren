@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Reflection.Emit;
 using BabiesAndChildren.api;
 using BabiesAndChildren.Tools;
@@ -23,6 +24,8 @@ namespace BabiesAndChildren.Harmony
             harmony.Patch(AccessTools.Method(typeof(PawnRenderer), name: "RenderPawnInternal",
                                              new[] { typeof(Vector3), typeof(float), typeof(bool), typeof(Rot4), typeof(RotDrawMode), typeof(PawnRenderFlags) }), transpiler:
                           new HarmonyMethod(typeof(ChildrenSizePatch), nameof(RenderPawnInternalTranspiler)));
+            harmony.Patch(AccessTools.GetDeclaredMethods(typeof(PawnRenderer)).First(mi => mi.HasAttribute<CompilerGeneratedAttribute>() && mi.Name.Contains("DrawHeadHair")), transpiler:
+              new HarmonyMethod(typeof(ChildrenSizePatch), nameof(DrawHeadHairApparelTranspiler)));
         }
 
         public static IEnumerable<CodeInstruction> DrawHeadHairTranspiler(IEnumerable<CodeInstruction> instructions)
@@ -42,6 +45,35 @@ namespace BabiesAndChildren.Harmony
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
                     yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(PawnRenderer), name: "pawn"));
                     yield return new CodeInstruction(OpCodes.Ldarg_S, operand: 5); //headfacing
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(PawnRenderer), nameof(PawnRenderer.graphics)));
+                    instruction = new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ChildrenSizePatch), nameof(PawnRenderer_DrawHairHead_Patch)));
+                    i += 5;
+                }
+
+                yield return instruction;
+            }
+        }
+
+        public static IEnumerable<CodeInstruction> DrawHeadHairApparelTranspiler(IEnumerable<CodeInstruction> instructions)
+        {
+            MethodInfo hairInfo = AccessTools.Property(typeof(PawnGraphicSet), nameof(PawnGraphicSet.HairMeshSet)).GetGetMethod();
+
+            List<CodeInstruction> instructionList = instructions.ToList();
+
+            for (int i = 0; i < instructionList.Count; i++)
+            {
+                CodeInstruction instruction = instructionList[i];
+
+                if (i + 4 < instructionList.Count && instructionList[i + 2].OperandIs(hairInfo))
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_2) { labels = instruction.ExtractLabels() };                                               // displayclass
+                    yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(PawnRenderer).GetNestedTypes(AccessTools.all)[0], "flags")); // renderFlags
+
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(PawnRenderer), name: "pawn"));
+                    yield return new CodeInstruction(OpCodes.Ldarg_2);                                                                                         // displayclass
+                    yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(PawnRenderer).GetNestedTypes(AccessTools.all)[0], "headFacing")); // headFacing
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
                     yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(PawnRenderer), nameof(PawnRenderer.graphics)));
                     instruction = new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ChildrenSizePatch), nameof(PawnRenderer_DrawHairHead_Patch)));

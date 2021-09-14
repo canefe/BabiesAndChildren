@@ -6,6 +6,7 @@
     <hediffClass>BabiesAndChildren.Hediff_ChildhoodStages</hediffClass>
     <label>child is growing</label>
     <initialSeverity>0.1</initialSeverity>
+    <everCurableByItem>false</everCurableByItem>
     <stages>
       <li>
         <label>baby</label>
