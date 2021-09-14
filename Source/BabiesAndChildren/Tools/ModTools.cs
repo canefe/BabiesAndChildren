@@ -71,20 +71,19 @@ namespace BabiesAndChildren
 
             float Maxsize = getMaxRJWHediffSeverity(pawn);
 
-            
             Hediff anusHediff = Tools.HealthUtility.GetHediffNamed(pawn, "anus");
             if (anusHediff != null)
             {
                 float newSize = Rand.Range(0.01f, Maxsize);
                 float oldSize = anusHediff.Severity;
-                anusHediff.Severity = Is_SizeInit ? newSize : Math.Max(oldSize, newSize);
+                anusHediff.Severity = (Is_SizeInit && !AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) ? newSize : (!AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? Math.Max(oldSize, newSize) : (Is_SizeInit ? oldSize : Math.Max(oldSize, newSize)));
             }
             Hediff penisHediff = Tools.HealthUtility.GetHediffNamed(pawn, "penis");
             if (penisHediff != null)
             {
                 float newSize = Rand.Range(0.01f, Maxsize);
                 float oldSize = penisHediff.Severity;
-                penisHediff.Severity = Is_SizeInit ? newSize : Math.Max(newSize, oldSize);
+                penisHediff.Severity = (Is_SizeInit && !AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) ? newSize : (!AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? Math.Max(oldSize, newSize) : (Is_SizeInit ? oldSize : Math.Max(oldSize, newSize)));
             }
 
             Hediff vaginaHediff = Tools.HealthUtility.GetHediffNamed(pawn, "vagina");
@@ -93,7 +92,7 @@ namespace BabiesAndChildren
                 float maxVaginaSize = Math.Max(0.35f, Maxsize);
                 float newSize = Rand.Range(0.02f, maxVaginaSize);
                 float oldSize = vaginaHediff.Severity;
-                vaginaHediff.Severity = Is_SizeInit ? newSize : Math.Max(newSize, oldSize);
+                vaginaHediff.Severity = (Is_SizeInit && !AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) ? newSize : (!AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? Math.Max(oldSize, newSize) : (Is_SizeInit ? oldSize : Math.Max(oldSize, newSize)));
             }
 
             Hediff breastsHediff = Tools.HealthUtility.GetHediffNamed(pawn, "breasts");
@@ -106,8 +105,8 @@ namespace BabiesAndChildren
                 }
                 float newSize = Rand.Range(0.01f, maxBreastsSize);
                 float oldSize = breastsHediff.Severity;
-                breastsHediff.Severity = Is_SizeInit ? newSize : Math.Max(oldSize, newSize);
-                
+                breastsHediff.Severity = (Is_SizeInit && !AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) ? newSize : (!AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? Math.Max(oldSize, newSize) : (Is_SizeInit ? oldSize : Math.Max(oldSize, newSize)));
+
             }
         }
 

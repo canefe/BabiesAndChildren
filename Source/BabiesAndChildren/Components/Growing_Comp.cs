@@ -66,6 +66,10 @@ namespace BabiesAndChildren
             {
                 GrowToStage(AgeStages.GetAgeStage(pawn));
             }
+            else
+            {
+                growthStage = AgeStages.GetAgeStage(pawn);
+            }
 
             initialized = true;
 
@@ -151,14 +155,13 @@ namespace BabiesAndChildren
             MathTools.Fixed_Rand rand = new MathTools.Fixed_Rand(pawn);
             StoryUtility.ChangeBodyType(pawn, rand);
 
-            bool initSize = false;
+            bool initSize = !initialized;
 
             ChildrenUtility.TryDropInvalidEquipmentAndApparel(pawn);
             //update bodytype and backstory
             switch (growthStage)
             {
                 case AgeStages.Baby: 
-                    initSize = true;
                     break;
                 case AgeStages.Child:
                     if (pawn.Faction != null && pawn.Faction.IsPlayer && initialized)
