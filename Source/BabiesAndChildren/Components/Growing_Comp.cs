@@ -204,6 +204,14 @@ namespace BabiesAndChildren
                 return;
             }
 
+            if (ageStage == AgeStages.Baby)
+            {
+                if (pawn.story.childhood != Childhood_Disabled)
+                {
+                    StoryUtility.ChangeChildhood(pawn);
+                }
+            }
+
             //ugly way to do upright toddlers... really should just have had another age stage instead of this bs.
             if (ageStage == AgeStages.Toddler)
             {
