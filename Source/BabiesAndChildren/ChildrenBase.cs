@@ -34,6 +34,8 @@ namespace BabiesAndChildren
         public static bool ModKVShowHair_ON;
         //Age Matters
         public static bool ModAgeMatters_ON;
+        //Medpod
+        public static bool ModMedpod_ON;
 
         private ChildrenBase()
         {
