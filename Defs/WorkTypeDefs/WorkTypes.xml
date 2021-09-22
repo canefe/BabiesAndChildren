@@ -18,4 +18,17 @@
     </workTags>
   </WorkTypeDef>
 
+  <WorkTypeDef>
+    <defName>BnC_Watch</defName>
+    <labelShort>Watch</labelShort>
+    <pawnLabel>Apprentice</pawnLabel>
+    <gerundLabel>Watching</gerundLabel>
+    <description>Watch others doing jobs and learn from them.</description>
+    <verb>Watch</verb>
+    <naturalPriority>50</naturalPriority>
+    <relevantSkills>
+      <li>Intellectual</li>
+    </relevantSkills>
+  </WorkTypeDef>
+
 </Defs>

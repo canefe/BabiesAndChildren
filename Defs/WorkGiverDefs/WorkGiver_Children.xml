@@ -68,4 +68,16 @@
 		</requiredCapacities>
 	</WorkGiverDef>
 
+	<WorkGiverDef>
+		<defName>BnC_WatchAdult</defName>
+		<label>watching</label>
+		<giverClass>BabiesAndChildren.WorkGiver_FollowLead</giverClass>
+		<workType>BnC_Watch</workType>
+		<verb>to watch</verb>
+		<gerund>watching</gerund>
+		<priorityInType>135</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
 </Defs>

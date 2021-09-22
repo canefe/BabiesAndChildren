@@ -96,6 +96,7 @@
     <Compile Include="Defs\BnCHediffDefOf.cs" />
     <Compile Include="Harmony\DressPatientsPatches.cs" />
     <Compile Include="Harmony\DubsBadHygienePatches.cs" />
+    <Compile Include="Harmony\MedPodPatches.cs" />
     <Compile Include="Harmony\ShowHairPatches.cs" />
     <Compile Include="Harmony\FacialAnimationPatches.cs" />
     <Compile Include="Harmony\JobGiverPatches.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="Initializer.cs" />
     <Compile Include="Jobs\JobDriver_FeedBaby.cs" />
     <Compile Include="Jobs\JobDriver_BabyNuzzle.cs" />
+    <Compile Include="Jobs\JobDriver_FollowLead.cs" />
     <Compile Include="Jobs\JobDriver_PlayAround.cs" />
     <Compile Include="Jobs\JobDriver_PlayWithBaby.cs" />
     <Compile Include="Defs\BnCTraitDefOf.cs" />

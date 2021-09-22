@@ -52,4 +52,9 @@
     <reportString>playing.</reportString>
   </JobDef>
 
+  <JobDef>
+    <defName>BnC_Watch</defName>
+    <driverClass>BabiesAndChildren.JobDriver_FollowLead</driverClass>
+    <reportString>watching TargetA.</reportString>
+  </JobDef>
 </Defs>

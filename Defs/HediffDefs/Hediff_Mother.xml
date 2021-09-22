@@ -45,6 +45,11 @@
         </disappearsAfterTicks>
       </li>
     </comps>
+    <stages>
+      <li>
+        <hungerRateFactorOffset>0.15</hungerRateFactorOffset>
+      </li>
+    </stages>
   </HediffDef>
 
 </Defs>
