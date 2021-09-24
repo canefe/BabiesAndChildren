@@ -1,5 +1,6 @@
 ﻿using BabiesAndChildren.api;
 using BabiesAndChildren.Tools;
+using System.Collections.Generic;
 using HugsLib;
 using RimWorld;
 using Verse;
@@ -52,6 +53,14 @@ namespace BabiesAndChildren
                 {
                     thingDef.comps.Add(new CompProperties_Growing());         
                 }
+
+                List<string> list = new List<string>();
+                bool flag13 = thingDef.inspectorTabsResolved == null;
+                if (flag13)
+                {
+                    thingDef.inspectorTabsResolved = new List<InspectTabBase>(1);
+                }
+                thingDef.inspectorTabsResolved.Add(InspectTabManager.GetSharedInstance(typeof(ITab_Pawn_Watch)));
             }
 
         }
@@ -88,6 +97,13 @@ namespace BabiesAndChildren
                         thingDef.race.gestationPeriodDays = BnCSettings.GestationPeriodDays;
                     }
                 }
+            }
+            if (!BnCSettings.watchworktype_enabled)
+            {
+                WatchCardUtility.RemoveWorkType(BnCWorkTypeDefOf.BnC_Watch, map);
+            }
+            else {
+                WatchCardUtility.RemoveWorkTypeAdult(BnCWorkTypeDefOf.BnC_Watch, map);
             }
         }
     }

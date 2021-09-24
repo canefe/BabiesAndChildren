@@ -209,8 +209,8 @@ namespace BabiesAndChildren.Harmony
         static void Postfix(ref Pawn pawn, ref bool __result)
         {
             if (pawn == null ||
-                !RaceUtility.PawnUsesChildren(pawn) ||
-                AgeStages.IsYoungerThan(pawn, AgeStages.Child))
+                (RaceUtility.PawnUsesChildren(pawn) &&
+                AgeStages.IsYoungerThan(pawn, AgeStages.Child)))
             {
                 __result = false;
             }

@@ -16,19 +16,33 @@ namespace BabiesAndChildren
 
         public override bool HasJobOnThing(Pawn pawn, Thing thing, bool forced = false)
         {
+            if (!BnCSettings.watchworktype_enabled)
+            {
+                return false;
+            }
             Pawn Mentor = (Pawn) thing;
-            if (Mentor == null || Mentor == pawn)
+            if (Mentor == null || Mentor == pawn || Mentor.NonHumanlikeOrWildMan())
             {
                 return false;
             }
 
-            if (!RaceUtility.PawnUsesChildren(pawn) || AgeStages.IsYoungerThan(pawn, AgeStages.Child) || AgeStages.IsOlderThan(pawn, AgeStages.Teenager))
+            if (!RaceUtility.PawnUsesChildren(pawn) || AgeStages.IsYoungerThan(pawn, AgeStages.Child) || AgeStages.IsOlderThan(pawn, AgeStages.Teenager) || AgeStages.IsYoungerThan(Mentor, AgeStages.Teenager))
             {
                 return false;
             }
 
             if (!Mentor.IsColonist || Mentor.mindState.IsIdle || Mentor.CurJob == null || Mentor.CurJob.bill == null)
             {
+                return false;
+            }
+
+            if (!(Mentor.CurJob.bill.recipe.workSkill == null) && pawn.skills.GetSkill(Mentor.CurJob.bill.recipe.workSkill).TotallyDisabled)
+            {
+                return false;
+            }
+
+            Pawn PMentor = pawn.TryGetComp<Growing_Comp>().mentor;
+            if (PMentor != null && pawn.TryGetComp<Growing_Comp>().onlyMentor && Mentor != PMentor) {
                 return false;
             }
 
@@ -49,7 +63,16 @@ namespace BabiesAndChildren
         {
             Pawn pawn2 = (Pawn) t;
             if (pawn2 == null) return null;
-            return new Job(DefDatabase<JobDef>.GetNamed("BnC_Watch"))
+            var comp = pawn.TryGetComp<Growing_Comp>();
+            if (comp != null && comp.mentor != null)
+            {
+                if (comp.mentor.CurJob != null && comp.mentor.CurJob.bill != null)
+                {
+                    pawn2 = comp.mentor;
+                }
+
+            }
+            return new Job(BnCJobDefOf.BnC_Watch)
             {
                 targetA = pawn2,
             };
@@ -75,8 +98,6 @@ namespace BabiesAndChildren
             
             this.FailOn(() => !Mentor.IsColonist || Mentor.mindState.IsIdle || Mentor.CurJob == null || Mentor.CurJob.bill == null);
 
-            var rangeCondition = new System.Func<Toil, bool>(RangeCondition);
-
             yield return Toils_Reserve.Reserve(TargetIndex.A, 3, 0, null);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.OnCell);
             yield return MakeWatchToil(Mentor);
@@ -88,6 +109,16 @@ namespace BabiesAndChildren
         protected Toil MakeWatchToil(Pawn friend)
         {
             var toil = new Toil();
+            SkillDef workSkill = null;
+            float mentorTotalTeachPower = 1f;
+            toil.initAction = delegate
+            {
+                if (Mentor.CurJob.bill.recipe.workSkill != null)
+                {
+                    workSkill = Mentor.CurJob.bill.recipe.workSkill;
+                    mentorTotalTeachPower = Mentor.skills.GetSkill(workSkill).Level + ((Mentor.skills.GetSkill(SkillDefOf.Social).Level + Mentor.skills.GetSkill(SkillDefOf.Intellectual).Level) * 0.5f);
+                }
+            };
             toil.tickAction = delegate
             {
                 var actor = toil.actor;
@@ -102,18 +133,26 @@ namespace BabiesAndChildren
                 else
                 {
                     actor.Rotation = friend.Rotation;
-                    if (Mentor.CurJob.bill.recipe.workSkill != null)
-                        actor.skills.Learn(Mentor.CurJob.bill.recipe.workSkill, 0.5f, false);
+                    if (workSkill != null)
+                    {
+                        // todo: make it better
+                        float xp = 1f;
+                        float mentorSkillModifier = Mentor.skills.GetSkill(Mentor.CurJob.bill.recipe.workSkill).Level / 100f;
+                        xp *= mentorSkillModifier;
+
+                        actor.skills.Learn(Mentor.CurJob.bill.recipe.workSkill, xp, false);
+                    }
+
                 }
             };
+            toil.AddFinishAction(delegate
+            {
+                
+                toil.actor.skills.Learn(workSkill, 10f * mentorTotalTeachPower, false);
+            });
             toil.defaultCompleteMode = ToilCompleteMode.Never;
             toil.handlingFacing = true;
             return toil;
-        }
-
-        private bool RangeCondition(Toil toil)
-        {
-            return toil.actor.Position.DistanceTo(Mentor.Position) > 3f;
         }
     }
 }

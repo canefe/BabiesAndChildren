@@ -90,6 +90,7 @@
     <Compile Include="api\Races.cs" />
     <Compile Include="api\Thoughts.cs" />
     <Compile Include="Components\Growing_Comp.cs" />
+    <Compile Include="Components\ITab_Pawn_Watch.cs" />
     <Compile Include="Defs\AgeStageExtensions.cs" />
     <Compile Include="Defs\AlienChildDef.cs" />
     <Compile Include="Defs\BnCDutyDefOf.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="Tools\ModTools.cs" />
     <Compile Include="Tools\RaceUtility.cs" />
     <Compile Include="Tools\Tweaks.cs" />
+    <Compile Include="Tools\WatchCardUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

@@ -91,7 +91,7 @@ namespace BabiesAndChildren
 										return null;
 									}
 								}
-								Job job2 = new Job(DefDatabase<JobDef>.GetNamed("PlayAround"), intVec);
+								Job job2 = new Job(BnCJobDefOf.PlayAround, intVec);
 								pawn.Map.pawnDestinationReservationManager.Reserve(pawn, job2, intVec);
 								result = job2;
 							}

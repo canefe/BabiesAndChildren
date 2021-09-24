@@ -27,6 +27,14 @@ namespace BabiesAndChildren
         /// Whether or not comp has been initialized 
         /// </summary>
         private bool initialized;
+
+        /// <summary>
+        /// Watch worktype settings
+        /// *Mentor pawn
+        /// *onlyMentor
+        /// </summary>
+        public Pawn mentor;
+        public bool onlyMentor;
         
         public Pawn pawn => (Pawn) parent;
         public CompProperties_Growing Props => (CompProperties_Growing) props;
@@ -37,7 +45,8 @@ namespace BabiesAndChildren
         {
             Scribe_Values.Look(ref growthStage, "growthStage", 0);
             Scribe_Values.Look(ref initialized, "growthInitialized", false);
-
+            Scribe_References.Look<Pawn>(ref mentor, "mentor", false);
+            Scribe_Values.Look(ref onlyMentor, "onlyMentor", false);
             base.PostExposeData();
         }
 

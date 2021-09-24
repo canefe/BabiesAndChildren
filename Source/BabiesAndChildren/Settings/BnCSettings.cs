@@ -49,6 +49,7 @@ namespace BabiesAndChildren
         public static float STILLBORN_CHANCE = 0.09f;
         public static bool patchhumans = true;
         public static bool playtime_enabled = true;
+        public static bool watchworktype_enabled = true;
 
         public static bool debug_and_gsetting = false;
         public static bool child_cute_act_enabled = true;
@@ -143,7 +144,6 @@ namespace BabiesAndChildren
             listingStandard.maxOneColumn = true;
             listingStandard.ColumnWidth = viewRect.width / 2.05f;
             
-           // listingStandard.BeginScrollView(outRect, ref scrollPosition, ref viewRect);
             Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
             listingStandard.Begin(viewRect);
             
@@ -185,6 +185,13 @@ namespace BabiesAndChildren
             listingStandard.Gap(5f);
 
             listingStandard.CheckboxLabeled("Enable children playing interaction", ref playtime_enabled, "Enable children playing together.");
+
+            listingStandard.Gap(5f);
+
+            listingStandard.CheckboxLabeled("Enable 'Watching' for children and teenagers", ref watchworktype_enabled, "If disabled, disables 'Watching' and removes 'Mentor' tab from pawm tabs (Health, Gear etc.)");
+
+            listingStandard.Gap(5f);
+
             //Children drop weapons
             listingStandard.CheckboxLabeled("OptionChildrenDropWeapons".Translate(), ref OptionChildrenDropWeapons, "OptionChildrenDropWeaponsDesc".Translate());
             if (OptionChildrenDropWeapons)
@@ -262,6 +269,7 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref enable_postpartum, "enable_postpartum");
             Scribe_Values.Look(ref patchhumans, "patchhumans", true);
             Scribe_Values.Look(ref playtime_enabled, "playtime_enabled", true);
+            Scribe_Values.Look(ref watchworktype_enabled, "watchworktype_enabled", true);
             Scribe_Values.Look(ref cryVolume, "cryVolume");
             Scribe_Values.Look(ref STILLBORN_CHANCE, "STILLBORN_CHANCE", 0.09f);
 
@@ -302,6 +310,7 @@ namespace BabiesAndChildren
             enable_postpartum = true;
             patchhumans = true;
             playtime_enabled = true;
+            watchworktype_enabled = true;
             cryVolume = 0.8f;
             STILLBORN_CHANCE = 0.09f;
             debug_and_gsetting = false;

@@ -14,7 +14,7 @@ namespace BabiesAndChildren
         {
             baby.Name = new NameSingle("Unnamed".Translate(), false);
             baby.SetFaction(null, null);
-            HealthUtility.TryAddHediff(baby, HediffDef.Named("DefectStillborn"), force: true);
+            HealthUtility.TryAddHediff(baby, BnCHediffDefOf.DefectStillborn, force: true);
             if (father != null)
             {
                 father.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("BabyStillborn"), baby);

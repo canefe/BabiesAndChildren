@@ -39,13 +39,13 @@ namespace BabiesAndChildren.Harmony
                 // If the pawn is not in a bad mood or is kind, they'll just tell them off
                 if (pawn.story.traits.HasTrait (TraitDefOf.Kind) || pawn.needs.mood.CurInstantLevel > 0.45f || pawn.WorkTagIsDisabled(WorkTags.Violent)) {
                     //Log.Message ("Debug: Adult has decided to tell off the child");
-                    JobDef chastise = DefDatabase<JobDef>.GetNamed ("ScoldChild", true);
+                    JobDef chastise = BnCJobDefOf.ScoldChild;
                     __result = new Job (chastise, other);
                 }
                 // Otherwise the adult will smack the child around
                 else if (other.health.summaryHealth.SummaryHealthPercent > 0.93f) {
                     //Log.Message ("Debug: Adult has decided to smack the child around, child health at " + other.health.summaryHealth.SummaryHealthPercent);
-                    JobDef paddlin = DefDatabase<JobDef>.GetNamed ("DisciplineChild", true);
+                    JobDef paddlin = BnCJobDefOf.DisciplineChild;
                     __result = new Job (paddlin, other);
                 }
 
