@@ -17,13 +17,13 @@ namespace BabiesAndChildren
             HealthUtility.TryAddHediff(baby, BnCHediffDefOf.DefectStillborn, force: true);
             if (father != null)
             {
-                father.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("BabyStillborn"), baby);
+                father.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.BabyStillborn, baby);
                 RemoveChildDiedThought(father, baby);
             }
 
             if (mother != null)
             {
-                mother.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("BabyStillborn"), baby);
+                mother.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.BabyStillborn, baby);
                 RemoveChildDiedThought(mother, baby);
                 Find.LetterStack.ReceiveLetter("WordStillborn".Translate(), TranslatorFormattedStringExtensions.Translate("MessageStillborn", mother.LabelIndefinite()), LetterDefOf.Death, mother);
             }

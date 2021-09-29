@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System.Security.Policy;
 
 namespace BabiesAndChildren
 {
@@ -10,5 +11,19 @@ namespace BabiesAndChildren
 
         static BnCTraitDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(BnCTraitDefOf));
 
+    }
+    [DefOf]
+    public static class BnCThoughtDefOf
+    {
+        public static ThoughtDef JustBorn;
+        public static ThoughtDef BabyNuzzled;
+        public static ThoughtDef ReceivedPraise;
+        public static ThoughtDef WeHadBabies;
+        public static ThoughtDef BabyStillborn;
+        public static ThoughtDef ChildGames;
+        public static ThoughtDef IGaveBirth;
+        public static ThoughtDef PartnerGaveBirth;
+
+        static BnCThoughtDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(BnCThoughtDefOf));
     }
 }

@@ -108,8 +108,8 @@ namespace BabiesAndChildren
         {
 
 
-            Thought_Memory recipentThought = (Thought_Memory)ThoughtMaker.MakeThought(ThoughtDef.Named("BabyNuzzled"));
-            Thought_Memory initiatorThought = (Thought_Memory)ThoughtMaker.MakeThought(ThoughtDef.Named("ReceivedPraise"));
+            Thought_Memory recipentThought = (Thought_Memory)ThoughtMaker.MakeThought(BnCThoughtDefOf.BabyNuzzled);
+            Thought_Memory initiatorThought = (Thought_Memory)ThoughtMaker.MakeThought(BnCThoughtDefOf.ReceivedPraise);
             if (recipient.needs.mood != null)
             {
                 recipient.needs.mood.thoughts.memories.TryGainMemory(recipentThought, null);

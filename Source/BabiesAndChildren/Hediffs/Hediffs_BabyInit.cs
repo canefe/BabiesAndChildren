@@ -53,6 +53,16 @@ namespace BabiesAndChildren
                 HealthUtility.TryAddHediff(mother, HediffDef.Named("PostPregnancy"));
                 HealthUtility.TryAddHediff(mother, HediffDef.Named("Lactating"),
                     HealthUtility.GetPawnBodyPart(mother, "Torso"));
+                mother.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.IGaveBirth);
+            }
+            if (father != null)
+            {
+                father.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.PartnerGaveBirth);
+                if(mother != null)
+                {
+                    father.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.WeHadBabies, mother, null);
+                    mother.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.WeHadBabies, father, null);
+                }
             }
 
             if (ChildrenBase.ModRimJobWorld_ON && BnCSettings.enable_postpartum)
@@ -76,7 +86,7 @@ namespace BabiesAndChildren
 
             comp.Props.ColonyBorn = true;
 
-            pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("JustBorn"));
+            pawn.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.JustBorn);
         }
     }
 }

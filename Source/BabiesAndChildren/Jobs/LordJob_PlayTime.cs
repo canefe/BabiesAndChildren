@@ -48,8 +48,8 @@ namespace BabiesAndChildren
 
 		public void Finished()
 		{
-			this.initiator.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("ChildGames"), this.recipient, null);
-			this.recipient.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("ChildGames"), this.initiator, null);
+			this.initiator.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.ChildGames, this.recipient, null);
+			this.recipient.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.ChildGames, this.initiator, null);
 		}
 
 		public override void ExposeData()
@@ -60,7 +60,7 @@ namespace BabiesAndChildren
 
 		public override string GetReport(Pawn pawn)
 		{
-			return "Playing with someone";
+			return "PlayAround.reportString".Translate();
 		}
 
 		private bool ShouldBeCalledOff()
