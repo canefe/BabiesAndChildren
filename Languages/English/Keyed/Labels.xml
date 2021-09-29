@@ -96,4 +96,7 @@
   <Locks2ToddlerConfig>Allow all colonists except toddlers and except</Locks2ToddlerConfig>
   <LockConfigToddlers>toddler filter</LockConfigToddlers>
 
+  <!-- LordJob Playing -->
+  <LordJobPlayAround>Playing with someone</LordJobPlayAround>
+
 </LanguageData>

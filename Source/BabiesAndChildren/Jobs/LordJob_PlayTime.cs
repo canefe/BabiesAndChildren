@@ -60,7 +60,7 @@ namespace BabiesAndChildren
 
 		public override string GetReport(Pawn pawn)
 		{
-			return "PlayAround.reportString".Translate();
+			return "LordJobPlayAround".Translate();
 		}
 
 		private bool ShouldBeCalledOff()

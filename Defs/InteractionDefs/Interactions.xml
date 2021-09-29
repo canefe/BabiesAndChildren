@@ -64,7 +64,7 @@
     <defName>PlayTime</defName>
     <label>play</label>
     <workerClass>BabiesAndChildren.InteractionWorker_PlayTime</workerClass>
-    <symbol>Things/Mote/SpeechSymbols/KindWords</symbol>
+    <symbol>Things/Motes/SpeechSymbols/ChildGames</symbol>
     <logRulesInitiator>
       <rulesStrings>
         <li>r_logentry->[INITIATOR_nameDef] asked [RECIPIENT_nameDef] to play with [INITIATOR_objective].</li>
