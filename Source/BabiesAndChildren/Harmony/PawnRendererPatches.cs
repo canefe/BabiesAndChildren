@@ -193,7 +193,7 @@ namespace BabiesAndChildren.Harmony
 
             //if (!(__instance.graphics.pawn is Pawn ___pawn) || renderBody == false ) return false;
             Pawn ___pawn = __instance.graphics.pawn;
-            if (!RaceUtility.PawnUsesChildren(___pawn)) return true;
+            if (!RaceUtility.PawnUsesChildren(___pawn) || (RaceUtility.PawnUsesChildren(___pawn) && AgeStages.IsAgeStage(___pawn, AgeStages.Adult))) return true;
             // Change the root location of the child's draw position
             if (AgeStages.IsYoungerThan(___pawn, AgeStages.Teenager))
                 rootLoc = GraphicTools.ModifyChildYPosOffset(rootLoc, ___pawn);

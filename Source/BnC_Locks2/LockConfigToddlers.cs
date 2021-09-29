@@ -36,7 +36,7 @@ namespace BabiesAndChildren.Locks2
             {
                 var before = enabled;
                 Text.Font = GameFont.Small;
-                Widgets.CheckboxLabeled(rect.TopPartPixels(25), "Allow all colonists except toddlers and except", ref enabled);
+                Widgets.CheckboxLabeled(rect.TopPartPixels(25), "Locks2ToddlerConfig".Translate(), ref enabled);
                 Text.Font = GameFont.Tiny;
                 if (enabled)
                 {

@@ -26,7 +26,7 @@ namespace BabiesAndChildren
                 return false;
             }
 
-            if (!RaceUtility.PawnUsesChildren(pawn) || AgeStages.IsYoungerThan(pawn, AgeStages.Child) || AgeStages.IsOlderThan(pawn, AgeStages.Teenager) || AgeStages.IsYoungerThan(Mentor, AgeStages.Teenager))
+            if (!RaceUtility.PawnUsesChildren(pawn) || AgeStages.IsOlderThan(pawn, AgeStages.Teenager) || AgeStages.IsYoungerThan(Mentor, AgeStages.Teenager))
             {
                 return false;
             }

@@ -83,4 +83,7 @@
   <TabWatch_desc>If the child has a mentor assigned they will prioritize watching the mentor</TabWatch_desc>
   <TabWatch_onlyMentor>Only watch the mentor</TabWatch_onlyMentor>
   <TabWatch_onlyMentor_desc>If enabled this child will only watch the mentor and ignore anyone else's work.</TabWatch_onlyMentor_desc>
+
+  <!-- Locks2 Config Rule -->
+  <Locks2ToddlerConfig>Allow all colonists except toddlers and except</Locks2ToddlerConfig>
 </LanguageData>
