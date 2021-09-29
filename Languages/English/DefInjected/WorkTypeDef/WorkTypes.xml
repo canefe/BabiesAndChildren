@@ -8,5 +8,12 @@
   <Childcare.gerundLabel>Childcaring</Childcare.gerundLabel>
   <Childcare.verb>Care for</Childcare.verb>
 
+  <BnC_Watch.label>Watch</BnC_Watch.label>
+  <BnC_Watch.description>
+  <BnC_Watch.labelShort>Watch</BnC_Watch.labelShort>
+  <BnC_Watch.pawnLabel>Apprentice</BnC_Watch.pawnLabel>
+  <BnC_Watch.gerundLabel>Watching</BnC_Watch.gerundLabel>
+  <BnC_Watch.verb>Watch</BnC_Watch.verb>
+
 
 </LanguageData>

@@ -130,7 +130,7 @@ namespace BabiesAndChildren
                 listingStandard.Label("ShowHairAlienHFLocZ_Title".Translate() + ": " + Math.Round(ShowHairAlienHFLocZ, 4), -1f, "ShowHairAlienHFLocZ_desc".Translate());
                 ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
                 listingStandard.Gap(5f);
-                listingStandard.Label("Facial Animation head size modifier (alien children)" + ": " + Math.Round(FAModifier, 4), -1f, "Use this setting to manually modify the best size for facial animation head");
+                listingStandard.Label("FAModifier_Title".Translate() + ": " + Math.Round(FAModifier, 4), -1f, "FAModifier_desc".Translate());
                 FAModifier = listingStandard.Slider(FAModifier, 1f, 2f);
         }
         public static void DoWindowContents(Rect inRect)
@@ -180,15 +180,15 @@ namespace BabiesAndChildren
             listingStandard.Gap(5f);
 
             //Patch humans
-            listingStandard.CheckboxLabeled("Enable human children to be spawned", ref patchhumans, "RESTART REQUIRED.\nIf enabled you will see human children in raids, quests, empire reinforcements etc.\nRESTART REQUIRED.");
+            listingStandard.CheckboxLabeled("EnableChildrenSpawning_Title".Translate(), ref patchhumans, "EnableChildrenSpawning_desc".Translate());
 
             listingStandard.Gap(5f);
 
-            listingStandard.CheckboxLabeled("Enable children playing interaction", ref playtime_enabled, "Enable children playing together.");
+            listingStandard.CheckboxLabeled("EnableChildrenPlaying_Title".Translate(), ref playtime_enabled, "EnableChildrenPlaying_desc".Translate());
 
             listingStandard.Gap(5f);
 
-            listingStandard.CheckboxLabeled("Enable 'Watching' for children and teenagers", ref watchworktype_enabled, "If disabled, disables 'Watching' and removes 'Mentor' tab from pawm tabs (Health, Gear etc.)");
+            listingStandard.CheckboxLabeled("EnableChildrenWatching_Title".Translate(), ref watchworktype_enabled, "EnableChildrenWatching_desc".Translate());
 
             listingStandard.Gap(5f);
 
@@ -225,7 +225,7 @@ namespace BabiesAndChildren
 
             listingStandard.Gap(5f);
 
-            listingStandard.Label("Stillborn chance: " + Math.Round(STILLBORN_CHANCE, 4), -1f, "Chance of babies born dead");
+            listingStandard.Label("StillbornChance_Title".Translate() + ": " + Math.Round(STILLBORN_CHANCE, 4), -1f, "StillbornChance_desc".Translate());
             STILLBORN_CHANCE = listingStandard.Slider(STILLBORN_CHANCE, 0f, 0.5f);
 
             //////////////////////////// right column

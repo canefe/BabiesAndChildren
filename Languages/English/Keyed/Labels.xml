@@ -75,8 +75,16 @@
   <ShowHairAlienHFLocZ_desc>It applies when you adjust the slide.</ShowHairAlienHFLocZ_desc>
   <WakeThresholdPatchEnabled_Title>Wake Threshold Patch Enabled</WakeThresholdPatchEnabled_Title>
   <WakeThresholdPatchEnabled_desc>This option toggles babies/colonists wake up when a baby is unhappy/crying. This option is added because this feature may cause performance issues with too many babies/colonists. It is suggested that only disable if you experience high performance loss when colonists are sleeping.</WakeThresholdPatchEnabled_desc>
-  <LockConfigToddlers>toddler filter</LockConfigToddlers>
-
+  <FAModifier_Title>Facial Animation head size modifier (alien children)</FAModifier_Title>
+  <FAModifier_desc>Use this setting to manually modify the best size for facial animation head</FAModifier_desc>
+  <StillbornChance_Title>Stillborn chance</StillbornChance_Title>
+  <StillbornChance_desc>Chances of babies born dead</StillbornChance_desc>
+  <EnableChildrenSpawning_Title>Enable human children to be spawned</EnableChildrenSpawning_Title>
+  <EnableChildrenSpawning_desc>RESTART REQUIRED.\nIf enabled you will see human children in raids, quests, empire reinforcements etc.\nRESTART REQUIRED.</EnableChildrenSpawning_desc>
+  <EnableChildrenPlaying_Title>Enable children playing interaction</EnableChildrenPlaying_Title>
+  <EnableChildrenPlaying_desc>Enable children playing together.</EnableChildrenPlaying_desc>
+  <EnableChildrenWatching_Title>Enable 'Watching' for children and teenagers</EnableChildrenWatching_Title>
+  <EnableChildrenWatching_desc>If disabled, disables 'Watching' and disables 'Mentor' tab from pawn tabs.</EnableChildrenWatching_desc>
 
   <!-- Mentor Watch Tab -->
   <TabWatch>Mentor</TabWatch>
@@ -86,4 +94,6 @@
 
   <!-- Locks2 Config Rule -->
   <Locks2ToddlerConfig>Allow all colonists except toddlers and except</Locks2ToddlerConfig>
+  <LockConfigToddlers>toddler filter</LockConfigToddlers>
+
 </LanguageData>

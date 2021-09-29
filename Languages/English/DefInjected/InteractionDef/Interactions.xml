@@ -16,5 +16,7 @@
   <BabyGames.logRulesInitiator.rulesStrings.3>babygame->pattycake</BabyGames.logRulesInitiator.rulesStrings.3>
   <BabyGames.logRulesInitiator.rulesStrings.4>babygame->tickle</BabyGames.logRulesInitiator.rulesStrings.4>
 
+  <PlayTime.label>play</PlayTime.label>
+  <PlayTime.logRulesInitiator.rulesStrings.0>r_logentry->[INITIATOR_nameDef] asked [RECIPIENT_nameDef] to play with [INITIATOR_objective].</Playtime.logRulesInitiator.rulesStrings.0>
 
 </LanguageData>

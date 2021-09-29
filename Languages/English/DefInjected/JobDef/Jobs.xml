@@ -8,6 +8,8 @@
   <TakeBabyToBedAndFeed.reportString>Taking TargetB to crib to feed TargetA.</TakeBabyToBedAndFeed.reportString>
   <TakeBabyToCrib.reportString>Taking TargetA to crib.</TakeBabyToCrib.reportString>
   <PlayWithBaby.reportString>Playing with TargetA.</PlayWithBaby.reportString>
+  <PlayAround.reportString>playing.</PlayTime.reportString>
+  <BnC_Watch.reportString>watching TargetA.</BnC_Watch.reportString>
 
 
 </LanguageData>
