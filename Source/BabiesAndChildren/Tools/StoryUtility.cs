@@ -179,6 +179,12 @@ namespace BabiesAndChildren.Tools
             
             if (pawn == null) return false;
 
+            AlienChildDef childDef = DefDatabase<AlienChildDef>.GetNamed(pawn.def.defName, false);
+            if (childDef != null && childDef.disableBackstories)
+            {
+                return false;
+            }
+
             Backstory currentChildhood = pawn.story.childhood;
             
             var comp = pawn.TryGetComp<Growing_Comp>();

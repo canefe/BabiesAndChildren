@@ -12,5 +12,6 @@ namespace BabiesAndChildren
         public string babyGraphic;
         public string toddlerGraphic;
         public bool disabled = false;
+        public bool disableBackstories = false;
     }
 }
