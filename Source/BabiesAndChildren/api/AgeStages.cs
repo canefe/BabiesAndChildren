@@ -240,9 +240,23 @@ namespace BabiesAndChildren.api
             return (total == OneHundredPercent) && (minAgeAdult >= minAgeBaby) && (minAgeBaby >= 0);
         }
 
-
+        private struct AgeStageInfo
+        {
+            public int cachedAgeStage;
+            public int lastCheckTick;
+        }
+        private static Dictionary<Pawn, AgeStageInfo> cachedAgeStages = new Dictionary<Pawn, AgeStageInfo>();
         public static int GetAgeStage(Pawn pawn)
         {
+            if (!cachedAgeStages.TryGetValue(pawn, out AgeStageInfo ageInfo) || Find.TickManager.TicksGame > ageInfo.lastCheckTick + GenDate.TicksPerHour)
+            {
+                cachedAgeStages[pawn] = ageInfo = new AgeStageInfo { cachedAgeStage = GetAgeStageInt(pawn), lastCheckTick = Find.TickManager.TicksGame };
+            }
+            return ageInfo.cachedAgeStage;
+        }
+        private static int GetAgeStageInt(Pawn pawn)
+        {
+
             if (pawn == null)
                 return Adult;
             if (AreLifeStagesAgeStages(pawn))
