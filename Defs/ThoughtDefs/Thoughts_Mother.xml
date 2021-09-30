@@ -163,4 +163,19 @@
       </li>
     </stages>
   </ThoughtDef>
+  <ThoughtDef>
+    <defName>MyChildGrowing</defName>
+    <durationDays>7</durationDays>
+    <stackLimit>1</stackLimit>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>my child is growing up</label>
+        <description>How amazing it is that children grow up in the blink of an eye!</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 </Defs>
