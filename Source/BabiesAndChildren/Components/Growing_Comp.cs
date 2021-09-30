@@ -170,15 +170,45 @@ namespace BabiesAndChildren
             //update bodytype and backstory
             switch (growthStage)
             {
-                case AgeStages.Baby: 
+                case AgeStages.Baby:
+                    break;
+                case AgeStages.Toddler:
+                    if (pawn.Faction != null && pawn.Faction.IsPlayer && initialized) { 
+                        if (pawn.GetMother() != null)
+                        {
+                            pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                        }
+                        if (pawn.GetFather() != null)
+                        {
+                            pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                        }
+                    }
                     break;
                 case AgeStages.Child:
                     if (pawn.Faction != null && pawn.Faction.IsPlayer && initialized)
+                    {
+                        if (pawn.GetMother() != null)
+                        {
+                            pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                        }
+                        if (pawn.GetFather() != null)
+                        {
+                            pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                        }
+                    }
                         Messages.Message("MessageGrewUpChild".Translate(pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
                     break;
                 case AgeStages.Teenager:
 
                     if (pawn.Faction != null && pawn.Faction.IsPlayer && initialized)
+                        if (pawn.GetMother() != null)
+                        {
+                            pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                        }
+                        if (pawn.GetFather() != null)
+                        {
+                            pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                        }
                         Messages.Message("MessageGrewUpTeenager".Translate(pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
                     break;
             }

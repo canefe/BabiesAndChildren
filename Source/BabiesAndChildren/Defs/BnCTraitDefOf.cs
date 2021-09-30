@@ -23,6 +23,7 @@ namespace BabiesAndChildren
         public static ThoughtDef ChildGames;
         public static ThoughtDef IGaveBirth;
         public static ThoughtDef PartnerGaveBirth;
+        public static ThoughtDef MyChildGrowing;
 
         static BnCThoughtDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(BnCThoughtDefOf));
     }
