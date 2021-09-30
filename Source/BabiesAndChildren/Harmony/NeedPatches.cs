@@ -19,8 +19,8 @@ namespace BabiesAndChildren.Harmony {
                 AgeStages.IsOlderThan(___pawn, AgeStages.Toddler))
                 return;
             
-            DefMap<JoyKindDef, float> tolerances = Traverse.Create(__instance).Field("tolerances").Field("tolerances").GetValue<DefMap<JoyKindDef, float>>();
-            DefMap<JoyKindDef, bool> bored = Traverse.Create(__instance).Field("tolerances").Field("bored").GetValue<DefMap<JoyKindDef, bool>>();
+            DefMap<JoyKindDef, float> tolerances = Traverse.Create(__instance.tolerances).Field("tolerances").GetValue<DefMap<JoyKindDef, float>>();
+            DefMap<JoyKindDef, bool> bored = Traverse.Create(__instance.tolerances).Field("bored").GetValue<DefMap<JoyKindDef, bool>>();
             tolerances[JoyKindDefOf.Social] = 0;
             bored[JoyKindDefOf.Social] = false;
         }

@@ -27,9 +27,11 @@ namespace BabiesAndChildren.Tools
             if (raceProps == null || !raceProps.Humanlike)
                 return false;
             
-            if (thingUsesChildrenCache.ContainsKey(thingDef))
-                return thingUsesChildrenCache[thingDef];
-            var usesChildren = 
+            if (thingUsesChildrenCache.TryGetValue(thingDef, out var usesChildren))
+            {
+                return usesChildren;
+            }
+            usesChildren = 
                    !ModTools.IsRobot(thingDef) &&
                    !Races.IsBlacklisted(thingDef);
             
