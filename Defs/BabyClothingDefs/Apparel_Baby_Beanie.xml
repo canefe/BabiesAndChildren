@@ -17,6 +17,7 @@
     <graphicData>
       <texPath>Things/babyclothes/Beanie_Fat_north</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>2.25</drawSize>
     </graphicData>
     <costStuffCount>25</costStuffCount>
     <stuffCategories>
@@ -89,6 +90,7 @@
     <graphicData>
       <texPath>Things/babyclothes/Beanie_Newborn_Fat_north</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>2.25</drawSize>
     </graphicData>
     <costStuffCount>25</costStuffCount>
     <stuffCategories>
