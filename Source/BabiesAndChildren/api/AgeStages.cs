@@ -142,7 +142,7 @@ namespace BabiesAndChildren.api
             if (thing.race == null)
                 return null;
             
-            if (!thingAgeStagesMap.ContainsKey(thing))
+            if (!thingAgeStagesMap.TryGetValue(thing, out var value))
             { 
                 var ageStages = new AgeStages(thing);
                 var isValid = ageStages.IsValid();
@@ -154,10 +154,9 @@ namespace BabiesAndChildren.api
                 {
                     ageStages = null;
                 }
-                
-                thingAgeStagesMap[thing] = ageStages;
+                thingAgeStagesMap[thing] = value = ageStages;
             }
-            return thingAgeStagesMap[thing];
+            return value;
             
         }
 
@@ -240,6 +239,8 @@ namespace BabiesAndChildren.api
             
             return (total == OneHundredPercent) && (minAgeAdult >= minAgeBaby) && (minAgeBaby >= 0);
         }
+
+
         public static int GetAgeStage(Pawn pawn)
         {
             if (pawn == null)
@@ -251,10 +252,18 @@ namespace BabiesAndChildren.api
             return ageStages == null ? Adult : ageStages.GetAgeStage(pawn.ageTracker.AgeBiologicalYears);
         }
 
-
+        public static Dictionary<Pawn, bool> cachedLifeStagesAgeStagesResults = new Dictionary<Pawn, bool>();
         public static bool AreLifeStagesAgeStages(Pawn pawn)
         {
-            //Can cache results if this is too slow
+            if (!cachedLifeStagesAgeStagesResults.TryGetValue(pawn, out var result))
+            {
+                cachedLifeStagesAgeStagesResults[pawn] = result = AreLifeStagesAgeStagesInt(pawn);
+            }
+            return result;
+        }
+
+        private static bool AreLifeStagesAgeStagesInt(Pawn pawn)
+        {
             List<LifeStageAge> lifeStages = pawn?.RaceProps?.lifeStageAges;
             if (lifeStages == null || lifeStages.Count < 5)
                 return false;
@@ -263,7 +272,6 @@ namespace BabiesAndChildren.api
                    (lifeStages[2].def == DefDatabase<LifeStageDef>.GetNamed("HumanlikeChild")) &&
                    (lifeStages[3].def == DefDatabase<LifeStageDef>.GetNamed("HumanlikeTeenager")) &&
                    (lifeStages[4].def == DefDatabase<LifeStageDef>.GetNamed("HumanlikeAdult"));
-
         }
         public static bool IsAgeStage(Pawn pawn, int ageStage)
         {

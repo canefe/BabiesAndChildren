@@ -215,38 +215,27 @@ namespace BabiesAndChildren.Harmony
         [HarmonyPostfix]
         public static void BaseHeadOffsetAtPostfix_Post(PawnRenderer __instance, Rot4 rotation, ref Vector3 __result, ref Pawn ___pawn)
         {
-            Pawn pawn = null;
-            try
-            {
-                pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
-            }
-            catch
-            {
-                CLog.Warning("PawnRenderer instance has null pawn.");
-                return;
-            }
-
-            if (pawn == null || 
-                !RaceUtility.PawnUsesChildren(pawn) ||
-                !AgeStages.IsAgeStage(pawn, AgeStages.Child)) return;
+            if (___pawn == null || 
+                !RaceUtility.PawnUsesChildren(___pawn) ||
+                !AgeStages.IsAgeStage(___pawn, AgeStages.Child)) return;
             
-            float bodySizeFactor = ChildrenUtility.GetBodySize(pawn);
+            float bodySizeFactor = ChildrenUtility.GetBodySize(___pawn);
             float num2 = 1f;
             float num3 = 1f;
 
-            if (pawn.def.defName == "Alien_Orassan")
+            if (___pawn.def.defName == "Alien_Orassan")
             {
                 num2 = 1.4f;
                 num3 = 1.4f;
             }
-            if (pawn.def.defName == "Alien_Cutebold")
+            if (___pawn.def.defName == "Alien_Cutebold")
             {
                 num2 = 1.2f;
                 num3 = 1.2f;
             }
             __result.z *= bodySizeFactor * num2;
             __result.x *= bodySizeFactor * num3;
-            if (RaceUtility.IsHuman(pawn))
+            if (RaceUtility.IsHuman(___pawn))
             {
                 __result.z += Tweaks.HuHeadlocZ ; 
             }
