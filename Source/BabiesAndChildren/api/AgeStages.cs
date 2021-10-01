@@ -240,7 +240,7 @@ namespace BabiesAndChildren.api
             return (total == OneHundredPercent) && (minAgeAdult >= minAgeBaby) && (minAgeBaby >= 0);
         }
 
-        private struct AgeStageInfo
+        private class AgeStageInfo
         {
             public int cachedAgeStage;
             public int lastCheckTick;
