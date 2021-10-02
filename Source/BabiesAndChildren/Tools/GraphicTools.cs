@@ -30,8 +30,8 @@ namespace BabiesAndChildren
                     graphics.hairGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/null", ShaderDatabase.Cutout, Vector2.one, Color.white);
                     if (!RaceUtility.IsHuman(graphics.pawn))
                     {
-                        AlienChildDef childDef = DefDatabase<AlienChildDef>.GetNamed(graphics.pawn.def.defName, false);
-                        if (childDef != null)
+                        AlienChildDef childDef = RaceUtility.GetAlienChildDef(graphics.pawn.def);
+                        if (childDef != null && childDef.babyGraphic != null)
                         {
                             graphics.nakedGraphic = GraphicDatabase.Get<Graphic_Single>(childDef.babyGraphic, ShaderDatabase.CutoutSkin, Vector2.one, graphics.pawn.story.SkinColor);
                             graphics.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>(childDef.babyGraphic, ShaderDatabase.CutoutSkin, Vector2.one, PawnGraphicSet.RottingColorDefault);
@@ -53,8 +53,8 @@ namespace BabiesAndChildren
                     graphics.hairGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/null", ShaderDatabase.Cutout, Vector2.one, Color.white);
                     if (!RaceUtility.IsHuman(graphics.pawn))
                     {
-                        AlienChildDef childDef = DefDatabase<AlienChildDef>.GetNamed(graphics.pawn.def.defName, false);
-                        if (childDef != null)
+                        AlienChildDef childDef = RaceUtility.GetAlienChildDef(graphics.pawn.def);
+                        if (childDef != null && childDef.toddlerGraphic != null)
                         {
                             graphics.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(childDef.toddlerGraphic, ShaderDatabase.CutoutSkin, Vector2.one, graphics.pawn.story.SkinColor);
                             graphics.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>(childDef.toddlerGraphic, ShaderDatabase.CutoutSkin, Vector2.one, PawnGraphicSet.RottingColorDefault);

@@ -12,7 +12,7 @@ namespace BabiesAndChildren.Tools
     {
 
         private static Dictionary<ThingDef, bool> thingUsesChildrenCache = new Dictionary<ThingDef, bool>();
-
+        private static Dictionary<ThingDef, AlienChildDef> alienChildDefCache = new Dictionary<ThingDef, AlienChildDef>();
 
         public static bool ThingUsesChildren(Thing thing)
         {
@@ -37,12 +37,37 @@ namespace BabiesAndChildren.Tools
             
             CLog.DevMessage(thingDef.defName + " cached as " + usesChildren + " in ThingUsesChildren");
             thingUsesChildrenCache[thingDef] = usesChildren;
+            if (ChildrenBase.ModHAR_ON && CacheAlienChildDef(thingDef))
+            {
+                CLog.DevMessage(thingDef.defName + " AlienChildDef cached");
+                usesChildren = GetAlienChildDef(thingDef) != null ? (GetAlienChildDef(thingDef).disabled ? false : usesChildren) : usesChildren;
+            }
             return usesChildren;
+        }
+
+        public static AlienChildDef GetAlienChildDef(ThingDef race)
+        {
+            if (alienChildDefCache.TryGetValue(race, out var childDef))
+            {
+                return childDef;
+            }
+            return null;
+        }
+
+        public static bool CacheAlienChildDef(ThingDef thingDef)
+        {
+            if (DefDatabase < AlienChildDef >.GetNamed(thingDef.defName, false) != null)
+            {
+                alienChildDefCache[thingDef] = DefDatabase<AlienChildDef>.GetNamed(thingDef.defName, false);
+                return true;
+            }
+            return false;
         }
 
         public static void ClearCache()
         {
             thingUsesChildrenCache.Clear();
+            alienChildDefCache.Clear();
         }
 
 

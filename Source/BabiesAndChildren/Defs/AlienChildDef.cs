@@ -7,11 +7,12 @@ using Verse;
 
 namespace BabiesAndChildren
 {
-    class AlienChildDef : Def
+    public class AlienChildDef : Def
     {
-        public string babyGraphic;
-        public string toddlerGraphic;
-        public bool disabled = false;
-        public bool disableBackstories = false;
+        public string babyGraphic; // texture path for baby
+        public string toddlerGraphic; // texture path for toddler
+        public bool disabled = false; // is race disabled
+        public bool disableBackstories = false; // disable backstories added by this mod
+        public SoundDef cryingSound; // custom crying sound def
     }
 }

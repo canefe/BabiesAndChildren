@@ -25,9 +25,7 @@ namespace BabiesAndChildren
             } else if(CanBabyCry()){
                 // Whine and cry
                 FleckMaker.ThrowMetaIcon(pawn.Position, pawn.Map, FleckDefOf.IncapIcon);
-                SoundInfo info = SoundInfo.InMap (new TargetInfo (pawn.PositionHeld, pawn.MapHeld));
-                info.volumeFactor = BnCSettings.cryVolume;
-                SoundDef.Named ("Pawn_BabyCry").PlayOneShot(info);
+                ChildrenUtility.PlayBabyCrySound(pawn);
             }
         }
 

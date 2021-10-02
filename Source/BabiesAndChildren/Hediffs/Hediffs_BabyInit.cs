@@ -72,8 +72,7 @@ namespace BabiesAndChildren
 
 
             //Make crying sound when baby is born
-            SoundInfo info = SoundInfo.InMap(new TargetInfo(pawn.PositionHeld, pawn.MapHeld));
-            SoundDef.Named("Pawn_BabyCry").PlayOneShot(info);
+            ChildrenUtility.PlayBabyCrySound(pawn);
 
             HealthUtility.ClearImplantAndAddiction(pawn);
             pawn.style.beardDef = BeardDefOf.NoBeard;

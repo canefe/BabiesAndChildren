@@ -12,11 +12,6 @@ namespace BabiesAndChildren.api
 
         public static bool IsBlacklisted(ThingDef thing)
         {
-            AlienChildDef childDef = DefDatabase<AlienChildDef>.GetNamed(thing.defName, false);
-            if (childDef != null && childDef.disabled)
-            {
-                return true;
-            }
                 return raceBlacklist.Contains(thing);
         }
 

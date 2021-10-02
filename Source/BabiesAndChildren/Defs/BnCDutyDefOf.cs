@@ -26,4 +26,10 @@ namespace BabiesAndChildren
 		public static JobDef DisciplineChild;
 		static BnCJobDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(BnCJobDefOf));
 	}
+	[DefOf]
+	public static class BnCSoundDefOf
+	{
+		public static SoundDef Pawn_BabyCry;
+		static BnCSoundDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(BnCSoundDefOf));
+	}
 }

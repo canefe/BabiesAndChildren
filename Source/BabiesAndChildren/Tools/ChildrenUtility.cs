@@ -7,6 +7,7 @@ using BabiesAndChildren.Tools;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 using HealthUtility = BabiesAndChildren.Tools.HealthUtility;
 using LifeStageUtility = BabiesAndChildren.Tools.LifeStageUtility;
 using StatDefOf = RimWorld.StatDefOf;
@@ -145,6 +146,35 @@ namespace BabiesAndChildren
             return pawn.health.hediffSet.HasHediff(HediffDef.Named("Lactating"));
         }
 
+        public static void PlayBabyCrySound(Pawn pawn)
+        {
+            if (!ChildrenBase.ModHAR_ON || RaceUtility.IsHuman(pawn))
+            {
+                SoundInfo info = SoundInfo.InMap(new TargetInfo(pawn.PositionHeld, pawn.MapHeld));
+                info.volumeFactor = BnCSettings.cryVolume;
+                BnCSoundDefOf.Pawn_BabyCry.PlayOneShot(info);
+            }
+            else
+            {
+                if (!RaceUtility.IsHuman(pawn))
+                {
+                    AlienChildDef childDef = RaceUtility.GetAlienChildDef(pawn.def);
+                    if (childDef != null && childDef.cryingSound != null)
+                    {
+                        SoundInfo info = SoundInfo.InMap(new TargetInfo(pawn.PositionHeld, pawn.MapHeld));
+                        info.volumeFactor = BnCSettings.cryVolume;
+                        childDef.cryingSound.PlayOneShot(info);
+                    }
+                    else
+                    {
+                        SoundInfo info = SoundInfo.InMap(new TargetInfo(pawn.PositionHeld, pawn.MapHeld));
+                        info.volumeFactor = BnCSettings.cryVolume;
+                        BnCSoundDefOf.Pawn_BabyCry.PlayOneShot(info);
+                    }
+                }
+            }
+
+        }
         
         /// <summary>
         /// Finds a bed for a pawn prioritizing cribs over normal beds.

@@ -179,7 +179,7 @@ namespace BabiesAndChildren.Tools
             
             if (pawn == null) return false;
 
-            AlienChildDef childDef = DefDatabase<AlienChildDef>.GetNamed(pawn.def.defName, false);
+            AlienChildDef childDef = RaceUtility.GetAlienChildDef(pawn.def);
             if (childDef != null && childDef.disableBackstories)
             {
                 return false;
