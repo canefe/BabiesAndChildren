@@ -195,12 +195,13 @@ namespace BabiesAndChildren
                         {
                             pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
-                    }
                         Messages.Message("MessageGrewUpChild".Translate(pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
+                    }
                     break;
                 case AgeStages.Teenager:
 
                     if (pawn.Faction != null && pawn.Faction.IsPlayer && initialized)
+                    {
                         if (pawn.GetMother() != null)
                         {
                             pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
@@ -210,6 +211,7 @@ namespace BabiesAndChildren
                             pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
                         Messages.Message("MessageGrewUpTeenager".Translate(pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
+                    }
                     break;
             }
             ModTools.ChangeRJWHediffSeverity(pawn, initSize, rand);

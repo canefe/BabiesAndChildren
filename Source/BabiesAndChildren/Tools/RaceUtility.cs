@@ -57,7 +57,7 @@ namespace BabiesAndChildren.Tools
 
         public static bool CacheAlienChildDef(ThingDef thingDef)
         {
-            if (DefDatabase < AlienChildDef >.GetNamed(thingDef.defName, false) != null)
+            if (DefDatabase<AlienChildDef>.GetNamed(thingDef.defName, false) != null)
             {
                 alienChildDefCache[thingDef] = DefDatabase<AlienChildDef>.GetNamed(thingDef.defName, false);
                 return true;
