@@ -346,7 +346,7 @@ namespace BabiesAndChildren
         //Modified version of Children.PawnRenderer_RenderPawnInternal_Patch:GetBodysizeScaling
         public static float GetHairSize(float n, Pawn pawn)
         {
-            if (AgeStages.GetAgeStage(pawn) > AgeStages.Child) return 1f;
+            if (AgeStages.GetAgeStage(pawn) > AgeStages.Teenager) return 1f;
             if (n != 0)
             {
                 if (RaceUtility.IsHuman(pawn))
@@ -394,7 +394,7 @@ namespace BabiesAndChildren
         public static Vector3 ModifiedHairLoc(Vector3 pos, Pawn pawn)
         {
             Vector3 newPos = new Vector3(pos.x, pos.y, pos.z);
-            if (!AgeStages.IsAgeStage(pawn, AgeStages.Child)) return newPos;
+            if (!(AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager))) return newPos;
             newPos.y += BnCSettings.ShowHairLocY;
 
             if (RaceUtility.IsHuman(pawn))

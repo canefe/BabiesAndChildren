@@ -68,7 +68,7 @@
     <PackageReference Include="Lib.Harmony" Version="2.1.1">
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="UnlimitedHugs.Rimworld.HugsLib" Version="9.0.0">
+    <PackageReference Include="UnlimitedHugs.Rimworld.HugsLib" Version="9.0.1">
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>

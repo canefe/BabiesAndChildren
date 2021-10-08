@@ -139,7 +139,7 @@ namespace BabiesAndChildren.Harmony
         {
                 if (pawn != null &&
                     RaceUtility.PawnUsesChildren(pawn) &&
-                    AgeStages.IsAgeStage(pawn, AgeStages.Child))
+                    (AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)))
                 {
                     if (wantsBody)
                     {
@@ -158,7 +158,7 @@ namespace BabiesAndChildren.Harmony
         {
             if (pawn == null ||
                 !RaceUtility.PawnUsesChildren(pawn) ||
-                !AgeStages.IsAgeStage(pawn, AgeStages.Child))
+                !(AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)))
                 return graphics.HairMeshSet.MeshAt(headFacing);
 
             float hairSizeFactor = ChildrenUtility.GetHairSize(0, pawn);
@@ -195,7 +195,7 @@ namespace BabiesAndChildren.Harmony
             Pawn ___pawn = __instance.graphics.pawn;
             if (!RaceUtility.PawnUsesChildren(___pawn) || (RaceUtility.PawnUsesChildren(___pawn) && AgeStages.IsAgeStage(___pawn, AgeStages.Adult))) return true;
             // Change the root location of the child's draw position
-            if (AgeStages.IsYoungerThan(___pawn, AgeStages.Teenager))
+            if (AgeStages.IsYoungerThan(___pawn, AgeStages.Adult))
                 rootLoc = GraphicTools.ModifyChildYPosOffset(rootLoc, ___pawn);
             //__instance.RenderPawnInternal(rootLoc, angle, true, bodyFacing, bodyDrawType, flags );
 
@@ -217,7 +217,7 @@ namespace BabiesAndChildren.Harmony
         {
             if (___pawn == null || 
                 !RaceUtility.PawnUsesChildren(___pawn) ||
-                !AgeStages.IsAgeStage(___pawn, AgeStages.Child)) return;
+                !(AgeStages.IsAgeStage(___pawn, AgeStages.Child) || AgeStages.IsAgeStage(___pawn, AgeStages.Teenager))) return;
             
             float bodySizeFactor = ChildrenUtility.GetBodySize(___pawn);
             float num2 = 1f;

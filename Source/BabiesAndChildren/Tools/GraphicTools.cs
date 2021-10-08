@@ -94,7 +94,7 @@ namespace BabiesAndChildren
             Vector3 newPos = pos;
 
             // move the draw target down to compensate for child shortness
-            if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsAgeStage(pawn, AgeStages.Child) && !pawn.InBed())
+            if (RaceUtility.PawnUsesChildren(pawn) && (AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) && !pawn.InBed())
             {
                 if (RaceUtility.IsHuman(pawn)) newPos.z += BnCSettings.HumanrootlocZ;
                 else newPos.z += BnCSettings.AlienrootlocZ;
@@ -121,7 +121,7 @@ namespace BabiesAndChildren
                 }
                 newPos += new Vector3(0, 0, 0.2f);
 
-            }else if(pawn.InBed() && pawn.CurrentBed().def.size.z == 1 && AgeStages.IsAgeStage(pawn, AgeStages.Child))
+            }else if(pawn.InBed() && pawn.CurrentBed().def.size.z == 1 && (AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)))
             {
                 if (forHead) newPos.z -= 0.1f;
                 else newPos.z += 0.2f;
@@ -181,8 +181,7 @@ namespace BabiesAndChildren
             {
                 // Ignored
             }
-
-            return num * num2 * 1.5f;
+            return num * num2;
 
         }
         public static float GetBodySizeScaling(Pawn pawn)

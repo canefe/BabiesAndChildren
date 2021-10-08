@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BabiesAndChildren.api;
 using Verse;
+using RimWorld;
 
 namespace BabiesAndChildren.Tools
 {
@@ -81,7 +82,7 @@ namespace BabiesAndChildren.Tools
 
         public static bool IsHuman(Pawn pawn)
         {
-            return pawn.def == DefDatabase<ThingDef>.GetNamed("Human");
+            return pawn.def == ThingDefOf.Human;
         }
         
 
