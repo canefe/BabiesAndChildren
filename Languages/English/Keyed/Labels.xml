@@ -85,8 +85,8 @@
   <EnableChildrenPlaying_desc>Enable children playing together.</EnableChildrenPlaying_desc>
   <EnableChildrenWatching_Title>Enable 'Watching' for children and teenagers</EnableChildrenWatching_Title>
   <EnableChildrenWatching_desc>If disabled, disables 'Watching' and disables 'Mentor' tab from pawn tabs.</EnableChildrenWatching_desc>
-  <ChildrenWatchingExpGainMultiplier_Title>Watching experience gain modifier</EnableChildrenWatching_Title>
-  <ChildrenWatchingExpGainMultiplier_desc>Tweak the experience gain from watching.</EnableChildrenWatching_desc>
+  <ChildrenWatchingExpGainMultiplier_Title>Watching experience gain modifier</ChildrenWatchingExpGainMultiplier_Title>
+  <ChildrenWatchingExpGainMultiplier_desc>Tweak the experience gain from watching.</ChildrenWatchingExpGainMultiplier_desc>
 
   <!-- Mentor Watch Tab -->
   <TabWatch>Mentor</TabWatch>

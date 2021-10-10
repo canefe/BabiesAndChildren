@@ -139,6 +139,7 @@ namespace BabiesAndChildren
                         float xp = 1f;
                         float mentorSkillModifier = Mentor.skills.GetSkill(Mentor.CurJob.bill.recipe.workSkill).Level / 100f;
                         xp *= mentorSkillModifier;
+                        xp *= BnCSettings.watchexpgainmultiplier;
 
                         actor.skills.Learn(Mentor.CurJob.bill.recipe.workSkill, xp, false);
                     }
@@ -148,7 +149,7 @@ namespace BabiesAndChildren
             toil.AddFinishAction(delegate
             {
                 
-                toil.actor.skills.Learn(workSkill, 10f * mentorTotalTeachPower, false);
+                toil.actor.skills.Learn(workSkill, 10f * mentorTotalTeachPower * BnCSettings.watchexpgainmultiplier, false);
             });
             toil.defaultCompleteMode = ToilCompleteMode.Never;
             toil.handlingFacing = true;
