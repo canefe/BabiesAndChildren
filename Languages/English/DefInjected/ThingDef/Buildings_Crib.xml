@@ -3,10 +3,8 @@
 
   <Crib.label>crib</Crib.label>
   <Crib.description>A cute little crib perfect to keep a young child safe and warm at night.</Crib.description>
-  <Crib_Blueprint.label>crib (blueprint)</Crib_Blueprint.label>
-  <Crib_Blueprint_Install.label>crib (blueprint)</Crib_Blueprint_Install.label>
-  <Crib_Frame.label>crib (building)</Crib_Frame.label>
-  <Crib_Frame.description>A cute little crib perfect to keep a young child safe and warm at night.</Crib_Frame.description>
+  <Frame_Crib.label>crib (building)</Frame_Crib.label>
+  <Frame_Crib.description>A cute little crib perfect to keep a young child safe and warm at night.</Frame_Crib.description>
 
 
 </LanguageData>

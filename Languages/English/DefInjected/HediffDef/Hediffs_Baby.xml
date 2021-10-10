@@ -11,9 +11,6 @@
   <BabyState.label>BabyState</BabyState.label>
   <BabyState.description>This child is still growing. Encourage them to perform activities that help them develop.</BabyState.description>
 
-  <NoManipulationFlag.label>disable manipulation</NoManipulationFlag.label>
-  <NoManipulationFlag.description>No Manipulation.</NoManipulationFlag.description>
-
   <UnhappyBaby.label>unhappy baby</UnhappyBaby.label>
   <UnhappyBaby.description>Baby is unhappy and needs attention</UnhappyBaby.description>
 
