@@ -50,6 +50,7 @@ namespace BabiesAndChildren
         public static bool patchhumans = true;
         public static bool playtime_enabled = true;
         public static bool watchworktype_enabled = true;
+        public static float watchexpgainmultiplier = 1f;
 
         public static bool debug_and_gsetting = false;
         public static bool child_cute_act_enabled = true;
@@ -189,7 +190,9 @@ namespace BabiesAndChildren
             listingStandard.Gap(5f);
 
             listingStandard.CheckboxLabeled("EnableChildrenWatching_Title".Translate(), ref watchworktype_enabled, "EnableChildrenWatching_desc".Translate());
-
+            listingStandard.Gap(2f);
+            listingStandard.Label("ChildrenWatchingExpGainMultiplier_Title".Translate() + ": " + Math.Round(watchexpgainmultiplier, 4), -1f, "ChildrenWatchingExpGainMultiplier_desc".Translate());
+            watchexpgainmultiplier = listingStandard.Slider(watchexpgainmultiplier, 0.1f, 2f);
             listingStandard.Gap(5f);
 
             //Children drop weapons
@@ -270,6 +273,7 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref patchhumans, "patchhumans", true);
             Scribe_Values.Look(ref playtime_enabled, "playtime_enabled", true);
             Scribe_Values.Look(ref watchworktype_enabled, "watchworktype_enabled", true);
+            Scribe_Values.Look(ref watchexpgainmultiplier, "watchexpgainmultiplier", 1f);
             Scribe_Values.Look(ref cryVolume, "cryVolume");
             Scribe_Values.Look(ref STILLBORN_CHANCE, "STILLBORN_CHANCE", 0.09f);
 
@@ -311,6 +315,7 @@ namespace BabiesAndChildren
             patchhumans = true;
             playtime_enabled = true;
             watchworktype_enabled = true;
+            watchexpgainmultiplier = 1f;
             cryVolume = 0.8f;
             STILLBORN_CHANCE = 0.09f;
             debug_and_gsetting = false;
