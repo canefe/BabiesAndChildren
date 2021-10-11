@@ -137,7 +137,7 @@ namespace BabiesAndChildren.Harmony
                         AgeStages.IsOlderThan(pawn, AgeStages.Teenager)) //draw addons normally
                         return true;
 
-                    if (AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) //don't draw addons for babies and toddlers
+                    if (AgeStages.IsYoungerThan(pawn, AgeStages.Child)) //don't draw addons for babies and toddlers
                         return false;
                     
                     
