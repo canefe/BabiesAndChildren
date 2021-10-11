@@ -248,7 +248,7 @@ namespace BabiesAndChildren
             {
                 num = num * BnCSettings.FAModifier;
             }
-            return num * num2;
+            return num * num2 * 1.25f;
             
         }
     }

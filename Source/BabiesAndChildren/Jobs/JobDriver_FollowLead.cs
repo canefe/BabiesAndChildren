@@ -11,6 +11,7 @@ namespace BabiesAndChildren
     public class WorkGiver_FollowLead : WorkGiver_Scanner
     {
         public override PathEndMode PathEndMode => PathEndMode.Touch;
+        HashSet<JobDef> watchedJobs = new HashSet<JobDef> { JobDefOf.Hunt, JobDefOf.Sow, JobDefOf.Harvest, JobDefOf.Train, JobDefOf.Tame, JobDefOf.TendPatient, JobDefOf.Research };
 
         public override ThingRequest PotentialWorkThingRequest => ThingRequest.ForGroup(ThingRequestGroup.Pawn);
 
@@ -31,15 +32,18 @@ namespace BabiesAndChildren
                 return false;
             }
 
-            if (!Mentor.IsColonist || Mentor.mindState.IsIdle || Mentor.CurJob == null || Mentor.CurJob.bill == null)
+            if (!Mentor.IsColonist || Mentor.mindState.IsIdle || Mentor.CurJob == null)
             {
                 return false;
             }
 
-            if (!(Mentor.CurJob.bill.recipe.workSkill == null) && pawn.skills.GetSkill(Mentor.CurJob.bill.recipe.workSkill).TotallyDisabled)
+            if (Mentor.CurJob.bill != null && Mentor.CurJob.bill.recipe.workSkill != null && pawn.skills.GetSkill(Mentor.CurJob.bill.recipe.workSkill).TotallyDisabled)
             {
                 return false;
             }
+
+            if (Mentor.CurJob.bill == null && !watchedJobs.Contains(Mentor.CurJobDef))
+                return false;
 
             Pawn PMentor = pawn.TryGetComp<Growing_Comp>().mentor;
             if (PMentor != null && pawn.TryGetComp<Growing_Comp>().onlyMentor && Mentor != PMentor) {
@@ -66,10 +70,11 @@ namespace BabiesAndChildren
             var comp = pawn.TryGetComp<Growing_Comp>();
             if (comp != null && comp.mentor != null)
             {
-                if (comp.mentor.CurJob != null && comp.mentor.CurJob.bill != null)
+                if (comp.mentor.CurJob != null && (comp.mentor.CurJob.bill != null ? true : watchedJobs.Contains(comp.mentor.CurJobDef)))
                 {
                     pawn2 = comp.mentor;
                 }
+
 
             }
             return new Job(BnCJobDefOf.BnC_Watch)
@@ -84,7 +89,8 @@ namespace BabiesAndChildren
     public class JobDriver_FollowLead : JobDriver
     {
         protected Pawn Mentor => (Pawn) TargetA.Thing;
-
+        //HashSet<JobDef> watchedJobs = new HashSet<JobDef> { JobDefOf.Hunt, JobDefOf.Sow };
+        Dictionary<JobDef, SkillDef> watchedJobs = new Dictionary<JobDef, SkillDef> { {JobDefOf.Hunt, SkillDefOf.Shooting }, {JobDefOf.Sow, SkillDefOf.Plants }, { JobDefOf.Harvest, SkillDefOf.Plants }, { JobDefOf.Train, SkillDefOf.Animals }, { JobDefOf.Tame, SkillDefOf.Animals }, { JobDefOf.TendPatient, SkillDefOf.Medicine }, { JobDefOf.Research, SkillDefOf.Intellectual } };
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return true;
@@ -95,9 +101,7 @@ namespace BabiesAndChildren
             this.FailOnDespawnedOrNull(TargetIndex.A);
             this.FailOnMentalState(TargetIndex.A);
             this.FailOnNotAwake(TargetIndex.A);
-            
-            this.FailOn(() => !Mentor.IsColonist || Mentor.mindState.IsIdle || Mentor.CurJob == null || Mentor.CurJob.bill == null);
-
+            this.FailOn(() => !Mentor.IsColonist || Mentor.mindState.IsIdle || Mentor.CurJob == null);
             yield return Toils_Reserve.Reserve(TargetIndex.A, 3, 0, null);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.OnCell);
             yield return MakeWatchToil(Mentor);
@@ -113,16 +117,23 @@ namespace BabiesAndChildren
             float mentorTotalTeachPower = 1f;
             toil.initAction = delegate
             {
-                if (Mentor.CurJob.bill.recipe.workSkill != null)
+                if (Mentor.CurJob.bill != null)
                 {
-                    workSkill = Mentor.CurJob.bill.recipe.workSkill;
+                    if (Mentor.CurJob.bill.recipe.workSkill != null)
+                    {
+                        workSkill = Mentor.CurJob.bill.recipe.workSkill;
+                        mentorTotalTeachPower = Mentor.skills.GetSkill(workSkill).Level + ((Mentor.skills.GetSkill(SkillDefOf.Social).Level + Mentor.skills.GetSkill(SkillDefOf.Intellectual).Level) * 0.5f);
+                    }
+                }else if (watchedJobs.ContainsKey(Mentor.CurJobDef))
+                {
+                    workSkill = watchedJobs.TryGetValue(Mentor.CurJobDef);
                     mentorTotalTeachPower = Mentor.skills.GetSkill(workSkill).Level + ((Mentor.skills.GetSkill(SkillDefOf.Social).Level + Mentor.skills.GetSkill(SkillDefOf.Intellectual).Level) * 0.5f);
                 }
             };
             toil.tickAction = delegate
             {
                 var actor = toil.actor;
-                bool flag6 = (actor.Position - friend.Position).LengthHorizontalSquared >= 6 || !GenSight.LineOfSight(actor.Position, friend.Position, actor.Map, true, null, 0, 0);
+                bool flag6 = (actor.Position - friend.Position).LengthHorizontalSquared >= 30 || !GenSight.LineOfSight(actor.Position, friend.Position, actor.Map, true, null, 0, 0);
                 if (flag6)
                 {
                     Job newJob = JobMaker.MakeJob(JobDefOf.Goto, friend);
@@ -132,16 +143,20 @@ namespace BabiesAndChildren
                 }
                 else
                 {
-                    actor.Rotation = friend.Rotation;
+                    if ((actor.Position - friend.Position).LengthHorizontalSquared <= 6)
+                        actor.Rotation = friend.Rotation;
+                    else
+                        actor.rotationTracker.FaceTarget(friend);
+
                     if (workSkill != null)
                     {
                         // todo: make it better
                         float xp = 1f;
-                        float mentorSkillModifier = Mentor.skills.GetSkill(Mentor.CurJob.bill.recipe.workSkill).Level / 100f;
+                        float mentorSkillModifier = Mentor.skills.GetSkill(workSkill).Level / 100f;
                         xp *= mentorSkillModifier;
                         xp *= BnCSettings.watchexpgainmultiplier;
 
-                        actor.skills.Learn(Mentor.CurJob.bill.recipe.workSkill, xp, false);
+                        actor.skills.Learn(workSkill, xp, false);
                     }
 
                 }
