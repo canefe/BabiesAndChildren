@@ -60,14 +60,17 @@ namespace BabiesAndChildren
         public static bool Rabbie_Child_head_enabled = false;
         
         //tweak-able values to visually determine what looks good
-        public static float HumanBodySize = 0.713f;
-        public static float HumanHeadSize = 0.922f;
-        public static float HumanHairSize = 0.730f;
+        public static float HumanBodySize = 1f;
+        public static float HumanHeadSize = 1f;
+        public static float HumanHairSize = 0.8f;
         public static float HumanrootlocZ = -0.11f;
-        public static float AlienBodySize = 0.842f;
-        public static float AlienHeadSizeA = 0.767f;
-        public static float AlienHeadSizeB = 0.767f;
-        public static float AlienHairSize = 0.832f;
+        public static float AlienBodySize = 1f;
+        public static float AlienHeadSizeA = 1f;
+        public static float AlienHeadSizeB = 1f;
+        public static float AlienHairSize = 1f;
+        public static float HumanTeenagerModifier = 1f;
+        public static float AlienTeenagerModifier = 1f;
+
         public static float AlienrootlocZ = -0.038f;
         public static float ShowHairSize = 1f;
         public static float ShowHairLocY = -0.003f;
@@ -80,7 +83,7 @@ namespace BabiesAndChildren
         //TODO make this a game component
 
         private static Vector2 scrollPosition;
-        private static float height_modifier = 350f;
+        private static float height_modifier = 500f;
 
         public static void AddDebugSettings(Listing_Standard listingStandard)
         {
@@ -101,6 +104,9 @@ namespace BabiesAndChildren
                 listingStandard.Label("HumanChildrenZroc_Title".Translate() + ": " + Math.Round(HumanrootlocZ, 4), -1f, "HumanChildrenZroc_desc".Translate());
                 HumanrootlocZ = listingStandard.Slider(HumanrootlocZ, -2f, 2f);
                 listingStandard.Gap(5f);
+                listingStandard.Label("HumanTeenagerModifier_Title".Translate() + ": " + Math.Round(HumanTeenagerModifier, 4), -1f, "HumanTeenagerModifier_desc".Translate());
+                HumanTeenagerModifier = listingStandard.Slider(HumanTeenagerModifier, -2f, 2f);
+                listingStandard.Gap(5f);
                 listingStandard.Label("AlienChildrenBodysize_Title".Translate() + ": " + Math.Round(AlienBodySize, 4), -1f, "AlienChildrenBodysize_desc".Translate());
                 AlienBodySize = listingStandard.Slider(AlienBodySize, -2f, 2f);
                 listingStandard.Gap(5f);
@@ -115,6 +121,9 @@ namespace BabiesAndChildren
                 listingStandard.Gap(5f);
                 listingStandard.Label("AlienChildrenZroc_Title".Translate() + ": " + Math.Round(AlienrootlocZ, 4), -1f, "AlienChildrenZroc_desc".Translate());
                 AlienrootlocZ = listingStandard.Slider(AlienrootlocZ, -2f, 2f);
+                listingStandard.Gap(5f);
+                listingStandard.Label("AlienTeenagerModifier_Title".Translate() + ": " + Math.Round(AlienTeenagerModifier, 4), -1f, "AlienTeenagerModifier_desc".Translate());
+                AlienTeenagerModifier = listingStandard.Slider(AlienTeenagerModifier, -2f, 2f);
                 listingStandard.Gap(5f);
                 listingStandard.Label("ShowHairSize_Title".Translate() + ": " + Math.Round(ShowHairSize, 4), -1f, "ShowHairSize_desc".Translate());
                 ShowHairSize = listingStandard.Slider(ShowHairSize, -2f, 2f);
@@ -290,6 +299,9 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref AlienHeadSizeB, "AlienHeadSizeB");
             Scribe_Values.Look(ref AlienHairSize, "AlienHairSize");
             Scribe_Values.Look(ref AlienrootlocZ, "AlienrootlocZ");
+            Scribe_Values.Look(ref AlienTeenagerModifier, "AlienTeenagerModifier", 1f);
+            Scribe_Values.Look(ref HumanTeenagerModifier, "HumanTeenagerModifier", 1f);
+            Scribe_Values.Look(ref AlienrootlocZ, "AlienrootlocZ");
             Scribe_Values.Look(ref ShowHairSize, "ShowHairSize");
             Scribe_Values.Look(ref ShowHairLocY, "ShowHairLocY");
             Scribe_Values.Look(ref ShowHairHumanLocZ, "ShowHairHumanLocZ");
@@ -322,14 +334,16 @@ namespace BabiesAndChildren
             child_cute_act_enabled = true;
             human_like_head_enabled = false;
             Rabbie_Child_head_enabled = false;
-            HumanBodySize = 0.713f;
-            HumanHeadSize = 0.922f;
-            HumanHairSize = 0.730f;
+            HumanBodySize = 1f;
+            HumanHeadSize = 1f;
+            HumanHairSize = 1f;
             HumanrootlocZ = -0.11f;
-            AlienBodySize = 0.842f;
-            AlienHeadSizeA = 0.767f;
-            AlienHeadSizeB = 0.767f;
-            AlienHairSize = 0.832f;
+            AlienTeenagerModifier = 1f;
+            HumanTeenagerModifier = 1f;
+            AlienBodySize = 1f;
+            AlienHeadSizeA = 1f;
+            AlienHeadSizeB = 1f;
+            AlienHairSize = 1f;
             AlienrootlocZ = -0.038f;
             ShowHairSize = 1f;
             ShowHairLocY = -0.003f;

@@ -73,6 +73,10 @@
   <ShowHairAlienZLoc_desc>It applies when you adjust the slide.</ShowHairAlienZLoc_desc>
   <ShowHairAlienHFLocZ_Title>Child's hair HFLocZ (ShowHair)</ShowHairAlienHFLocZ_Title>
   <ShowHairAlienHFLocZ_desc>It applies when you adjust the slide.</ShowHairAlienHFLocZ_desc>
+  <HumanTeenagerModifier_Title>Human Teenager Size Modifier</HumanTeenagerModifier_Title>
+  <HumanTeenagerModifier_desc>Human Teenager Size Modifier</HumanTeenagerModifier_desc>
+  <AlienTeenagerModifier_Title>Alien Teenager Size Modifier</AlienTeenagerModifier_Title>
+  <AlienTeenagerModifier_desc>Alien Teenager Size Modifier</AlienTeenagerModifier_desc>  
   <WakeThresholdPatchEnabled_Title>Wake Threshold Patch Enabled</WakeThresholdPatchEnabled_Title>
   <WakeThresholdPatchEnabled_desc>This option toggles babies/colonists wake up when a baby is unhappy/crying. This option is added because this feature may cause performance issues with too many babies/colonists. It is suggested that only disable if you experience high performance loss when colonists are sleeping.</WakeThresholdPatchEnabled_desc>
   <FAModifier_Title>Facial Animation head size modifier (alien children)</FAModifier_Title>

@@ -351,30 +351,30 @@ namespace BabiesAndChildren
             {
                 if (RaceUtility.IsHuman(pawn))
                 {
-                    return BnCSettings.HumanHairSize * BnCSettings.ShowHairSize * AgeFactor(pawn);
+                    return BnCSettings.HumanHairSize * BnCSettings.ShowHairSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.HumanTeenagerModifier : 1f);
                 }
-                else return BnCSettings.AlienHairSize * BnCSettings.ShowHairSize * AgeFactor(pawn);
+                else return BnCSettings.AlienHairSize * BnCSettings.ShowHairSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f);
             }
 
             if (RaceUtility.IsHuman(pawn))
             {
-                return BnCSettings.HumanHairSize * AgeFactor(pawn);
+                return BnCSettings.HumanHairSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.HumanTeenagerModifier : 1f);
             }
-            else return BnCSettings.AlienHairSize * AgeFactor(pawn);
+            else return BnCSettings.AlienHairSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f);
         }
 
         public static float GetHeadSize(Pawn pawn)
         {
             if (RaceUtility.IsHuman(pawn))
             {
-                return BnCSettings.HumanHeadSize * AgeFactor(pawn);
+                return BnCSettings.HumanHeadSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.HumanTeenagerModifier : 1f);
             }
             else
             {
                 if (BnCSettings.human_like_head_enabled && RaceUtility.HasHumanlikeHead(pawn)) 
-                    return BnCSettings.AlienHeadSizeB * AgeFactor(pawn);
+                    return BnCSettings.AlienHeadSizeB * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f);
                 else 
-                    return BnCSettings.AlienHeadSizeA * AgeFactor(pawn);
+                    return BnCSettings.AlienHeadSizeA * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f);
             }
         }
         /// <summary>
@@ -386,9 +386,9 @@ namespace BabiesAndChildren
         {
             if (RaceUtility.IsHuman(pawn))
             {
-                return BnCSettings.HumanBodySize * AgeFactor(pawn);
+                return BnCSettings.HumanBodySize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.HumanTeenagerModifier : 1f);
             }
-            else return BnCSettings.AlienBodySize * AgeFactor(pawn);
+            else return BnCSettings.AlienBodySize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f);
         }
 
         public static Vector3 ModifiedHairLoc(Vector3 pos, Pawn pawn)
