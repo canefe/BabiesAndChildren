@@ -83,7 +83,7 @@ namespace BabiesAndChildren
         //TODO make this a game component
 
         private static Vector2 scrollPosition;
-        private static float height_modifier = 500f;
+        private static float height_modifier = 600f;
 
         public static void AddDebugSettings(Listing_Standard listingStandard)
         {

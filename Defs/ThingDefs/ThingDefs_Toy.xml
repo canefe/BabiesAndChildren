@@ -265,6 +265,7 @@
       <ResearchSpeed>0.1</ResearchSpeed>
     </equippedStatOffsets>
     <recipeMaker>
+      <researchPrerequisite />
       <skillRequirements>
         <Crafting>2</Crafting>
       </skillRequirements>
