@@ -367,7 +367,7 @@ namespace BabiesAndChildren
         {
             if (RaceUtility.IsHuman(pawn))
             {
-                return BnCSettings.HumanHeadSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.HumanTeenagerModifier : 1f);
+                return BnCSettings.HumanHeadSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? 0.8f : 1f);
             }
             else
             {

@@ -6,7 +6,7 @@ namespace BabiesAndChildren
 {
     public static class Tweaks
     {
-        [TweakValue("BSH", -2f, 2f)] public static float HuHeadlocZ = 0.01f;
+        [TweakValue("BSH", -2f, 2f)] public static float HuHeadlocZ = 0.061f;
         [TweakValue("BSH", -2f, 2f)] public static float G_offset = 0f;
         [TweakValue("BSH", -2f, 2f)] public static float G_offsetfac = 1f;
     }

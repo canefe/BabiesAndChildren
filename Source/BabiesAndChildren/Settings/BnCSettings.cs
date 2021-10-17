@@ -60,14 +60,14 @@ namespace BabiesAndChildren
         public static bool Rabbie_Child_head_enabled = false;
         
         //tweak-able values to visually determine what looks good
-        public static float HumanBodySize = 1f;
-        public static float HumanHeadSize = 1f;
-        public static float HumanHairSize = 0.8f;
+        public static float HumanBodySize = 1.1095f;
+        public static float HumanHeadSize = 1.4083f;
+        public static float HumanHairSize = 1.2589f;
         public static float HumanrootlocZ = -0.11f;
         public static float AlienBodySize = 1f;
         public static float AlienHeadSizeA = 1f;
         public static float AlienHeadSizeB = 1f;
-        public static float AlienHairSize = 1f;
+        public static float AlienHairSize = 1.896f;
         public static float HumanTeenagerModifier = 1f;
         public static float AlienTeenagerModifier = 1f;
 
@@ -77,7 +77,7 @@ namespace BabiesAndChildren
         public static float ShowHairHumanLocZ = 0.092f;
         public static float ShowHairAlienLocZ = 0.035f;
         public static float ShowHairAlienHFLocZ = 0.048f;
-        public static float FAModifier = 1.3f;
+        public static float FAModifier = 0.8058f;
         
         //special flag to reinitialize all childeren on all maps (not saves) at map load once per "game"/ once per mod added
         //TODO make this a game component
@@ -141,7 +141,7 @@ namespace BabiesAndChildren
                 ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
                 listingStandard.Gap(5f);
                 listingStandard.Label("FAModifier_Title".Translate() + ": " + Math.Round(FAModifier, 4), -1f, "FAModifier_desc".Translate());
-                FAModifier = listingStandard.Slider(FAModifier, 1f, 2f);
+                FAModifier = listingStandard.Slider(FAModifier, -1f, 2f);
         }
         public static void DoWindowContents(Rect inRect)
         {           
@@ -334,9 +334,9 @@ namespace BabiesAndChildren
             child_cute_act_enabled = true;
             human_like_head_enabled = false;
             Rabbie_Child_head_enabled = false;
-            HumanBodySize = 1f;
-            HumanHeadSize = 1f;
-            HumanHairSize = 1f;
+            HumanBodySize = 1.1095f;
+            HumanHeadSize = ChildrenBase.ModFacialAnimation_ON ? 0.9402f : 1.4083f;
+            HumanHairSize = ChildrenBase.ModFacialAnimation_ON ? 1.0697f : 1.2589f;
             HumanrootlocZ = -0.11f;
             AlienTeenagerModifier = 1f;
             HumanTeenagerModifier = 1f;
@@ -350,7 +350,7 @@ namespace BabiesAndChildren
             ShowHairHumanLocZ = 0.092f;
             ShowHairAlienLocZ = 0.035f;
             ShowHairAlienHFLocZ = 0.048f;
-            FAModifier = 1.3f;
+            FAModifier = 0.8058f;
             //OncePerGame = false; possibly unnecessary and game breaking?
         }
     }

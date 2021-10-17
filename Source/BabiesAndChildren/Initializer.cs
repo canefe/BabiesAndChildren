@@ -45,6 +45,19 @@ namespace BabiesAndChildren
             {
                 CLog.Message("Patching Facial Animation");
                 FacialAnimationPatches.Patch();
+                BnCSettings.HumanHeadSize = BnCSettings.HumanHeadSize == 1.4083f ? 0.9402f : BnCSettings.HumanHeadSize;
+                BnCSettings.HumanHairSize = BnCSettings.HumanHeadSize == 1.2589f ? 1.0697f : BnCSettings.HumanHairSize;
+            }
+            else
+            {
+                if (BnCSettings.HumanHeadSize == 0.9402f)
+                {
+                    BnCSettings.HumanHeadSize = 1.4083f;
+                }
+                if (BnCSettings.HumanHairSize == 1.0697f)
+                {
+                    BnCSettings.HumanHairSize = 1.2589f;
+                }
             }
 
             if (ChildrenBase.ModDressPatients_ON)

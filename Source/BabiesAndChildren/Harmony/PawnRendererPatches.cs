@@ -237,12 +237,16 @@ namespace BabiesAndChildren.Harmony
             __result.x *= bodySizeFactor * num3;
             if (RaceUtility.IsHuman(___pawn))
             {
-                __result.z += Tweaks.HuHeadlocZ ; 
+                __result.z += ChildrenBase.ModFacialAnimation_ON ? Tweaks.HuHeadlocZ + 0.05f : Tweaks.HuHeadlocZ;
+                __result.z -= ChildrenBase.ModFacialAnimation_ON ? 0f : (AgeStages.IsAgeStage(___pawn, AgeStages.Teenager) ? 0.1f : 0f);
+            }
+            else
+            {
+                __result.z += 0.035f;
             }
             if (ChildrenBase.ModFacialAnimation_ON)
             {
                 __result += GraphicTools.ModifyChildYPosOffset(Vector3.zero, ___pawn, true);
-                __result.z += 0.1f;
             }
         }
     }
