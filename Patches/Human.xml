@@ -21,6 +21,13 @@
       <minAge>14</minAge>
     </value>
   </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/LifeStageDef[defName="HumanlikeTeenager"]/bodySizeFactor</xpath>
+    <value>
+      <bodySizeFactor>0.7</bodySizeFactor>
+    </value>
+  </Operation>
   
   <Operation Class="BabiesAndChildren.HumanPatchConditional">
     <operations>

@@ -141,11 +141,10 @@ namespace BabiesAndChildren.Harmony
         [HarmonyPostfix]
         static void Postfix(ref bool __result, ref Pawn pawn, ref ThoughtDef def)
         {
-            if (!RaceUtility.PawnUsesChildren(pawn) || AgeStages.IsAgeStage(pawn, AgeStages.Adult))
+            if (RaceUtility.PawnUsesChildren(pawn) && !AgeStages.IsAgeStage(pawn, AgeStages.Adult))
             {
-                return;
+                __result = __result && !Thoughts.IsBlacklisted(def, AgeStages.GetAgeStage(pawn));
             }
-            __result = __result && !Thoughts.IsBlacklisted(def, AgeStages.GetAgeStage(pawn));
         }
     }
 

@@ -139,12 +139,11 @@ namespace BabiesAndChildren
             try
             {
                 int curLifeStageIndex = AgeStages.GetAgeStage(pawn);
-                int lastLifeStageIndex = pawn.RaceProps.lifeStageAges.Count - 1;
+                int lastLifeStageIndex = pawn.RaceProps.lifeStageAges.Count - 2;
 
                 LifeStageAge curLifeStageAge = LifeStageUtility.GetLifeStageAge(pawn, curLifeStageIndex);
                 float curBodySizeFactor = curLifeStageAge.def.bodySizeFactor;
                 float currLifeStageProgression = ageTracker.AgeBiologicalYearsFloat - curLifeStageAge.minAge;
-
                 num = curBodySizeFactor;
 
                 //at the last lifestage and the last lifestage is not the first
@@ -195,7 +194,7 @@ namespace BabiesAndChildren
             try
             {
                 int curLifeStageIndex = AgeStages.GetAgeStage(pawn);
-                int lastLifeStageIndex = pawn.RaceProps.lifeStageAges.Count - 1;
+                int lastLifeStageIndex = pawn.RaceProps.lifeStageAges.Count - 2;
 
                 LifeStageAge curLifeStageAge = LifeStageUtility.GetLifeStageAge(pawn, curLifeStageIndex);
                 float curBodySizeFactor = curLifeStageAge.def.bodySizeFactor;

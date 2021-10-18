@@ -195,7 +195,7 @@ namespace BabiesAndChildren.Harmony
             Pawn ___pawn = __instance.graphics.pawn;
             if (!RaceUtility.PawnUsesChildren(___pawn) || (RaceUtility.PawnUsesChildren(___pawn) && AgeStages.IsAgeStage(___pawn, AgeStages.Adult))) return true;
             // Change the root location of the child's draw position
-            if (AgeStages.IsYoungerThan(___pawn, AgeStages.Adult))
+            if (AgeStages.IsYoungerThan(___pawn, AgeStages.Teenager))
                 rootLoc = GraphicTools.ModifyChildYPosOffset(rootLoc, ___pawn);
             //__instance.RenderPawnInternal(rootLoc, angle, true, bodyFacing, bodyDrawType, flags );
 
@@ -238,6 +238,7 @@ namespace BabiesAndChildren.Harmony
             if (RaceUtility.IsHuman(___pawn))
             {
                 __result.z += ChildrenBase.ModFacialAnimation_ON ? Tweaks.HuHeadlocZ + 0.05f : Tweaks.HuHeadlocZ;
+                __result.z += !ChildrenBase.ModFacialAnimation_ON ? AgeStages.IsAgeStage(___pawn, AgeStages.Teenager) ? 0.05f : 0f : 0f;
                 __result.z -= ChildrenBase.ModFacialAnimation_ON ? 0f : (AgeStages.IsAgeStage(___pawn, AgeStages.Teenager) ? 0.1f : 0f);
             }
             else
