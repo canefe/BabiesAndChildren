@@ -89,6 +89,22 @@ namespace BabiesAndChildren
                 MedPodPatches.Patch();
             }
 
+            if (BnCSettings.AlienBodySize ==  0.842f || BnCSettings.HumanHeadSize == 1.220761f)
+            {
+                CLog.Warning("Old settings values are found, changing to new values.");
+                BnCSettings.HumanBodySize = 1.1095f;
+                BnCSettings.HumanHeadSize = ChildrenBase.ModFacialAnimation_ON ? 0.9402f : 1.4083f;
+                BnCSettings.HumanHairSize = ChildrenBase.ModFacialAnimation_ON ? 1.0697f : 1.2589f;
+                BnCSettings.HumanrootlocZ = -0.11f;
+                BnCSettings.AlienTeenagerModifier = 1f;
+                BnCSettings.HumanTeenagerModifier = 1f;
+                BnCSettings.AlienBodySize = 1f;
+                BnCSettings.AlienHeadSizeA = 1f;
+                BnCSettings.AlienHeadSizeB = 1f;
+                BnCSettings.AlienHairSize = 1f;
+                BnCSettings.AlienrootlocZ = -0.038f;
+                BnCSettings.FAModifier = 0.8058f;
+            }
         }
     }
 }
