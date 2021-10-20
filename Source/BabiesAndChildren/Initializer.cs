@@ -89,7 +89,7 @@ namespace BabiesAndChildren
                 MedPodPatches.Patch();
             }
 
-            if (BnCSettings.AlienBodySize ==  0.842f || BnCSettings.HumanHeadSize == 1.220761f)
+            if (BnCSettings.AlienBodySize ==  0.842f || BnCSettings.HumanHeadSize == 0.922f || BnCSettings.HumanHairSize == 0.730f)
             {
                 CLog.Warning("Old settings values are found, changing to new values.");
                 BnCSettings.HumanBodySize = 1.1095f;
