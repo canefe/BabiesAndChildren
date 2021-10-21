@@ -245,7 +245,7 @@ namespace BabiesAndChildren.Harmony
             {
                 __result.z += 0.035f;
             }
-            if (ChildrenBase.ModFacialAnimation_ON)
+            if (ChildrenBase.ModFacialAnimation_ON && ChildrenUtility.GetCompByClassName(___pawn, "FacialAnimation.DrawFaceGraphicsComp") != null)
             {
                 __result += GraphicTools.ModifyChildYPosOffset(Vector3.zero, ___pawn, true);
             }

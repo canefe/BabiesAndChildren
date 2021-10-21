@@ -94,7 +94,7 @@ namespace BabiesAndChildren
             Vector3 newPos = pos;
 
             // move the draw target down to compensate for child shortness
-            if (RaceUtility.PawnUsesChildren(pawn) && (AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) && !pawn.InBed())
+            if (RaceUtility.PawnUsesChildren(pawn) && (AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)))
             {
                 if (RaceUtility.IsHuman(pawn)) newPos.z += BnCSettings.HumanrootlocZ;
                 else newPos.z += BnCSettings.AlienrootlocZ;
@@ -121,7 +121,7 @@ namespace BabiesAndChildren
                 }
                 newPos += new Vector3(0, 0, 0.2f);
 
-            }else if(pawn.InBed() && pawn.CurrentBed().def.size.z == 1 && (AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)))
+            }else if(pawn.InBed() && pawn.CurrentBed().def.size.z == 1 && AgeStages.IsAgeStage(pawn, AgeStages.Child))
             {
                 if (forHead) newPos.z -= 0.1f;
                 else newPos.z += 0.2f;
