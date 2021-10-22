@@ -105,6 +105,19 @@ namespace BabiesAndChildren
             else {
                 WatchCardUtility.RemoveWorkTypeAdult(BnCWorkTypeDefOf.BnC_Watch, map);
             }
+            foreach (Pawn pawn in map.mapPawns.FreeColonists)
+            {
+                CLog.DevMessage("Pawn " + pawn + " Y " + AgeStages.IsYoungerThan(pawn, AgeStages.Adult, true));
+                if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Adult, true))
+                {
+                    if (pawn.story.bodyType == null)
+                        pawn.story.bodyType = ((pawn.gender == Gender.Female) ? BodyTypeDefOf.Female : BodyTypeDefOf.Male);
+                    CLog.DevMessage("Pawn " + pawn);
+                    Growing_Comp comp = pawn.TryGetComp<Growing_Comp>();
+
+                    comp?.Initialize();
+                }
+            }
         }
     }
 

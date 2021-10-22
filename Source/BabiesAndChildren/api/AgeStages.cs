@@ -246,9 +246,9 @@ namespace BabiesAndChildren.api
             public int lastCheckTick;
         }
         private static Dictionary<Pawn, AgeStageInfo> cachedAgeStages = new Dictionary<Pawn, AgeStageInfo>();
-        public static int GetAgeStage(Pawn pawn)
+        public static int GetAgeStage(Pawn pawn, bool force = false)
         {
-            if (!cachedAgeStages.TryGetValue(pawn, out AgeStageInfo ageInfo) || Find.TickManager.TicksGame > ageInfo.lastCheckTick + GenDate.TicksPerHour)
+            if (!cachedAgeStages.TryGetValue(pawn, out AgeStageInfo ageInfo) || Find.TickManager.TicksGame > ageInfo.lastCheckTick + GenDate.TicksPerHour || force)
             {
                 cachedAgeStages[pawn] = ageInfo = new AgeStageInfo { cachedAgeStage = GetAgeStageInt(pawn), lastCheckTick = Find.TickManager.TicksGame };
             }
@@ -287,13 +287,13 @@ namespace BabiesAndChildren.api
                    (lifeStages[3].def == DefDatabase<LifeStageDef>.GetNamed("HumanlikeTeenager")) &&
                    (lifeStages[4].def == DefDatabase<LifeStageDef>.GetNamed("HumanlikeAdult"));
         }
-        public static bool IsAgeStage(Pawn pawn, int ageStage)
+        public static bool IsAgeStage(Pawn pawn, int ageStage, bool force = false)
         {
-            return GetAgeStage(pawn) == ageStage;
+            return GetAgeStage(pawn, force) == ageStage;
         }
-        public static bool IsYoungerThan(Pawn pawn, int ageStage)
+        public static bool IsYoungerThan(Pawn pawn, int ageStage, bool force = false)
         {
-            return GetAgeStage(pawn) < ageStage;
+            return GetAgeStage(pawn, force) < ageStage;
         }
         public static bool IsOlderThan(Pawn pawn, int ageStage)
         {
