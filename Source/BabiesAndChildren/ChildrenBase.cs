@@ -37,6 +37,8 @@ namespace BabiesAndChildren
         public static bool ModAgeMatters_ON;
         //Medpod
         public static bool ModMedpod_ON;
+        //SOS2
+        public static bool ModSOS2_ON;
 
         private ChildrenBase()
         {
@@ -107,12 +109,10 @@ namespace BabiesAndChildren
             }
             foreach (Pawn pawn in map.mapPawns.FreeColonists)
             {
-                CLog.DevMessage("Pawn " + pawn + " Y " + AgeStages.IsYoungerThan(pawn, AgeStages.Adult, true));
                 if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Adult, true))
                 {
                     if (pawn.story.bodyType == null)
                         pawn.story.bodyType = ((pawn.gender == Gender.Female) ? BodyTypeDefOf.Female : BodyTypeDefOf.Male);
-                    CLog.DevMessage("Pawn " + pawn);
                     Growing_Comp comp = pawn.TryGetComp<Growing_Comp>();
 
                     comp?.Initialize();

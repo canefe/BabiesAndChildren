@@ -20,6 +20,7 @@ namespace BabiesAndChildren
             ChildrenBase.ModKVShowHair_ON = ModTools.IsModOn("[KV] Show Hair With Hats or Hide All Hats");
             ChildrenBase.ModAgeMatters_ON = ModTools.IsModOn("Age Matters 2.0 [1.2]");
             ChildrenBase.ModMedpod_ON = ModTools.IsModOn("MedPod");
+            ChildrenBase.ModSOS2_ON = ModTools.IsModOn("Save Our Ship 2");
             
             if (ChildrenBase.ModHAR_ON)
             {
