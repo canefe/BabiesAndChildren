@@ -173,6 +173,10 @@ namespace BabiesAndChildren.Harmony
                     {
                         IsEastWestFlipped = true;
                     }
+                    else if(pawn.def.defName == "Alien_Cutebold")
+                    {
+                        moffsetZfb = 1.2f;
+                    }
 
                     List<AlienPartGenerator.BodyAddon> addons = alienProps.alienRace.generalSettings.alienPartGenerator.bodyAddons;
                     AlienPartGenerator.AlienComp alienComp = pawn.GetComp<AlienPartGenerator.AlienComp>();

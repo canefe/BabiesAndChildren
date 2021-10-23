@@ -209,7 +209,7 @@ namespace BabiesAndChildren.Harmony
     }
 
     [HarmonyPatch(typeof(PawnRenderer), "BaseHeadOffsetAt")]
-    [HarmonyAfter(new string[] { "AlienRace" })]
+    [HarmonyAfter(new string[] { "rimworld.erdelf.alien_race.main" })]
     public static class PawnRenderer_BaseHeadOffsetAt_Patch
     {
         [HarmonyPostfix]
@@ -227,11 +227,6 @@ namespace BabiesAndChildren.Harmony
             {
                 num2 = 1.4f;
                 num3 = 1.4f;
-            }
-            if (___pawn.def.defName == "Alien_Cutebold")
-            {
-                num2 = 1.2f;
-                num3 = 1.2f;
             }
             __result.z *= bodySizeFactor * num2;
             __result.x *= bodySizeFactor * num3;
