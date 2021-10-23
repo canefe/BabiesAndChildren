@@ -57,18 +57,24 @@ namespace BabiesAndChildren
         /// </summary>
         public void Initialize(bool reinitialize = false)
         {
-            if (initialized && !reinitialize) return;
+            if (pawn.health.hediffSet.HasHediff(BnCHediffDefOf.BabyState0))
+            {
+                if (initialized && !reinitialize) return;
+            }
+
             
             if (parent == null)
                 Destroy();
             
             CLog.DevMessage((reinitialize ? "Reinitializing: " : "Initializing: ") + pawn.Name.ToStringShort);
             
-            if (AgeStages.IsAgeStage(pawn, AgeStages.Baby) && !pawn.health.hediffSet.HasHediff(HediffDef.Named("BabyState")))
+            if (AgeStages.IsAgeStage(pawn, AgeStages.Baby))
             {
-                //basically a call to Hediff_Baby:PostRemoved() in about 5 ticks
-                //why in 5 ticks instead of now? no fucking clue.
-                HealthUtility.TryAddHediff(pawn, HediffDef.Named("BabyState"));
+                InitBaby();
+                if (!initialized)
+                {
+                    Birth();
+                }
             }
 
             if (AgeStages.IsYoungerThan(pawn, AgeStages.Adult))
@@ -107,6 +113,75 @@ namespace BabiesAndChildren
                 pawn.health.hediffSet.hediffs.Remove(pawn.health.hediffSet.GetFirstHediffOfDef(BnCHediffDefOf.UnhappyBaby));
             }
 
+        }
+
+        public void InitBaby()
+        {
+            GrowToStage(AgeStages.GetAgeStage(pawn));
+            HealthUtility.ClearImplantAndAddiction(pawn);
+            pawn.style.beardDef = BeardDefOf.NoBeard;
+
+            //For rabbie
+            if (pawn.def.defName == "Rabbie")
+            {
+                HealthUtility.TryAddHediff(pawn, HediffDef.Named("PlanetariumAddiction"));
+            }
+           
+        }
+
+        public void Birth()
+        {
+
+            Pawn mother = pawn.GetMother();
+            Pawn father = pawn.GetFather();
+            MathTools.Fixed_Rand rand;
+            if (mother != null)
+            {
+                rand = new MathTools.Fixed_Rand((int)mother.ageTracker.AgeBiologicalTicks);
+                mother.ageTracker.AgeBiologicalTicks += 2;
+                mother.ageTracker.AgeChronologicalTicks += 2;
+            }
+            else if (father != null)
+            {
+                rand = new MathTools.Fixed_Rand((int)father.ageTracker.AgeBiologicalTicks);
+                father.ageTracker.AgeBiologicalTicks += 2;
+                father.ageTracker.AgeBiologicalTicks += 2;
+            }
+            else
+            {
+                rand = new MathTools.Fixed_Rand((int)pawn.ageTracker.AgeBiologicalTicks);
+            }
+            if (rand.Fixed_RandChance(BnCSettings.STILLBORN_CHANCE))
+            {
+                BabyTools.Miscarry(pawn, mother, father);
+                return;
+            }
+
+
+            if (mother != null)
+            {
+                HealthUtility.TryAddHediff(mother, HediffDef.Named("PostPregnancy"));
+                HealthUtility.TryAddHediff(mother, HediffDef.Named("Lactating"),
+                    HealthUtility.GetPawnBodyPart(mother, "Torso"));
+                mother.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.IGaveBirth);
+            }
+            if (father != null)
+            {
+                father.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.PartnerGaveBirth);
+                if (mother != null)
+                {
+                    father.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.WeHadBabies, mother, null);
+                    mother.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.WeHadBabies, father, null);
+                }
+            }
+            if (ChildrenBase.ModRimJobWorld_ON && BnCSettings.enable_postpartum)
+            {
+                HealthUtility.TryAddHediff(mother, HediffDef.Named("BnC_RJW_PostPregnancy"));
+            }
+
+            ChildrenUtility.PlayBabyCrySound(pawn);
+            Props.ColonyBorn = true;
+            pawn.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.JustBorn);
         }
 
         public void UpdateHediffs()
