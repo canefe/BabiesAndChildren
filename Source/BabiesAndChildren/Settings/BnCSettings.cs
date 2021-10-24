@@ -67,7 +67,7 @@ namespace BabiesAndChildren
         public static float AlienBodySize = 1f;
         public static float AlienHeadSizeA = 1f;
         public static float AlienHeadSizeB = 1f;
-        public static float AlienHairSize = 1.896f;
+        public static float AlienHairSize = 1f;
         public static float HumanTeenagerModifier = 1f;
         public static float AlienTeenagerModifier = 1f;
 
