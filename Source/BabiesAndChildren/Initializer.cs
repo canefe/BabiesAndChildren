@@ -106,6 +106,11 @@ namespace BabiesAndChildren
                 BnCSettings.AlienrootlocZ = -0.038f;
                 BnCSettings.FAModifier = 0.8058f;
             }
+            //typo fix
+            if (BnCSettings.AlienHairSize == 1.896f)
+            {
+                BnCSettings.AlienHairSize = 1f;
+            }
         }
     }
 }
