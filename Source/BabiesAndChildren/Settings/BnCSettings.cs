@@ -268,37 +268,40 @@ namespace BabiesAndChildren
 
             listingStandard.Label("StillbornChance_Title".Translate() + ": " + Math.Round(STILLBORN_CHANCE, 4), -1f, "StillbornChance_desc".Translate());
             STILLBORN_CHANCE = listingStandard.Slider(STILLBORN_CHANCE, 0f, 0.5f);
-            Listing_Standard raceList = new Listing_Standard();
-            raceList.Begin(listingStandard.GetRect(listingStandard.CurHeight));
-            raceList.Label("Enabled Races (restart needed to apply)", -1f, null);
-            racesSearch = raceList.TextEntry(racesSearch, 1);
-            raceList.GapLine(4f);
-            Rect rect = raceList.GetRect(200f);
-            Text.Font = GameFont.Small;
-            Rect rect2 = rect;
-            rect2.width -= 16f;
-            rect2.height = 150f;
-            races = (from x in DefDatabase<ThingDef>.AllDefs
-                          where x.race != null && x.race.Humanlike && !ModTools.IsRobot(x) && !Races.IsBlacklisted(x) && x.defName != "Human"
-                     select x.defName).Reverse<string>().ToList<string>();
-            Vector2 scroll = new Vector2();
-            Widgets.BeginScrollView(rect, ref scroll, rect2, true);
-            GUI.BeginGroup(rect2);
-            float lineHeight = Text.LineHeight;
-            float num = 0f;
-            for (int i = 0; i < races.Count; i++)
+            if (ChildrenBase.ModHAR_ON)
             {
-
-                if (racesSearch == null || races[i].Contains(racesSearch.ToLower()))
+                Listing_Standard raceList = new Listing_Standard();
+                raceList.Begin(listingStandard.GetRect(listingStandard.CurHeight));
+                raceList.Label("Enabled Races (restart needed to apply)", -1f, null);
+                racesSearch = raceList.TextEntry(racesSearch, 1);
+                raceList.GapLine(4f);
+                Rect rect = raceList.GetRect(200f);
+                Text.Font = GameFont.Small;
+                Rect rect2 = rect;
+                rect2.width -= 16f;
+                rect2.height = 150f;
+                races = (from x in DefDatabase<ThingDef>.AllDefs
+                         where x.race != null && x.race.Humanlike && !ModTools.IsRobot(x) && !Races.IsBlacklisted(x) && x.defName != "Human"
+                         select x.defName).Reverse<string>().ToList<string>();
+                Vector2 scroll = new Vector2();
+                Widgets.BeginScrollView(rect, ref scroll, rect2, true);
+                GUI.BeginGroup(rect2);
+                float lineHeight = Text.LineHeight;
+                float num = 0f;
+                for (int i = 0; i < races.Count; i++)
                 {
-                    RaceSettings(new Rect(0f, num, rect2.width, lineHeight), races[i], ref disabledRaces);
-                    num += lineHeight + 3f;
+
+                    if (racesSearch == null || races[i].Contains(racesSearch.ToLower()))
+                    {
+                        RaceSettings(new Rect(0f, num, rect2.width, lineHeight), races[i], ref disabledRaces);
+                        num += lineHeight + 3f;
+                    }
                 }
+                GUI.EndGroup();
+                Widgets.EndScrollView();
+                raceList.Gap(raceList.verticalSpacing);
+                raceList.End();
             }
-            GUI.EndGroup();
-            Widgets.EndScrollView();
-            raceList.Gap(raceList.verticalSpacing);
-            raceList.End();
             //////////////////////////// right column
             listingStandard.NewColumn();
             GUI.contentColor = Color.white;
