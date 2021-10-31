@@ -83,12 +83,15 @@ namespace BabiesAndChildren
         public static List<string> races;
         public static List<string> disabledRaces = new List<string>();
         private static string racesSearch = "";
+        private static float hs = 50f;
+
 
         //special flag to reinitialize all childeren on all maps (not saves) at map load once per "game"/ once per mod added
         //TODO make this a game component
 
         private static Vector2 scrollPosition;
-        private static float height_modifier = 600f;
+        private static Vector2 racesListScrollPos;
+        private static float height_modifier = 1200f;
 
         public static void AddDebugSettings(Listing_Standard listingStandard)
         {
@@ -148,7 +151,33 @@ namespace BabiesAndChildren
                 listingStandard.Label("FAModifier_Title".Translate() + ": " + Math.Round(FAModifier, 4), -1f, "FAModifier_desc".Translate());
                 FAModifier = listingStandard.Slider(FAModifier, -1f, 2f);
         }
+        public static void Scrol(Listing_Standard raceList, float height, ref float hs)
+        {
+            Rect rect = raceList.GetRect(height);
+            Rect rect2 = rect;
+            rect2.height = hs;
+            rect2.width -= 16f;
+            Widgets.BeginScrollView(rect, ref racesListScrollPos, rect2);
+            float lineHeight = Text.LineHeight;
+            float num = 0f;
+            races = (from x in DefDatabase<ThingDef>.AllDefs
+                     where x.race != null && x.race.Humanlike && !ModTools.IsRobot(x) && !Races.IsBlacklisted(x) && x.defName != "Human"
+                     select x.defName).Reverse<string>().ToList<string>();
+            for (int i = 0; i < races.Count; i++)
+            {
 
+                if (racesSearch == null || Contai(races[i], racesSearch.ToLower(), StringComparison.OrdinalIgnoreCase))
+                {
+                    RaceSettings(new Rect(0f, num, rect2.width, lineHeight), races[i], ref disabledRaces);
+                    num += lineHeight + 3f;
+                }
+            }
+            //Widgets.DrawBoxSolid(rect, Color.red);
+            //Widgets.DrawBoxSolid(rect2, Color.white);
+            hs = num;
+            Widgets.EndScrollView();
+            raceList.Gap(raceList.verticalSpacing);
+        }
         public static void RaceSettings(Rect rect, string label, ref List<string> alienRaces, string tooltip = null)
         {
             if (!tooltip.NullOrEmpty())
@@ -159,10 +188,14 @@ namespace BabiesAndChildren
                 }
                 TooltipHandler.TipRegion(rect, tooltip);
             }
-            bool flag = !alienRaces.Contains(label);
+            if (alienRaces.NullOrEmpty<string>())
+            {
+                alienRaces = new List<string>();
+            }
+            bool flag = (!alienRaces.NullOrEmpty() ? !alienRaces.Contains(label) : true);
             WidgetRow widgetRow = new WidgetRow(rect.x, rect.y, UIDirection.RightThenUp, 99999f, 4f);
             widgetRow.Label(label, rect.width - rect.height * 2f - 16f, null, -1f);
-            widgetRow.ToggleableIcon(ref flag, null, "Disable/Enable race", null, null);
+            widgetRow.ToggleableIcon(ref flag, TexButton.Banish, "Disable/Enable race", null, null);
             if (!flag)
             {
                 if (!alienRaces.Contains(label))
@@ -171,6 +204,17 @@ namespace BabiesAndChildren
                     return;
                 }
             }
+            else
+            {
+                if (alienRaces.Contains(label))
+                {
+                    alienRaces.Remove(label);
+                }
+            }
+        }
+        public static bool Contai(string source, string toCheck, StringComparison comp)
+        {
+            return source != null && source.IndexOf(toCheck, comp) >= 0;
         }
         public static void DoWindowContents(Rect inRect)
         {           
@@ -271,35 +315,12 @@ namespace BabiesAndChildren
             if (ChildrenBase.ModHAR_ON)
             {
                 Listing_Standard raceList = new Listing_Standard();
-                raceList.Begin(listingStandard.GetRect(listingStandard.CurHeight));
-                raceList.Label("Enabled Races (restart needed to apply)", -1f, null);
+                raceList.Begin(listingStandard.GetRect(viewRect.height - listingStandard.CurHeight));
+                raceList.Label("Enabled Races (restart needed to apply) ", -1f, null);
                 racesSearch = raceList.TextEntry(racesSearch, 1);
                 raceList.GapLine(4f);
-                Rect rect = raceList.GetRect(200f);
-                Text.Font = GameFont.Small;
-                Rect rect2 = rect;
-                rect2.width -= 16f;
-                rect2.height = 150f;
-                races = (from x in DefDatabase<ThingDef>.AllDefs
-                         where x.race != null && x.race.Humanlike && !ModTools.IsRobot(x) && !Races.IsBlacklisted(x) && x.defName != "Human"
-                         select x.defName).Reverse<string>().ToList<string>();
-                Vector2 scroll = new Vector2();
-                Widgets.BeginScrollView(rect, ref scroll, rect2, true);
-                GUI.BeginGroup(rect2);
-                float lineHeight = Text.LineHeight;
-                float num = 0f;
-                for (int i = 0; i < races.Count; i++)
-                {
+                Scrol(raceList, 450f, ref hs);
 
-                    if (racesSearch == null || races[i].Contains(racesSearch.ToLower()))
-                    {
-                        RaceSettings(new Rect(0f, num, rect2.width, lineHeight), races[i], ref disabledRaces);
-                        num += lineHeight + 3f;
-                    }
-                }
-                GUI.EndGroup();
-                Widgets.EndScrollView();
-                raceList.Gap(raceList.verticalSpacing);
                 raceList.End();
             }
             //////////////////////////// right column
