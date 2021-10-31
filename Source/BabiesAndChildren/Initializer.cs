@@ -1,4 +1,5 @@
 using BabiesAndChildren.Harmony;
+using System;
 using Verse;
 
 namespace BabiesAndChildren
@@ -112,5 +113,9 @@ namespace BabiesAndChildren
                 BnCSettings.AlienHairSize = 1f;
             }
         }
+    }
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
+    public class HotSwappableAttribute : Attribute
+    {
     }
 }

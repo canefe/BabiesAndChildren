@@ -4,11 +4,12 @@ using UnityEngine;
 using Verse;
 using RimWorld;
 using Verse.Sound;
-using System.Security.Policy;
-
+using System.Linq;
+using BabiesAndChildren.api;
 namespace BabiesAndChildren
 {
     //snake_case is used too much here
+    [HotSwappable]
     public class BnCSettings : ModSettings
     {
         public enum BabyInheritPercentageHandleEnum
@@ -78,7 +79,11 @@ namespace BabiesAndChildren
         public static float ShowHairAlienLocZ = 0.035f;
         public static float ShowHairAlienHFLocZ = 0.048f;
         public static float FAModifier = 0.8058f;
-        
+
+        public static List<string> races;
+        public static List<string> disabledRaces = new List<string>();
+        private static string racesSearch = "";
+
         //special flag to reinitialize all childeren on all maps (not saves) at map load once per "game"/ once per mod added
         //TODO make this a game component
 
@@ -142,6 +147,30 @@ namespace BabiesAndChildren
                 listingStandard.Gap(5f);
                 listingStandard.Label("FAModifier_Title".Translate() + ": " + Math.Round(FAModifier, 4), -1f, "FAModifier_desc".Translate());
                 FAModifier = listingStandard.Slider(FAModifier, -1f, 2f);
+        }
+
+        public static void RaceSettings(Rect rect, string label, ref List<string> alienRaces, string tooltip = null)
+        {
+            if (!tooltip.NullOrEmpty())
+            {
+                if (Mouse.IsOver(rect))
+                {
+                    Widgets.DrawHighlight(rect);
+                }
+                TooltipHandler.TipRegion(rect, tooltip);
+            }
+            bool flag = !alienRaces.Contains(label);
+            WidgetRow widgetRow = new WidgetRow(rect.x, rect.y, UIDirection.RightThenUp, 99999f, 4f);
+            widgetRow.Label(label, rect.width - rect.height * 2f - 16f, null, -1f);
+            widgetRow.ToggleableIcon(ref flag, null, "Disable/Enable race", null, null);
+            if (!flag)
+            {
+                if (!alienRaces.Contains(label))
+                {
+                    alienRaces.Add(label);
+                    return;
+                }
+            }
         }
         public static void DoWindowContents(Rect inRect)
         {           
@@ -239,7 +268,37 @@ namespace BabiesAndChildren
 
             listingStandard.Label("StillbornChance_Title".Translate() + ": " + Math.Round(STILLBORN_CHANCE, 4), -1f, "StillbornChance_desc".Translate());
             STILLBORN_CHANCE = listingStandard.Slider(STILLBORN_CHANCE, 0f, 0.5f);
+            Listing_Standard raceList = new Listing_Standard();
+            raceList.Begin(listingStandard.GetRect(listingStandard.CurHeight));
+            raceList.Label("Enabled Races (restart needed to apply)", -1f, null);
+            racesSearch = raceList.TextEntry(racesSearch, 1);
+            raceList.GapLine(4f);
+            Rect rect = raceList.GetRect(200f);
+            Text.Font = GameFont.Small;
+            Rect rect2 = rect;
+            rect2.width -= 16f;
+            rect2.height = 150f;
+            races = (from x in DefDatabase<ThingDef>.AllDefs
+                          where x.race != null && x.race.Humanlike && !ModTools.IsRobot(x) && !Races.IsBlacklisted(x) && x.defName != "Human"
+                     select x.defName).Reverse<string>().ToList<string>();
+            Vector2 scroll = new Vector2();
+            Widgets.BeginScrollView(rect, ref scroll, rect2, true);
+            GUI.BeginGroup(rect2);
+            float lineHeight = Text.LineHeight;
+            float num = 0f;
+            for (int i = 0; i < races.Count; i++)
+            {
 
+                if (racesSearch == null || races[i].Contains(racesSearch.ToLower()))
+                {
+                    RaceSettings(new Rect(0f, num, rect2.width, lineHeight), races[i], ref disabledRaces);
+                    num += lineHeight + 3f;
+                }
+            }
+            GUI.EndGroup();
+            Widgets.EndScrollView();
+            raceList.Gap(raceList.verticalSpacing);
+            raceList.End();
             //////////////////////////// right column
             listingStandard.NewColumn();
             GUI.contentColor = Color.white;
@@ -258,8 +317,11 @@ namespace BabiesAndChildren
                 AddDebugSettings(listingStandard);
             }
 
+
+
             Widgets.EndScrollView();
             listingStandard.End();
+
         }
 
         public override void ExposeData()
@@ -308,6 +370,7 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref ShowHairAlienLocZ, "ShowHairAlienLocZ");
             Scribe_Values.Look(ref ShowHairAlienHFLocZ, "ShowHairAlienHFLocZ");
             Scribe_Values.Look(ref FAModifier, "FAModifier");
+            Scribe_Collections.Look<string>(ref disabledRaces, "DisabledRaces", LookMode.Undefined, Array.Empty<object>());
         }
 
         public static void Reset_Settings()
@@ -351,7 +414,7 @@ namespace BabiesAndChildren
             ShowHairAlienLocZ = 0.035f;
             ShowHairAlienHFLocZ = 0.048f;
             FAModifier = 0.8058f;
-            //OncePerGame = false; possibly unnecessary and game breaking?
+            disabledRaces = new List<string>();
         }
     }
 }

@@ -34,7 +34,8 @@ namespace BabiesAndChildren.Tools
             }
             usesChildren = 
                    !ModTools.IsRobot(thingDef) &&
-                   !Races.IsBlacklisted(thingDef);
+                   !Races.IsBlacklisted(thingDef) &&
+                   !BnCSettings.disabledRaces.Contains(thingDef.defName);
             
             CLog.DevMessage(thingDef.defName + " cached as " + usesChildren + " in ThingUsesChildren");
             thingUsesChildrenCache[thingDef] = usesChildren;
