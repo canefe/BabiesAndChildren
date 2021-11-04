@@ -68,7 +68,7 @@ namespace BabiesAndChildren
             
             CLog.DevMessage((reinitialize ? "Reinitializing: " : "Initializing: ") + pawn.Name.ToStringShort);
             
-            if (AgeStages.IsAgeStage(pawn, AgeStages.Baby))
+            if (AgeStages.IsAgeStage(pawn, AgeStages.Baby, true))
             {
                 InitBaby();
                 if (!initialized)
@@ -77,7 +77,7 @@ namespace BabiesAndChildren
                 }
             }
 
-            if (AgeStages.IsYoungerThan(pawn, AgeStages.Adult))
+            if (AgeStages.IsYoungerThan(pawn, AgeStages.Adult, true))
             {
                 GrowToStage(AgeStages.GetAgeStage(pawn));
             }
@@ -288,6 +288,12 @@ namespace BabiesAndChildren
                         Messages.Message("MessageGrewUpTeenager".Translate(pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
                     }
                     break;
+            }
+
+            PawnGraphicSet graphics = pawn.Drawer.renderer.graphics;
+            if (graphics != null)
+            {
+                graphics.ResolveAllGraphics();
             }
             ModTools.ChangeRJWHediffSeverity(pawn, initSize, rand);
         }
