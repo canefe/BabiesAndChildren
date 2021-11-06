@@ -94,7 +94,7 @@ namespace BabiesAndChildren
 
         private static Vector2 scrollPosition;
         private static Vector2 racesListScrollPos;
-        private static float height_modifier = 1200f;
+        private static float height_modifier = 500f;
 
         public static void AddDebugSettings(Listing_Standard listingStandard)
         {
@@ -220,11 +220,12 @@ namespace BabiesAndChildren
             return source != null && source.IndexOf(toCheck, comp) >= 0;
         }
         public static void DoWindowContents(Rect inRect)
-        {           
+        {
+            inRect.height = inRect.height + 1200f;
             //30f for top page description and bottom close button
-            Rect outRect = new Rect(0f, 30f, inRect.width, inRect.height - 30f);
+            Rect outRect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height - 800f);
             //-16 for slider, height_modifier - additional height for options
-            Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, inRect.height + height_modifier);
+            Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, inRect.height);
 
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.maxOneColumn = true;
@@ -245,8 +246,8 @@ namespace BabiesAndChildren
 
             GUIStyle guistyle = new GUIStyle(Text.CurFontStyle);
             guistyle.fontStyle = FontStyle.Bold;
-            guistyle.fontSize = 18;
-            GUI.Label(listingStandard.GetRect(Text.CalcHeight("AcceleratedGrowth_title".Translate(), listingStandard.ColumnWidth) + 4f), "AcceleratedGrowth_title".Translate(), guistyle);
+            guistyle.fontSize = 20;
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("AcceleratedGrowth_title".Translate(), listingStandard.ColumnWidth) + 6f), "AcceleratedGrowth_title".Translate(), guistyle);
 
             listingStandard.Gap(3f);
 
@@ -273,27 +274,25 @@ namespace BabiesAndChildren
 
             listingStandard.GapLine (5f);
 
-            guistyle.fontStyle = FontStyle.Bold;
-            guistyle.fontSize = 18;
-            GUI.Label(listingStandard.GetRect(Text.CalcHeight("SpawningSettings".Translate(), listingStandard.ColumnWidth) + 4f), "SpawningSettings".Translate(), guistyle);
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("SpawningSettings".Translate(), listingStandard.ColumnWidth) + 6f), "SpawningSettings".Translate(), guistyle);
 
             listingStandard.Gap(3f);
 
             listingStandard.CheckboxLabeled("EnableChildrenSpawning_Title".Translate(), ref patchhumans, "EnableChildrenSpawning_desc".Translate());
+            if (patchhumans)
+            {
+                listingStandard.Gap(5f);
 
-            listingStandard.Gap(5f);
+                listingStandard.CheckboxLabeled("SettingMinAgeTen_Title".Translate(), ref minageten, "SettingMinAgeTen_desc".Translate());
 
-            listingStandard.CheckboxLabeled("SettingMinAgeTen_Title".Translate(), ref minageten, "SettingMinAgeTen_desc".Translate());
+                listingStandard.Gap(5f);
 
-            listingStandard.Gap(5f);
-
-            listingStandard.CheckboxLabeled("SettingChildRarity_Title".Translate(), ref rarekids, "SettingChildRarity_desc".Translate());
+                listingStandard.CheckboxLabeled("SettingChildRarity_Title".Translate(), ref rarekids, "SettingChildRarity_desc".Translate());
+            }
 
             listingStandard.GapLine(5f);
 
-            guistyle.fontStyle = FontStyle.Bold;
-            guistyle.fontSize = 18;
-            GUI.Label(listingStandard.GetRect(Text.CalcHeight("WatchingSettings".Translate(), listingStandard.ColumnWidth) + 4f), "WatchingSettings".Translate(), guistyle);
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("WatchingSettings".Translate(), listingStandard.ColumnWidth) + 6f), "WatchingSettings".Translate(), guistyle);
 
             listingStandard.Gap(3f);
 
@@ -303,9 +302,7 @@ namespace BabiesAndChildren
             watchexpgainmultiplier = listingStandard.Slider(watchexpgainmultiplier, 0.1f, 2f);
             listingStandard.GapLine(5f);
 
-            guistyle.fontStyle = FontStyle.Bold;
-            guistyle.fontSize = 18;
-            GUI.Label(listingStandard.GetRect(Text.CalcHeight("MiscSettings".Translate(), listingStandard.ColumnWidth) + 4f), "MiscSettings".Translate(), guistyle);
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("MiscSettings".Translate(), listingStandard.ColumnWidth) + 6f), "MiscSettings".Translate(), guistyle);
 
             listingStandard.Gap(3f);
 
@@ -329,9 +326,7 @@ namespace BabiesAndChildren
 
             listingStandard.GapLine(5f);
 
-            guistyle.fontStyle = FontStyle.Bold;
-            guistyle.fontSize = 18;
-            GUI.Label(listingStandard.GetRect(Text.CalcHeight("BabySettings".Translate(), listingStandard.ColumnWidth) + 4f), "BabySettings".Translate(), guistyle);
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("BabySettings".Translate(), listingStandard.ColumnWidth) + 6f), "BabySettings".Translate(), guistyle);
 
             listingStandard.Gap(3f);
             //Gestation period settings
@@ -357,8 +352,13 @@ namespace BabiesAndChildren
 
             listingStandard.Label("StillbornChance_Title".Translate() + ": " + Math.Round(STILLBORN_CHANCE, 4), -1f, "StillbornChance_desc".Translate());
             STILLBORN_CHANCE = listingStandard.Slider(STILLBORN_CHANCE, 0f, 0.5f);
+
             if (ChildrenBase.ModHAR_ON)
             {
+                listingStandard.GapLine(5f);
+                GUI.Label(listingStandard.GetRect(Text.CalcHeight("HARSettings".Translate(), listingStandard.ColumnWidth) + 6f), "HARSettings".Translate(), guistyle);
+
+                listingStandard.Gap(3f);
                 Listing_Standard raceList = new Listing_Standard();
                 raceList.Begin(listingStandard.GetRect(viewRect.height - listingStandard.CurHeight));
                 raceList.Label("Enabled Races (restart needed to apply) ", -1f, null);
