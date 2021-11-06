@@ -198,7 +198,8 @@ namespace BabiesAndChildren
             bool flag = (!alienRaces.NullOrEmpty() ? !alienRaces.Contains(label) : true);
             WidgetRow widgetRow = new WidgetRow(rect.x, rect.y, UIDirection.RightThenUp, 99999f, 4f);
             widgetRow.Label(label, rect.width - rect.height * 2f - 16f, null, -1f);
-            widgetRow.ToggleableIcon(ref flag, TexButton.Banish, "Disable/Enable race", null, null);
+            widgetRow.ToggleableIcon(ref flag, TexButton.IconBook, "Disable/Enable race", null, null);
+            // todo: size settings
             if (!flag)
             {
                 if (!alienRaces.Contains(label))
@@ -298,7 +299,7 @@ namespace BabiesAndChildren
 
             listingStandard.CheckboxLabeled("EnableChildrenWatching_Title".Translate(), ref watchworktype_enabled, "EnableChildrenWatching_desc".Translate());
             listingStandard.Gap(2f);
-            listingStandard.Label("ChildrenWatchingExpGainMultiplier_Title".Translate() + ": " + Math.Round(watchexpgainmultiplier, 4), -1f, "ChildrenWatchingExpGainMultiplier_desc".Translate());
+            listingStandard.Label("ChildrenWatchingExpGainMultiplier_Title".Translate() + ": " + Math.Round(watchexpgainmultiplier * 100, 0) + "%", -1f, "ChildrenWatchingExpGainMultiplier_desc".Translate());
             watchexpgainmultiplier = listingStandard.Slider(watchexpgainmultiplier, 0.1f, 2f);
             listingStandard.GapLine(5f);
 
@@ -350,7 +351,7 @@ namespace BabiesAndChildren
 
             listingStandard.Gap(5f);
 
-            listingStandard.Label("StillbornChance_Title".Translate() + ": " + Math.Round(STILLBORN_CHANCE, 4), -1f, "StillbornChance_desc".Translate());
+            listingStandard.Label("StillbornChance_Title".Translate() + ": " + Math.Round(STILLBORN_CHANCE * 100, 0) + "%", -1f, "StillbornChance_desc".Translate());
             STILLBORN_CHANCE = listingStandard.Slider(STILLBORN_CHANCE, 0f, 0.5f);
 
             if (ChildrenBase.ModHAR_ON)
