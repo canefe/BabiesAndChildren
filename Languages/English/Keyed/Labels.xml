@@ -4,6 +4,14 @@
   <MaxTraitsSetting_desc>The maximum number of traits that can be applied to a pawn during childhood. Requires another mod to support &gt; 3 traits per pawn.</MaxTraitsSetting_desc>-->
   <BnCSettings1>Babies And Children</BnCSettings1>
   <BnCSetting_Init>Reset BnC settings</BnCSetting_Init>
+
+
+  <MiscSettings>Misc.</MiscSettings>
+  <SpawningSettings>Spawning</SpawningSettings>
+  <WatchingSettings>Watching</WatchingSettings>
+  <BabySettings>Babies / Birth</BabySettings>
+
+
   <AcceleratedGrowth_title>Accelerated growth</AcceleratedGrowth_title>
   <AcceleratedGrowth_desc>Children age faster</AcceleratedGrowth_desc>
   <AcceleratedGrowthEndAge_title1>End age of accelerated growth</AcceleratedGrowthEndAge_title1>
@@ -40,7 +48,7 @@
   <DebugInfoMessagesEnabled_Title>Enable graphic setting and debug logging</DebugInfoMessagesEnabled_Title>
   <DebugInfoMessagesEnabled_desc>When enabled, will show graphic setting and will post frequent debugging logs to the console.</DebugInfoMessagesEnabled_desc>
   <ChildCuteActEnabled_Title>Enable Child Cute Act</ChildCuteActEnabled_Title>
-  <ChildCuteActEnabled_desc>Enable Child Cute Act.</ChildCuteActEnabled_desc>
+  <ChildCuteActEnabled_desc>Enable children 'nuzzle' like animals.</ChildCuteActEnabled_desc>
   <humanlikeHeadEnabled_Title>Ratkin, kurin face style change</humanlikeHeadEnabled_Title>
   <humanlikeHeadEnabled_desc>The face styles of the Ratkins and the Kurin look like human children.</humanlikeHeadEnabled_desc>
   <RabbieChildHeadEnabled_Title>Rabbie face style change</RabbieChildHeadEnabled_Title>
@@ -91,6 +99,10 @@
   <EnableChildrenWatching_desc>If disabled, disables 'Watching' and disables 'Mentor' tab from pawn tabs.</EnableChildrenWatching_desc>
   <ChildrenWatchingExpGainMultiplier_Title>Watching experience gain modifier</ChildrenWatchingExpGainMultiplier_Title>
   <ChildrenWatchingExpGainMultiplier_desc>Tweak the experience gain from watching.</ChildrenWatchingExpGainMultiplier_desc>
+  <SettingMinAgeTen_Title>Set min spawned children age to 10</SettingMinAgeTen_Title>
+  <SettingMinAgeTen_desc>Disable this if you want to see minimum 6 year olds in raids, quests etc. If enabled this makes spawned children min 10 years old. (Restart needed)</SettingMinAgeTen_desc>
+  <SettingChildRarity_Title>Rarer Children</SettingChildRarity_Title>
+  <SettingChildRarity_desc>Enable this if you want children younger than teenagers (14yo) appear less often in raids, quests etc. (Restart needed)</SettingChildRarity_desc>
 
   <!-- Mentor Watch Tab -->
   <TabWatch>Mentor</TabWatch>

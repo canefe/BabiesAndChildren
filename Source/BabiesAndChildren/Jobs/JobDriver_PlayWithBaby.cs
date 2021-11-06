@@ -133,7 +133,7 @@ namespace BabiesAndChildren
     {
         public static bool CanVisit(Pawn pawn, Pawn baby, JoyCategory maxPatientJoy)
         {
-            return baby.IsColonist &&
+            return
                 !baby.Dead &&
                 pawn != baby &&
                 //baby.InBed() &&

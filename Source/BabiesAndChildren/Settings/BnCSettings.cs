@@ -53,6 +53,9 @@ namespace BabiesAndChildren
         public static bool watchworktype_enabled = true;
         public static float watchexpgainmultiplier = 1f;
 
+        public static bool minageten = true;
+        public static bool rarekids = false;
+
         public static bool debug_and_gsetting = false;
         public static bool child_cute_act_enabled = true;
         
@@ -114,7 +117,7 @@ namespace BabiesAndChildren
                 listingStandard.Gap(5f);
                 listingStandard.Label("HumanTeenagerModifier_Title".Translate() + ": " + Math.Round(HumanTeenagerModifier, 4), -1f, "HumanTeenagerModifier_desc".Translate());
                 HumanTeenagerModifier = listingStandard.Slider(HumanTeenagerModifier, -2f, 2f);
-                listingStandard.Gap(5f);
+                listingStandard.GapLine(5f);
                 listingStandard.Label("AlienChildrenBodysize_Title".Translate() + ": " + Math.Round(AlienBodySize, 4), -1f, "AlienChildrenBodysize_desc".Translate());
                 AlienBodySize = listingStandard.Slider(AlienBodySize, -2f, 2f);
                 listingStandard.Gap(5f);
@@ -124,6 +127,9 @@ namespace BabiesAndChildren
                 listingStandard.Label("AlienChildrenHumanlikeHeadsize_Title".Translate() + ": " + Math.Round(AlienHeadSizeB, 4), -1f, "AlienChildrenHumanlikeHeadsize_desc".Translate());
                 AlienHeadSizeB = listingStandard.Slider(AlienHeadSizeB, -2f, 2f);
                 listingStandard.Gap(5f);
+                listingStandard.Label("FAModifier_Title".Translate() + ": " + Math.Round(FAModifier, 4), -1f, "FAModifier_desc".Translate());
+                FAModifier = listingStandard.Slider(FAModifier, -1f, 2f);
+                listingStandard.Gap(5f);
                 listingStandard.Label("AlienChildrenHairsize_Title".Translate() + ": " + Math.Round(AlienHairSize, 4), -1f, "AlienChildrenHairsize_desc".Translate());
                 AlienHairSize = listingStandard.Slider(AlienHairSize, -2f, 2f);
                 listingStandard.Gap(5f);
@@ -132,7 +138,7 @@ namespace BabiesAndChildren
                 listingStandard.Gap(5f);
                 listingStandard.Label("AlienTeenagerModifier_Title".Translate() + ": " + Math.Round(AlienTeenagerModifier, 4), -1f, "AlienTeenagerModifier_desc".Translate());
                 AlienTeenagerModifier = listingStandard.Slider(AlienTeenagerModifier, -2f, 2f);
-                listingStandard.Gap(5f);
+                listingStandard.GapLine(5f);
                 listingStandard.Label("ShowHairSize_Title".Translate() + ": " + Math.Round(ShowHairSize, 4), -1f, "ShowHairSize_desc".Translate());
                 ShowHairSize = listingStandard.Slider(ShowHairSize, -2f, 2f);
                 listingStandard.Gap(5f);
@@ -147,9 +153,6 @@ namespace BabiesAndChildren
                 listingStandard.Gap(5f);
                 listingStandard.Label("ShowHairAlienHFLocZ_Title".Translate() + ": " + Math.Round(ShowHairAlienHFLocZ, 4), -1f, "ShowHairAlienHFLocZ_desc".Translate());
                 ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("FAModifier_Title".Translate() + ": " + Math.Round(FAModifier, 4), -1f, "FAModifier_desc".Translate());
-                FAModifier = listingStandard.Slider(FAModifier, -1f, 2f);
         }
         public static void Scrol(Listing_Standard raceList, float height, ref float hs)
         {
@@ -238,7 +241,15 @@ namespace BabiesAndChildren
                 Reset_Settings();
             }
             
-            listingStandard.Gap(5f);
+            listingStandard.GapLine(5f);
+
+            GUIStyle guistyle = new GUIStyle(Text.CurFontStyle);
+            guistyle.fontStyle = FontStyle.Bold;
+            guistyle.fontSize = 18;
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("AcceleratedGrowth_title".Translate(), listingStandard.ColumnWidth) + 4f), "AcceleratedGrowth_title".Translate(), guistyle);
+
+            listingStandard.Gap(3f);
+
             //accelerated growth checkbox 
             listingStandard.CheckboxLabeled("AcceleratedGrowth_title".Translate(), ref accelerated_growth, "AcceleratedGrowth_desc".Translate());
             if (accelerated_growth)
@@ -260,21 +271,50 @@ namespace BabiesAndChildren
                 teenager_accelerated_growth = (int)listingStandard.Slider(teenager_accelerated_growth, 1, MAX_ACCELERATED_GROWTH_FACTOR);
             }
 
-            listingStandard.Gap(5f);
+            listingStandard.GapLine (5f);
 
-            //Patch humans
+            guistyle.fontStyle = FontStyle.Bold;
+            guistyle.fontSize = 18;
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("SpawningSettings".Translate(), listingStandard.ColumnWidth) + 4f), "SpawningSettings".Translate(), guistyle);
+
+            listingStandard.Gap(3f);
+
             listingStandard.CheckboxLabeled("EnableChildrenSpawning_Title".Translate(), ref patchhumans, "EnableChildrenSpawning_desc".Translate());
 
             listingStandard.Gap(5f);
 
-            listingStandard.CheckboxLabeled("EnableChildrenPlaying_Title".Translate(), ref playtime_enabled, "EnableChildrenPlaying_desc".Translate());
+            listingStandard.CheckboxLabeled("SettingMinAgeTen_Title".Translate(), ref minageten, "SettingMinAgeTen_desc".Translate());
 
             listingStandard.Gap(5f);
+
+            listingStandard.CheckboxLabeled("SettingChildRarity_Title".Translate(), ref rarekids, "SettingChildRarity_desc".Translate());
+
+            listingStandard.GapLine(5f);
+
+            guistyle.fontStyle = FontStyle.Bold;
+            guistyle.fontSize = 18;
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("WatchingSettings".Translate(), listingStandard.ColumnWidth) + 4f), "WatchingSettings".Translate(), guistyle);
+
+            listingStandard.Gap(3f);
 
             listingStandard.CheckboxLabeled("EnableChildrenWatching_Title".Translate(), ref watchworktype_enabled, "EnableChildrenWatching_desc".Translate());
             listingStandard.Gap(2f);
             listingStandard.Label("ChildrenWatchingExpGainMultiplier_Title".Translate() + ": " + Math.Round(watchexpgainmultiplier, 4), -1f, "ChildrenWatchingExpGainMultiplier_desc".Translate());
             watchexpgainmultiplier = listingStandard.Slider(watchexpgainmultiplier, 0.1f, 2f);
+            listingStandard.GapLine(5f);
+
+            guistyle.fontStyle = FontStyle.Bold;
+            guistyle.fontSize = 18;
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("MiscSettings".Translate(), listingStandard.ColumnWidth) + 4f), "MiscSettings".Translate(), guistyle);
+
+            listingStandard.Gap(3f);
+
+            listingStandard.CheckboxLabeled("ChildCuteActEnabled_Title".Translate(), ref child_cute_act_enabled, "ChildCuteActEnabled_desc".Translate());
+
+            listingStandard.Gap(5f);
+
+            listingStandard.CheckboxLabeled("EnableChildrenPlaying_Title".Translate(), ref playtime_enabled, "EnableChildrenPlaying_desc".Translate());
+
             listingStandard.Gap(5f);
 
             //Children drop weapons
@@ -287,8 +327,13 @@ namespace BabiesAndChildren
                 option_child_max_weapon_mass = listingStandard.Slider(option_child_max_weapon_mass, 0f, 5f);
             }
 
-            listingStandard.Gap(5f);
-            
+            listingStandard.GapLine(5f);
+
+            guistyle.fontStyle = FontStyle.Bold;
+            guistyle.fontSize = 18;
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("BabySettings".Translate(), listingStandard.ColumnWidth) + 4f), "BabySettings".Translate(), guistyle);
+
+            listingStandard.Gap(3f);
             //Gestation period settings
             listingStandard.CheckboxLabeled("GestationPeriodDays_Enable".Translate(), ref GestationPeriodDays_Enable, "GestationPeriodDays_Enable_Desc".Translate());  
             if (GestationPeriodDays_Enable)
@@ -329,11 +374,6 @@ namespace BabiesAndChildren
 
             listingStandard.Gap(4f);            
             
-            //no idea what this is
-            listingStandard.CheckboxLabeled("ChildCuteActEnabled_Title".Translate(), ref child_cute_act_enabled, "ChildCuteActEnabled_desc".Translate());
-            
-            listingStandard.Gap(5f);
-            
             //debug logging and settings checkbox
             listingStandard.CheckboxLabeled("DebugInfoMessagesEnabled_Title".Translate(), ref debug_and_gsetting, "DebugInfoMessagesEnabled_desc".Translate());
             if (debug_and_gsetting)
@@ -369,6 +409,8 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref playtime_enabled, "playtime_enabled", true);
             Scribe_Values.Look(ref watchworktype_enabled, "watchworktype_enabled", true);
             Scribe_Values.Look(ref watchexpgainmultiplier, "watchexpgainmultiplier", 1f);
+            Scribe_Values.Look(ref minageten, "minageten", true);
+            Scribe_Values.Look(ref rarekids, "rarekids", false);
             Scribe_Values.Look(ref cryVolume, "cryVolume");
             Scribe_Values.Look(ref STILLBORN_CHANCE, "STILLBORN_CHANCE", 0.09f);
 
@@ -415,6 +457,8 @@ namespace BabiesAndChildren
             playtime_enabled = true;
             watchworktype_enabled = true;
             watchexpgainmultiplier = 1f;
+            minageten = true;
+            rarekids = false;
             cryVolume = 0.8f;
             STILLBORN_CHANCE = 0.09f;
             debug_and_gsetting = false;
