@@ -21,50 +21,30 @@ namespace BabiesAndChildren
             {
                 try
                 {
-                    if (BnCSettings.minageten)
+
+                    StringBuilder builder = new StringBuilder(operations.node.InnerXml);
+                    CLog.Message("Minimum age for spawning kids: " + BnCSettings.minage);
+                    if (!BnCSettings.rarekids)
                     {
-                        StringBuilder builder = new StringBuilder(minageten.node.InnerXml);
-                        if (!BnCSettings.rarekids)
-                        {
-                            builder.Replace("{a0}", "5");
-                        }
-                        else
-                        {
-                            builder.Replace("{a0}", "1");
-                        }
-                        XmlDocument doc = new XmlDocument();
-                        doc.LoadXml(builder.ToString());
-                        XmlNode newNode = doc.DocumentElement;
-                        PatchOperation patch = DirectXmlToObject.ObjectFromXml<PatchOperation>(newNode, false);
-                        if (!patch.Apply(xml))
-                        {
-                            return false;
-                        }
+                        builder.Replace("{a0}", "30");
                     }
                     else
                     {
-                        StringBuilder builder = new StringBuilder(operations.node.InnerXml);
-                        if (!BnCSettings.rarekids)
-                        {
-                            builder.Replace("{a0}", "10");
-                            builder.Replace("{a1}", "20");
-                            builder.Replace("{a2}", "40");
-                        }
-                        else
-                        {
-                            builder.Replace("{a0}", "1");
-                            builder.Replace("{a1}", "3");
-                            builder.Replace("{a2}", "5");
-                        }
-                        XmlDocument doc = new XmlDocument();
-                        doc.LoadXml(builder.ToString());
-                        XmlNode newNode = doc.DocumentElement;
-                        PatchOperation patch = DirectXmlToObject.ObjectFromXml<PatchOperation>(newNode, false);
-                        if (!patch.Apply(xml))
-                        {
-                            return false;
-                        }
+                        builder.Replace("{a0}", "1");
+                        CLog.Message("Rarer children is active. (<14 yo)");
                     }
+                    builder.Replace("{minage}", BnCSettings.minage.ToString());
+                    builder.Replace("{minagep}", (BnCSettings.minage + 1).ToString());
+                    
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(builder.ToString());
+                    XmlNode newNode = doc.DocumentElement;
+                    PatchOperation patch = DirectXmlToObject.ObjectFromXml<PatchOperation>(newNode, false);
+                    if (!patch.Apply(xml))
+                    {
+                        return false;
+                    }
+
                     return true;
                 }
                 catch

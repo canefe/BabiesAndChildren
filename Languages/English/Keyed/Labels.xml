@@ -100,8 +100,8 @@
   <EnableChildrenWatching_desc>If disabled, disables 'Watching' and disables 'Mentor' tab from pawn tabs.</EnableChildrenWatching_desc>
   <ChildrenWatchingExpGainMultiplier_Title>Watching experience gain modifier</ChildrenWatchingExpGainMultiplier_Title>
   <ChildrenWatchingExpGainMultiplier_desc>Tweak the experience gain from watching.</ChildrenWatchingExpGainMultiplier_desc>
-  <SettingMinAgeTen_Title>Set minimum spawned children age to 10</SettingMinAgeTen_Title>
-  <SettingMinAgeTen_desc>Disable this if you want to see minimum 6 year olds in raids, quests etc. If enabled this makes spawned children min 10 years old. (Restart needed)</SettingMinAgeTen_desc>
+  <SettingMinAge_Title>Minimum age of spawned children</SettingMinAge_Title>
+  <SettingMinAge_desc>Set minimum age for children to spawn in quests raids etc. (Restart needed)</SettingMinAge_desc>
   <SettingChildRarity_Title>Rarer Children</SettingChildRarity_Title>
   <SettingChildRarity_desc>Enable this if you want children younger than teenagers (14yo) appear less often in raids, quests etc. (Restart needed)</SettingChildRarity_desc>
 

@@ -53,7 +53,7 @@ namespace BabiesAndChildren
         public static bool watchworktype_enabled = true;
         public static float watchexpgainmultiplier = 1f;
 
-        public static bool minageten = true;
+        public static int minage = 10;
         public static bool rarekids = false;
 
         public static bool debug_and_gsetting = false;
@@ -94,7 +94,6 @@ namespace BabiesAndChildren
 
         private static Vector2 scrollPosition;
         private static Vector2 racesListScrollPos;
-        private static float height_modifier = 500f;
 
         public static void AddDebugSettings(Listing_Standard listingStandard)
         {
@@ -284,7 +283,8 @@ namespace BabiesAndChildren
             {
                 listingStandard.Gap(5f);
 
-                listingStandard.CheckboxLabeled("SettingMinAgeTen_Title".Translate(), ref minageten, "SettingMinAgeTen_desc".Translate());
+                listingStandard.Label("SettingMinAge_Title".Translate() + ": " + minage, -1f, "SettingMinAge_desc".Translate());
+                minage = (int)listingStandard.Slider(minage, 5, 13);
 
                 listingStandard.Gap(5f);
 
@@ -410,7 +410,7 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref playtime_enabled, "playtime_enabled", true);
             Scribe_Values.Look(ref watchworktype_enabled, "watchworktype_enabled", true);
             Scribe_Values.Look(ref watchexpgainmultiplier, "watchexpgainmultiplier", 1f);
-            Scribe_Values.Look(ref minageten, "minageten", true);
+            Scribe_Values.Look(ref minage, "minage", 10);
             Scribe_Values.Look(ref rarekids, "rarekids", false);
             Scribe_Values.Look(ref cryVolume, "cryVolume");
             Scribe_Values.Look(ref STILLBORN_CHANCE, "STILLBORN_CHANCE", 0.09f);
@@ -458,7 +458,7 @@ namespace BabiesAndChildren
             playtime_enabled = true;
             watchworktype_enabled = true;
             watchexpgainmultiplier = 1f;
-            minageten = true;
+            minage = 10;
             rarekids = false;
             cryVolume = 0.8f;
             STILLBORN_CHANCE = 0.09f;
