@@ -154,7 +154,7 @@ namespace BabiesAndChildren
             {
 
 				case "Alien_Moyo":
-					headOffset = 0.8793103f;
+					headOffset = 0.7666342f;
 					hairSizeModifier = 1f;
 					headSizeModifier = 1;
 					sizeModifier = 1f;

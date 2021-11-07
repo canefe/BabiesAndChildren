@@ -85,7 +85,7 @@ namespace BabiesAndChildren.Tools
             NewSizeSetting(new RaceSettings
             {
                 defName = "Moyo",
-                headOffset = 0.8793103f,
+                headOffset = 0.7666342f,
             }, "Alien_Moyo");
         }
 
@@ -108,7 +108,7 @@ namespace BabiesAndChildren.Tools
             }
             else
             {
-                CLog.Warning("Null race settings!");
+                CLog.Warning("Null race settings, writing default ones.");
                 alienRaceSettings = new Dictionary<string, RaceSettings>();
             }
             alienRaceSettings[defName] = raceSettings;
