@@ -347,20 +347,26 @@ namespace BabiesAndChildren
         public static float GetHairSize(float n, Pawn pawn)
         {
             if (AgeStages.GetAgeStage(pawn) > AgeStages.Teenager) return 1f;
+            float num = 1f;
+            RaceSettings raceSettings = RaceUtility.GetSizeSettings(pawn.def);
+            if (raceSettings != null)
+            {
+                num *= raceSettings.hairSizeModifier;
+            }
             if (n != 0)
             {
                 if (RaceUtility.IsHuman(pawn))
                 {
                     return BnCSettings.HumanHairSize * BnCSettings.ShowHairSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.HumanTeenagerModifier : 1f);
                 }
-                else return BnCSettings.AlienHairSize * BnCSettings.ShowHairSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f);
+                else return BnCSettings.AlienHairSize * BnCSettings.ShowHairSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f) * num;
             }
 
             if (RaceUtility.IsHuman(pawn))
             {
                 return BnCSettings.HumanHairSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.HumanTeenagerModifier : 1f);
             }
-            else return BnCSettings.AlienHairSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f);
+            else return BnCSettings.AlienHairSize * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f) * num;
         }
 
         public static float GetHeadSize(Pawn pawn)
@@ -371,10 +377,16 @@ namespace BabiesAndChildren
             }
             else
             {
+                float num = 1f;
+                RaceSettings raceSettings = RaceUtility.GetSizeSettings(pawn.def);
+                if (raceSettings != null)
+                {
+                    num *= raceSettings.headSizeModifier;
+                }
                 if (BnCSettings.human_like_head_enabled && RaceUtility.HasHumanlikeHead(pawn)) 
-                    return BnCSettings.AlienHeadSizeB * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f);
+                    return BnCSettings.AlienHeadSizeB * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f) * num;
                 else 
-                    return BnCSettings.AlienHeadSizeA * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f);
+                    return BnCSettings.AlienHeadSizeA * AgeFactor(pawn) * (AgeStages.IsAgeStage(pawn, AgeStages.Teenager) ? BnCSettings.AlienTeenagerModifier : 1f) * num;
             }
         }
         /// <summary>
@@ -419,12 +431,18 @@ namespace BabiesAndChildren
         /// Magic number between .8 and 1.6 depending on age of pawn
         /// </summary>
         public static float AgeFactor(Pawn pawn)
-        {   
+        {  
             //Age factor only relevant for children and teens
             if (!RaceUtility.PawnUsesChildren(pawn) || AgeStages.IsYoungerThan(pawn, AgeStages.Child) || AgeStages.IsOlderThan(pawn, AgeStages.Teenager))
-                return 1f; 
+                return 1f;
+            float num = 1f;
+            RaceSettings raceSettings = RaceUtility.GetSizeSettings(pawn.def);
+            if (raceSettings != null)
+            {
+                num *= raceSettings.sizeModifier;
+            }
 
-            return GraphicTools.GetAgeFactor(pawn);
+            return GraphicTools.GetAgeFactor(pawn) * num;
         }
 
         /// <summary>

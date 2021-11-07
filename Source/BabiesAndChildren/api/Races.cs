@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Verse;
+using BabiesAndChildren.Tools;
 
 namespace BabiesAndChildren.api
 {
@@ -29,5 +30,27 @@ namespace BabiesAndChildren.api
         }
         
         
+    }
+    public class RaceSettings : IExposable
+    {
+        public void ExposeData()
+        {
+            Scribe_Values.Look<string>(ref defName, "defName", null);
+            Scribe_Values.Look<float>(ref sizeModifier, "sizeModifier", 1f);
+            Scribe_Values.Look<float>(ref headOffset, "headOffset", 1f);
+            Scribe_Values.Look<float>(ref hairSizeModifier, "hairSizeModifier", 1f);
+            Scribe_Values.Look<float>(ref headSizeModifier, "headSizeModifier", 1f);
+        }
+
+        public string defName;
+
+        public float sizeModifier = 1f;
+
+        public float headOffset = 1f;
+
+        public float hairSizeModifier = 1f;
+
+        public float headSizeModifier = 1f;
+
     }
 }

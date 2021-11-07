@@ -125,6 +125,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Defs\BackstoryDef.cs" />
     <Compile Include="Settings\BnCSettings.cs" />
+    <Compile Include="Settings\RaceSizeEditor.cs" />
     <Compile Include="Settings\SettingsController.cs" />
     <Compile Include="Thoughts\ThoughtWorker_ScaredOfTheDark.cs" />
     <Compile Include="Tools\BabyTools.cs" />

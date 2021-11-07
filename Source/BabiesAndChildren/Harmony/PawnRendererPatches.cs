@@ -228,6 +228,11 @@ namespace BabiesAndChildren.Harmony
                 num2 = 1.4f;
                 num3 = 1.4f;
             }
+            RaceSettings raceSettings = RaceUtility.GetSizeSettings(___pawn.def);
+            if (raceSettings != null)
+            {
+                num2 *= raceSettings.headOffset;
+            }
             __result.z *= bodySizeFactor * num2;
             __result.x *= bodySizeFactor * num3;
             if (RaceUtility.IsHuman(___pawn))

@@ -14,6 +14,7 @@ namespace BabiesAndChildren.Tools
 
         private static Dictionary<ThingDef, bool> thingUsesChildrenCache = new Dictionary<ThingDef, bool>();
         private static Dictionary<ThingDef, AlienChildDef> alienChildDefCache = new Dictionary<ThingDef, AlienChildDef>();
+        public static Dictionary<string, RaceSettings> alienRaceSettings = new Dictionary<string, RaceSettings>();
 
         public static bool ThingUsesChildren(Thing thing)
         {
@@ -39,6 +40,7 @@ namespace BabiesAndChildren.Tools
             
             CLog.DevMessage(thingDef.defName + " cached as " + usesChildren + " in ThingUsesChildren");
             thingUsesChildrenCache[thingDef] = usesChildren;
+            SizeSettings();
             if (ChildrenBase.ModHAR_ON && CacheAlienChildDef(thingDef))
             {
                 CLog.DevMessage(thingDef.defName + " AlienChildDef cached");
@@ -64,6 +66,52 @@ namespace BabiesAndChildren.Tools
                 return true;
             }
             return false;
+        }
+
+
+        public static void SizeSettings(bool restart = false)
+        {
+            if (restart)
+            {
+                alienRaceSettings = new Dictionary<string, RaceSettings>();
+            }
+            NewSizeSetting(new RaceSettings
+            {
+                defName = "Cutebold",
+                sizeModifier = 1f,
+                headOffset = 0.8706897f
+            }, "Alien_Cutebold");
+
+            NewSizeSetting(new RaceSettings
+            {
+                defName = "Moyo",
+                headOffset = 0.8793103f,
+            }, "Alien_Moyo");
+        }
+
+        public static RaceSettings GetSizeSettings(ThingDef race)
+        {
+            
+            if (race == null)
+                return null;
+            if (alienRaceSettings.TryGetValue(race.defName, out var raceSettings))
+            {
+                return raceSettings;
+            }
+            return null;
+        }
+
+        public static void NewSizeSetting(RaceSettings raceSettings, string defName)
+        {
+            if(alienRaceSettings != null)
+            {
+            }
+            else
+            {
+                CLog.Warning("Null race settings!");
+                alienRaceSettings = new Dictionary<string, RaceSettings>();
+            }
+            alienRaceSettings[defName] = raceSettings;
         }
 
         public static void ClearCache()

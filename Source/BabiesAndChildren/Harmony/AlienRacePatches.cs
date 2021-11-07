@@ -63,6 +63,7 @@ namespace BabiesAndChildren.Harmony
                     humanlikeHairAverageSetModified.Add(hairSizeFactor, new GraphicMeshSet(1.5f * hairSizeFactor));
                 }
 
+
                 result = humanlikeHairAverageSetModified[hairSizeFactor];
             }
             else

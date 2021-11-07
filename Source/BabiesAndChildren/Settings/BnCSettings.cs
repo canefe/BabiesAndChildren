@@ -6,6 +6,7 @@ using RimWorld;
 using Verse.Sound;
 using System.Linq;
 using BabiesAndChildren.api;
+using BabiesAndChildren.Tools;
 namespace BabiesAndChildren
 {
     //snake_case is used too much here
@@ -21,7 +22,7 @@ namespace BabiesAndChildren
             _90,
             _Random,
         }
-        
+
         //constants
         public const int MAX_TRAIT_COUNT = 3;
         public const double GET_NEW_TYPE_CHANCE = 0.08;
@@ -29,7 +30,7 @@ namespace BabiesAndChildren
         public const double GET_GAY_SEXUALITY = 0.05;
         public const int MAX_ACCELERATED_GROWTH_FACTOR = 20;
         public const float MAX_CRIB_BODYSIZE = 0.6f;
-       
+
         //settings
         public static bool accelerated_growth = true;
         public static int accelerated_growth_end_age = 14;
@@ -42,7 +43,7 @@ namespace BabiesAndChildren
 
         public static bool OptionChildrenDropWeapons = true;
         public static float option_child_max_weapon_mass = 2.0f;
-        
+
         public static bool GestationPeriodDays_Enable = false;
         public static float GestationPeriodDays = 45f;
         public static bool enable_postpartum = true;
@@ -58,11 +59,11 @@ namespace BabiesAndChildren
 
         public static bool debug_and_gsetting = false;
         public static bool child_cute_act_enabled = true;
-        
+
         //make alien heads be human heads if alien heads are fucked
         public static bool human_like_head_enabled = false;
         public static bool Rabbie_Child_head_enabled = false;
-        
+
         //tweak-able values to visually determine what looks good
         public static float HumanBodySize = 1.1095f;
         public static float HumanHeadSize = 1.4083f;
@@ -88,70 +89,74 @@ namespace BabiesAndChildren
         private static string racesSearch = "";
         private static float hs = 50f;
 
+        private static List<string> rak = new List<string>();
+        private static List<RaceSettings> raks = new List<RaceSettings>();
+
 
         //special flag to reinitialize all childeren on all maps (not saves) at map load once per "game"/ once per mod added
         //TODO make this a game component
 
-        private static Vector2 scrollPosition;
+        private static Vector2 scrollPosition = Vector2.zero;
         private static Vector2 racesListScrollPos;
+        private static float height = 100f;
 
         public static void AddDebugSettings(Listing_Standard listingStandard)
         {
-                listingStandard.Gap(5f);
-                listingStandard.CheckboxLabeled("humanlikeHeadEnabled_Title".Translate(), ref human_like_head_enabled, "humanlikeHeadEnabled_desc".Translate());
-                listingStandard.Gap(5f);
-                listingStandard.CheckboxLabeled("RabbieChildHeadEnabled_Title".Translate(), ref Rabbie_Child_head_enabled, "RabbieChildHeadEnabled_desc".Translate());
-                listingStandard.Gap(5f);
-                listingStandard.Label("HumanChildrenBodysize_Title".Translate() + ": " + Math.Round(HumanBodySize, 4), -1f, "HumanChildrenBodysize_desc".Translate());
-                HumanBodySize = listingStandard.Slider(HumanBodySize, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("HumanChildrenHeadsize_Title".Translate() + ": " + Math.Round(HumanHeadSize, 4), -1f, "HumanChildrenHeadsize_desc".Translate());
-                HumanHeadSize = listingStandard.Slider(HumanHeadSize, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("HumanChildrenHairsize_Title".Translate() + ": " + Math.Round(HumanHairSize, 4), -1f, "HumanChildrenHairsize_desc".Translate());
-                HumanHairSize = listingStandard.Slider(HumanHairSize, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("HumanChildrenZroc_Title".Translate() + ": " + Math.Round(HumanrootlocZ, 4), -1f, "HumanChildrenZroc_desc".Translate());
-                HumanrootlocZ = listingStandard.Slider(HumanrootlocZ, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("HumanTeenagerModifier_Title".Translate() + ": " + Math.Round(HumanTeenagerModifier, 4), -1f, "HumanTeenagerModifier_desc".Translate());
-                HumanTeenagerModifier = listingStandard.Slider(HumanTeenagerModifier, -2f, 2f);
-                listingStandard.GapLine(5f);
-                listingStandard.Label("AlienChildrenBodysize_Title".Translate() + ": " + Math.Round(AlienBodySize, 4), -1f, "AlienChildrenBodysize_desc".Translate());
-                AlienBodySize = listingStandard.Slider(AlienBodySize, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("AlienChildrenOriginalHeadsize_Title".Translate() + ": " + Math.Round(AlienHeadSizeA, 4), -1f, "AlienChildrenOriginalHeadsize_desc".Translate());
-                AlienHeadSizeA = listingStandard.Slider(AlienHeadSizeA, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("AlienChildrenHumanlikeHeadsize_Title".Translate() + ": " + Math.Round(AlienHeadSizeB, 4), -1f, "AlienChildrenHumanlikeHeadsize_desc".Translate());
-                AlienHeadSizeB = listingStandard.Slider(AlienHeadSizeB, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("FAModifier_Title".Translate() + ": " + Math.Round(FAModifier, 4), -1f, "FAModifier_desc".Translate());
-                FAModifier = listingStandard.Slider(FAModifier, -1f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("AlienChildrenHairsize_Title".Translate() + ": " + Math.Round(AlienHairSize, 4), -1f, "AlienChildrenHairsize_desc".Translate());
-                AlienHairSize = listingStandard.Slider(AlienHairSize, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("AlienChildrenZroc_Title".Translate() + ": " + Math.Round(AlienrootlocZ, 4), -1f, "AlienChildrenZroc_desc".Translate());
-                AlienrootlocZ = listingStandard.Slider(AlienrootlocZ, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("AlienTeenagerModifier_Title".Translate() + ": " + Math.Round(AlienTeenagerModifier, 4), -1f, "AlienTeenagerModifier_desc".Translate());
-                AlienTeenagerModifier = listingStandard.Slider(AlienTeenagerModifier, -2f, 2f);
-                listingStandard.GapLine(5f);
-                listingStandard.Label("ShowHairSize_Title".Translate() + ": " + Math.Round(ShowHairSize, 4), -1f, "ShowHairSize_desc".Translate());
-                ShowHairSize = listingStandard.Slider(ShowHairSize, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("ShowHairLocY_Title".Translate() + ": " + Math.Round(ShowHairLocY, 4), -1f, "ShowHairLocY_desc".Translate());
-                ShowHairLocY = listingStandard.Slider(ShowHairLocY, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("ShowHairHumanZLoc_Title".Translate() + ": " + Math.Round(ShowHairHumanLocZ, 4), -1f, "ShowHairHumanZLoc_desc".Translate());
-                ShowHairHumanLocZ = listingStandard.Slider(ShowHairHumanLocZ, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("ShowHairAlienZLoc_Title".Translate() + ": " + Math.Round(ShowHairAlienLocZ, 4), -1f, "ShowHairAlienZLoc_desc".Translate());
-                ShowHairAlienLocZ = listingStandard.Slider(ShowHairAlienLocZ, -2f, 2f);
-                listingStandard.Gap(5f);
-                listingStandard.Label("ShowHairAlienHFLocZ_Title".Translate() + ": " + Math.Round(ShowHairAlienHFLocZ, 4), -1f, "ShowHairAlienHFLocZ_desc".Translate());
-                ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.CheckboxLabeled("humanlikeHeadEnabled_Title".Translate(), ref human_like_head_enabled, "humanlikeHeadEnabled_desc".Translate());
+            listingStandard.Gap(5f);
+            listingStandard.CheckboxLabeled("RabbieChildHeadEnabled_Title".Translate(), ref Rabbie_Child_head_enabled, "RabbieChildHeadEnabled_desc".Translate());
+            listingStandard.Gap(5f);
+            listingStandard.Label("HumanChildrenBodysize_Title".Translate() + ": " + Math.Round(HumanBodySize, 4), -1f, "HumanChildrenBodysize_desc".Translate());
+            HumanBodySize = listingStandard.Slider(HumanBodySize, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("HumanChildrenHeadsize_Title".Translate() + ": " + Math.Round(HumanHeadSize, 4), -1f, "HumanChildrenHeadsize_desc".Translate());
+            HumanHeadSize = listingStandard.Slider(HumanHeadSize, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("HumanChildrenHairsize_Title".Translate() + ": " + Math.Round(HumanHairSize, 4), -1f, "HumanChildrenHairsize_desc".Translate());
+            HumanHairSize = listingStandard.Slider(HumanHairSize, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("HumanChildrenZroc_Title".Translate() + ": " + Math.Round(HumanrootlocZ, 4), -1f, "HumanChildrenZroc_desc".Translate());
+            HumanrootlocZ = listingStandard.Slider(HumanrootlocZ, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("HumanTeenagerModifier_Title".Translate() + ": " + Math.Round(HumanTeenagerModifier, 4), -1f, "HumanTeenagerModifier_desc".Translate());
+            HumanTeenagerModifier = listingStandard.Slider(HumanTeenagerModifier, -2f, 2f);
+            listingStandard.GapLine(5f);
+            listingStandard.Label("AlienChildrenBodysize_Title".Translate() + ": " + Math.Round(AlienBodySize, 4), -1f, "AlienChildrenBodysize_desc".Translate());
+            AlienBodySize = listingStandard.Slider(AlienBodySize, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("AlienChildrenOriginalHeadsize_Title".Translate() + ": " + Math.Round(AlienHeadSizeA, 4), -1f, "AlienChildrenOriginalHeadsize_desc".Translate());
+            AlienHeadSizeA = listingStandard.Slider(AlienHeadSizeA, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("AlienChildrenHumanlikeHeadsize_Title".Translate() + ": " + Math.Round(AlienHeadSizeB, 4), -1f, "AlienChildrenHumanlikeHeadsize_desc".Translate());
+            AlienHeadSizeB = listingStandard.Slider(AlienHeadSizeB, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("FAModifier_Title".Translate() + ": " + Math.Round(FAModifier, 4), -1f, "FAModifier_desc".Translate());
+            FAModifier = listingStandard.Slider(FAModifier, -1f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("AlienChildrenHairsize_Title".Translate() + ": " + Math.Round(AlienHairSize, 4), -1f, "AlienChildrenHairsize_desc".Translate());
+            AlienHairSize = listingStandard.Slider(AlienHairSize, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("AlienChildrenZroc_Title".Translate() + ": " + Math.Round(AlienrootlocZ, 4), -1f, "AlienChildrenZroc_desc".Translate());
+            AlienrootlocZ = listingStandard.Slider(AlienrootlocZ, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("AlienTeenagerModifier_Title".Translate() + ": " + Math.Round(AlienTeenagerModifier, 4), -1f, "AlienTeenagerModifier_desc".Translate());
+            AlienTeenagerModifier = listingStandard.Slider(AlienTeenagerModifier, -2f, 2f);
+            listingStandard.GapLine(5f);
+            listingStandard.Label("ShowHairSize_Title".Translate() + ": " + Math.Round(ShowHairSize, 4), -1f, "ShowHairSize_desc".Translate());
+            ShowHairSize = listingStandard.Slider(ShowHairSize, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("ShowHairLocY_Title".Translate() + ": " + Math.Round(ShowHairLocY, 4), -1f, "ShowHairLocY_desc".Translate());
+            ShowHairLocY = listingStandard.Slider(ShowHairLocY, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("ShowHairHumanZLoc_Title".Translate() + ": " + Math.Round(ShowHairHumanLocZ, 4), -1f, "ShowHairHumanZLoc_desc".Translate());
+            ShowHairHumanLocZ = listingStandard.Slider(ShowHairHumanLocZ, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("ShowHairAlienZLoc_Title".Translate() + ": " + Math.Round(ShowHairAlienLocZ, 4), -1f, "ShowHairAlienZLoc_desc".Translate());
+            ShowHairAlienLocZ = listingStandard.Slider(ShowHairAlienLocZ, -2f, 2f);
+            listingStandard.Gap(5f);
+            listingStandard.Label("ShowHairAlienHFLocZ_Title".Translate() + ": " + Math.Round(ShowHairAlienHFLocZ, 4), -1f, "ShowHairAlienHFLocZ_desc".Translate());
+            ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
         }
         public static void Scrol(Listing_Standard raceList, float height, ref float hs)
         {
@@ -163,8 +168,8 @@ namespace BabiesAndChildren
             float lineHeight = Text.LineHeight;
             float num = 0f;
             races = (from x in DefDatabase<ThingDef>.AllDefs
-                     where x.race != null && x.race.Humanlike && !ModTools.IsRobot(x) && !Races.IsBlacklisted(x) && x.defName != "Human"
-                     select x.defName).Reverse<string>().ToList<string>();
+                     where x?.race != null && x.race.Humanlike
+                     select x.defName).ToList<string>();
             for (int i = 0; i < races.Count; i++)
             {
 
@@ -197,8 +202,30 @@ namespace BabiesAndChildren
             bool flag = (!alienRaces.NullOrEmpty() ? !alienRaces.Contains(label) : true);
             WidgetRow widgetRow = new WidgetRow(rect.x, rect.y, UIDirection.RightThenUp, 99999f, 4f);
             widgetRow.Label(label, rect.width - rect.height * 2f - 16f, null, -1f);
-            widgetRow.ToggleableIcon(ref flag, TexButton.IconBook, "Disable/Enable race", null, null);
-            // todo: size settings
+            widgetRow.ToggleableIcon(ref flag, TexButton.IconBook, "Disable/Enable race (restart needed)", null, null);
+            if (widgetRow.ButtonIcon(TexButton.ToggleTweak, "Size settings"))
+            {
+                if (Current.Game != null)
+                {
+                    if (!Find.WindowStack.TryRemove(typeof(RaceEditorWindow), true))
+                    {
+                        RaceSettings raceSettings = RaceUtility.GetSizeSettings(DefDatabase<ThingDef>.GetNamed(label, false));
+                        RaceEditorWindow window = new RaceEditorWindow();
+                        window.alienRace = DefDatabase<ThingDef>.GetNamed(label);
+                        if (raceSettings != null)
+                        {
+                            window.raceSettings = raceSettings;
+                            window.headOffset = raceSettings.headOffset;
+                            window.sizeModifier = raceSettings.sizeModifier;
+                        }
+                        Find.WindowStack.Add(window);
+                    }
+                }
+                else
+                {
+                    Messages.Message("You need to be in-game to open size editor", MessageTypeDefOf.RejectInput);
+                }
+            }
             if (!flag)
             {
                 if (!alienRaces.Contains(label))
@@ -219,29 +246,16 @@ namespace BabiesAndChildren
         {
             return source != null && source.IndexOf(toCheck, comp) >= 0;
         }
-        public static void DoWindowContents(Rect inRect)
-        {
-            inRect.height = inRect.height + 1200f;
-            //30f for top page description and bottom close button
-            Rect outRect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height - 800f);
-            //-16 for slider, height_modifier - additional height for options
-            Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, inRect.height);
 
-            Listing_Standard listingStandard = new Listing_Standard();
-            listingStandard.maxOneColumn = true;
-            listingStandard.ColumnWidth = viewRect.width / 2.05f;
-            
-            Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
-            listingStandard.Begin(viewRect);
-            
+        private static void AddSettings (Listing_Standard listingStandard, Rect viewRect){
             listingStandard.Gap(4f);
             //Reset button
             if (listingStandard.ButtonText("BnCSetting_Init".Translate()))
             {
-                SoundDefOf.Click.PlayOneShotOnCamera(null);              
+                SoundDefOf.Click.PlayOneShotOnCamera(null);
                 Reset_Settings();
             }
-            
+
             listingStandard.GapLine(5f);
 
             GUIStyle guistyle = new GUIStyle(Text.CurFontStyle);
@@ -272,7 +286,7 @@ namespace BabiesAndChildren
                 teenager_accelerated_growth = (int)listingStandard.Slider(teenager_accelerated_growth, 1, MAX_ACCELERATED_GROWTH_FACTOR);
             }
 
-            listingStandard.GapLine (5f);
+            listingStandard.GapLine(5f);
 
             GUI.Label(listingStandard.GetRect(Text.CalcHeight("SpawningSettings".Translate(), listingStandard.ColumnWidth) + 6f), "SpawningSettings".Translate(), guistyle);
 
@@ -331,7 +345,7 @@ namespace BabiesAndChildren
 
             listingStandard.Gap(3f);
             //Gestation period settings
-            listingStandard.CheckboxLabeled("GestationPeriodDays_Enable".Translate(), ref GestationPeriodDays_Enable, "GestationPeriodDays_Enable_Desc".Translate());  
+            listingStandard.CheckboxLabeled("GestationPeriodDays_Enable".Translate(), ref GestationPeriodDays_Enable, "GestationPeriodDays_Enable_Desc".Translate());
             if (GestationPeriodDays_Enable)
             {
                 listingStandard.Gap(3f);
@@ -339,12 +353,12 @@ namespace BabiesAndChildren
                 GestationPeriodDays = listingStandard.Slider(GestationPeriodDays, 1f, 50f);
             }
             listingStandard.Gap(5f);
-           
+
             //Post pregnancy setting thingy
             listingStandard.CheckboxLabeled("EnablePostPartum_title".Translate(), ref enable_postpartum, "EnablePostPartum_desc".Translate());
-            
+
             listingStandard.Gap(5f);
-            
+
             //Cry volume slider
             listingStandard.Label("CryVolumeSetting_title".Translate() + ": " + Math.Round(cryVolume * 100, 0) + "%", -1f, "CryVolumeSetting_desc".Translate());
             cryVolume = listingStandard.Slider(cryVolume, 0f, 1f);
@@ -362,7 +376,7 @@ namespace BabiesAndChildren
                 listingStandard.Gap(3f);
                 Listing_Standard raceList = new Listing_Standard();
                 raceList.Begin(listingStandard.GetRect(viewRect.height - listingStandard.CurHeight));
-                raceList.Label("Enabled Races (restart needed to apply) ", -1f, null);
+                raceList.Label("Race Settings", -1f, null);
                 racesSearch = raceList.TextEntry(racesSearch, 1);
                 raceList.GapLine(4f);
                 Scrol(raceList, 450f, ref hs);
@@ -373,8 +387,8 @@ namespace BabiesAndChildren
             listingStandard.NewColumn();
             GUI.contentColor = Color.white;
 
-            listingStandard.Gap(4f);            
-            
+            listingStandard.Gap(4f);
+
             //debug logging and settings checkbox
             listingStandard.CheckboxLabeled("DebugInfoMessagesEnabled_Title".Translate(), ref debug_and_gsetting, "DebugInfoMessagesEnabled_desc".Translate());
             if (debug_and_gsetting)
@@ -383,10 +397,27 @@ namespace BabiesAndChildren
             }
 
 
+        }
 
-            Widgets.EndScrollView();
+        public static void DoWindowContents(Rect inRect)
+        {      
+            inRect.height = inRect.height + 1200f;
+            //30f for top page description and bottom close button
+            Rect outRect = new Rect(0f, 30f, inRect.width, 550f);
+            //-16 for slider, height_modifier - additional height for options
+            Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, inRect.height * 0.85f);
+
+            Listing_Standard listingStandard = new Listing_Standard();
+            listingStandard.maxOneColumn = true;
+            listingStandard.ColumnWidth = viewRect.width / 2.05f;
+
+            Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect, true);
+            listingStandard.Begin(viewRect);
+
+            AddSettings(listingStandard, viewRect);
+            height = listingStandard.CurHeight;
             listingStandard.End();
-
+            Widgets.EndScrollView();
         }
 
         public override void ExposeData()
@@ -438,6 +469,7 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref ShowHairAlienHFLocZ, "ShowHairAlienHFLocZ");
             Scribe_Values.Look(ref FAModifier, "FAModifier");
             Scribe_Collections.Look<string>(ref disabledRaces, "DisabledRaces", LookMode.Undefined, Array.Empty<object>());
+            Scribe_Collections.Look(ref RaceUtility.alienRaceSettings, "alienRaceSettings", LookMode.Value, LookMode.Deep, ref rak, ref raks);
         }
 
         public static void Reset_Settings()
@@ -484,6 +516,7 @@ namespace BabiesAndChildren
             ShowHairAlienHFLocZ = 0.048f;
             FAModifier = 0.8058f;
             disabledRaces = new List<string>();
+            RaceUtility.SizeSettings(true);
         }
     }
 }
