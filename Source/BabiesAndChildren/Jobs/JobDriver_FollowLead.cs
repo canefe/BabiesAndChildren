@@ -11,7 +11,7 @@ namespace BabiesAndChildren
     public class WorkGiver_FollowLead : WorkGiver_Scanner
     {
         public override PathEndMode PathEndMode => PathEndMode.Touch;
-        HashSet<JobDef> watchedJobs = new HashSet<JobDef> { JobDefOf.Hunt, JobDefOf.Sow, JobDefOf.Harvest, JobDefOf.Train, JobDefOf.Tame, JobDefOf.TendPatient, JobDefOf.Research };
+        Dictionary<JobDef, SkillDef> watchedJobs = new Dictionary<JobDef, SkillDef> { { JobDefOf.Hunt, SkillDefOf.Shooting }, { JobDefOf.Sow, SkillDefOf.Plants }, { JobDefOf.Harvest, SkillDefOf.Plants }, { JobDefOf.Train, SkillDefOf.Animals }, { JobDefOf.Tame, SkillDefOf.Animals }, { JobDefOf.TendPatient, SkillDefOf.Medicine }, { JobDefOf.Research, SkillDefOf.Intellectual } };
 
         public override ThingRequest PotentialWorkThingRequest => ThingRequest.ForGroup(ThingRequestGroup.Pawn);
 
@@ -42,8 +42,13 @@ namespace BabiesAndChildren
                 return false;
             }
 
-            if (Mentor.CurJob.bill == null && !watchedJobs.Contains(Mentor.CurJobDef))
+            if (Mentor.CurJob.bill == null && watchedJobs.TryGetValue(Mentor.CurJobDef) == null)
                 return false;
+
+            if (Mentor.CurJob.bill == null && watchedJobs.TryGetValue(Mentor.CurJobDef) != null && pawn.skills.GetSkill(watchedJobs.TryGetValue(Mentor.CurJobDef)).TotallyDisabled)
+            {
+                return false;
+            }
 
             Pawn PMentor = pawn.TryGetComp<Growing_Comp>().mentor;
             if (PMentor != null && pawn.TryGetComp<Growing_Comp>().onlyMentor && Mentor != PMentor) {
@@ -70,7 +75,7 @@ namespace BabiesAndChildren
             var comp = pawn.TryGetComp<Growing_Comp>();
             if (comp != null && comp.mentor != null)
             {
-                if (comp.mentor.CurJob != null && (comp.mentor.CurJob.bill != null ? true : watchedJobs.Contains(comp.mentor.CurJobDef)))
+                if (comp.mentor.CurJob != null && (comp.mentor.CurJob.bill != null ? true : watchedJobs.TryGetValue(comp.mentor.CurJobDef) != null))
                 {
                     pawn2 = comp.mentor;
                 }
@@ -163,8 +168,10 @@ namespace BabiesAndChildren
             };
             toil.AddFinishAction(delegate
             {
-                
-                toil.actor.skills.Learn(workSkill, 10f * mentorTotalTeachPower * BnCSettings.watchexpgainmultiplier, false);
+                if (workSkill != null)
+                {
+                    toil.actor.skills.Learn(workSkill, 10f * mentorTotalTeachPower * BnCSettings.watchexpgainmultiplier, false);
+                }
             });
             toil.defaultCompleteMode = ToilCompleteMode.Never;
             toil.handlingFacing = true;
