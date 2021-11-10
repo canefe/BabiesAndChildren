@@ -312,7 +312,13 @@ namespace BabiesAndChildren
             bool graphicsDirty = false;
             
             int ageStage = AgeStages.GetAgeStage(pawn);
-            
+
+            if (ChildrenBase.ModSOS2_ON && pawn.IsHologram())
+            {
+                Destroy();
+                return;
+            }
+
             if (growthStage != ageStage)
             {
                 graphicsDirty = true;

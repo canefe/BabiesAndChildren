@@ -35,7 +35,7 @@ namespace BabiesAndChildren
             if (!isRobot && ChildrenBase.ModAndroid_Tiers_ON)
             {
                 string defName = thingDef.defName.ToLower();
-                isRobot = defName.Contains("robot") || defName.Contains("android");
+                isRobot = defName.Contains("robot") || defName.Contains("android") || defName.Contains("m7mech") || defName.Contains("m8mech");
             }
 
             if (!isRobot && ChildrenBase.ModRimsecSecurity_ON)
@@ -125,6 +125,14 @@ namespace BabiesAndChildren
         public static bool ShouldHideHair(Pawn pawn)
         {
             if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsYoungerThan(pawn, AgeStages.Child)) return true;
+
+            return false;
+        }
+
+        public static bool IsHologram(this Pawn pawn)
+        {
+            if (pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamed("SoSHologram")) || pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamed("SoSHologramArchotech")) || pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamed("SoSHologramMachine")))
+                return true;
 
             return false;
         }

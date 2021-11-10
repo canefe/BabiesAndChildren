@@ -168,7 +168,7 @@ namespace BabiesAndChildren
             float lineHeight = Text.LineHeight;
             float num = 0f;
             races = (from x in DefDatabase<ThingDef>.AllDefs
-                     where x?.race != null && x.race.Humanlike
+                     where x?.race != null && x.race.Humanlike && !ModTools.IsRobot(x) && !Races.IsBlacklisted(x)
                      select x.defName).ToList<string>();
             for (int i = 0; i < races.Count; i++)
             {

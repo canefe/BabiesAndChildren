@@ -139,7 +139,7 @@ namespace BabiesAndChildren
             try
             {
                 int curLifeStageIndex = AgeStages.GetAgeStage(pawn);
-                int lastLifeStageIndex = pawn.RaceProps.lifeStageAges.Count - 2;
+                int lastLifeStageIndex = 3; // 0 baby 1 toddler 2 child 3 teen 4 adult
 
                 LifeStageAge curLifeStageAge = LifeStageUtility.GetLifeStageAge(pawn, curLifeStageIndex);
                 float curBodySizeFactor = curLifeStageAge.def.bodySizeFactor;
@@ -194,7 +194,7 @@ namespace BabiesAndChildren
             try
             {
                 int curLifeStageIndex = AgeStages.GetAgeStage(pawn);
-                int lastLifeStageIndex = pawn.RaceProps.lifeStageAges.Count - 2;
+                int lastLifeStageIndex = 3;
 
                 LifeStageAge curLifeStageAge = LifeStageUtility.GetLifeStageAge(pawn, curLifeStageIndex);
                 float curBodySizeFactor = curLifeStageAge.def.bodySizeFactor;
