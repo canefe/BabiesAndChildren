@@ -109,7 +109,7 @@ namespace BabiesAndChildren
                     AddEndCondition(() => JobCondition.Succeeded);
                     // Baby is full
                     Victim.needs.food.CurLevelPercentage = 1f;
-                    if (Victim.needs.TryGetNeed(DefDatabase<NeedDef>.GetNamed("DBHThirst")) != null) Victim.needs.TryGetNeed(DefDatabase<NeedDef>.GetNamed("DBHThirst")).CurLevelPercentage = 1f;
+                    if (Victim.needs.TryGetNeed(DefDatabase<NeedDef>.GetNamed("DBHThirst", false)) != null) Victim.needs.TryGetNeed(DefDatabase<NeedDef>.GetNamed("DBHThirst")).CurLevelPercentage = 1f;
                     Victim.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("GotFed"), null);
                 },
 
@@ -159,6 +159,12 @@ namespace BabiesAndChildren
             if (ChildrenUtility.CanBreastfeed(pawn))
             {
                 return false;
+            }
+
+            if (ChildrenUtility.AnyBreastfeeders(pawn2))
+            {
+                if (!pawn2.health.hediffSet.HasHediff(HediffDefOf.Malnutrition))
+                    return false;
             }
 
             if (!FoodUtility.TryFindBestFoodSourceFor(pawn, pawn2,

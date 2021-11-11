@@ -304,7 +304,13 @@ namespace BabiesAndChildren
             if(parent == null) return;
             
             if (!pawn.Spawned || pawn.Dead || growthStage == AgeStages.Adult) return;
-            
+
+            if (ChildrenBase.ModSOS2_ON && pawn.IsHologram())
+            {
+                Destroy();
+                return;
+            }
+
             //Doing this here instead of PostSpawnSetup due to an odd null reference in MakeDowned when adding a hediff during setup
             //This is one way to ensure this only executes once the pawn is truly spawned
             Initialize();
@@ -312,12 +318,6 @@ namespace BabiesAndChildren
             bool graphicsDirty = false;
             
             int ageStage = AgeStages.GetAgeStage(pawn);
-
-            if (ChildrenBase.ModSOS2_ON && pawn.IsHologram())
-            {
-                Destroy();
-                return;
-            }
 
             if (growthStage != ageStage)
             {

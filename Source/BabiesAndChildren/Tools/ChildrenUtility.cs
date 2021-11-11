@@ -146,6 +146,18 @@ namespace BabiesAndChildren
             return pawn.health.hediffSet.HasHediff(HediffDef.Named("Lactating"));
         }
 
+        public static bool AnyBreastfeeders(Pawn t)
+        {
+            foreach (var pawn in Current.Game.CurrentMap.mapPawns.FreeColonists)
+            {
+               if (CanBreastfeed(pawn) && !pawn.Downed && pawn.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.Deadly, 1, -1, null, false))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static void PlayBabyCrySound(Pawn pawn)
         {
             if (!ChildrenBase.ModHAR_ON || RaceUtility.IsHuman(pawn))

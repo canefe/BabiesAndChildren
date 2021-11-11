@@ -294,26 +294,21 @@ namespace BabiesAndChildren.Harmony
 
     }
 
-    [HarmonyPatch(typeof(InteractionUtility), "CanInitiateInteraction")]
-    internal static class Pawn_InteractionUtility_CanInitiateInteraction_Patch
+    [HarmonyPatch(typeof(WorkGiver_FeedPatient), "HasJobOnThing")]
+    internal static class WorkGiver_FeedPatient_Patch
     {
         [HarmonyPostfix]
-        static void Postfix(Pawn pawn, InteractionDef interactionDef, ref bool __result)
+        static void Postfix(ref bool __result, Pawn pawn, Thing t, bool forced = false)
         {
-            if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsAgeStage(pawn, AgeStages.Toddler))
+            Pawn pawn2 = t as Pawn;
+            if (pawn2 == null || pawn2 == pawn)
             {
-                if (interactionDef != null && interactionDef.defName == "PlayTime")
-                {
-                    __result = true;
-                }
-                else
-                {
-                    __result = true;
-                }
-                if (interactionDef != null && interactionDef.defName != "PlayTime")
-                {
-                    __result = false;
-                }
+                __result = false;
+            }
+
+            if (RaceUtility.PawnUsesChildren(pawn2) && AgeStages.IsYoungerThan(pawn2, AgeStages.Child))
+            {
+                __result = false;
             }
         }
     }
