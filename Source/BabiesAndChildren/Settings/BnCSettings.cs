@@ -164,28 +164,19 @@ namespace BabiesAndChildren
             Rect rect2 = rect;
             rect2.height = hs;
             rect2.width -= 16f;
-            Widgets.BeginScrollView(rect, ref racesListScrollPos, rect2);
             float lineHeight = Text.LineHeight;
             float num = 0f;
-            races = (from x in DefDatabase<ThingDef>.AllDefs
-                     where x?.race != null && x.race.Humanlike && !ModTools.IsRobot(x) && !Races.IsBlacklisted(x)
-                     select x.defName).ToList<string>();
-            for (int i = 0; i < races.Count; i++)
-            {
+            races = (from x in RaceUtility.thingUsesChildrenCache
+                     where !ModTools.IsRobot(x.Key) && !Races.IsBlacklisted(x.Key)
+                     select x.Key.defName).ToList<string>();
+            RaceSettings(new Rect(0f, 60f, rect2.width, 300f), races, ref disabledRaces);
 
-                if (racesSearch == null || Contai(races[i], racesSearch.ToLower(), StringComparison.OrdinalIgnoreCase))
-                {
-                    RaceSettings(new Rect(0f, num, rect2.width, lineHeight), races[i], ref disabledRaces);
-                    num += lineHeight + 3f;
-                }
-            }
             //Widgets.DrawBoxSolid(rect, Color.red);
             //Widgets.DrawBoxSolid(rect2, Color.white);
             hs = num;
-            Widgets.EndScrollView();
             raceList.Gap(raceList.verticalSpacing);
         }
-        public static void RaceSettings(Rect rect, string label, ref List<string> alienRaces, string tooltip = null)
+        public static void RaceSettings(Rect rect, List<string> label, ref List<string> alienRaces, string tooltip = null)
         {
             if (!tooltip.NullOrEmpty())
             {
@@ -199,48 +190,65 @@ namespace BabiesAndChildren
             {
                 alienRaces = new List<string>();
             }
-            bool flag = (!alienRaces.NullOrEmpty() ? !alienRaces.Contains(label) : true);
-            WidgetRow widgetRow = new WidgetRow(rect.x, rect.y, UIDirection.RightThenUp, 99999f, 4f);
-            widgetRow.Label(label, rect.width - rect.height * 2f - 16f, null, -1f);
-            widgetRow.ToggleableIcon(ref flag, TexButton.IconBook, "Disable/Enable race (restart needed)", null, null);
-            if (widgetRow.ButtonIcon(TexButton.ToggleTweak, "Size settings"))
+            Listing_Standard listing_Standard = new Listing_Standard();
+            Rect outRect = rect;
+            Rect rect2 = rect;
+            rect2.height = label.Count * 30f;
+            rect2.width -= 16f;
+            Widgets.BeginScrollView(outRect, ref racesListScrollPos, rect2);
+            listing_Standard.Begin(rect2);
+            for (int i = 0; i < races.Count; i++)
             {
-                if (Current.Game != null)
+                bool flag = (!alienRaces.NullOrEmpty() ? !alienRaces.Contains(label[i]) : true);
+                if (racesSearch == null || Contai(races[i], racesSearch.ToLower(), StringComparison.OrdinalIgnoreCase))
                 {
-                    if (!Find.WindowStack.TryRemove(typeof(RaceEditorWindow), true))
+                    WidgetRow widgetRow = new WidgetRow(rect.x, listing_Standard.CurHeight, UIDirection.RightThenUp, 99999f, 1f);
+                    widgetRow.Label(label[i], rect.width * 0.8f, null, -1f);
+                    if(label[i] != "Human")
+                        widgetRow.ToggleableIcon(ref flag, TexButton.IconBook, "Disable/Enable race (restart needed)", null, null);
+                    if (widgetRow.ButtonIcon(TexButton.ToggleTweak, "Size settings"))
                     {
-                        RaceSettings raceSettings = RaceUtility.GetSizeSettings(DefDatabase<ThingDef>.GetNamed(label, false));
-                        RaceEditorWindow window = new RaceEditorWindow();
-                        window.alienRace = DefDatabase<ThingDef>.GetNamed(label);
-                        if (raceSettings != null)
+                        if (Current.Game != null)
                         {
-                            window.raceSettings = raceSettings;
-                            window.headOffset = raceSettings.headOffset;
-                            window.sizeModifier = raceSettings.sizeModifier;
+                            if (!Find.WindowStack.TryRemove(typeof(RaceEditorWindow), true))
+                            {
+                                RaceSettings raceSettings = RaceUtility.GetSizeSettings(DefDatabase<ThingDef>.GetNamed(label[i], false));
+                                RaceEditorWindow window = new RaceEditorWindow();
+                                window.alienRace = DefDatabase<ThingDef>.GetNamed(label[i]);
+                                if (raceSettings != null)
+                                {
+                                    window.raceSettings = raceSettings;
+                                    window.headOffset = raceSettings.headOffset;
+                                    window.sizeModifier = raceSettings.sizeModifier;
+                                }
+                                Find.WindowStack.Add(window);
+                            }
                         }
-                        Find.WindowStack.Add(window);
+                        else
+                        {
+                            Messages.Message("You need to be in-game to open size editor", MessageTypeDefOf.RejectInput);
+                        }
                     }
-                }
-                else
-                {
-                    Messages.Message("You need to be in-game to open size editor", MessageTypeDefOf.RejectInput);
-                }
-            }
-            if (!flag)
-            {
-                if (!alienRaces.Contains(label))
-                {
-                    alienRaces.Add(label);
-                    return;
-                }
-            }
-            else
-            {
-                if (alienRaces.Contains(label))
-                {
-                    alienRaces.Remove(label);
+                    if (!flag)
+                    {
+                        if (!alienRaces.Contains(label[i]))
+                        {
+                            alienRaces.Add(label[i]);
+                        }
+                    }
+                    else
+                    {
+                        if (alienRaces.Contains(label[i]))
+                        {
+                            alienRaces.Remove(label[i]);
+                        }
+                    }
+                    listing_Standard.Gap(30f);
                 }
             }
+            listing_Standard.End();
+            Widgets.EndScrollView();
+            
         }
         public static bool Contai(string source, string toCheck, StringComparison comp)
         {

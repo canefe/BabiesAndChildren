@@ -24,12 +24,6 @@ namespace BabiesAndChildren
 			}
 			else
 			{
-				bool flag2 = LovePartnerRelationUtility.LovePartnerRelationExists(pawn, friend) && pawn.ownership.OwnedBed != null && !pawn.GetPosture().Laying() && (pawn.IsHashIntervalTick(2500) || friend.IsHashIntervalTick(2500));
-				if (flag2)
-				{
-					result = new Job(JobDefOf.LayDown, pawn.ownership.OwnedBed, 2500, false);
-				}
-				else
 				{
 					bool flag3 = lordToil_PlayTime.playTime == null || lordToil_PlayTime.ticksToNextJoy < Find.TickManager.TicksGame;
 					if (flag3)

@@ -3,11 +3,65 @@ using BabiesAndChildren.api;
 using BabiesAndChildren.Tools;
 using HarmonyLib;
 using RimWorld;
+using UnityEngine;
 using Verse;
+using Verse.AI.Group;
 
 namespace BabiesAndChildren.Harmony
 {
-    [HarmonyPatch(typeof(EquipmentUtility), "CanEquip", 
+    [HarmonyPatch(typeof(FloatMenuMakerMap), "AddHumanlikeOrders")]
+    static class FloatMenuMaker_Patch
+    {
+        public static TargetingParameters TargetParameters
+        {
+            get
+            {
+                if (targetParameters == null)
+                {
+                    targetParameters = new TargetingParameters()
+                    {
+                        canTargetHumans = true,
+                        canTargetAnimals = false,
+                        canTargetItems = false,
+                        mapObjectTargetsMustBeAutoAttackable = false,
+                    };
+                }
+                return targetParameters;
+            }
+        }
+
+        private static TargetingParameters targetParameters = null;
+
+        [HarmonyPostfix]
+        public static void MapFloatMenuOption(Vector3 clickPos, Pawn pawn, List<FloatMenuOption> opts)
+        {
+
+
+            var validtargets = GenUI.TargetsAt(clickPos, TargetParameters);
+            foreach (LocalTargetInfo target in validtargets)
+            {
+
+                Pawn pawn2 = target.Thing as Pawn;
+                bool flag = pawn2 != null && !pawn.Drafted && pawn.IsChildSupported() && pawn2.IsChildSupported() && (pawn.GetLord() == null);
+                bool flag2 = (pawn == pawn2) || (pawn2 is null);
+                if (flag2)
+                    return;
+
+                if (pawn2.jobs == null)
+                    return;
+
+                if (pawn2.RaceProps == null)
+                    return;
+
+                if (flag)
+                {
+                    BnC_FloatMenuUtility.AddPlayOptions(pawn2, pawn, opts);
+                }
+            }
+        }
+    }
+
+[HarmonyPatch(typeof(EquipmentUtility), "CanEquip", 
         new[] { 
             typeof(Thing), 
             typeof(Pawn), 
@@ -141,7 +195,7 @@ namespace BabiesAndChildren.Harmony
         [HarmonyPostfix]
         static void Postfix(ref bool __result, ref Pawn pawn, ref ThoughtDef def)
         {
-            if (RaceUtility.PawnUsesChildren(pawn) && !AgeStages.IsAgeStage(pawn, AgeStages.Adult))
+            if (pawn.IsChildSupported() && !AgeStages.IsAgeStage(pawn, AgeStages.Adult))
             {
                 __result = __result && !Thoughts.IsBlacklisted(def, AgeStages.GetAgeStage(pawn));
             }
@@ -313,17 +367,44 @@ namespace BabiesAndChildren.Harmony
         }
     }
 
+    [HarmonyPatch(typeof(InteractionUtility), "CanInitiateInteraction")]
+    internal static class Pawn_InteractionUtility_CanInitiateInteraction_Patch
+    {
+        [HarmonyPostfix]
+        static void Postfix(Pawn pawn, InteractionDef interactionDef, ref bool __result)
+        {
+            if (pawn.IsChildSupported() && AgeStages.IsAgeStage(pawn, AgeStages.Toddler))
+            {
+                if (interactionDef != null && interactionDef.defName == "PlayTime")
+                {
+                    __result = true;
+                }
+                else
+                {
+                    __result = true;
+                }
+                if (interactionDef != null && interactionDef.defName != "PlayTime")
+                {
+                    __result = false;
+                }
+            }
+        }
+    }
+
+
     [HarmonyPatch(typeof(PawnUtility), "IsInteractionBlocked")]
     internal static class Pawn_PawnUtility_IsInteractionBlocked_Patch
     {
         [HarmonyPostfix]
         static void Postfix(Pawn pawn, InteractionDef interaction, ref bool __result)
         {
-            if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.IsAgeStage(pawn, AgeStages.Toddler))
+            if (pawn.IsChildSupported() && AgeStages.IsAgeStage(pawn, AgeStages.Toddler) && interaction == DefDatabase<InteractionDef>.GetNamed("PlayTime"))
             {
                 __result = false;
             }
         }
     }
+
+
 
 }

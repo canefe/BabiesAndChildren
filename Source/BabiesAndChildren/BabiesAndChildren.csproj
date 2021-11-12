@@ -137,6 +137,7 @@
     <Compile Include="Hediffs\Hediff_UnhappyBaby.cs" />
     <Compile Include="Thoughts\ThoughtWorker_CryingBaby.cs" />
     <Compile Include="ChildrenBase.cs" />
+    <Compile Include="Tools\FloatMenuUtility.cs" />
     <Compile Include="Tools\LifeStageUtility.cs" />
     <Compile Include="Tools\StoryUtility.cs" />
     <Compile Include="Tools\VerseExposed.cs" />

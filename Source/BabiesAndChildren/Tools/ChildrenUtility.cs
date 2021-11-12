@@ -187,6 +187,14 @@ namespace BabiesAndChildren
             }
 
         }
+
+        public static bool IsChildSupported(this Pawn pawn)
+        {
+            if (pawn.TryGetComp<Growing_Comp>() != null)
+                return true;
+
+            return false;
+        }
         
         /// <summary>
         /// Finds a bed for a pawn prioritizing cribs over normal beds.

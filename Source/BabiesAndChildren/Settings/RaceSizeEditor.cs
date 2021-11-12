@@ -29,6 +29,8 @@ namespace BabiesAndChildren
 			listing_Standard.Begin(inRect);
 			listing_Standard.Label("Race Editor : " + alienRace.defName);
 			listing_Standard.Label("Save to see changes!");
+			if (alienRace.defName == "Human")
+				listing_Standard.Label("Only headoffset applies to humans here! Other sizes can be changed from the size settings.");
 			List<PawnKindDef> pDefs = new List<PawnKindDef>();
 			if (this.pawn == null)
 			{
@@ -74,18 +76,23 @@ namespace BabiesAndChildren
 				GUI.EndGroup();
 			}
 			listing_Standard.GapLine(15f);
-			listing_Standard.Label("Size modifier" + ": " + Math.Round(sizeModifier, 3), -1f, "AlienChildrenZroc_desc".Translate());
-			sizeModifier = listing_Standard.Slider(sizeModifier, 0.1f, 2f);
-			listing_Standard.Gap(5f);
 			listing_Standard.Label("Head offset" + ": " + Math.Round(headOffset, 3), -1f, "AlienChildrenZroc_desc".Translate());
 			headOffset = listing_Standard.Slider(headOffset, -1f, 2f);
 			listing_Standard.GapLine(5f);
-			listing_Standard.Label("Hair size" + ": " + Math.Round(hairSizeModifier, 3), -1f, "AlienChildrenZroc_desc".Translate());
-			hairSizeModifier = listing_Standard.Slider(hairSizeModifier, 0.1f, 2f);
-			listing_Standard.GapLine(5f);
-			listing_Standard.Label("Head size" + ": " + Math.Round(headSizeModifier, 3), -1f, "AlienChildrenZroc_desc".Translate());
-			headSizeModifier = listing_Standard.Slider(headSizeModifier, 0.1f, 2f);
-			listing_Standard.GapLine(5f);
+			if (alienRace.defName != "Human")
+            {
+				listing_Standard.Label("Size modifier" + ": " + Math.Round(sizeModifier, 3), -1f, "AlienChildrenZroc_desc".Translate());
+				sizeModifier = listing_Standard.Slider(sizeModifier, 0.1f, 2f);
+				listing_Standard.GapLine(5f);
+				listing_Standard.Label("Hair size" + ": " + Math.Round(hairSizeModifier, 3), -1f, "AlienChildrenZroc_desc".Translate());
+				hairSizeModifier = listing_Standard.Slider(hairSizeModifier, 0.1f, 2f);
+				listing_Standard.GapLine(5f);
+				listing_Standard.Label("Head size" + ": " + Math.Round(headSizeModifier, 3), -1f, "AlienChildrenZroc_desc".Translate());
+				headSizeModifier = listing_Standard.Slider(headSizeModifier, 0.1f, 2f);
+				listing_Standard.GapLine(5f);
+			}
+
+
 			if (listing_Standard.ButtonText("Save"))
             {
 				RaceUtility.NewSizeSetting(new RaceSettings
@@ -161,6 +168,12 @@ namespace BabiesAndChildren
 					break;
 				case "Alien_Cutebold":
 					headOffset = 0.8706897f;
+					hairSizeModifier = 1f;
+					headSizeModifier = 1;
+					sizeModifier = 1f;
+					break;
+				case "StarWarsRaces_Wookiee":
+					headOffset = 0.648f;
 					hairSizeModifier = 1f;
 					headSizeModifier = 1;
 					sizeModifier = 1f;

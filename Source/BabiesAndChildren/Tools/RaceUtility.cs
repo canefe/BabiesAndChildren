@@ -12,7 +12,7 @@ namespace BabiesAndChildren.Tools
     public static class RaceUtility
     {
 
-        private static Dictionary<ThingDef, bool> thingUsesChildrenCache = new Dictionary<ThingDef, bool>();
+        public static Dictionary<ThingDef, bool> thingUsesChildrenCache = new Dictionary<ThingDef, bool>();
         private static Dictionary<ThingDef, AlienChildDef> alienChildDefCache = new Dictionary<ThingDef, AlienChildDef>();
         public static Dictionary<string, RaceSettings> alienRaceSettings = new Dictionary<string, RaceSettings>();
 
@@ -87,6 +87,11 @@ namespace BabiesAndChildren.Tools
                 defName = "Moyo",
                 headOffset = 0.7666342f,
             }, "Alien_Moyo");
+            NewSizeSetting(new RaceSettings
+            {
+                defName = "StarWarsRaces_Wookiee",
+                headOffset = 0.648f,
+            }, "StarWarsRaces_Wookiee");
         }
 
         public static RaceSettings GetSizeSettings(ThingDef race)

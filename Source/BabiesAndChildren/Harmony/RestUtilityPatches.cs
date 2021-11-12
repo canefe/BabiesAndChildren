@@ -15,8 +15,8 @@ namespace BabiesAndChildren.Harmony
     [HarmonyPatch(typeof(RestUtility), "WakeThreshold")]
     static class RestUtility_WakeThreshold_Patch {
         static void Postfix(ref float __result, ref Pawn p) {
-            if (!p.RaceProps.Humanlike) return;
-            if (AgeStages.IsYoungerThan(p, AgeStages.Child) && p.health.hediffSet.HasHediff(BnCHediffDefOf.UnhappyBaby)) {
+            if (!p.IsChildSupported()) return;
+            if (p.health.hediffSet.HasHediff(BnCHediffDefOf.UnhappyBaby) && AgeStages.IsYoungerThan(p, AgeStages.Child)) {
                 __result = 0.15f;
             }
             // Adults nearby wake up too (this caused performance problems and was bugged. it was still performance heavy when it was fixed. another way should be used to wake the adults.)

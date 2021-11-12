@@ -125,6 +125,10 @@ namespace BabiesAndChildren
             {
                 if (forHead) newPos.z -= 0.1f;
                 else newPos.z += 0.2f;
+                if (GlobalTextureAtlasManager.TryMarkPawnFrameSetDirty(pawn))
+                {
+                    newPos.z += 0.1f;
+                }
             }
             return newPos;
         }
