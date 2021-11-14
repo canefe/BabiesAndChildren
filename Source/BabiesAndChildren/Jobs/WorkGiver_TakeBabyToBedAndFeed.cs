@@ -22,7 +22,7 @@ namespace BabiesAndChildren
 				return false;
 			}
 			//Only perform job if baby is toddler
-			if (!AgeStages.IsAgeStage(baby, AgeStages.Toddler) || !RaceUtility.PawnUsesChildren(baby)) {
+			if (!AgeStages.IsAgeStage(baby, AgeStages.Toddler) || !baby.IsChildSupported()) {
 				return false;
 			}
 			if (!pawn.CanReserveAndReach (t, PathEndMode.ClosestTouch, Danger.Deadly, 1, -1, null, forced)) {
@@ -40,6 +40,17 @@ namespace BabiesAndChildren
 			LocalTargetInfo target = t;
 			if (!pawn.CanReserve(target, 1, -1, null, forced)){
 				return false;
+			}
+
+			if (ChildrenUtility.CanBreastfeed(pawn))
+			{
+				return false;
+			}
+
+			if (ChildrenUtility.AnyBreastfeeders(baby))
+			{
+				if (!baby.health.hediffSet.HasHediff(HediffDefOf.Malnutrition))
+					return false;
 			}
 
 			if (!FoodUtility.TryFindBestFoodSourceFor(pawn, baby, baby.needs.food.CurCategory == HungerCategory.Starving, out var thing, out var thingDef, false)){

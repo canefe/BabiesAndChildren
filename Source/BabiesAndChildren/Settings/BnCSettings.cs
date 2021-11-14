@@ -102,11 +102,19 @@ namespace BabiesAndChildren
 
         public static void AddDebugSettings(Listing_Standard listingStandard)
         {
+            GUIStyle guistyle = new GUIStyle(Text.CurFontStyle);
+            guistyle.fontStyle = FontStyle.Bold;
+            guistyle.fontSize = 20;
+            GUIStyle guistyle_desc = new GUIStyle(Text.CurFontStyle);
+            guistyle_desc.fontStyle = FontStyle.Italic;
+            guistyle_desc.fontSize = 16;
             listingStandard.Gap(5f);
             listingStandard.CheckboxLabeled("humanlikeHeadEnabled_Title".Translate(), ref human_like_head_enabled, "humanlikeHeadEnabled_desc".Translate());
             listingStandard.Gap(5f);
             listingStandard.CheckboxLabeled("RabbieChildHeadEnabled_Title".Translate(), ref Rabbie_Child_head_enabled, "RabbieChildHeadEnabled_desc".Translate());
             listingStandard.Gap(5f);
+            listingStandard.GapLine(5f);
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("Human Children Size", listingStandard.ColumnWidth) + 6f), "Human Children Size", guistyle);
             listingStandard.Label("HumanChildrenBodysize_Title".Translate() + ": " + Math.Round(HumanBodySize, 4), -1f, "HumanChildrenBodysize_desc".Translate());
             HumanBodySize = listingStandard.Slider(HumanBodySize, -2f, 2f);
             listingStandard.Gap(5f);
@@ -122,6 +130,9 @@ namespace BabiesAndChildren
             listingStandard.Label("HumanTeenagerModifier_Title".Translate() + ": " + Math.Round(HumanTeenagerModifier, 4), -1f, "HumanTeenagerModifier_desc".Translate());
             HumanTeenagerModifier = listingStandard.Slider(HumanTeenagerModifier, -2f, 2f);
             listingStandard.GapLine(5f);
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("Alien Children Size", listingStandard.ColumnWidth) + 6f), "Alien Children Size", guistyle);
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("Specific size settings available under race settings.\nThis applies to all aliens.", listingStandard.ColumnWidth) + 6f), "Specific size settings available under race settings.\nThis applies to all aliens.", guistyle_desc);
+            listingStandard.Gap(3f);
             listingStandard.Label("AlienChildrenBodysize_Title".Translate() + ": " + Math.Round(AlienBodySize, 4), -1f, "AlienChildrenBodysize_desc".Translate());
             AlienBodySize = listingStandard.Slider(AlienBodySize, -2f, 2f);
             listingStandard.Gap(5f);
@@ -143,20 +154,22 @@ namespace BabiesAndChildren
             listingStandard.Label("AlienTeenagerModifier_Title".Translate() + ": " + Math.Round(AlienTeenagerModifier, 4), -1f, "AlienTeenagerModifier_desc".Translate());
             AlienTeenagerModifier = listingStandard.Slider(AlienTeenagerModifier, -2f, 2f);
             listingStandard.GapLine(5f);
-            listingStandard.Label("ShowHairSize_Title".Translate() + ": " + Math.Round(ShowHairSize, 4), -1f, "ShowHairSize_desc".Translate());
-            ShowHairSize = listingStandard.Slider(ShowHairSize, -2f, 2f);
-            listingStandard.Gap(5f);
-            listingStandard.Label("ShowHairLocY_Title".Translate() + ": " + Math.Round(ShowHairLocY, 4), -1f, "ShowHairLocY_desc".Translate());
-            ShowHairLocY = listingStandard.Slider(ShowHairLocY, -2f, 2f);
-            listingStandard.Gap(5f);
-            listingStandard.Label("ShowHairHumanZLoc_Title".Translate() + ": " + Math.Round(ShowHairHumanLocZ, 4), -1f, "ShowHairHumanZLoc_desc".Translate());
-            ShowHairHumanLocZ = listingStandard.Slider(ShowHairHumanLocZ, -2f, 2f);
-            listingStandard.Gap(5f);
-            listingStandard.Label("ShowHairAlienZLoc_Title".Translate() + ": " + Math.Round(ShowHairAlienLocZ, 4), -1f, "ShowHairAlienZLoc_desc".Translate());
-            ShowHairAlienLocZ = listingStandard.Slider(ShowHairAlienLocZ, -2f, 2f);
-            listingStandard.Gap(5f);
-            listingStandard.Label("ShowHairAlienHFLocZ_Title".Translate() + ": " + Math.Round(ShowHairAlienHFLocZ, 4), -1f, "ShowHairAlienHFLocZ_desc".Translate());
-            ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
+            /*{
+                listingStandard.Label("ShowHairSize_Title".Translate() + ": " + Math.Round(ShowHairSize, 4), -1f, "ShowHairSize_desc".Translate());
+                ShowHairSize = listingStandard.Slider(ShowHairSize, -2f, 2f);
+                listingStandard.Gap(5f);
+                listingStandard.Label("ShowHairLocY_Title".Translate() + ": " + Math.Round(ShowHairLocY, 4), -1f, "ShowHairLocY_desc".Translate());
+                ShowHairLocY = listingStandard.Slider(ShowHairLocY, -2f, 2f);
+                listingStandard.Gap(5f);
+                listingStandard.Label("ShowHairHumanZLoc_Title".Translate() + ": " + Math.Round(ShowHairHumanLocZ, 4), -1f, "ShowHairHumanZLoc_desc".Translate());
+                ShowHairHumanLocZ = listingStandard.Slider(ShowHairHumanLocZ, -2f, 2f);
+                listingStandard.Gap(5f);
+                listingStandard.Label("ShowHairAlienZLoc_Title".Translate() + ": " + Math.Round(ShowHairAlienLocZ, 4), -1f, "ShowHairAlienZLoc_desc".Translate());
+                ShowHairAlienLocZ = listingStandard.Slider(ShowHairAlienLocZ, -2f, 2f);
+                listingStandard.Gap(5f);
+                listingStandard.Label("ShowHairAlienHFLocZ_Title".Translate() + ": " + Math.Round(ShowHairAlienHFLocZ, 4), -1f, "ShowHairAlienHFLocZ_desc".Translate());
+                ShowHairAlienHFLocZ = listingStandard.Slider(ShowHairAlienHFLocZ, -2f, 2f);
+            }*/
         }
         public static void Scrol(Listing_Standard raceList, float height, ref float hs)
         {
