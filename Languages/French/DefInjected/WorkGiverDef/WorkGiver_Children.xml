@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Basic -->
+
+  <FeedBaby.label>allaiter le bébé</FeedBaby.label>
+  <FeedBaby.verb>allaiter</FeedBaby.verb>
+  <FeedBaby.gerund>allaite</FeedBaby.gerund>
+
+
+  <!-- Childcare -->
+
+  <FoodFeedBaby.label>nourrir le bébé</FoodFeedBaby.label>
+  <FoodFeedBaby.verb>nourrir</FoodFeedBaby.verb>
+  <FoodFeedBaby.gerund>nourrit</FoodFeedBaby.gerund>
+
+  <TakeBabyToCribAndFeed.label>nourrir le bébé au lit</TakeBabyToCribAndFeed.label>
+  <TakeBabyToCribAndFeed.verb>nourrir le bébé au lit</TakeBabyToCribAndFeed.verb>
+  <TakeBabyToCribAndFeed.gerund>nourrit</TakeBabyToCribAndFeed.gerund>
+
+  <TakeBabyToCrib.label>emmener le bébé au berceau</TakeBabyToCrib.label>
+  <TakeBabyToCrib.verb>emmener au berceau</TakeBabyToCrib.verb>
+  <TakeBabyToCrib.gerund>emmène</TakeBabyToCrib.gerund>
+
+  <PlayWithBaby.label>jouer avec le bébé</PlayWithBaby.label>
+  <PlayWithBaby.verb>jouer avec le bébé</PlayWithBaby.verb>
+  <PlayWithBaby.gerund>joue avec le bébé</PlayWithBaby.gerund>
+
+
+</LanguageData>

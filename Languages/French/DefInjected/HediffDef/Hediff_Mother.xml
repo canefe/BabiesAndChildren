@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- <HediffDef Name="pregnancy_base" Abstract="True">
+    <description>Un bébé est en gestation dans l'utérus. Si la mère est affamée ou blessée, il peut y avoir une fausse couche.</description>
+    <defaultLabelColor>(0.7, 1.0, 0.7)</defaultLabelColor>
+    <initialSeverity>0.001</initialSeverity>
+    <label>enceinte</label>
+    <stages>
+      <li>
+        <label>stade précoce</label>
+        <vomitMtbDays>2.5</vomitMtbDays>
+      </li>
+      <li>
+        <label>stade intermédiaire</label>
+        <minSeverity>0.333</minSeverity>
+        <hungerRateFactorOffset>0.1</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.15</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>stade avancé</label>
+        <minSeverity>0.666</minSeverity>
+        <hungerRateFactorOffset>0.2</hungerRateFactorOffset>
+        <vomitMtbDays>2</vomitMtbDays>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.30</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>a des contractions</label>
+        <minSeverity>0.98</minSeverity>
+        <painOffset>0.3</painOffset>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <setMax>0.0</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="pregnancy_base">
+    <defName>HumanPregnancy</defName>
+    <hediffClass>RimWorldChildren.Hediff_HumanPregnancy</hediffClass>
+
+    <comps>
+      <li Class="RimWorldChildren.CompProperties_Miscarriable">
+        <woundsCauseMiscarriage>true</woundsCauseMiscarriage>
+        <starvationCauseMiscarriage>true</starvationCauseMiscarriage>
+        <hediffsCauseMiscarriage>
+          <li>
+            <hediffDef>Malaria</hediffDef>
+            <minSeverity>0.8</minSeverity>
+          </li>
+        </hediffsCauseMiscarriage>
+      </li>
+      <li Class="RimWorldChildren.CompProperties_Abortable">
+        <maxSeverity>0.3</maxSeverity>
+      </li>
+    </comps>
+  </HediffDef>
+  
+  <HediffDef>
+    <defName>GivingBirth</defName>
+    <description>Le corps se prépare à donner naissance à un enfant.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>donner naissance</label>
+    <initialSeverity>0.5</initialSeverity>
+    <tendable>true</tendable>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>sutured</labelTendedWell>
+        <labelTendedWellInner>sutured</labelTendedWellInner>
+        <labelSolidTendedWell>sutured</labelSolidTendedWell>
+      </li>
+    </comps>
+  </HediffDef>
+  
+  <HediffDef Abstract="True" Name="PregnancyInjuryBase">
+    <hediffClass>Hediff_Injury</hediffClass>
+    <description>Une blessure subie à la suite de l'accouchement.</description>
+    <tendable>true</tendable>
+    <displayWound>false</displayWound>
+  </HediffDef>
+  
+  <HediffDef ParentName="PregnancyInjuryBase">
+    <defName>PregnancyTear</defName>
+    <label>déchirure de grossesse (mineure)</label>
+    <initialSeverity>2.5</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>suturée</labelTendedWell>
+        <labelTendedWellInner>suturée</labelTendedWellInner>
+        <labelSolidTendedWell>suturée</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.20</infectionChance>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.0125</painPerSeverity>
+      <bleedRate>1.5</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Destroyed</destroyedLabel>
+    </injuryProps>
+  </HediffDef>
+  
+  <HediffDef ParentName="PregnancyInjuryBase">
+    <defName>PregnancyTearMajor</defName>
+    <label>Déchirure de grossesse (majeure)</label>
+    <initialSeverity>3</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>suturée</labelTendedWell>
+        <labelTendedWellInner>suturée</labelTendedWellInner>
+        <labelSolidTendedWell>suturée</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.20</infectionChance>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.0125</painPerSeverity>
+      <bleedRate>3</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Destroyed</destroyedLabel>
+    </injuryProps>
+  </HediffDef>
+  
+  <HediffDef ParentName="PregnancyInjuryBase">
+    <defName>PlacentaBleed</defName>
+    <label>placenta accreta</label>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>résolu</labelTendedWell>
+        <labelTendedWellInner>résolu</labelTendedWellInner>
+        <labelSolidTendedWell>résolu</labelSolidTendedWell>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.0125</painPerSeverity>
+      <bleedRate>30</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Destroyed</destroyedLabel>
+    </injuryProps>
+  </HediffDef> -->
+
+  <PostPregnancy.label>se remettre de l'accouchement</PostPregnancy.label>
+  <PostPregnancy.description>Récupération du travail.</PostPregnancy.description>
+
+  <Lactating.label>en lactation</Lactating.label>
+  <Lactating.description>Produire du lait pour les bébés.</Lactating.description>
+
+
+</LanguageData>

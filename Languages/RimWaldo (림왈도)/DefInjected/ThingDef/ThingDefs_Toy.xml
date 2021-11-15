@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Dino_Doll.label>공룡 인형</Dino_Doll.label>
+  <Dino_Doll.description>림월드 TV의 공룡 친구들을 본따 만든 봉제 인형입니다.\n다른 종류의 인형은 다른 스탯 보너스를 줍니다.  무기로 사용이 가능하지만 공격력과 내구도가 매우 낮습니다.</Dino_Doll.description>
+  <Dino_Doll.tools.0.label>몸체</Dino_Doll.tools.0.label>
+  <Dino_Doll.tools.1.label>머리</Dino_Doll.tools.1.label>
+
+  <Girl_Doll.label>여자 인형</Girl_Doll.label>
+  <Girl_Doll.description>귀여운 여자 아이를 본따 만든 봉제 인형입니다. 이걸 가지면 요리를 잘할것 같네요.\n다른 종류의 인형은 다른 스탯 보너스를 줍니다.  무기로 사용이 가능하지만 공격력과 내구도가 매우 낮습니다.</Girl_Doll.description>
+  <Girl_Doll.tools.0.label>몸체</Girl_Doll.tools.0.label>
+  <Girl_Doll.tools.1.label>머리</Girl_Doll.tools.1.label>
+
+  <Teddybear_Doll.label>테디베어 인형</Teddybear_Doll.label>
+  <Teddybear_Doll.description>귀여운 테디베어 인형입니다. 어린이들은 이걸 너무 사랑해 밤에 같이 잘 정도입니다.\n다른 종류의 인형은 다른 스탯 보너스를 줍니다.  무기로 사용이 가능하지만 공격력과 내구도가 매우 낮습니다.</Teddybear_Doll.description>
+  <Teddybear_Doll.tools.0.label>몸체</Teddybear_Doll.tools.0.label>
+  <Teddybear_Doll.tools.1.label>머리</Teddybear_Doll.tools.1.label>
+
+  <Toyrobot_Doll.label>로봇 인형</Toyrobot_Doll.label>
+  <Toyrobot_Doll.description>로봇을 본따 만든 봉제인형입니다. 이것을 들고 있으면 머리가 좋아진다는 소문이 있습니다.\n다른 종류의 인형은 다른 스탯 보너스를 줍니다.  무기로 사용이 가능하지만 공격력과 내구도가 매우 낮습니다.</Toyrobot_Doll.description>
+  <Toyrobot_Doll.tools.0.label>몸체</Toyrobot_Doll.tools.0.label>
+  <Toyrobot_Doll.tools.1.label>머리</Toyrobot_Doll.tools.1.label>
+
+
+</LanguageData>

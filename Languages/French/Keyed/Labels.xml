@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!--<MaxTraitsSetting_title>Maximum de traits pour un enfant</MaxTraitsSetting_title>
+  <MaxTraitsSetting_desc>Le nombre maximum de traits pouvant être appliqués à un personnage pendant l'enfance. Nécessite un autre mod pour prendre en charge; 3 traits par personnage.</MaxTraitsSetting_desc>-->
+  <BnCSettings1>Bébés et enfants</BnCSettings1>
+  <BnCSetting_Init>Réinitialiser les paramètres BnC</BnCSetting_Init>
+  <AcceleratedGrowth_title>Croissance accélérée</AcceleratedGrowth_title>
+  <AcceleratedGrowth_desc>Les enfants vieillissent plus vite</AcceleratedGrowth_desc>
+  <AcceleratedGrowthEndAge_title1>Fin de l'ère de la croissance accélérée</AcceleratedGrowthEndAge_title1>
+  <AcceleratedGrowthEndAge_desc1>Âge de fin de croissance accélérée \n Valeur par défaut: 18</AcceleratedGrowthEndAge_desc1>
+  <BabyAcceleratedGrowth_title>Facteur de croissance accélérée pour bébé</BabyAcceleratedGrowth_title>
+  <BabyAcceleratedGrowth_desc>Facteur de croissance accélérée du bébé \n Par défaut: 7</BabyAcceleratedGrowth_desc>
+  <ToddlerAcceleratedGrowth_title>Facteur de croissance accélérée pour les tout-petits</ToddlerAcceleratedGrowth_title>
+  <ToddlerAcceleratedGrowth_desc>Facteur de croissance accélérée pour les tout-petits \n Par défaut: 7</ToddlerAcceleratedGrowth_desc>
+  <ChildAcceleratedGrowth_title>Facteur de croissance accélérée de l'enfant</ChildAcceleratedGrowth_title>
+  <ChildAcceleratedGrowth_desc>Facteur de croissance accélérée de l'enfant\n Défaut: 7</ChildAcceleratedGrowth_desc>
+  <TeenagerAcceleratedGrowth_title>Facteur de croissance accélérée de l'adolescent</TeenagerAcceleratedGrowth_title>
+  <TeenagerAcceleratedGrowth_desc>Facteur de croissance accélérée de l'adolescent \n Défaut: 1</TeenagerAcceleratedGrowth_desc>
+  <BabyInheritPercentage_Title>Hériter des traits et des compétences</BabyInheritPercentage_Title>
+  <BabyInheritPercentage_Desc>La probabilité d'hériter de traits et de compétences. (ne s'applique pas à CSL)</BabyInheritPercentage_Desc>
+  <BabyInheritPercentage_Desc_None>Aucune</BabyInheritPercentage_Desc_None>
+  <BabyInheritPercentage_Desc_25>25%</BabyInheritPercentage_Desc_25>
+  <BabyInheritPercentage_Desc_50>50%</BabyInheritPercentage_Desc_50>
+  <BabyInheritPercentage_Desc_75>75%</BabyInheritPercentage_Desc_75>
+  <BabyInheritPercentage_Desc_90>90%</BabyInheritPercentage_Desc_90>
+  <BabyInheritPercentage_Desc_Random>Aléatoire</BabyInheritPercentage_Desc_Random>
+  <OptionChildrenDropWeapons>Les enfants lâchent leurs armes</OptionChildrenDropWeapons>
+  <OptionChildrenDropWeaponsDesc>Les enfants laissent tomber leurs armes lorsqu'ils tirent pour simuler leur manque de contrôle du recul et de force pour tenir l'arme.</OptionChildrenDropWeaponsDesc>
+  <OptionChildMaxWeaponMass>Masse maximale des armes pour enfants</OptionChildMaxWeaponMass>
+  <OptionChildMaxWeaponMass_desc>Masse maximale des armes pour enfants\n Défaut: 2</OptionChildMaxWeaponMass_desc>
+  <GestationPeriodDays_Enable>Activer le paramètre de période de gestation</GestationPeriodDays_Enable>
+  <GestationPeriodDays_Enable_Desc>Ajustez la période de gestation de toutes les races humaines du jeu. S'applique lorsque le jeu est chargé. Cela ne fonctionne pas sur une femme qui est déjà enceinte.</GestationPeriodDays_Enable_Desc>  
+  <GestationPeriodDays_Title>Jours de période de gestation</GestationPeriodDays_Title>
+  <GestationPeriodDays_desc>Ajustez la période de gestation de toutes les races humaines du jeu. S'applique lorsque le jeu est chargé. Cela ne fonctionne pas sur une femme qui est déjà enceinte.</GestationPeriodDays_desc>
+  <GestationPeriodDays_Days>jours</GestationPeriodDays_Days>
+  <EnablePostPartum_title>Activer le post-partum</EnablePostPartum_title>
+  <EnablePostPartum_desc>Lorsqu'elle est activée, les pions femelles entreront en post-partum après l'accouchement, les empêchant de tomber à nouveau enceintes pendant deux quadrums. RJW uniquement</EnablePostPartum_desc>
+  <CryVolumeSetting_title>Volume de pleurs de bébé</CryVolumeSetting_title>
+  <CryVolumeSetting_desc>Pourcentage de volume pour l'audio du pleur du bébé. 0 pour couper le son.</CryVolumeSetting_desc>
+  <DebugInfoMessagesEnabled_Title>Paramètres graphiques</DebugInfoMessagesEnabled_Title>
+  <DebugInfoMessagesEnabled_desc>Lorsqu'activé, affiche les paramètres graphiques et publie des journaux de débogage fréquents sur la console.</DebugInfoMessagesEnabled_desc>
+  <ChildCuteActEnabled_Title>Activer la loi sur l'enfant mignon</ChildCuteActEnabled_Title>
+  <ChildCuteActEnabled_desc>Active la loi sur l'enfant mignon.</ChildCuteActEnabled_desc>
+  <humanlikeHeadEnabled_Title>Ratkin, changement de style de visage de Kurin</humanlikeHeadEnabled_Title>
+  <humanlikeHeadEnabled_desc>Les styles de visage des Ratkins et des Kurin ressemblent à des enfants humains.</humanlikeHeadEnabled_desc>
+  <RabbieChildHeadEnabled_Title>Changement de style de visage de Rabbie</RabbieChildHeadEnabled_Title>
+  <RabbieChildHeadEnabled_desc>Les styles de visage du Rabbie ressemblent à des enfants humains.</RabbieChildHeadEnabled_desc>
+  <HumanChildrenBodysize_Title>Taille du corps des enfants humains</HumanChildrenBodysize_Title>
+  <HumanChildrenBodysize_desc>Il s'applique lorsque vous ajustez la diapositive.</HumanChildrenBodysize_desc>
+  <HumanChildrenHeadsize_Title>Taille de la tête des enfants humains</HumanChildrenHeadsize_Title>
+  <HumanChildrenHeadsize_desc>Il s'applique lorsque vous ajustez la diapositive.</HumanChildrenHeadsize_desc>
+  <HumanChildrenHairsize_Title>Taille des cheveux des enfants humains</HumanChildrenHairsize_Title>
+  <HumanChildrenHairsize_desc>Il s'applique lorsque vous ajustez la diapositive.</HumanChildrenHairsize_desc>
+  <HumanChildrenZroc_Title>Enfants humains Z roc</HumanChildrenZroc_Title>
+  <HumanChildrenZroc_desc>Il s'applique lorsque vous ajustez la diapositive.</HumanChildrenZroc_desc>
+  <AlienChildrenBodysize_Title>Taille du corps des enfants extraterrestrese</AlienChildrenBodysize_Title>
+  <AlienChildrenBodysize_desc>Il s'applique lorsque vous ajustez la diapositive.</AlienChildrenBodysize_desc>
+  <AlienChildrenOriginalHeadsize_Title>Taille de la tête originale des enfants extraterrestres</AlienChildrenOriginalHeadsize_Title>
+  <AlienChildrenOriginalHeadsize_desc>Il s'applique lorsque vous ajustez la diapositive.</AlienChildrenOriginalHeadsize_desc>
+  <AlienChildrenHumanlikeHeadsize_Title>Enfants extraterrestres humains comme la taille de la tête</AlienChildrenHumanlikeHeadsize_Title>
+  <AlienChildrenHumanlikeHeadsize_desc>Il s'applique lorsque vous ajustez la diapositive.</AlienChildrenHumanlikeHeadsize_desc>
+  <AlienChildrenHairsize_Title>Taille des cheveux des enfants extraterrestres</AlienChildrenHairsize_Title>
+  <AlienChildrenHairsize_desc>Il s'applique lorsque vous ajustez la diapositive.</AlienChildrenHairsize_desc>
+  <AlienChildrenZroc_Title>Enfants extraterrestres Z roc</AlienChildrenZroc_Title>
+  <AlienChildrenZroc_desc>Il s'applique lorsque vous ajustez la diapositive.</AlienChildrenZroc_desc>
+  <ShowHairSize_Title>Taille des cheveux de l'enfant (ShowHair)</ShowHairSize_Title>
+  <ShowHairSize_desc>Il s'applique lorsque vous ajustez la diapositive.</ShowHairSize_desc>
+  <ShowHairLocY_Title>Cheveux de l'enfant LocY (ShowHair)</ShowHairLocY_Title>
+  <ShowHairLocY_desc>Il s'applique lorsque vous ajustez la diapositive.</ShowHairLocY_desc>
+  <ShowHairHumanZLoc_Title>Tête humaine cheveux enfant ZLoc (ShowHair)</ShowHairHumanZLoc_Title>
+  <ShowHairHumanZLoc_desc>Il s'applique lorsque vous ajustez la diapositive.</ShowHairHumanZLoc_desc>
+  <ShowHairAlienZLoc_Title>Tête d'alien de cheveux d'enfant ZLoc (ShowHair)</ShowHairAlienZLoc_Title>
+  <ShowHairAlienZLoc_desc>Il s'applique lorsque vous ajustez la diapositive.</ShowHairAlienZLoc_desc>
+  <ShowHairAlienHFLocZ_Title>Cheveux de l'enfant HFLocZ (ShowHair)</ShowHairAlienHFLocZ_Title>
+  <ShowHairAlienHFLocZ_desc>Il s'applique lorsque vous ajustez la diapositive.</ShowHairAlienHFLocZ_desc>
+</LanguageData>

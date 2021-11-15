@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <DutyDef>
+    <defName>PlayTime</defName>
+    <thinkNode Class="ThinkNode_Priority">
+		<subNodes>
+			<li Class="ThinkNode_ConditionalStarving">
+				<subNodes>
+					<li Class="JobGiver_GetFood" />
+				</subNodes>
+			</li>
+			<li Class="BabiesAndChildren.JobGiver_PlayTime"/>
+			<li Class="JobGiver_StandAndBeSociallyActive">
+			  <ticksRange>
+				<min>250</min>
+				<max>750</max>
+			  </ticksRange>
+			</li>
+		</subNodes>
+    </thinkNode>
+  </DutyDef>
+</Defs>

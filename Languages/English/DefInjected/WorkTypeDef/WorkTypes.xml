@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Childcare.label>Childcare</Childcare.label>
+  <Childcare.description>Take care of babies and manage children.</Childcare.description>
+  <Childcare.labelShort>Childcare</Childcare.labelShort>
+  <Childcare.pawnLabel>Childcarer</Childcare.pawnLabel>
+  <Childcare.gerundLabel>Childcaring</Childcare.gerundLabel>
+  <Childcare.verb>Care for</Childcare.verb>
+
+  <BnC_Watch.label>Watch</BnC_Watch.label>
+  <BnC_Watch.description>Watch others doing jobs and learn from them.</BnC_Watch.description>
+  <BnC_Watch.labelShort>Watch</BnC_Watch.labelShort>
+  <BnC_Watch.pawnLabel>Apprentice</BnC_Watch.pawnLabel>
+  <BnC_Watch.gerundLabel>Watching</BnC_Watch.gerundLabel>
+  <BnC_Watch.verb>Watch</BnC_Watch.verb>
+
+
+</LanguageData>

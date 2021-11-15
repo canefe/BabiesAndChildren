@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Kurin HAR Edition</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName = "Kurin_Race"]/race/ageGenerationCurve/points</xpath>
+      <value>
+        <points>
+          <li>(5,0)</li>
+          <li>(6,15)</li>
+          <li>(8,40)</li>
+          <li>(14,60)</li>
+          <li>(23,80)</li>
+          <li>(30,20)</li>
+          <li>(40,10)</li>
+          <li>(60,5)</li>
+          <li>(70,3)</li>
+          <li>(80,1)</li>
+          <li>(90,0)</li>
+          <li>(100,0)</li>
+        </points>
+      </value>
+    </match>
+  </Operation>
+  
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Kurin HAR Edition</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName = "Kurin_Race"]/race/lifeStageAges</xpath>
+      <value>
+        <lifeStageAges>
+          <li>
+            <def>HumanlikeBaby</def>
+            <minAge>0</minAge>
+          </li>
+          <li>
+            <def>HumanlikeToddler</def>
+            <minAge>2.2</minAge>
+          </li>
+          <li>
+            <def>HumanlikeChild</def>
+            <minAge>5</minAge>
+          </li>
+          <li>
+            <def>HumanlikeTeenager</def>
+            <minAge>14</minAge>
+          </li>
+          <li>
+            <def>HumanlikeAdult</def>
+            <minAge>18</minAge>
+          </li>
+        </lifeStageAges>
+      </value>
+    </match>
+  </Operation>
+  
+  <!-- Kurin HAR Edition의 정신 임계정 수정 -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Kurin HAR Edition</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName = "Kurin_Race"]/statBases/MentalBreakThreshold</xpath>
+      <value>
+        <MentalBreakThreshold>0.37</MentalBreakThreshold>
+      </value>
+    </match>
+  </Operation>
+  
+  <!-- 한번에 낳는 애기 수 바꿀때 조정 -->
+  <!--<Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Kurin HAR Edition</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName = "Kurin_Race"]/race/litterSizeCurve/points</xpath>
+      <value>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(1.01, 0.02)</li>
+          <li>(3.5, 0)</li>
+        </points>
+      </value>
+    </match>
+  </Operation> -->
+</Patch>

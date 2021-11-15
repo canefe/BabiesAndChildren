@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ScoldChild.label>Gronder</ScoldChild.label>
+  <ScoldChild.logRulesInitiator.rulesStrings.0>r_logentry->Gronde [RECIPIENT_nameDef].</ScoldChild.logRulesInitiator.rulesStrings.0>
+  <ScoldChild.logRulesRecipient.rulesStrings.0>r_logentry->a été grondé par [INITIATOR_nameDef].</ScoldChild.logRulesRecipient.rulesStrings.0>
+
+  <HugFriend.label>Câliner</HugFriend.label>
+  <HugFriend.logRulesInitiator.rulesStrings.0>r_logentry->Câline [RECIPIENT_nameDef].</HugFriend.logRulesInitiator.rulesStrings.0>
+  <HugFriend.logRulesRecipient.rulesStrings.0>r_logentry->A été câliné par [INITIATOR_nameDef].</HugFriend.logRulesRecipient.rulesStrings.0>
+
+  <BabyGames.label>Jouer</BabyGames.label>
+  <BabyGames.logRulesInitiator.rulesStrings.0>r_logentry->[INITIATOR_nameDef] et [RECIPIENT_nameDef] ont joué [babygame].</BabyGames.logRulesInitiator.rulesStrings.0>
+  <BabyGames.logRulesInitiator.rulesStrings.1>r_logentry->[INITIATOR_nameDef] a joué [babygame] avec [RECIPIENT_nameDef].</BabyGames.logRulesInitiator.rulesStrings.1>
+  <BabyGames.logRulesInitiator.rulesStrings.2>babygame->coucou</BabyGames.logRulesInitiator.rulesStrings.2>
+  <BabyGames.logRulesInitiator.rulesStrings.3>babygame->colin-maillard</BabyGames.logRulesInitiator.rulesStrings.3>
+  <BabyGames.logRulesInitiator.rulesStrings.4>babygame->chatouilles</BabyGames.logRulesInitiator.rulesStrings.4>
+
+
+</LanguageData>

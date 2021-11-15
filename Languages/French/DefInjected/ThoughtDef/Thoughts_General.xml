@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GotHugged.stages.0.label>a eu un câlin</GotHugged.stages.0.label>
+  <GotHugged.stages.0.description>C'est agréable de savoir que quelqu'un se soucie de moi.</GotHugged.stages.0.description>
+
+  <ColonyBirth.stages.0.label>bébé</ColonyBirth.stages.0.label>
+  <ColonyBirth.stages.0.description>Un enfant est né dans notre colonie. Merveilleux!</ColonyBirth.stages.0.description>
+
+  <ChildDied.stages.0.label>enfant mort</ChildDied.stages.0.label>
+  <ChildDied.stages.0.description>Un enfant est mort. Quelle chose horrible à arriver à notre colonie.</ChildDied.stages.0.description>
+
+  <CryingBaby.stages.0.label>bébé qui pleure</CryingBaby.stages.0.label>
+  <CryingBaby.stages.0.description>Il y a un bébé qui hurle dans les environs. Ce n'est pas un bruit agréable.</CryingBaby.stages.0.description>
+  <CryingBaby.stages.1.label>pleurs de bébés</CryingBaby.stages.1.label>
+  <CryingBaby.stages.1.description>Il y a plusieurs bébés qui hurlent près de moi. Arrête ça!</CryingBaby.stages.1.description>
+  <CryingBaby.stages.2.label>pleurs de bébés</CryingBaby.stages.2.label>
+  <CryingBaby.stages.2.description>Je suis entouré d'une horde de sirènes hurlante sous forme d'humains miniature! Tuez moi maintenant!!!</CryingBaby.stages.2.description>
+
+
+</LanguageData>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <LabelGaveBirth>Nouveau-né</LabelGaveBirth>
+  <WordHumanPregnancy>Grossesse</WordHumanPregnancy>
+  <Unnamed>Anonyme</Unnamed>
+  <MessageIsPregnant>{0} est enceinte!</MessageIsPregnant>
+  <MessageHumanBirth>{0} a accouché! Elle a décidé de nommer l'enfant "{1}".</MessageHumanBirth>
+  <MessageHavingContractions>{0} a commencé à avoir des contractions.</MessageHavingContractions>
+  <WordStillborn>mort-né!</WordStillborn>
+  <MessageStillborn>{0} a fait une fausse couche pour une raison inconnue.</MessageStillborn>
+  <MessageWeaponTooLarge>Warning: Un {0} est une arme trop grosse pour que {1} puisse la manipuler en toute sécurité.</MessageWeaponTooLarge>
+  <MessageAdultClothesOnBaby>Les vêtements normaux sont trop grands pour {0}.</MessageAdultClothesOnBaby>
+  <MessageBabyClothesOnAdult>Les vêtements de bébé sont trop petits pour {0}.</MessageBabyClothesOnAdult>
+  <MessageBabyCannotWearClothes>Un bébé qui ne peut pas marcher ne peut pas porter de vêtements.</MessageBabyCannotWearClothes>
+  <ReasonNoCribs>Aucun lit d'enfant disponible</ReasonNoCribs>
+  <ReasonCannotBreastfeed>{0} ne peut pas allaiter</ReasonCannotBreastfeed>
+  <MessageMiscarriedHediff>{0} a fait une fausse couche en raison d'un autre problème de santé: {1}.</MessageMiscarriedHediff>
+  <Newtype>Nouveau genre</Newtype>
+  <MessageNewtype>Cet enfant est un génie. {0} est né avec un nouveau type d'éveil, et j'attends avec impatience une belle performance dans le futur à RimWorld.</MessageNewtype>
+  <MessageGrewUpChild>{0} est devenu un enfant.</MessageGrewUpChild>
+  <MessageGrewUpTeenager>{0} est devenu un adolescent.</MessageGrewUpTeenager>
+  <MessageGrewUpAdult>{0} est devenu adulte.</MessageGrewUpAdult>
+  <OnlyChildrenCanEquip>Seuls les enfants peuvent équiper</OnlyChildrenCanEquip>
+  <OnlyForUprightToddler>Seul les tout-petits peut s'habiller</OnlyForUprightToddler>
+  <BabyCantEquipNormal>Les bébés ne sont pas autorisés à porter</BabyCantEquipNormal>
+
+</LanguageData>

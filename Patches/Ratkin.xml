@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>NewRatkinPlus</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName = "Ratkin"]/race/ageGenerationCurve/points</xpath>
+      <value>
+        <points>
+		  <li>(4,0)</li>
+          <li>(5,10)</li>
+          <li>(8,40)</li>
+          <li>(14,60)</li>
+          <li>(23,80)</li>
+          <li>(30,20)</li>
+          <li>(40,10)</li>
+          <li>(60,3)</li>
+          <li>(70,0)</li>
+          <li>(80,0)</li>
+          <li>(90,0)</li>
+          <li>(100,0)</li>
+        </points>
+      </value>
+    </match>
+  </Operation>
+  <!-- 한번에 낳는 애기 수 바꿀때 조정 -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>NewRatkinPlus</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName = "Ratkin"]/race/litterSizeCurve/points</xpath>
+      <value>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(2, 0.4)</li>
+          <li>(3, 0.1)</li>
+		  <li>(3.5, 0)</li>
+        </points>
+      </value>
+    </match>
+  </Operation>
+    <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>NewRatkinPlus</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>//PawnKindDef[@Name = "RKBasePawnKind"]/minGenerationAge</xpath>
+      <value>
+        <minGenerationAge>5</minGenerationAge>
+      </value>
+    </match>
+  </Operation>
+</Patch>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <NearParent.stages.0.label>엄마 근처</NearParent.stages.0.label>
+  <NearParent.stages.0.description>엄마가 근처에 있어. 편안해.</NearParent.stages.0.description>
+  <NearParent.stages.1.label>아빠 근처</NearParent.stages.1.label>
+  <NearParent.stages.1.description>아빠가 근처에 있어. 편안해.</NearParent.stages.1.description>
+  <NearParent.stages.2.label>엄마와 아빠 근처</NearParent.stages.2.label>
+  <NearParent.stages.2.description>엄마와 아빠가 둘 다 가까이에 있어. 편안하고 너무 좋아.</NearParent.stages.2.description>
+
+  <ScaredOfTheDark.stages.0.label>어둠이 무서워</ScaredOfTheDark.stages.0.label>
+  <ScaredOfTheDark.stages.0.description>너무 어두워! 그림자 속에 괴물들이 있을지도 모른다구!</ScaredOfTheDark.stages.0.description>
+
+  <GotToldOff.stages.0.label>문제가 생김</GotToldOff.stages.0.label>
+  <GotToldOff.stages.0.description>뭔가 할려고 했는데 문제가 생겼어.</GotToldOff.stages.0.description>
+
+  <GotDisciplined.stages.0.label>매 맞음</GotDisciplined.stages.0.label>
+  <GotDisciplined.stages.0.description>벌로 매맞았어.</GotDisciplined.stages.0.description>
+
+
+  <GotFed.stages.0.label>잘 먹음</GotFed.stages.0.label>
+  <GotFed.stages.0.description>돌바주는 사람이 잘 먹여줬어.</GotFed.stages.0.description>
+
+  <BabyGames.stages.0.label>나랑 놀아줌</BabyGames.stages.0.label>
+
+  <JustBorn.stages.0.label>방금 태어남</JustBorn.stages.0.label>
+  <JustBorn.stages.0.description>뭐가 일어난 거야? 밖으로 나오니 너무 밝아, 나 이거 싫어!</JustBorn.stages.0.description>
+  
+</LanguageData>

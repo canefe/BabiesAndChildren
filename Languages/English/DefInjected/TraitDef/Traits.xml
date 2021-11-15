@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Innocent.degreeDatas.0.label>innocence</Innocent.degreeDatas.0.label>
+  <Innocent.degreeDatas.0.description>[PAWN_nameDef]'s heart has innocence. Maybe it's because you've never experienced a tough world before.
+[PAWN_pronoun] will be more traumatized by violent acts such as cannibalism, organ harvesting and sight of dead bodies.</Innocent.degreeDatas.0.description>
+
+  <Newtype.degreeDatas.0.label>new type</Newtype.degreeDatas.0.label>
+  <Newtype.degreeDatas.0.description>{PAWN_nameDef} awakened with a new type. {PAWN_pronoun} is amazing at dodging, and get +5 points for melee and shooting. </Newtype.degreeDatas.0.description>
+
+
+</LanguageData>

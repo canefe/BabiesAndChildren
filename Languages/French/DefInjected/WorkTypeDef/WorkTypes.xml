@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Childcare.label>Nourrice</Childcare.label>
+  <Childcare.description>Prendre soin des enfants</Childcare.description>
+  <Childcare.labelShort>Nourrice</Childcare.labelShort>
+  <Childcare.pawnLabel>Nourrice</Childcare.pawnLabel>
+  <Childcare.gerundLabel>S'occupe des enfants</Childcare.gerundLabel>
+  <Childcare.verb>S'occuper des enfants</Childcare.verb>
+
+
+</LanguageData>

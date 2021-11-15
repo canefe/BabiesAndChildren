@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <HediffDef>
+    <defName>PostPregnancy</defName>
+    <description>Recovering from labor.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>recovering from giving birth</label>
+    <initialSeverity>0.001</initialSeverity>
+    <defaultLabelColor>(1.0, 1.0, 1.0)</defaultLabelColor>
+    <comps>
+      <!-- Disappears after half a day's time -->
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>
+          <min>28000</min>
+          <max>32000</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>true</becomeVisible>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <setMax>0</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>Lactating</defName>
+    <description>Producing milk for babies.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>lactating</label>
+    <initialSeverity>0.001</initialSeverity>
+    <defaultLabelColor>(1.0, 1.0, 1.0)</defaultLabelColor>
+    <comps>
+      <!-- Disappears after two quadrams -->
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>
+          <min>3600000</min>
+          <max>3800000</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <hungerRateFactorOffset>0.15</hungerRateFactorOffset>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

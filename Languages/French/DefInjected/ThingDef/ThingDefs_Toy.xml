@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Dino_Doll.label>poupée de dinosaure</Dino_Doll.label>
+  <Dino_Doll.description>Poupée Dino. Les garçons aiment ça.</Dino_Doll.description>
+  <Dino_Doll.tools.0.label>Corps</Dino_Doll.tools.0.label>
+  <Dino_Doll.tools.1.label>tête</Dino_Doll.tools.1.label>
+
+  <Girl_Doll.label>poupée barbie</Girl_Doll.label>
+  <Girl_Doll.description>Poupée barbie. Les filles aiment ça.</Girl_Doll.description>
+  <Girl_Doll.tools.0.label>Corps</Girl_Doll.tools.0.label>
+  <Girl_Doll.tools.1.label>tête</Girl_Doll.tools.1.label>
+
+  <Teddybear_Doll.label>poupée d'ours en peluche</Teddybear_Doll.label>
+  <Teddybear_Doll.description>Poupée mignonne d'ours en peluche. Les garçons et les filles l'aiment tous.</Teddybear_Doll.description>
+  <Teddybear_Doll.tools.0.label>corps</Teddybear_Doll.tools.0.label>
+  <Teddybear_Doll.tools.1.label>tête</Teddybear_Doll.tools.1.label>
+
+  <Toyrobot_Doll.label>poupée robot jouet</Toyrobot_Doll.label>
+  <Toyrobot_Doll.description>Robot jouet. Les garçons aiment ça.</Toyrobot_Doll.description>
+  <Toyrobot_Doll.tools.0.label>corps</Toyrobot_Doll.tools.0.label>
+  <Toyrobot_Doll.tools.1.label>tête</Toyrobot_Doll.tools.1.label>
+
+
+</LanguageData>

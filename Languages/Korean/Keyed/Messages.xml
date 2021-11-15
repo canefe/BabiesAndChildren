@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <LabelGaveBirth>신생아</LabelGaveBirth>
+  <WordHumanPregnancy>임신</WordHumanPregnancy>
+  <Unnamed>이름 없음</Unnamed>
+  <MessageIsPregnant>{0}의 임신!</MessageIsPregnant>
+  <LabelGaveBirth>신생아</LabelGaveBirth>
+  <MessageIsPregnant>{0}(이)가 임신했습니다!</MessageIsPregnant>
+  <MessageHumanBirth>{0}(이)가 출산했습니다! 그녀는 아이의 이름을 「{1}」로 지었습니다.</MessageHumanBirth>
+  <MessageHavingContractions>{0}의 진통이 시작되었습니다.</MessageHavingContractions>
+  <WordStillborn>사산!</WordStillborn>
+  <MessageStillborn>{0}(이)가 알 수 없는 이유로 사산하였습니다.</MessageStillborn>
+  <MessageWeaponTooLarge>경고: {0} 는 {1}(이)가 안전하게 다루기엔 너무 큰 무기입니다.</MessageWeaponTooLarge>
+  <MessageBabyCannotWearClothes>걸음마하지 못하는 아기는 옷을 입지 못합니다.</MessageBabyCannotWearClothes>
+  <ReasonNoCribs>적당한 아기침대가 없습니다.</ReasonNoCribs>
+  <ReasonCannotBreastfeed>모유수유 할 수 없음</ReasonCannotBreastfeed>
+  <MessageMiscarriedHediff>{0} has miscarried due to another health condition: {1}.</MessageMiscarriedHediff>
+  <Newtype>뉴타입</Newtype>
+  <MessageNewtype>{0}(은)는 뉴타입으로 각성하였습니다. 전투에 천부적인 소질을 가지고 있어 거친 림월드에서 훨씬 좋은 활약을 보일 것입니다.</MessageNewtype>
+  <MessageGrewUpChild>{0}(이)가 어린이로 자랐습니다.</MessageGrewUpChild>
+  <MessageGrewUpTeenager>{0}(이)가 청소년으로 자랐습니다.</MessageGrewUpTeenager>
+  <MessageGrewUpAdult>{0}(이)가 성인이 되었습니다.</MessageGrewUpAdult>
+  <OnlyChildrenCanEquip>어린이만 인형을 착용 가능</OnlyChildrenCanEquip>
+  <OnlyForUprightToddler>유아만 착용 가능</OnlyForUprightToddler>
+  <BabyCantEquipNormal>유아는 착용 불가</BabyCantEquipNormal>
+</LanguageData>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <NearParent.stages.0.label>près de maman</NearParent.stages.0.label>
+  <NearParent.stages.0.description>Ma mère est près de moi. je me sens en sécurité.</NearParent.stages.0.description>
+  <NearParent.stages.1.label>près de papa</NearParent.stages.1.label>
+  <NearParent.stages.1.description>Mon père est près de moi. Je me sens en sécurité.</NearParent.stages.1.description>
+  <NearParent.stages.2.label>près de maman et papa</NearParent.stages.2.label>
+  <NearParent.stages.2.description>Mes parents sont avec moi. Je me sens en sécurité et aimé.</NearParent.stages.2.description>
+
+  <ScaredOfTheDark.stages.0.label>peur du noir</ScaredOfTheDark.stages.0.label>
+  <ScaredOfTheDark.stages.0.description>C'est trop sombre! Je peux voir des monstres ramper dans l'ombre!</ScaredOfTheDark.stages.0.description>
+
+  <GotToldOff.stages.0.label>A eu des ennuis</GotToldOff.stages.0.label>
+  <GotToldOff.stages.0.description>J'ai eu des ennuis pour avoir fait quelque chose que je n'aurais pas dû.</GotToldOff.stages.0.description>
+
+  <GotDisciplined.stages.0.label>a pris une raclée</GotDisciplined.stages.0.label>
+  <GotDisciplined.stages.0.description>J'ai été battu en guise de punition.</GotDisciplined.stages.0.description>
+
+  <GotFed.stages.0.label>a été nourri</GotFed.stages.0.label>
+  <GotFed.stages.0.description>J'ai été nourri par quelqu'un d'aimant.</GotFed.stages.0.description>
+
+  <BabyGames.stages.0.label>a joué avec moi</BabyGames.stages.0.label>
+
+  <JustBorn.stages.0.label>Juste né</JustBorn.stages.0.label>
+  <JustBorn.stages.0.description>Que se passe-t-il? C'est trop clair ici, je n'aime pas ça!</JustBorn.stages.0.description>
+
+
+</LanguageData>

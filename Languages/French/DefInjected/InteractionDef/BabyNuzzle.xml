@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <BabyNuzzle.label>Câliner</BabyNuzzle.label>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.0>r_logentry(p=2)->[INITIATOR_nameDef] [nuzzleadverb] [nuzzled] [RECIPIENT_nameDef].</BabyNuzzle.logRulesInitiator.rulesStrings.0>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.1>r_logentry->[INITIATOR_nameDef] [nuzzleadverb] a frotté le nez de [INITIATOR_possessive] contre celui de [RECIPIENT_nameDef][rubbedpart].</BabyNuzzle.logRulesInitiator.rulesStrings.1>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.2>nuzzled(p=2)->blotti</BabyNuzzle.logRulesInitiator.rulesStrings.2>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.3>nuzzled->blotti jusqu'à</BabyNuzzle.logRulesInitiator.rulesStrings.3>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.4>nuzzleadverb(p=4)-></BabyNuzzle.logRulesInitiator.rulesStrings.4>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.5>nuzzleadverb->doucement</BabyNuzzle.logRulesInitiator.rulesStrings.5>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.6>nuzzleadverb->encourageant</BabyNuzzle.logRulesInitiator.rulesStrings.6>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.7>nuzzleadverb->Heureusement</BabyNuzzle.logRulesInitiator.rulesStrings.7>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.8>nuzzleadverb->doucement</BabyNuzzle.logRulesInitiator.rulesStrings.8>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.9>nuzzleadverb->avec soutien</BabyNuzzle.logRulesInitiator.rulesStrings.9>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.10>nuzzleadverb->légèrement</BabyNuzzle.logRulesInitiator.rulesStrings.10>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.11>nuzzleadverb->chaleureusement</BabyNuzzle.logRulesInitiator.rulesStrings.11>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.12>nuzzleadverb->plaintivement</BabyNuzzle.logRulesInitiator.rulesStrings.12>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.13>nuzzleadverb->avec amour</BabyNuzzle.logRulesInitiator.rulesStrings.13>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.14>nuzzleadverb->affectueusement</BabyNuzzle.logRulesInitiator.rulesStrings.14>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.15>rubbedpart->jambe</BabyNuzzle.logRulesInitiator.rulesStrings.15>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.16>rubbedpart->genou</BabyNuzzle.logRulesInitiator.rulesStrings.16>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.17>rubbedpart->pied</BabyNuzzle.logRulesInitiator.rulesStrings.17>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.18>rubbedpart->coude</BabyNuzzle.logRulesInitiator.rulesStrings.18>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.19>rubbedpart->hanche</BabyNuzzle.logRulesInitiator.rulesStrings.19>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.20>rubbedpart->épaule</BabyNuzzle.logRulesInitiator.rulesStrings.20>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.21>rubbedpart->main</BabyNuzzle.logRulesInitiator.rulesStrings.21>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.22>rubbedpart->côté</BabyNuzzle.logRulesInitiator.rulesStrings.22>
+  <BabyNuzzle.logRulesInitiator.rulesStrings.23>rubbedpart->bras</BabyNuzzle.logRulesInitiator.rulesStrings.23>
+
+
+</LanguageData>
