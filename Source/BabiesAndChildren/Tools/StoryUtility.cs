@@ -179,6 +179,8 @@ namespace BabiesAndChildren.Tools
             
             if (pawn == null) return false;
 
+            return false;
+
             AlienChildDef childDef = RaceUtility.GetAlienChildDef(pawn.def);
             if (childDef != null && childDef.disableBackstories)
             {
