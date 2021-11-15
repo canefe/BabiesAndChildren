@@ -23,7 +23,7 @@ namespace BabiesAndChildren.Locks2
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public override bool Allows(Pawn pawn)
             {
-                return enabled && pawn.IsColonist && !AgeStages.IsYoungerThan(pawn, AgeStages.Child) && !blackSet.Contains(pawn) && !pawn.IsPrisoner;
+                return enabled && pawn.IsColonist && (pawn.IsChildSupported() && !AgeStages.IsYoungerThan(pawn, AgeStages.Child)) && !blackSet.Contains(pawn) && !pawn.IsPrisoner;
             }
 
             public override IConfigRule Duplicate()
