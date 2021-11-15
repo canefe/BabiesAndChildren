@@ -150,7 +150,7 @@ namespace BabiesAndChildren
         {
             foreach (var pawn in Current.Game.CurrentMap.mapPawns.FreeColonists)
             {
-               if (CanBreastfeed(pawn) && !pawn.Downed && pawn.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.Deadly, 1, -1, null, false))
+               if (CanBreastfeed(pawn) && !pawn.Downed && !pawn.WorkTagIsDisabled(WorkTags.Caring) && pawn.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.Deadly, 1, -1, null, false))
                 {
                     return true;
                 }
