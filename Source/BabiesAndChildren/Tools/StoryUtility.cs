@@ -179,8 +179,6 @@ namespace BabiesAndChildren.Tools
             
             if (pawn == null) return false;
 
-            return false;
-
             AlienChildDef childDef = RaceUtility.GetAlienChildDef(pawn.def);
             if (childDef != null && childDef.disableBackstories)
             {
@@ -195,7 +193,7 @@ namespace BabiesAndChildren.Tools
                 switch (AgeStages.GetAgeStage(pawn))
                 {
                     case AgeStages.Baby:
-                        newChildhood = Childhood_Disabled;
+                        //newChildhood = Childhood_Disabled;
                         break;
                     case AgeStages.Toddler:
                         goto case AgeStages.Baby;
