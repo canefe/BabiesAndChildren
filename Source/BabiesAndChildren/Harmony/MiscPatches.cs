@@ -6,6 +6,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI.Group;
+using Verse.AI;
 
 namespace BabiesAndChildren.Harmony
 {
@@ -404,6 +405,17 @@ namespace BabiesAndChildren.Harmony
             }
         }
     }
+
+    [HarmonyPatch(typeof(MentalBreakWorker), nameof(MentalBreakWorker.BreakCanOccur))]
+    public class Patch_MentalBreakWorker_BreakCanOccur
+    {
+        private static void Postfix(Pawn pawn, ref bool __result, ref MentalBreakWorker __instance)
+        {
+            if (pawn.IsChildSupported() && AgeStages.IsYoungerThan(pawn, AgeStages.Child))
+                __result = __result && __instance.def == DefDatabase<MentalBreakDef>.GetNamed("Tantrum");
+        }
+    }
+
 
 
 
