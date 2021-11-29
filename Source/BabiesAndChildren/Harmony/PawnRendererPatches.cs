@@ -174,7 +174,7 @@ namespace BabiesAndChildren.Harmony
         [HarmonyPostfix]
         public static void Postfix(ref PawnGraphicSet __instance, ref bool __result)
         {
-            if (__instance.pawn.equipment.Primary != null &&
+            if (__instance.pawn.IsChildSupported() && __instance.pawn.equipment.Primary != null &&
                 ChildrenUtility.SetMakerTagCheck(__instance.pawn.equipment.Primary, "Toy"))
             {
                 __result = true;
