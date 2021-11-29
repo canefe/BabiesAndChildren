@@ -238,7 +238,10 @@ namespace BabiesAndChildren
 
         public static bool IsBedCrib(Building_Bed bed)
         {
-            return IsBedCrib(bed.def);
+            if (bed != null)
+                return IsBedCrib(bed.def);
+
+            return false;
         }
 
         public static bool IsBedCrib(ThingDef bed)
