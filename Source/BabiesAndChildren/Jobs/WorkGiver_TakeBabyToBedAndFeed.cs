@@ -47,13 +47,13 @@ namespace BabiesAndChildren
 				return false;
 			}
 
-			if (ChildrenUtility.AnyBreastfeeders(baby))
+			if (BnCSettings.breastfeed_only && ChildrenUtility.AnyBreastfeeders(baby))
 			{
 				if (!baby.health.hediffSet.HasHediff(HediffDefOf.Malnutrition))
 					return false;
 			}
 
-			if (!FoodUtility.TryFindBestFoodSourceFor(pawn, baby, baby.needs.food.CurCategory == HungerCategory.Starving, out var thing, out var thingDef, false)){
+			if (!FoodUtility.TryFindBestFoodSourceFor_NewTemp(pawn, baby, baby.needs.food.CurCategory == HungerCategory.Starving, out var thing, out var thingDef, false)){
 				JobFailReason.Is("NoFood".Translate(), null);
 				return false;
 			}
@@ -74,7 +74,7 @@ namespace BabiesAndChildren
 			ThingDef thingDef;
 			Thing foodInInv = FoodUtility.BestFoodInInventory(pawn, baby, FoodPreferability.MealSimple);
 			if(foodInInv == null){
-				FoodUtility.TryFindBestFoodSourceFor(pawn, baby, baby.needs.food.CurCategory == HungerCategory.Starving, out thing, out thingDef, false);
+				FoodUtility.TryFindBestFoodSourceFor_NewTemp(pawn, baby, baby.needs.food.CurCategory == HungerCategory.Starving, out thing, out thingDef, false);
 			}
 			else{
 				thing = foodInInv;

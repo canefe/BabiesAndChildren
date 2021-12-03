@@ -148,9 +148,9 @@ namespace BabiesAndChildren
 
         public static bool AnyBreastfeeders(Pawn t)
         {
-            foreach (var pawn in Current.Game.CurrentMap.mapPawns.FreeColonists)
+            foreach (var pawn in Current.Game.CurrentMap.mapPawns.AllPawns)
             {
-               if (CanBreastfeed(pawn) && !pawn.Downed && !pawn.WorkTagIsDisabled(WorkTags.Caring) && pawn.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.Deadly, 1, -1, null, false))
+               if (CanBreastfeed(pawn) && !pawn.Drafted && !pawn.Downed && !pawn.WorkTagIsDisabled(WorkTags.Caring) && pawn.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.Deadly, 1, -1, null, false))
                 {
                     return true;
                 }

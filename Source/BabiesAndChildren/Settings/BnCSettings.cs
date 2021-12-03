@@ -60,6 +60,8 @@ namespace BabiesAndChildren
         public static bool debug_and_gsetting = false;
         public static bool child_cute_act_enabled = true;
 
+        public static bool breastfeed_only = true;
+
         //make alien heads be human heads if alien heads are fucked
         public static bool human_like_head_enabled = false;
         public static bool Rabbie_Child_head_enabled = false;
@@ -350,6 +352,10 @@ namespace BabiesAndChildren
 
             listingStandard.Gap(5f);
 
+            listingStandard.CheckboxLabeled("BreastfeedOnly_Title".Translate(), ref breastfeed_only, "BreastfeedOnly_desc".Translate());
+
+            listingStandard.Gap(5f);
+
             //Children drop weapons
             listingStandard.CheckboxLabeled("OptionChildrenDropWeapons".Translate(), ref OptionChildrenDropWeapons, "OptionChildrenDropWeaponsDesc".Translate());
             if (OptionChildrenDropWeapons)
@@ -469,6 +475,7 @@ namespace BabiesAndChildren
 
             Scribe_Values.Look(ref debug_and_gsetting, "debug_and_gsetting");
             Scribe_Values.Look(ref child_cute_act_enabled, "child_cute_act_enabled");
+            Scribe_Values.Look(ref breastfeed_only, "breastfeed_only", true);
             Scribe_Values.Look(ref human_like_head_enabled, "human_like_head_enabled");
             Scribe_Values.Look(ref Rabbie_Child_head_enabled, "Rabbie_Child_head_enabled");
             Scribe_Values.Look(ref HumanBodySize, "HumanBodySize");
@@ -517,6 +524,7 @@ namespace BabiesAndChildren
             STILLBORN_CHANCE = 0.09f;
             debug_and_gsetting = false;
             child_cute_act_enabled = true;
+            breastfeed_only = true;
             human_like_head_enabled = false;
             Rabbie_Child_head_enabled = false;
             HumanBodySize = 1.1095f;
