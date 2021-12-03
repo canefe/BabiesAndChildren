@@ -104,7 +104,9 @@
   <SettingMinAge_desc>Set minimum age for children to spawn in quests raids etc. (Restart needed)</SettingMinAge_desc>
   <SettingChildRarity_Title>Rarer Children</SettingChildRarity_Title>
   <SettingChildRarity_desc>Enable this if you want children younger than teenagers (14yo) appear less often in raids, quests etc. (Restart needed)</SettingChildRarity_desc>
-
+  <BreastfeedOnly_Title>Breastfeed only</BreastfeedOnly_Title>
+  <BreastfeedOnly_desc>Only breastfeed newborns and toddlers if someone is available. Disabling this lets other colonists feed meals anytime.</BreastfeedOnly_desc>
+  
   <!-- Mentor Watch Tab -->
   <TabWatch>Mentor</TabWatch>
   <TabWatch_desc>If the child has a mentor assigned they will prioritize watching the mentor</TabWatch_desc>
