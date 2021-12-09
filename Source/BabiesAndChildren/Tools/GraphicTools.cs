@@ -65,7 +65,7 @@ namespace BabiesAndChildren
                 else if (AgeStages.IsAgeStage(graphics.pawn, AgeStages.Child))
                 {
                     if (RaceUtility.IsHuman(graphics.pawn))
-                    {               
+                    {
                         graphics.headGraphic = GetChildHeadGraphics(ShaderDatabase.CutoutSkin, graphics.pawn.story.SkinColor);
                     }
                     else if (BnCSettings.human_like_head_enabled && RaceUtility.HasHumanlikeHead(graphics.pawn))
@@ -75,6 +75,19 @@ namespace BabiesAndChildren
                     else if (BnCSettings.Rabbie_Child_head_enabled && graphics.pawn.def.defName == "Rabbie")
                     {
                         graphics.headGraphic = GraphicDatabase.Get<Graphic_Multi>("Things/Pawn/Humanlike/Children/Heads/RabbieChild", ShaderDatabase.Cutout, Vector2.one, Color.white);
+                    }
+                    else if (RaceUtility.GetAlienChildDef(graphics.pawn.def) != null)
+                    {
+                        AlienChildDef childDef = RaceUtility.GetAlienChildDef(graphics.pawn.def);
+                        if (childDef != null && childDef.childHeadGraphic != null)
+                        {
+                            graphics.headGraphic = GraphicDatabase.Get<Graphic_Multi>(childDef.childHeadGraphic, ShaderDatabase.CutoutSkin, Vector2.one, graphics.pawn.story.SkinColor);
+                        }
+                        if (childDef != null && childDef.childBodyGraphic != null)
+                        {
+                            graphics.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(childDef.childBodyGraphic, ShaderDatabase.CutoutSkin, Vector2.one, graphics.pawn.story.SkinColor);
+                            graphics.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>(childDef.childBodyGraphic, ShaderDatabase.CutoutSkin, Vector2.one, graphics.pawn.story.SkinColor);
+                        }
                     }
                 }
             });

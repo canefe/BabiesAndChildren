@@ -349,6 +349,19 @@ namespace BabiesAndChildren
             return null;
         }
 
+        public static bool ShouldBeScaled(this Pawn pawn)
+        {
+            if (!RaceUtility.IsHuman(pawn))
+            {
+                AlienChildDef childDef = RaceUtility.GetAlienChildDef(pawn.def);
+                if (childDef != null && !childDef.scaleChild && AgeStages.IsAgeStage(pawn, AgeStages.Child))
+                    return false;
+                if (childDef != null && !childDef.scaleTeen && AgeStages.IsAgeStage(pawn, AgeStages.Teenager))
+                    return false;
+            }
+            return true;
+        }
+
         /// <summary>
         /// Sets a pawn's name to a new random name with Last time as father's or if
         /// father is null, the mothers.

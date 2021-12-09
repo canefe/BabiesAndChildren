@@ -98,7 +98,7 @@ namespace BabiesAndChildren.Harmony
 
             if (pawn == null ||
                 !RaceUtility.PawnUsesChildren(pawn) ||
-                !(AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)))
+                !(AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) || !pawn.ShouldBeScaled())
                 return;
 
             __result = wantsBody ? 
@@ -113,7 +113,7 @@ namespace BabiesAndChildren.Harmony
         {
                 if (pawn == null || 
                     !RaceUtility.PawnUsesChildren(pawn) ||
-                    !(AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager))) 
+                    !(AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) || !pawn.ShouldBeScaled()) 
                     return;
                 
                 float hairSizeFactor = ChildrenUtility.GetHairSize(0, pawn);
@@ -135,7 +135,7 @@ namespace BabiesAndChildren.Harmony
                     if (!(pawn.def is ThingDef_AlienRace alienProps) ||
                         renderFlags.FlagSet(PawnRenderFlags.Invisible) ||
                         !RaceUtility.PawnUsesChildren(pawn) || 
-                        AgeStages.IsOlderThan(pawn, AgeStages.Teenager)) //draw addons normally
+                        AgeStages.IsOlderThan(pawn, AgeStages.Teenager) || !pawn.ShouldBeScaled()) //draw addons normally
                         return true;
 
                     if (AgeStages.IsYoungerThan(pawn, AgeStages.Child)) //don't draw addons for babies and toddlers
