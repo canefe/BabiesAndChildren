@@ -91,7 +91,10 @@ namespace BabiesAndChildren
 				headSizeModifier = listing_Standard.Slider(headSizeModifier, 0.1f, 2f);
 				listing_Standard.GapLine(5f);
 			}
-
+			listing_Standard.GapLine(5f);
+			listing_Standard.CheckboxLabeled("Scale children", ref scaleChild, "Enable child scaling");
+			listing_Standard.GapLine(5f);
+			listing_Standard.CheckboxLabeled("Scale teenagers", ref scaleTeen, "Enable teen scaling");
 
 			if (listing_Standard.ButtonText("Save"))
             {
@@ -101,12 +104,15 @@ namespace BabiesAndChildren
 					sizeModifier = sizeModifier,
 					headOffset = headOffset,
 					hairSizeModifier = hairSizeModifier,
-					headSizeModifier = headSizeModifier
+					headSizeModifier = headSizeModifier,
+					scaleChild = scaleChild,
+					scaleTeen = scaleTeen
 				}, alienRace.defName);
 				this.Close();
 				RaceEditorWindow window = new RaceEditorWindow();
 				window.alienRace = DefDatabase<ThingDef>.GetNamed(alienRace.defName);
 				RaceSettings raceSettings = RaceUtility.GetSizeSettings(DefDatabase<ThingDef>.GetNamed(alienRace.defName, false));
+				CLog.Message("raceSettings " + raceSettings);
 				if (raceSettings != null)
 				{
 					window.raceSettings = raceSettings;
@@ -114,6 +120,8 @@ namespace BabiesAndChildren
 					window.sizeModifier = raceSettings.sizeModifier;
 					window.hairSizeModifier = raceSettings.hairSizeModifier;
 					window.headSizeModifier = raceSettings.headSizeModifier;
+					window.scaleChild = raceSettings.scaleChild;
+					window.scaleTeen = raceSettings.scaleTeen;
 				}
 				Find.WindowStack.Add(window);
 			}
@@ -153,6 +161,8 @@ namespace BabiesAndChildren
 		public float sizeModifier = 1f;
 		public float headSizeModifier = 1f;
 		public float hairSizeModifier = 1f;
+		public bool scaleChild = true;
+		public bool scaleTeen = true;
 		private Pawn pawn;
 
 		private void DefaultSizeValues(string defName)
