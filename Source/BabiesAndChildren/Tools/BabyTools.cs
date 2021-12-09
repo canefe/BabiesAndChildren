@@ -12,8 +12,6 @@ namespace BabiesAndChildren
     {
         public static void Miscarry(Pawn baby, Pawn mother, Pawn father)
         {
-            baby.Name = new NameSingle("Unnamed".Translate(), false);
-            baby.SetFaction(null, null);
             HealthUtility.TryAddHediff(baby, BnCHediffDefOf.DefectStillborn, force: true);
             if (father != null)
             {
