@@ -233,6 +233,11 @@ namespace BabiesAndChildren.Harmony
             {
                 num2 *= raceSettings.headOffset;
             }
+            AlienChildDef childDef = RaceUtility.GetAlienChildDef(___pawn.def);
+            if (childDef != null && childDef.childHeadOffset != 1f)
+            {
+                num2 *= childDef.childHeadOffset;
+            }
             __result.z *= bodySizeFactor * num2;
             __result.x *= bodySizeFactor * num3;
             if (RaceUtility.IsHuman(___pawn))
