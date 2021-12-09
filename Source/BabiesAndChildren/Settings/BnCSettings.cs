@@ -235,6 +235,10 @@ namespace BabiesAndChildren
                                     window.raceSettings = raceSettings;
                                     window.headOffset = raceSettings.headOffset;
                                     window.sizeModifier = raceSettings.sizeModifier;
+                                    window.hairSizeModifier = raceSettings.hairSizeModifier;
+                                    window.headSizeModifier = raceSettings.headSizeModifier;
+                                    window.scaleChild = raceSettings.scaleChild;
+                                    window.scaleTeen = raceSettings.scaleTeen;
                                 }
                                 Find.WindowStack.Add(window);
                             }
@@ -395,21 +399,20 @@ namespace BabiesAndChildren
             listingStandard.Label("StillbornChance_Title".Translate() + ": " + Math.Round(STILLBORN_CHANCE * 100, 0) + "%", -1f, "StillbornChance_desc".Translate());
             STILLBORN_CHANCE = listingStandard.Slider(STILLBORN_CHANCE, 0f, 0.5f);
 
-            if (ChildrenBase.ModHAR_ON)
-            {
-                listingStandard.GapLine(5f);
-                GUI.Label(listingStandard.GetRect(Text.CalcHeight("HARSettings".Translate(), listingStandard.ColumnWidth) + 6f), "HARSettings".Translate(), guistyle);
 
-                listingStandard.Gap(3f);
-                Listing_Standard raceList = new Listing_Standard();
-                raceList.Begin(listingStandard.GetRect(viewRect.height - listingStandard.CurHeight));
-                raceList.Label("Race Settings", -1f, null);
-                racesSearch = raceList.TextEntry(racesSearch, 1);
-                raceList.GapLine(4f);
-                Scrol(raceList, 450f, ref hs);
+            listingStandard.GapLine(5f);
+            GUI.Label(listingStandard.GetRect(Text.CalcHeight("HARSettings".Translate(), listingStandard.ColumnWidth) + 6f), "HARSettings".Translate(), guistyle);
 
-                raceList.End();
-            }
+            listingStandard.Gap(3f);
+            Listing_Standard raceList = new Listing_Standard();
+            raceList.Begin(listingStandard.GetRect(viewRect.height - listingStandard.CurHeight));
+            raceList.Label("Race Settings", -1f, null);
+            racesSearch = raceList.TextEntry(racesSearch, 1);
+            raceList.GapLine(4f);
+            Scrol(raceList, 450f, ref hs);
+
+            raceList.End();
+
             //////////////////////////// right column
             listingStandard.NewColumn();
             GUI.contentColor = Color.white;

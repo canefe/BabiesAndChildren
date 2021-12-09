@@ -40,6 +40,8 @@ namespace BabiesAndChildren.api
             Scribe_Values.Look<float>(ref headOffset, "headOffset", 1f);
             Scribe_Values.Look<float>(ref hairSizeModifier, "hairSizeModifier", 1f);
             Scribe_Values.Look<float>(ref headSizeModifier, "headSizeModifier", 1f);
+            Scribe_Values.Look<bool>(ref scaleChild, "scaleChild", true);
+            Scribe_Values.Look<bool>(ref scaleTeen, "scaleTeen", true);
         }
 
         public string defName;
@@ -51,6 +53,10 @@ namespace BabiesAndChildren.api
         public float hairSizeModifier = 1f;
 
         public float headSizeModifier = 1f;
+
+        public bool scaleChild = true;
+
+        public bool scaleTeen = true;
 
     }
 }

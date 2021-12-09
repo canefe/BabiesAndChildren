@@ -359,6 +359,12 @@ namespace BabiesAndChildren
                 if (childDef != null && !childDef.scaleTeen && AgeStages.IsAgeStage(pawn, AgeStages.Teenager))
                     return false;
             }
+            RaceSettings raceSettings = RaceUtility.GetSizeSettings(pawn.def);
+            if (raceSettings != null && !raceSettings.scaleChild && AgeStages.IsAgeStage(pawn, AgeStages.Child))
+                return false;
+            if (raceSettings != null && !raceSettings.scaleTeen && AgeStages.IsAgeStage(pawn, AgeStages.Teenager))
+                return false;
+
             return true;
         }
 
