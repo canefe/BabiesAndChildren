@@ -138,8 +138,7 @@ namespace BabiesAndChildren.Harmony
         public static Mesh PawnRenderer_DrawPawnBody_Patch(PawnRenderFlags renderFlags, Pawn pawn, Rot4 facing, bool wantsBody)
         {
                 if (pawn != null &&
-                    pawn.IsChildSupported() &&
-                    (AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) || pawn.ShouldBeScaled())
+                    pawn.IsChildSupported() && pawn.ShouldBeScaled())
                 {
                     if (wantsBody)
                     {
@@ -156,9 +155,7 @@ namespace BabiesAndChildren.Harmony
 
         public static Mesh PawnRenderer_DrawHairHead_Patch(PawnRenderFlags renderFlags, Pawn pawn, Rot4 headFacing, PawnGraphicSet graphics)
         {
-            if (pawn == null ||
-                !pawn.IsChildSupported() ||
-                !(AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) || !pawn.ShouldBeScaled())
+            if (pawn == null || !pawn.ShouldBeScaled())
                 return graphics.HairMeshSet.MeshAt(headFacing);
 
             float hairSizeFactor = ChildrenUtility.GetHairSize(0, pawn);

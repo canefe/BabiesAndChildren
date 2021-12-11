@@ -96,9 +96,7 @@ namespace BabiesAndChildren.Harmony
         public static void GetPawnMesh_Patch(PawnRenderFlags renderFlags, Pawn pawn, Rot4 facing, bool wantsBody, ref Mesh __result)
         {
 
-            if (pawn == null ||
-                !RaceUtility.PawnUsesChildren(pawn) ||
-                !(AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) || !pawn.ShouldBeScaled())
+            if (pawn == null || !pawn.ShouldBeScaled())
                 return;
 
             __result = wantsBody ? 
@@ -111,9 +109,7 @@ namespace BabiesAndChildren.Harmony
         //Get scaled hair meshes for children bodies and heads
         static void GetPawnHairMesh_Patch(PawnRenderFlags renderFlags, Pawn pawn, Rot4 headFacing, PawnGraphicSet graphics, ref Mesh __result)
         {
-                if (pawn == null || 
-                    !RaceUtility.PawnUsesChildren(pawn) ||
-                    !(AgeStages.IsAgeStage(pawn, AgeStages.Child) || AgeStages.IsAgeStage(pawn, AgeStages.Teenager)) || !pawn.ShouldBeScaled()) 
+                if (pawn == null || !pawn.ShouldBeScaled()) 
                     return;
                 
                 float hairSizeFactor = ChildrenUtility.GetHairSize(0, pawn);
@@ -134,12 +130,14 @@ namespace BabiesAndChildren.Harmony
                     
                     if (!(pawn.def is ThingDef_AlienRace alienProps) ||
                         renderFlags.FlagSet(PawnRenderFlags.Invisible) ||
-                        !RaceUtility.PawnUsesChildren(pawn) || 
-                        AgeStages.IsOlderThan(pawn, AgeStages.Teenager) || !pawn.ShouldBeScaled()) //draw addons normally
+                        !pawn.IsChildSupported() || AgeStages.IsOlderThan(pawn, AgeStages.Teenager)) //draw addons normally
                         return true;
 
-                    if (AgeStages.IsYoungerThan(pawn, AgeStages.Child)) //don't draw addons for babies and toddlers
+                    if (pawn.IsChildSupported() && AgeStages.IsYoungerThan(pawn, AgeStages.Child)) //don't draw addons for babies and toddlers
                         return false;
+
+                if (!pawn.ShouldBeScaled())
+                    return false;
                     
                     
                     
