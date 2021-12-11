@@ -37,7 +37,6 @@ namespace BabiesAndChildren.Harmony
 				{
 					insertionIndex = i;
 					code[i].labels.Add(return566Label);
-					CLog.Warning(code[i].operand.ToString());
 					break;
 				}
 			}
