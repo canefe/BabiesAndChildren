@@ -25,6 +25,14 @@ namespace BabiesAndChildren
         public static ThoughtDef PartnerGaveBirth;
         public static ThoughtDef MyChildGrowing;
 
+        public static ThoughtDef TeenFeelingGood;
+        public static ThoughtDef TeenFeelingBored;
+        public static ThoughtDef TeenFeelingBad;
+        public static ThoughtDef TeenFeelingStressed;
+        public static ThoughtDef TeenFeelingCheerful;
+        public static ThoughtDef TeenFeelingSad;
+        public static ThoughtDef TeenFeelingTired;
+
         static BnCThoughtDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(BnCThoughtDefOf));
     }
 }

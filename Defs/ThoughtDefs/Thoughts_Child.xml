@@ -129,4 +129,95 @@
  </stages>
 </ThoughtDef>
 
+<ThoughtDef>
+  <defName>TeenFeelingGood</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling good</label>
+     <description>It feels like a good day!</description>
+     <baseMoodEffect>5</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingBored</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling bored</label>
+     <description>I am sure rest of the day will be boring as hell.</description>
+     <baseMoodEffect>-2</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingBad</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling bad</label>
+     <description>I feel bad. It's just a bad day.</description>
+     <baseMoodEffect>-5</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingStressed</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling stressed</label>
+     <description>Thought of living makes me stressed.</description>
+     <baseMoodEffect>-3</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingTired</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling tired</label>
+     <description>I am tired of life. Can't just things pause for a moment?</description>
+     <baseMoodEffect>-2</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingCheerful</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling cheerful</label>
+     <description>What a good day. I expect more exciting stuff today!</description>
+     <baseMoodEffect>8</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingSad</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling sad</label>
+     <description>I just feel sad. Nobody understands my feelings.</description>
+     <baseMoodEffect>-6</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
 </Defs>
