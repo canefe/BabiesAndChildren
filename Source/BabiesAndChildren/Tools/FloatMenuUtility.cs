@@ -23,7 +23,7 @@ namespace BabiesAndChildren
             Action action = delegate ()
             {
                 pawn.jobs.StopAll(false, true);
-                if (target.GetLord() != null && target.GetLord().LordJob != null && target.GetLord().LordJob.GetType() != typeof(LordJob_PlayTime))
+                if (target.GetLord() == null || target.GetLord().LordJob == null)
                 {
                     Lord lord = LordMaker.MakeNewLord(pawn.Faction, new LordJob_PlayTime(pawn, target), pawn.Map, new Pawn[]
                     {
@@ -31,7 +31,7 @@ namespace BabiesAndChildren
             target
                     });
                 }
-                else
+                else if (target.GetLord().LordJob.GetType() == typeof(LordJob_PlayTime))
                 {
                     target.GetLord().AddPawn(pawn);
                 }
