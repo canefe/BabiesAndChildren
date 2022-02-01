@@ -41,6 +41,7 @@ namespace BabiesAndChildren
 
         private static readonly Backstory Childhood_Disabled = BackstoryDatabase.allBackstories["CustomBackstory_NA_Childhood_Disabled"];
         private static readonly Backstory Rimchild = BackstoryDatabase.allBackstories["CustomBackstory_Rimchild"];
+        private int lastTeenCheckTick = 0;
         public override void PostExposeData()
         {
             Scribe_Values.Look(ref growthStage, "growthStage", 0);
@@ -337,6 +338,21 @@ namespace BabiesAndChildren
                 if (pawn.story.childhood != Childhood_Disabled)
                 {
                     StoryUtility.ChangeChildhood(pawn);
+                }
+            }
+
+            if (ageStage == AgeStages.Teenager)
+            {
+
+
+                if (lastTeenCheckTick == 0 || Find.TickManager.TicksGame > lastTeenCheckTick + GenDate.TicksPerDay)
+                {
+                    CLog.DevMessage("Initiate Teenager RAndom Thought;");
+                    if (!ChildrenUtility.HasAnyTeenThoughts(pawn))
+                    {
+                        pawn.needs.mood.thoughts.memories.TryGainMemory(ChildrenUtility.GetRandomTeenThought());
+                        lastTeenCheckTick = Find.TickManager.TicksGame;
+                    }
                 }
             }
 

@@ -497,6 +497,21 @@ namespace BabiesAndChildren
             return (ChildrenUtility.ShouldUseCrib(pawn)) ? ChildrenUtility.AllBedDefBestToWorstCribRest : RestUtility.AllBedDefBestToWorst;
         }
 
+        public static List<ThoughtDef> teenThoughts = new List<ThoughtDef> { BnCThoughtDefOf.TeenFeelingBad, BnCThoughtDefOf.TeenFeelingBored, BnCThoughtDefOf.TeenFeelingGood, BnCThoughtDefOf.TeenFeelingCheerful, BnCThoughtDefOf.TeenFeelingTired, BnCThoughtDefOf.TeenFeelingSad};
+        public static ThoughtDef GetRandomTeenThought()
+        {
+            return teenThoughts.RandomElement();
+        }
+
+        public static bool HasAnyTeenThoughts(Pawn pawn)
+        {
+            foreach  (ThoughtDef thought in teenThoughts)
+            {
+                if (pawn.needs.mood.thoughts.memories.NumMemoriesOfDef(thought) == 1)
+                    return true;
+            }
+            return false;
+        }
 
         public static float GetPainShockThreshold(Pawn pawn)
         {
