@@ -295,14 +295,15 @@ namespace BabiesAndChildren
             List<Apparel> wornApparel = pawn.apparel.WornApparel;
             foreach (var apparel in pawn.apparel.WornApparel)
             {
-                if (AgeStages.IsOlderThan(pawn, AgeStages.Baby) && SetMakerTagCheck(apparel, "BabyGear1"))
-                {
-                        
-                }
+
             }
             for (int i = wornApparel.Count - 1; i >= 0; i--)
             {
-                if (ChildrenUtility.SetMakerTagCheck(wornApparel[i], "BabyGear"))
+                if (AgeStages.IsOlderThan(pawn, AgeStages.Baby) && SetMakerTagCheck(wornApparel[i], "BabyGear1"))
+                {
+                    pawn.apparel.TryDrop(wornApparel[i], out _, pawn.Position, false);
+                }
+                if (AgeStages.IsOlderThan(pawn, AgeStages.Toddler) && ChildrenUtility.SetMakerTagCheck(wornApparel[i], "BabyGear"))
                 {
                     pawn.apparel.TryDrop(wornApparel[i], out _, pawn.Position, false);
                 }
