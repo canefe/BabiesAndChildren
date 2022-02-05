@@ -106,7 +106,9 @@
   <SettingChildRarity_desc>Enable this if you want children younger than teenagers (14yo) appear less often in raids, quests etc. (Restart needed)</SettingChildRarity_desc>
   <BreastfeedOnly_Title>Breastfeed only</BreastfeedOnly_Title>
   <BreastfeedOnly_desc>Only breastfeed newborns and toddlers if someone is available. Disabling this lets other colonists feed meals anytime.</BreastfeedOnly_desc>
-  
+  <TeensRandomMood_Title>Teenagers have mood swings</TeensRandomMood_Title>
+  <TeensRandomMood_desc>Teenagers get random thoughts (good/bad) everyday.</TeensRandomMood_desc>
+
   <!-- Mentor Watch Tab -->
   <TabWatch>Mentor</TabWatch>
   <TabWatch_desc>If the child has a mentor assigned they will prioritize watching the mentor</TabWatch_desc>

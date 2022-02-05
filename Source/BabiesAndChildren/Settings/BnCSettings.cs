@@ -61,6 +61,7 @@ namespace BabiesAndChildren
         public static bool child_cute_act_enabled = true;
 
         public static bool breastfeed_only = true;
+        public static bool teens_random_mood = true;
 
         //make alien heads be human heads if alien heads are fucked
         public static bool human_like_head_enabled = false;
@@ -360,6 +361,10 @@ namespace BabiesAndChildren
 
             listingStandard.Gap(5f);
 
+            listingStandard.CheckboxLabeled("TeensRandomMood_Title".Translate(), ref teens_random_mood, "TeensRandomMood_desc".Translate());
+
+            listingStandard.Gap(5f);
+
             //Children drop weapons
             listingStandard.CheckboxLabeled("OptionChildrenDropWeapons".Translate(), ref OptionChildrenDropWeapons, "OptionChildrenDropWeaponsDesc".Translate());
             if (OptionChildrenDropWeapons)
@@ -479,6 +484,7 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref debug_and_gsetting, "debug_and_gsetting");
             Scribe_Values.Look(ref child_cute_act_enabled, "child_cute_act_enabled");
             Scribe_Values.Look(ref breastfeed_only, "breastfeed_only", true);
+            Scribe_Values.Look(ref teens_random_mood, "teens_random_mood", true);
             Scribe_Values.Look(ref human_like_head_enabled, "human_like_head_enabled");
             Scribe_Values.Look(ref Rabbie_Child_head_enabled, "Rabbie_Child_head_enabled");
             Scribe_Values.Look(ref HumanBodySize, "HumanBodySize");
@@ -528,6 +534,7 @@ namespace BabiesAndChildren
             debug_and_gsetting = false;
             child_cute_act_enabled = true;
             breastfeed_only = true;
+            teens_random_mood = true;
             human_like_head_enabled = false;
             Rabbie_Child_head_enabled = false;
             HumanBodySize = 1.1095f;

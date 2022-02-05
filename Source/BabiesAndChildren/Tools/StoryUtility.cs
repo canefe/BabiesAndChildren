@@ -179,12 +179,6 @@ namespace BabiesAndChildren.Tools
             
             if (pawn == null) return false;
 
-            AlienChildDef childDef = RaceUtility.GetAlienChildDef(pawn.def);
-            if (childDef != null && childDef.disableBackstories)
-            {
-                return false;
-            }
-
             Backstory currentChildhood = pawn.story.childhood;
             
             var comp = pawn.TryGetComp<Growing_Comp>();

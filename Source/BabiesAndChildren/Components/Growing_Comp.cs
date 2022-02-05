@@ -341,13 +341,10 @@ namespace BabiesAndChildren
                 }
             }
 
-            if (ageStage == AgeStages.Teenager)
+            if (BnCSettings.teens_random_mood && ageStage == AgeStages.Teenager)
             {
-
-
                 if (lastTeenCheckTick == 0 || Find.TickManager.TicksGame > lastTeenCheckTick + GenDate.TicksPerDay)
                 {
-                    CLog.DevMessage("Initiate Teenager RAndom Thought;");
                     if (!ChildrenUtility.HasAnyTeenThoughts(pawn))
                     {
                         pawn.needs.mood.thoughts.memories.TryGainMemory(ChildrenUtility.GetRandomTeenThought());
