@@ -44,7 +44,6 @@ namespace BabiesAndChildren.Tools
             if (ChildrenBase.ModHAR_ON && CacheAlienChildDef(thingDef))
             {
                 CLog.DevMessage(thingDef.defName + " AlienChildDef cached");
-                usesChildren = GetAlienChildDef(thingDef) != null ? (GetAlienChildDef(thingDef).disabled ? false : usesChildren) : usesChildren;
             }
             return usesChildren;
         }
