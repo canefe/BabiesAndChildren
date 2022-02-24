@@ -48,7 +48,7 @@ namespace BabiesAndChildren
         public static float GestationPeriodDays = 45f;
         public static bool enable_postpartum = true;
         public static float cryVolume = 0.8f;
-        public static float STILLBORN_CHANCE = 0.09f;
+        public static float STILLBORN_CHANCE = 0.03f;
         public static bool patchhumans = true;
         public static bool playtime_enabled = true;
         public static bool watchworktype_enabled = true;
@@ -246,7 +246,7 @@ namespace BabiesAndChildren
                         }
                         else
                         {
-                            Messages.Message("You need to be in-game to open size editor", MessageTypeDefOf.RejectInput);
+                            Messages.Message("You need to be in-game to use size editor", MessageTypeDefOf.RejectInput);
                         }
                     }
                     if (!flag)
@@ -479,7 +479,7 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref minage, "minage", 10);
             Scribe_Values.Look(ref rarekids, "rarekids", false);
             Scribe_Values.Look(ref cryVolume, "cryVolume");
-            Scribe_Values.Look(ref STILLBORN_CHANCE, "STILLBORN_CHANCE", 0.09f);
+            Scribe_Values.Look(ref STILLBORN_CHANCE, "STILLBORN_CHANCE", 0.03f);
 
             Scribe_Values.Look(ref debug_and_gsetting, "debug_and_gsetting");
             Scribe_Values.Look(ref child_cute_act_enabled, "child_cute_act_enabled");
@@ -530,7 +530,7 @@ namespace BabiesAndChildren
             minage = 10;
             rarekids = false;
             cryVolume = 0.8f;
-            STILLBORN_CHANCE = 0.09f;
+            STILLBORN_CHANCE = 0.03f;
             debug_and_gsetting = false;
             child_cute_act_enabled = true;
             breastfeed_only = true;

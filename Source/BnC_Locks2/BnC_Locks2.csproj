@@ -46,7 +46,7 @@
       <HintPath>..\..\1.3\Assemblies\BabiesAndChildren.dll</HintPath>
     </Reference>
     <Reference Include="Locks2">
-      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2285862824\1.3\Assemblies\Locks2.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2285862824\1.3\Assemblies\Locks2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemDefinitionGroup>
