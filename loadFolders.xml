@@ -3,5 +3,6 @@
   	<li>/</li>
     <li>1.3</li>
     <li IfModActive="krkr.locks2">Locks2</li>
+    <li IfModActive="rjw.milk.humanoid">MC</li>
   </v1.3>
 </LoadFolders>

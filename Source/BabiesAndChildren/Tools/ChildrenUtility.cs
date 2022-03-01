@@ -158,6 +158,11 @@ namespace BabiesAndChildren
             return false;
         }
 
+        public static void MCFallback(Pawn pawn)
+        {
+            CLog.DevMessage("Execute MC Fallback" + pawn);
+        }
+
         public static void PlayBabyCrySound(Pawn pawn)
         {
             if (!ChildrenBase.ModHAR_ON || RaceUtility.IsHuman(pawn))

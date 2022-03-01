@@ -77,7 +77,7 @@
 		<gerund>watching</gerund>
 		<priorityInType>135</priorityInType>
 		<requiredCapacities>
-			<li>Manipulation</li>
+			<li>Sight</li>
 		</requiredCapacities>
 	</WorkGiverDef>
 </Defs>

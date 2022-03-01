@@ -111,6 +111,7 @@ namespace BabiesAndChildren
                     Victim.needs.food.CurLevelPercentage = 1f;
                     if (Victim.needs.TryGetNeed(DefDatabase<NeedDef>.GetNamed("DBHThirst", false)) != null) Victim.needs.TryGetNeed(DefDatabase<NeedDef>.GetNamed("DBHThirst")).CurLevelPercentage = 1f;
                     Victim.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("GotFed"), null);
+                    ChildrenUtility.MCFallback(pawn);
                 },
 
                 defaultCompleteMode = ToilCompleteMode.Instant
