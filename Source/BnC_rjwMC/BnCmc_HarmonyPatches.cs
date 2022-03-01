@@ -39,7 +39,7 @@ namespace BabiesAndChildren
                 }
             }
 
-            else if (pawn.TryGetComp<CompHyperMilkableHuman>() != null)
+            if (pawn.TryGetComp<CompHyperMilkableHuman>() != null)
             {
                 if (pawn.TryGetComp<CompHyperMilkableHuman>().Fullness > BnCMCSettings.feed)
                 {
@@ -56,6 +56,9 @@ namespace BabiesAndChildren
         {
             if (pawn.TryGetComp<CompMilkableHuman>() != null)
                 fullness(pawn.TryGetComp<CompMilkableHuman>()) -= BnCMCSettings.feed;
+
+            if (pawn.TryGetComp<CompHyperMilkableHuman>() != null)
+                fullness(pawn.TryGetComp<CompHyperMilkableHuman>()) -= BnCMCSettings.feed;
         }
 
     }
