@@ -71,7 +71,7 @@ namespace BabiesAndChildren
             listingStandard.Gap(3f);
 
             //accelerated growth checkbox 
-            listingStandard.CheckboxLabeled("Enabled?", ref enabled, "Should be normal lactating overrided by Milkable Colonist mechanics?/nRequires a restart.");
+            listingStandard.CheckboxLabeled("Enabled?", ref enabled, "Should be normal lactating overrided by Milkable Colonist mechanics?\nRequires a restart.");
 
             listingStandard.Gap(3f);
             listingStandard.Label("Breastfeeding milk percentage cost" + ": " + Math.Round(feed * 100, 0) + "%", -1f, "");
