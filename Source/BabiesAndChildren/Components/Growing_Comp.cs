@@ -1,7 +1,7 @@
-﻿using RimWorld;
-using System;
-using BabiesAndChildren.api;
+﻿using BabiesAndChildren.api;
 using BabiesAndChildren.Tools;
+using RimWorld;
+using System;
 using Verse;
 using HealthUtility = BabiesAndChildren.Tools.HealthUtility;
 
@@ -15,7 +15,7 @@ namespace BabiesAndChildren
     ///
     /// See <see cref="Traits"/> for changing traits added at birth.
     /// </summary>
-    class Growing_Comp : ThingComp
+    public class Growing_Comp : ThingComp
     {
         /// <summary>
         /// AgeStage pawn is currently set to (not necessarily the one it should be)
@@ -36,7 +36,7 @@ namespace BabiesAndChildren
         public Pawn mentor;
         public bool onlyMentor;
         
-        public Pawn pawn => (Pawn) parent;
+        public Pawn Pawn => (Pawn) parent;
         public CompProperties_Growing Props => (CompProperties_Growing) props;
 
         private static readonly Backstory Childhood_Disabled = BackstoryDatabase.allBackstories["CustomBackstory_NA_Childhood_Disabled"];
@@ -58,7 +58,7 @@ namespace BabiesAndChildren
         /// </summary>
         public void Initialize(bool reinitialize = false)
         {
-            if (pawn.health.hediffSet.HasHediff(BnCHediffDefOf.BabyState0))
+            if (Pawn.health.hediffSet.HasHediff(BnCHediffDefOf.BabyState0))
             {
                 if (initialized && !reinitialize) return;
             }
@@ -67,9 +67,9 @@ namespace BabiesAndChildren
             if (parent == null)
                 Destroy();
             
-            CLog.DevMessage((reinitialize ? "Reinitializing: " : "Initializing: ") + pawn.Name.ToStringShort);
+            CLog.DevMessage((reinitialize ? "Reinitializing: " : "Initializing: ") + Pawn.Name.ToStringShort);
             
-            if (AgeStages.IsAgeStage(pawn, AgeStages.Baby, true))
+            if (AgeStages.IsAgeStage(Pawn, AgeStages.Baby, true))
             {
                 InitBaby();
                 if (!initialized)
@@ -78,13 +78,13 @@ namespace BabiesAndChildren
                 }
             }
 
-            if (AgeStages.IsYoungerThan(pawn, AgeStages.Adult, true))
+            if (AgeStages.IsYoungerThan(Pawn, AgeStages.Adult, true))
             {
-                GrowToStage(AgeStages.GetAgeStage(pawn));
+                GrowToStage(AgeStages.GetAgeStage(Pawn));
             }
             else
             {
-                growthStage = AgeStages.GetAgeStage(pawn);
+                growthStage = AgeStages.GetAgeStage(Pawn);
             }
 
             initialized = true;
@@ -105,27 +105,27 @@ namespace BabiesAndChildren
         {
             if (parent == null) return;
             
-            if (pawn.health.hediffSet.HasHediff(BnCHediffDefOf.BabyState0))
+            if (Pawn.health.hediffSet.HasHediff(BnCHediffDefOf.BabyState0))
             {
-                pawn.health.hediffSet.hediffs.Remove(pawn.health.hediffSet.GetFirstHediffOfDef(BnCHediffDefOf.BabyState0));
+                Pawn.health.hediffSet.hediffs.Remove(Pawn.health.hediffSet.GetFirstHediffOfDef(BnCHediffDefOf.BabyState0));
             }
-            if (pawn.health.hediffSet.HasHediff(BnCHediffDefOf.UnhappyBaby))
+            if (Pawn.health.hediffSet.HasHediff(BnCHediffDefOf.UnhappyBaby))
             {
-                pawn.health.hediffSet.hediffs.Remove(pawn.health.hediffSet.GetFirstHediffOfDef(BnCHediffDefOf.UnhappyBaby));
+                Pawn.health.hediffSet.hediffs.Remove(Pawn.health.hediffSet.GetFirstHediffOfDef(BnCHediffDefOf.UnhappyBaby));
             }
 
         }
 
         public void InitBaby()
         {
-            GrowToStage(AgeStages.GetAgeStage(pawn));
-            HealthUtility.ClearImplantAndAddiction(pawn);
-            pawn.style.beardDef = BeardDefOf.NoBeard;
+            GrowToStage(AgeStages.GetAgeStage(Pawn));
+            HealthUtility.ClearImplantAndAddiction(Pawn);
+            Pawn.style.beardDef = BeardDefOf.NoBeard;
 
             //For rabbie
-            if (pawn.def.defName == "Rabbie")
+            if (Pawn.def.defName == "Rabbie")
             {
-                HealthUtility.TryAddHediff(pawn, HediffDef.Named("PlanetariumAddiction"));
+                HealthUtility.TryAddHediff(Pawn, HediffDef.Named("PlanetariumAddiction"));
             }
            
         }
@@ -133,8 +133,8 @@ namespace BabiesAndChildren
         public void Birth()
         {
 
-            Pawn mother = pawn.GetMother();
-            Pawn father = pawn.GetFather();
+            Pawn mother = Pawn.GetMother();
+            Pawn father = Pawn.GetFather();
             MathTools.Fixed_Rand rand;
             if (mother != null)
             {
@@ -150,11 +150,11 @@ namespace BabiesAndChildren
             }
             else
             {
-                rand = new MathTools.Fixed_Rand((int)pawn.ageTracker.AgeBiologicalTicks);
+                rand = new MathTools.Fixed_Rand((int)Pawn.ageTracker.AgeBiologicalTicks);
             }
             if (rand.Fixed_RandChance(BnCSettings.STILLBORN_CHANCE))
             {
-                BabyTools.Miscarry(pawn, mother, father);
+                BabyTools.Miscarry(Pawn, mother, father);
                 return;
             }
 
@@ -162,8 +162,10 @@ namespace BabiesAndChildren
             if (mother != null)
             {
                 HealthUtility.TryAddHediff(mother, HediffDef.Named("PostPregnancy"));
-                HealthUtility.TryAddHediff(mother, HediffDef.Named("Lactating"),
-                    HealthUtility.GetPawnBodyPart(mother, "Torso"));
+                if (!BnCSettings.isMCEnabled)
+                {
+                    HealthUtility.TryAddHediff(mother, HediffDef.Named("Lactating"), HealthUtility.GetPawnBodyPart(mother, "Torso"));
+                }
                 mother.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.IGaveBirth);
             }
             if (father != null)
@@ -180,9 +182,9 @@ namespace BabiesAndChildren
                 HealthUtility.TryAddHediff(mother, HediffDef.Named("BnC_RJW_PostPregnancy"));
             }
 
-            ChildrenUtility.PlayBabyCrySound(pawn);
+            ChildrenUtility.PlayBabyCrySound(Pawn);
             Props.ColonyBorn = true;
-            pawn.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.JustBorn);
+            Pawn.needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.JustBorn);
         }
 
         public void UpdateHediffs()
@@ -190,18 +192,18 @@ namespace BabiesAndChildren
             if (parent == null) return;
             //only toddlers and babies cry
             if ((growthStage <= AgeStages.Toddler) &&
-                Hediff_UnhappyBaby.CheckUnhappy(pawn))
+                Hediff_UnhappyBaby.CheckUnhappy(Pawn))
             {
-                HealthUtility.TryAddHediff(pawn, BnCHediffDefOf.UnhappyBaby);
+                HealthUtility.TryAddHediff(Pawn, BnCHediffDefOf.UnhappyBaby);
             }
             
-            var currentBabyStateHediff = pawn.health.hediffSet.GetFirstHediffOfDef(BnCHediffDefOf.BabyState0);
+            var currentBabyStateHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(BnCHediffDefOf.BabyState0);
             if (currentBabyStateHediff == null || currentBabyStateHediff.CurStageIndex != growthStage)
             {
-                pawn.health.hediffSet.hediffs.Remove(currentBabyStateHediff);
-                var growingHediff = HediffMaker.MakeHediff(BnCHediffDefOf.BabyState0, pawn);
+                Pawn.health.hediffSet.hediffs.Remove(currentBabyStateHediff);
+                var growingHediff = HediffMaker.MakeHediff(BnCHediffDefOf.BabyState0, Pawn);
                 growingHediff.Severity = BnCHediffDefOf.BabyState0.stages[growthStage].minSeverity;
-                pawn.health.AddHediff(growingHediff);
+                Pawn.health.AddHediff(growingHediff);
             }
 
         }
@@ -212,15 +214,15 @@ namespace BabiesAndChildren
             if (parent == null) return;
             
             //TODO use percentages instead of years to allow for unique AgeStages 
-            int age = pawn.ageTracker.AgeBiologicalYears;
+            int age = Pawn.ageTracker.AgeBiologicalYears;
             
             //Accelerated Growth Factor
             if (BnCSettings.accelerated_growth && (age < BnCSettings.accelerated_growth_end_age))
             {
                 long acceleratedFactor = ChildrenUtility.SettingAcceleratedFactor(growthStage);
                 //Can the biological age be greater than the chronological age?
-                pawn.ageTracker.AgeBiologicalTicks += (acceleratedFactor) * 250;
-                pawn.ageTracker.AgeChronologicalTicks += (acceleratedFactor) * 250;
+                Pawn.ageTracker.AgeBiologicalTicks += (acceleratedFactor) * 250;
+                Pawn.ageTracker.AgeChronologicalTicks += (acceleratedFactor) * 250;
             }
         }
         
@@ -235,68 +237,68 @@ namespace BabiesAndChildren
             growthStage = stage;
             
             
-            StoryUtility.ChangeChildhood(pawn);
+            StoryUtility.ChangeChildhood(Pawn);
             
-            MathTools.Fixed_Rand rand = new MathTools.Fixed_Rand(pawn);
-            StoryUtility.ChangeBodyType(pawn, rand);
+            MathTools.Fixed_Rand rand = new MathTools.Fixed_Rand(Pawn);
+            StoryUtility.ChangeBodyType(Pawn, rand);
 
             bool initSize = !initialized;
 
-            ChildrenUtility.TryDropInvalidEquipmentAndApparel(pawn);
+            ChildrenUtility.TryDropInvalidEquipmentAndApparel(Pawn);
             //update bodytype and backstory
             switch (growthStage)
             {
                 case AgeStages.Baby:
                     break;
                 case AgeStages.Toddler:
-                    if (pawn.Faction != null && pawn.Faction.IsPlayer && initialized) { 
-                        if (pawn.GetMother() != null)
+                    if (Pawn.Faction != null && Pawn.Faction.IsPlayer && initialized) { 
+                        if (Pawn.GetMother() != null)
                         {
-                            pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                            Pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
-                        if (pawn.GetFather() != null)
+                        if (Pawn.GetFather() != null)
                         {
-                            pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                            Pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
                     }
                     break;
                 case AgeStages.Child:
-                    if (pawn.Faction != null && pawn.Faction.IsPlayer && initialized)
+                    if (Pawn.Faction != null && Pawn.Faction.IsPlayer && initialized)
                     {
-                        if (pawn.GetMother() != null)
+                        if (Pawn.GetMother() != null)
                         {
-                            pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                            Pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
-                        if (pawn.GetFather() != null)
+                        if (Pawn.GetFather() != null)
                         {
-                            pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                            Pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
-                        Messages.Message("MessageGrewUpChild".Translate(pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
+                        Messages.Message("MessageGrewUpChild".Translate(Pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
                     }
                     break;
                 case AgeStages.Teenager:
 
-                    if (pawn.Faction != null && pawn.Faction.IsPlayer && initialized)
+                    if (Pawn.Faction != null && Pawn.Faction.IsPlayer && initialized)
                     {
-                        if (pawn.GetMother() != null)
+                        if (Pawn.GetMother() != null)
                         {
-                            pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                            Pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
-                        if (pawn.GetFather() != null)
+                        if (Pawn.GetFather() != null)
                         {
-                            pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
+                            Pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
-                        Messages.Message("MessageGrewUpTeenager".Translate(pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
+                        Messages.Message("MessageGrewUpTeenager".Translate(Pawn.Name.ToStringShort), MessageTypeDefOf.PositiveEvent);
                     }
                     break;
             }
 
-            PawnGraphicSet graphics = pawn.Drawer.renderer.graphics;
+            PawnGraphicSet graphics = Pawn.Drawer.renderer.graphics;
             if (graphics != null)
             {
                 graphics.ResolveAllGraphics();
             }
-            ModTools.ChangeRJWHediffSeverity(pawn, initSize, rand);
+            ModTools.ChangeRJWHediffSeverity(Pawn, initSize, rand);
         }
 
 
@@ -304,9 +306,9 @@ namespace BabiesAndChildren
         {
             if(parent == null) return;
             
-            if (!pawn.Spawned || pawn.Dead || growthStage == AgeStages.Adult) return;
+            if (!Pawn.Spawned || Pawn.Dead || growthStage == AgeStages.Adult) return;
 
-            if (ChildrenBase.ModSOS2_ON && pawn.IsHologram())
+            if (ChildrenBase.ModSOS2_ON && Pawn.IsHologram())
             {
                 Destroy();
                 return;
@@ -318,12 +320,12 @@ namespace BabiesAndChildren
             
             bool graphicsDirty = false;
             
-            int ageStage = AgeStages.GetAgeStage(pawn);
+            int ageStage = AgeStages.GetAgeStage(Pawn);
 
             if (growthStage != ageStage)
             {
                 graphicsDirty = true;
-                PortraitsCache.SetDirty(pawn);
+                PortraitsCache.SetDirty(Pawn);
                 GrowToStage(ageStage);
             }
 
@@ -335,9 +337,9 @@ namespace BabiesAndChildren
 
             if (ageStage == AgeStages.Baby)
             {
-                if (pawn.story.childhood != Childhood_Disabled)
+                if (Pawn.story.childhood != Childhood_Disabled)
                 {
-                    StoryUtility.ChangeChildhood(pawn);
+                    StoryUtility.ChangeChildhood(Pawn);
                 }
             }
 
@@ -345,9 +347,9 @@ namespace BabiesAndChildren
             {
                 if (lastTeenCheckTick == 0 || Find.TickManager.TicksGame > lastTeenCheckTick + GenDate.TicksPerDay)
                 {
-                    if (!ChildrenUtility.HasAnyTeenThoughts(pawn))
+                    if (!ChildrenUtility.HasAnyTeenThoughts(Pawn))
                     {
-                        pawn.needs.mood.thoughts.memories.TryGainMemory(ChildrenUtility.GetRandomTeenThought());
+                        Pawn.needs.mood.thoughts.memories.TryGainMemory(ChildrenUtility.GetRandomTeenThought());
                         lastTeenCheckTick = Find.TickManager.TicksGame;
                     }
                 }
@@ -356,11 +358,11 @@ namespace BabiesAndChildren
             //ugly way to do upright toddlers... really should just have had another age stage instead of this bs.
             if (ageStage == AgeStages.Toddler)
             {
-                if (pawn.story.bodyType != BodyTypeDefOf.Thin)
+                if (Pawn.story.bodyType != BodyTypeDefOf.Thin)
                 {
-                    if (ChildrenUtility.ToddlerIsUpright(pawn))
+                    if (ChildrenUtility.ToddlerIsUpright(Pawn))
                     {
-                        StoryUtility.ChangeBodyType(pawn);
+                        StoryUtility.ChangeBodyType(Pawn);
                         graphicsDirty = true;
                     }
                 }
@@ -373,7 +375,7 @@ namespace BabiesAndChildren
 
             if (graphicsDirty)
             {
-                pawn.Drawer.renderer.graphics.ResolveAllGraphics(); 
+                Pawn.Drawer.renderer.graphics.ResolveAllGraphics(); 
             } 
         }
 

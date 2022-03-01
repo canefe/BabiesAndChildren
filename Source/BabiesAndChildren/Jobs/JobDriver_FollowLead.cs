@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using BabiesAndChildren.api;
 using BabiesAndChildren.Tools;
+using UnityEngine;
 
 namespace BabiesAndChildren
 {
@@ -37,15 +38,29 @@ namespace BabiesAndChildren
                 return false;
             }
 
+            //Bill-based job: check if the kid has skill disabled or not
             if (Mentor.CurJob.bill != null && Mentor.CurJob.bill.recipe.workSkill != null && pawn.skills.GetSkill(Mentor.CurJob.bill.recipe.workSkill).TotallyDisabled)
             {
                 return false;
             }
 
+            //Bill-based job: ignore if the mentor has lower skill level.
+            if (Mentor.CurJob.bill != null && Mentor.CurJob.bill.recipe.workSkill != null && pawn.skills.GetSkill(Mentor.CurJob.bill.recipe.workSkill).Level > Mentor.skills.GetSkill(Mentor.CurJob.bill.recipe.workSkill).Level)
+            {
+                return false;
+            }
+
+
             if (Mentor.CurJob.bill == null && watchedJobs.TryGetValue(Mentor.CurJobDef) == null)
                 return false;
 
             if (Mentor.CurJob.bill == null && watchedJobs.TryGetValue(Mentor.CurJobDef) != null && pawn.skills.GetSkill(watchedJobs.TryGetValue(Mentor.CurJobDef)).TotallyDisabled)
+            {
+                return false;
+            }
+
+            //Check if the mentors skill level lower  than the kid
+            if (Mentor.CurJob.bill == null && watchedJobs.TryGetValue(Mentor.CurJobDef) != null && pawn.skills.GetSkill(watchedJobs.TryGetValue(Mentor.CurJobDef)).Level > Mentor.skills.GetSkill(watchedJobs.TryGetValue(Mentor.CurJobDef)).Level)
             {
                 return false;
             }
@@ -134,6 +149,13 @@ namespace BabiesAndChildren
                     workSkill = watchedJobs.TryGetValue(Mentor.CurJobDef);
                     mentorTotalTeachPower = Mentor.skills.GetSkill(workSkill).Level + ((Mentor.skills.GetSkill(SkillDefOf.Social).Level + Mentor.skills.GetSkill(SkillDefOf.Intellectual).Level) * 0.5f);
                 }
+                
+                CLog.Warning("Befoire Result teaching; " + mentorTotalTeachPower);
+                mentorTotalTeachPower *= Mathf.Max(Mentor.health.capacities.GetLevel(PawnCapacityDefOf.Talking), 0.1f);
+                mentorTotalTeachPower *= Mathf.Max(Mentor.health.capacities.GetLevel(PawnCapacityDefOf.Manipulation), 0.1f);
+                CLog.Message("Mentor capacity talk; " + Mentor.health.capacities.GetLevel(PawnCapacityDefOf.Talking));
+                CLog.Message("Mentor capacity man; " + Mentor.health.capacities.GetLevel(PawnCapacityDefOf.Manipulation));
+                CLog.Warning("Result teaching; " + mentorTotalTeachPower);
             };
             toil.tickAction = delegate
             {

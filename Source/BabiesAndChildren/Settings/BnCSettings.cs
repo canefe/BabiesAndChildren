@@ -87,6 +87,8 @@ namespace BabiesAndChildren
         public static float ShowHairAlienHFLocZ = 0.048f;
         public static float FAModifier = 0.8058f;
 
+        public static bool isMCEnabled = false;
+
         public static List<string> races;
         public static List<string> disabledRaces = new List<string>();
         private static string racesSearch = "";
