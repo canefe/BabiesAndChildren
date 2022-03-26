@@ -15,10 +15,6 @@ namespace BabiesAndChildren
             LongEventHandler.ExecuteWhenFinished(delegate
             {
                 if (!RaceUtility.PawnUsesChildren(graphics.pawn)) return;
-                if (graphics.pawn.story.hairDef != null)
-                {
-                    graphics.hairGraphic = GraphicDatabase.Get<Graphic_Multi>(graphics.pawn.story.hairDef.texPath, ShaderDatabase.Cutout, Vector2.one, graphics.pawn.story.hairColor);
-                }
                 if (AgeStages.IsOlderThan(graphics.pawn, AgeStages.Child)) return;                
 
                 // The pawn is a baby

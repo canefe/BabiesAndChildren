@@ -39,6 +39,8 @@ namespace BabiesAndChildren
         public static bool ModMedpod_ON;
         //SOS2
         public static bool ModSOS2_ON;
+        //Dubs Apparel Tweaks
+        public static bool ModDAT_ON;
 
         private ChildrenBase()
         {
