@@ -22,7 +22,8 @@ namespace BabiesAndChildren
             ChildrenBase.ModAgeMatters_ON = ModTools.IsModOn("Age Matters 2.0 [1.2+]");
             ChildrenBase.ModMedpod_ON = ModTools.IsModOn("MedPod");
             ChildrenBase.ModSOS2_ON = ModTools.IsModOn("Save Our Ship 2");
-            
+            ChildrenBase.ModDAT_ON = ModTools.IsModOn("Dubs Apparel Tweaks");
+
             if (ChildrenBase.ModHAR_ON)
             {
                 CLog.Message("Humanoid Alien Races 2.0 is active. Enabling Alien children support.");
@@ -89,6 +90,12 @@ namespace BabiesAndChildren
             {
                 CLog.Message("Patching MedPod");
                 MedPodPatches.Patch();
+            }
+
+            if (ChildrenBase.ModDAT_ON)
+            {
+                CLog.Message("Patching Dubs Apparel Tweaks");
+                DubsApparelTweaksPatches.Patch();
             }
 
             if (BnCSettings.AlienBodySize ==  0.842f || BnCSettings.HumanHeadSize == 0.922f || BnCSettings.HumanHairSize == 0.730f)
