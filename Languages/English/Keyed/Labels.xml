@@ -108,6 +108,8 @@
   <BreastfeedOnly_desc>Only breastfeed newborns and toddlers if someone is available. Disabling this lets other colonists feed meals anytime.</BreastfeedOnly_desc>
   <TeensRandomMood_Title>Teenagers have mood swings</TeensRandomMood_Title>
   <TeensRandomMood_desc>Teenagers get random thoughts (good/bad) everyday.</TeensRandomMood_desc>
+  <DisableToys_Title>Disable Toys</DisableToys_Title>
+  <DisableToys_desc>Remove toy items and child thoughts about toys.</DisableToys_desc>
 
   <!-- Mentor Watch Tab -->
   <TabWatch>Mentor</TabWatch>
