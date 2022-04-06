@@ -5,7 +5,7 @@
     <label>toy</label>
     <parent>Weapons</parent>
   </ThingCategoryDef>
-  <ThingDef Name="BaseDollToy" Abstract="True" ParentName="BaseWeapon">
+  <ThingDef Name="BaseDollToy" Abstract="True" ParentName="BaseWeapon" >
     <techLevel>Medieval</techLevel>
     <smeltable>false</smeltable>
     <thingCategories>
@@ -64,10 +64,10 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
   </ThingDef>
-  <ThingDef ParentName="BaseDollToy">
+  <ThingDef ParentName="BaseDollToy" BnCToy="true">
     <defName>Dino_Doll</defName>
     <label>dino doll</label>
-    <description>Dino doll. Boys like it.</description>
+    <description>Dino doll.</description>
     <graphicData>
       <texPath>Things/Item/Dolls/dino</texPath>
     </graphicData>
@@ -106,10 +106,10 @@
       <TrainAnimalChance>0.1</TrainAnimalChance>
     </equippedStatOffsets>
   </ThingDef>
-  <ThingDef ParentName="BaseDollToy">
+  <ThingDef ParentName="BaseDollToy" BnCToy="true">
     <defName>Girl_Doll</defName>
     <label>girl doll</label>
-    <description>Cute girl doll. Girls like it.</description>
+    <description>Cute girl doll.</description>
     <graphicData>
       <texPath>Things/Item/Dolls/girldoll</texPath>
     </graphicData>
@@ -147,10 +147,10 @@
       <CookSpeed>0.1</CookSpeed>
     </equippedStatOffsets>
   </ThingDef>
-  <ThingDef ParentName="BaseDollToy">
+  <ThingDef ParentName="BaseDollToy" BnCToy="true">
     <defName>Teddybear_Doll</defName>
     <label>teddybear doll</label>
-    <description>Cute teddybear doll. Boys and Girls all like it.</description>
+    <description>Cute teddybear doll.</description>
     <graphicData>
       <texPath>Things/Item/Dolls/teddybear</texPath>
     </graphicData>
@@ -188,10 +188,10 @@
       <PlantHarvestYield>0.1</PlantHarvestYield>
     </equippedStatOffsets>
   </ThingDef>
-  <ThingDef ParentName="BaseDollToy">
+  <ThingDef ParentName="BaseDollToy" BnCToy="true">
     <defName>Toyrobot_Doll</defName>
     <label>toyrobot doll</label>
-    <description>Toy robotl. Boys like it.</description>
+    <description>Toy robot.</description>
     <graphicData>
       <texPath>Things/Item/Dolls/toyrobot</texPath>
     </graphicData>
@@ -229,7 +229,7 @@
       <ResearchSpeed>0.1</ResearchSpeed>
     </equippedStatOffsets>
   </ThingDef>
-  <ThingDef ParentName="BaseDollToy">
+  <ThingDef ParentName="BaseDollToy" BnCToy="true">
     <defName>Toyhorse_Doll</defName>
     <label>horse toy</label>
     <description>Toy horse.</description>

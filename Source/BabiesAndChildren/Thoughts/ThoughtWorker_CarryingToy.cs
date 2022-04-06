@@ -20,7 +20,7 @@ namespace BabiesAndChildren
             pawn.story.traits.HasTrait(TraitDefOf.Psychopath) || 
             pawn.WorkTagIsDisabled(WorkTags.Violent) ||
             pawn.Faction == null ||
-            !pawn.Faction.IsPlayer)
+            !pawn.Faction.IsPlayer || BnCSettings.toysdisabled)
                 return false;
             ThingWithComps toy = pawn.equipment.Primary;
             if (toy != null && ChildrenUtility.SetMakerTagCheck(toy,"Toy"))

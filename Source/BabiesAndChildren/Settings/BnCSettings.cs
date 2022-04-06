@@ -87,6 +87,8 @@ namespace BabiesAndChildren
         public static float ShowHairAlienHFLocZ = 0.048f;
         public static float FAModifier = 0.8058f;
 
+        public static bool toysdisabled = false;
+
         public static bool isMCEnabled = false;
 
         public static List<string> races;
@@ -367,6 +369,10 @@ namespace BabiesAndChildren
 
             listingStandard.Gap(5f);
 
+            listingStandard.CheckboxLabeled("DisableToys_Title".Translate(), ref toysdisabled, "DisableToys_desc".Translate());
+
+            listingStandard.Gap(5f);
+
             //Children drop weapons
             listingStandard.CheckboxLabeled("OptionChildrenDropWeapons".Translate(), ref OptionChildrenDropWeapons, "OptionChildrenDropWeaponsDesc".Translate());
             if (OptionChildrenDropWeapons)
@@ -507,6 +513,7 @@ namespace BabiesAndChildren
             Scribe_Values.Look(ref ShowHairAlienLocZ, "ShowHairAlienLocZ");
             Scribe_Values.Look(ref ShowHairAlienHFLocZ, "ShowHairAlienHFLocZ");
             Scribe_Values.Look(ref FAModifier, "FAModifier");
+            Scribe_Values.Look(ref toysdisabled, "toysdisabled");
             Scribe_Collections.Look<string>(ref disabledRaces, "DisabledRaces", LookMode.Undefined, Array.Empty<object>());
             Scribe_Collections.Look(ref RaceUtility.alienRaceSettings, "alienRaceSettings", LookMode.Value, LookMode.Deep, ref rak, ref raks);
         }
@@ -531,6 +538,7 @@ namespace BabiesAndChildren
             watchexpgainmultiplier = 1f;
             minage = 10;
             rarekids = false;
+            toysdisabled = false;
             cryVolume = 0.8f;
             STILLBORN_CHANCE = 0.03f;
             debug_and_gsetting = false;

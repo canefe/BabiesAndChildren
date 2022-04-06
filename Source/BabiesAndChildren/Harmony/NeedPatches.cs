@@ -1,4 +1,5 @@
-﻿using BabiesAndChildren.api;
+﻿using System.Xml;
+using BabiesAndChildren.api;
 using BabiesAndChildren.Tools;
 using HarmonyLib;
 using RimWorld;
@@ -24,5 +25,35 @@ namespace BabiesAndChildren.Harmony {
             tolerances[JoyKindDefOf.Social] = 0;
             bored[JoyKindDefOf.Social] = false;
         }
+    }
+
+    [HarmonyPatch(typeof(DirectXmlLoader), nameof(DirectXmlLoader.DefFromNode))]
+    static class YDefFromNode
+    {
+        [HarmonyPrefix]
+        public static bool Prefix(XmlNode node, LoadableXmlAsset loadingAsset, ref Def __result)
+        {
+            CLog.Warning("H");
+            YDefFromNode.nodecount++;
+            if (node.NodeType != XmlNodeType.Element)
+            {
+                return true;
+            }
+            CLog.Warning("H6");
+            if (BnCSettings.toysdisabled)
+            {
+                CLog.Warning("H9");
+                XmlAttributeCollection attributes = node.Attributes;
+                if (((attributes != null) ? attributes["BnCToy"] : null) != null)
+                {
+                    CLog.Warning("H9797");
+                    __result = null;
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static int nodecount;
     }
 }
