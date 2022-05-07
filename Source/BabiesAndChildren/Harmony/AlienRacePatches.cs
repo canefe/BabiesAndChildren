@@ -241,6 +241,7 @@ namespace BabiesAndChildren.Harmony
                          {
                              offsetVector.x *= bodySizeFactor * moffsetXfa;
                              offsetVector.y *= bodySizeFactor * moffsetZfa;
+                             offsetVector.z *= bodySizeFactor * moffsetZfb;
                          }
                          else
                          {
