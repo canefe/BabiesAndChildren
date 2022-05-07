@@ -70,7 +70,7 @@ namespace BabiesAndChildren
                 return false;
             }
 
-            if (FeedPatientUtility.IsHungry(pawn))
+            if (FeedPatientUtility.IsHungry(pawn) || pawn.needs.rest.CurLevel < 0.3f)
             {
                 return false;
             }
