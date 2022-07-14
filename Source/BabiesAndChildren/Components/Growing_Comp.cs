@@ -252,11 +252,11 @@ namespace BabiesAndChildren
                     break;
                 case AgeStages.Toddler:
                     if (Pawn.Faction != null && Pawn.Faction.IsPlayer && initialized) { 
-                        if (Pawn.GetMother() != null)
+                        if (Pawn.GetMother() != null && Pawn.GetMother().needs != null && Pawn.GetMother().needs.mood != null)
                         {
                             Pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
-                        if (Pawn.GetFather() != null)
+                        if (Pawn.GetFather() != null && Pawn.GetFather().needs != null && Pawn.GetFather().needs.mood != null)
                         {
                             Pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
@@ -265,11 +265,11 @@ namespace BabiesAndChildren
                 case AgeStages.Child:
                     if (Pawn.Faction != null && Pawn.Faction.IsPlayer && initialized)
                     {
-                        if (Pawn.GetMother() != null)
+                        if (Pawn.GetMother() != null && Pawn.GetMother().needs != null && Pawn.GetMother().needs.mood != null)
                         {
                             Pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
-                        if (Pawn.GetFather() != null)
+                        if (Pawn.GetFather() != null && Pawn.GetFather().needs != null && Pawn.GetFather().needs.mood != null)
                         {
                             Pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
@@ -280,11 +280,11 @@ namespace BabiesAndChildren
 
                     if (Pawn.Faction != null && Pawn.Faction.IsPlayer && initialized)
                     {
-                        if (Pawn.GetMother() != null)
+                        if (Pawn.GetMother() != null && Pawn.GetMother().needs != null && Pawn.GetMother().needs.mood != null)
                         {
                             Pawn.GetMother().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
-                        if (Pawn.GetFather() != null)
+                        if (Pawn.GetFather() != null && Pawn.GetFather().needs != null && Pawn.GetFather().needs.mood != null)
                         {
                             Pawn.GetFather().needs.mood.thoughts.memories.TryGainMemory(BnCThoughtDefOf.MyChildGrowing);
                         }
