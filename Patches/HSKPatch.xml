@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Core SK</li>
+        </mods>
+        <match Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[@Name = "BaseHumanlikePawn"]/race/lifeStageAges/li[2]/minAge</xpath>
+            <value>
+                <minAge>1.5</minAge>
+            </value>
+        </match>
+        <match Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[@Name = "BaseHumanlikePawn"]/race/lifeStageAges/li[3]/minAge</xpath>
+            <value>
+                <minAge>5</minAge>
+            </value>
+        </match>
+        <match Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[@Name = "BaseHumanlikePawn"]/race/lifeStageAges/li[4]/minAge</xpath>
+            <value>
+                <minAge>13</minAge>
+            </value>
+        </match>
+        <match Class="PatchOperationReplace">
+            <xpath>/Defs/LifeStageDef[defName="HumanlikeTeenager"]/bodySizeFactor</xpath>
+            <value>
+                <bodySizeFactor>0.7</bodySizeFactor>
+            </value>
+        </match>
+        <match Class="BabiesAndChildren.HumanPatchConditional">
+            <operations>
+                <Operation Class="PatchOperationSequence">
+                    <operations>
+                        <li Class="PatchOperationReplace">
+                            <xpath>/Defs/ThingDef[@Name = "BaseHumanlikePawn"]/race/ageGenerationCurve/points</xpath>
+                            <value>
+                                <points>
+                                    <li>({minage},0)</li>
+                                    <li>({minagep}, {a0})</li>
+                                    <li>(14,90)</li>
+                                    <li>(16,100)</li>
+                                    <li>(50,100)</li>
+                                    <li>(60,30)</li>
+                                    <li>(70,18)</li>
+                                    <li>(80,10)</li>
+                                    <li>(90,3)</li>
+                                    <li>(100,0)</li>
+                                </points>
+                            </value>
+                        </li>
+
+                        <li Class="PatchOperationReplace">
+                            <xpath>Defs/PawnKindDef[@Name="SK_MercenaryBase" or @Name="SK_PirateBase"]/minGenerationAge</xpath>
+                            <value>
+                                <minGenerationAge>15</minGenerationAge>
+                            </value>
+                        </li>
+                    </operations>
+                </Operation>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
