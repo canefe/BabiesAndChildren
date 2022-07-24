@@ -99,21 +99,21 @@ namespace BabiesAndChildren.Harmony
             if (pawn == null || !pawn.ShouldBeScaled())
                 return;
 
-            __result = wantsBody ? 
-                GetModifiedBodyMeshSet(ChildrenUtility.GetBodySize(pawn), pawn).MeshAt(facing) : 
+            __result = wantsBody ?
+                GetModifiedBodyMeshSet(ChildrenUtility.GetBodySize(pawn), pawn).MeshAt(facing) :
                 GetModifiedHeadMeshSet(ChildrenUtility.GetHeadSize(pawn), pawn).MeshAt(facing);
 
         }
 
-        
+
         //Get scaled hair meshes for children bodies and heads
         static void GetPawnHairMesh_Patch(PawnRenderFlags renderFlags, Pawn pawn, Rot4 headFacing, PawnGraphicSet graphics, ref Mesh __result)
         {
-                if (pawn == null || !pawn.ShouldBeScaled()) 
-                    return;
-                
-                float hairSizeFactor = ChildrenUtility.GetHairSize(0, pawn);
-                __result = GetModifiedHairMeshSet(hairSizeFactor, pawn).MeshAt(headFacing);
+            if (pawn == null || !pawn.ShouldBeScaled())
+                return;
+
+            float hairSizeFactor = ChildrenUtility.GetHairSize(0, pawn);
+            __result = GetModifiedHairMeshSet(hairSizeFactor, pawn).MeshAt(headFacing);
 
         }
 
@@ -123,163 +123,163 @@ namespace BabiesAndChildren.Harmony
             Dictionary<Vector2, Mesh> addonMeshsFlipped = new Dictionary<Vector2, Mesh>();
 
 
-            
-            //Patch to draw addons for children
-                try
-                {
-                    
-                    if (!(pawn.def is ThingDef_AlienRace alienProps) ||
-                        renderFlags.FlagSet(PawnRenderFlags.Invisible) ||
-                        !pawn.IsChildSupported() || AgeStages.IsOlderThan(pawn, AgeStages.Teenager)) //draw addons normally
-                        return true;
 
-                    if (pawn.IsChildSupported() && AgeStages.IsYoungerThan(pawn, AgeStages.Child)) //don't draw addons for babies and toddlers
-                        return false;
+            //Patch to draw addons for children
+            try
+            {
+
+                if (!(pawn.def is ThingDef_AlienRace alienProps) ||
+                    renderFlags.FlagSet(PawnRenderFlags.Invisible) ||
+                    !pawn.IsChildSupported() || AgeStages.IsOlderThan(pawn, AgeStages.Teenager)) //draw addons normally
+                    return true;
+
+                if (pawn.IsChildSupported() && AgeStages.IsYoungerThan(pawn, AgeStages.Child)) //don't draw addons for babies and toddlers
+                    return false;
 
                 if (!pawn.ShouldBeScaled())
                     return false;
-                    
-                    
-                    
-                    float bodySizeFactor = ChildrenUtility.GetBodySize(pawn);
-                    
-                    float moffsetZfb = 1f;
-                    float moffsetXfb = 1f;
-                    
-                    float moffsetZfa = 1f;
-                    float moffsetXfa = 1f;
-                    
-                    bool IsEastWestFlipped = false;
-
-                    
-                    if (pawn.def.defName == "Alien_Orassan")
-                    {
-                        moffsetZfb = 1.4f;
-                        moffsetXfb = 0.1f;
-                        moffsetZfa = 1.4f;
-                        moffsetXfa = 1.4f;
-
-                        if (rotation == Rot4.West)
-                        {
-                            IsEastWestFlipped = true;
-                        }
-                    }
-                    else if (pawn.kindDef.race.ToString().ToLower().Contains("lizardman") && rotation == Rot4.East)
-                    {
-                        IsEastWestFlipped = true;
-                    }
-                    else if(rotation == Rot4.West)
-                    {
-                        IsEastWestFlipped = true;
-                    }
-                    else if(pawn.def.defName == "Alien_Cutebold")
-                    {
-                        moffsetZfb = 1.2f;
-                    }
-
-                    List<AlienPartGenerator.BodyAddon> addons = alienProps.alienRace.generalSettings.alienPartGenerator.bodyAddons;
-                    AlienPartGenerator.AlienComp alienComp = pawn.GetComp<AlienPartGenerator.AlienComp>();
-
-                    for (int i = 0; i < addons.Count; i++)
-                    {
-                        //straight from alien race
-                        AlienPartGenerator.BodyAddon ba = addons[index: i];
-                        if (!ba.CanDrawAddon(pawn: pawn)) continue;
-                        
-                        //Special code 2.
-                        if (BnCSettings.human_like_head_enabled && 
-                            RaceUtility.HasHumanlikeHead(pawn) &&
-                            ba.bodyPart.Contains("Head")) 
-                            continue;
-                        
-                        //straight from alien race
-                        AlienPartGenerator.RotationOffset offset = rotation == Rot4.South ? ba.offsets.south :
-                            rotation == Rot4.North ? ba.offsets.north :
-                            rotation == Rot4.East ? ba.offsets.east :
-                            ba.offsets.west;
-                        
-
-                        Vector3 offsetVector = (ba.defaultOffsets.GetOffset(rotation)?.GetOffset(renderFlags.FlagSet(PawnRenderFlags.Portrait), pawn.story.bodyType, alienComp.crownType) ?? Vector3.zero) +
-                                          (ba.offsets.GetOffset(rotation)?.GetOffset(renderFlags.FlagSet(PawnRenderFlags.Portrait), pawn.story.bodyType, alienComp.crownType) ?? Vector3.zero);
-
-                        //straight from alien race
-                        offsetVector.y = ba.inFrontOfBody ? 0.3f + offsetVector.y : -0.3f - offsetVector.y;
-                        float num = ba.angle;
-                        
-                        //special code 3 that initializes mesh passed to DrawMeshNowOrLater at end
-                        if (!addonMeshsFlipped.ContainsKey(ba.drawSize * bodySizeFactor))
-                        {
-                            addonMeshsFlipped.Add(ba.drawSize * bodySizeFactor, (Mesh) meshInfo.Invoke(null,
-                                new object[]
-                                    {new Vector2(bodySizeFactor * 1.5f, bodySizeFactor * 1.5f), true, false, false}));
-                        }
-
-                        if (!addonMeshs.ContainsKey(ba.drawSize * bodySizeFactor))
-                        {
-                            addonMeshs.Add(ba.drawSize * bodySizeFactor, (Mesh) meshInfo.Invoke(null, new object[]
-                                {new Vector2(bodySizeFactor * 1.5f, bodySizeFactor * 1.5f), false, false, false}));
-                        }
-
-                        Mesh mesh = IsEastWestFlipped
-                            ? addonMeshsFlipped[ba.drawSize * bodySizeFactor]
-                            : addonMeshs[ba.drawSize * bodySizeFactor];
-
-                        
-                        //Straight from alien race
-                        if (rotation == Rot4.North)
-                        {
-                            if (ba.layerInvert)
-                                offsetVector.y = -offsetVector.y;
-                            num = 0;
-                        }
-                        
-                        //straight from alien race 
 
 
-                        //special code 4.1 (initialize offset vector coords)
-                         if (ba.bodyPart.Contains("tail"))
-                         {
-                             offsetVector.x *= bodySizeFactor * moffsetXfa;
-                             offsetVector.y *= bodySizeFactor * moffsetZfa;
-                             offsetVector.z *= bodySizeFactor * moffsetZfb;
-                         }
-                         else
-                         {
-                             offsetVector.x *= bodySizeFactor * moffsetXfb;
-                             offsetVector.z *= bodySizeFactor * moffsetZfb;
-                         }
 
-                        //straight from alien race
+                float bodySizeFactor = ChildrenUtility.GetBodySize(pawn);
 
-                        if (rotation == Rot4.East)
-                        {
-                            num = -num; //Angle
-                            offsetVector.x = -offsetVector.x;
-                        }
+                float moffsetZfb = 1f;
+                float moffsetXfb = 1f;
 
-                        //special code 4.2 (instantiate offset vector)
+                float moffsetZfa = 1f;
+                float moffsetXfa = 1f;
 
-                        offsetVector.z = (offsetVector.z * Tweaks.G_offsetfac) + Tweaks.G_offset;
-                       /* Vector3 offsetVector = Vector3(x: moffsetX, y: moffsetY,
-                            z: (moffsetZ * Tweaks.G_offsetfac) + Tweaks.G_offset);*/
-
-                        Graphic addonGraphic = alienComp.addonGraphics[i];
-                        addonGraphic.drawSize = ba.drawSize * bodySizeFactor * 1.5f;
+                bool IsEastWestFlipped = false;
 
 
-                        GenDraw.DrawMeshNowOrLater(addonGraphic.MeshAt(rotation), vector + (ba.alignWithHead ? headOffset : Vector3.zero) + offsetVector.RotatedBy(Mathf.Acos(Quaternion.Dot(Quaternion.identity, quat)) * 2f * 57.29578f),
-                                                                   Quaternion.AngleAxis(num, Vector3.up) * quat, addonGraphic.MatAt(rotation), renderFlags.FlagSet(PawnRenderFlags.DrawNow));
-                    }
-
-                    return false;
-                }
-                catch
+                if (pawn.def.defName == "Alien_Orassan")
                 {
-                    // Ignored
+                    moffsetZfb = 1.4f;
+                    moffsetXfb = 0.1f;
+                    moffsetZfa = 1.4f;
+                    moffsetXfa = 1.4f;
+
+                    if (rotation == Rot4.West)
+                    {
+                        IsEastWestFlipped = true;
+                    }
+                }
+                else if (pawn.kindDef.race.ToString().ToLower().Contains("lizardman") && rotation == Rot4.East)
+                {
+                    IsEastWestFlipped = true;
+                }
+                else if (rotation == Rot4.West)
+                {
+                    IsEastWestFlipped = true;
+                }
+                else if (pawn.def.defName == "Alien_Cutebold")
+                {
+                    moffsetZfb = 1.2f;
                 }
 
-                return true;
+                List<AlienPartGenerator.BodyAddon> addons = alienProps.alienRace.generalSettings.alienPartGenerator.bodyAddons;
+                AlienPartGenerator.AlienComp alienComp = pawn.GetComp<AlienPartGenerator.AlienComp>();
+
+                for (int i = 0; i < addons.Count; i++)
+                {
+                    //straight from alien race
+                    AlienPartGenerator.BodyAddon ba = addons[index: i];
+                    if (!ba.CanDrawAddon(pawn: pawn)) continue;
+
+                    //Special code 2.
+                    if (BnCSettings.human_like_head_enabled &&
+                        RaceUtility.HasHumanlikeHead(pawn) &&
+                        ba.bodyPart.Contains("Head"))
+                        continue;
+
+                    //straight from alien race
+                    AlienPartGenerator.RotationOffset offset = rotation == Rot4.South ? ba.offsets.south :
+                        rotation == Rot4.North ? ba.offsets.north :
+                        rotation == Rot4.East ? ba.offsets.east :
+                        ba.offsets.west;
+
+
+                    Vector3 offsetVector = (ba.defaultOffsets.GetOffset(rotation)?.GetOffset(renderFlags.FlagSet(PawnRenderFlags.Portrait), pawn.story.bodyType, alienComp.crownType) ?? Vector3.zero) +
+                                      (ba.offsets.GetOffset(rotation)?.GetOffset(renderFlags.FlagSet(PawnRenderFlags.Portrait), pawn.story.bodyType, alienComp.crownType) ?? Vector3.zero);
+
+                    //straight from alien race
+                    offsetVector.y = ba.inFrontOfBody ? 0.3f + offsetVector.y : -0.3f - offsetVector.y;
+                    float num = ba.angle;
+
+                    //special code 3 that initializes mesh passed to DrawMeshNowOrLater at end
+                    if (!addonMeshsFlipped.ContainsKey(ba.drawSize * bodySizeFactor))
+                    {
+                        addonMeshsFlipped.Add(ba.drawSize * bodySizeFactor, (Mesh)meshInfo.Invoke(null,
+                            new object[]
+                                {new Vector2(bodySizeFactor * 1.5f, bodySizeFactor * 1.5f), true, false, false}));
+                    }
+
+                    if (!addonMeshs.ContainsKey(ba.drawSize * bodySizeFactor))
+                    {
+                        addonMeshs.Add(ba.drawSize * bodySizeFactor, (Mesh)meshInfo.Invoke(null, new object[]
+                            {new Vector2(bodySizeFactor * 1.5f, bodySizeFactor * 1.5f), false, false, false}));
+                    }
+
+                    Mesh mesh = IsEastWestFlipped
+                        ? addonMeshsFlipped[ba.drawSize * bodySizeFactor]
+                        : addonMeshs[ba.drawSize * bodySizeFactor];
+
+
+                    //Straight from alien race
+                    if (rotation == Rot4.North)
+                    {
+                        if (ba.layerInvert)
+                            offsetVector.y = -offsetVector.y;
+                        num = 0;
+                    }
+
+                    //straight from alien race 
+
+
+                    //special code 4.1 (initialize offset vector coords)
+                    if (ba.bodyPart.Contains("tail"))
+                    {
+                        offsetVector.x *= bodySizeFactor * moffsetXfa;
+                        offsetVector.y *= bodySizeFactor * moffsetZfa;
+                        offsetVector.z *= bodySizeFactor * moffsetZfb;
+                    }
+                    else
+                    {
+                        offsetVector.x *= bodySizeFactor * moffsetXfb;
+                        offsetVector.z *= bodySizeFactor * moffsetZfb;
+                    }
+
+                    //straight from alien race
+
+                    if (rotation == Rot4.East)
+                    {
+                        num = -num; //Angle
+                        offsetVector.x = -offsetVector.x;
+                    }
+
+                    //special code 4.2 (instantiate offset vector)
+
+                    offsetVector.z = (offsetVector.z * Tweaks.G_offsetfac) + Tweaks.G_offset;
+                    /* Vector3 offsetVector = Vector3(x: moffsetX, y: moffsetY,
+                         z: (moffsetZ * Tweaks.G_offsetfac) + Tweaks.G_offset);*/
+
+                    Graphic addonGraphic = alienComp.addonGraphics[i];
+                    addonGraphic.drawSize = ba.drawSize * bodySizeFactor * 1.5f;
+
+
+                    GenDraw.DrawMeshNowOrLater(addonGraphic.MeshAt(rotation), vector + (ba.alignWithHead ? headOffset : Vector3.zero) + offsetVector.RotatedBy(Mathf.Acos(Quaternion.Dot(Quaternion.identity, quat)) * 2f * 57.29578f),
+                                                               Quaternion.AngleAxis(num, Vector3.up) * quat, addonGraphic.MatAt(rotation), renderFlags.FlagSet(PawnRenderFlags.DrawNow));
+                }
+
+                return false;
             }
-        
+            catch
+            {
+                // Ignored
+            }
+
+            return true;
+        }
+
     }
 }

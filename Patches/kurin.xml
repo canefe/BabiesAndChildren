@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  
+
   <Operation Class="PatchOperationFindMod">
     <mods>
       <li>Kurin HAR Edition</li>
@@ -25,7 +25,7 @@
       </value>
     </match>
   </Operation>
-  
+
   <Operation Class="PatchOperationFindMod">
     <mods>
       <li>Kurin HAR Edition</li>
@@ -58,7 +58,7 @@
       </value>
     </match>
   </Operation>
-  
+
   <!-- Kurin HAR Edition의 정신 임계정 수정 -->
   <Operation Class="PatchOperationFindMod">
     <mods>
@@ -71,7 +71,7 @@
       </value>
     </match>
   </Operation>
-  
+
   <!-- 한번에 낳는 애기 수 바꿀때 조정 -->
   <!--<Operation Class="PatchOperationFindMod">
     <mods>

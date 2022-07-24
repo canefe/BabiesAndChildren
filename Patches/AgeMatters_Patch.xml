@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
-  
+
   <Operation Class="PatchOperationFindMod">
     <mods>
-    <li>Age Matters 2.0 [1.2+]</li>
+      <li>Age Matters 2.0 [1.2+]</li>
     </mods>
     <match Class="PatchOperationSequence">
-    <operations>
-    
-    <li Class="PatchOperationReplace">
-      <xpath>/Defs/HediffDef[defName = "BabyState0"]/stages</xpath>
-      <value>
-        <stages>
-          <li>
-            <label>baby</label>
-            <minSeverity>0.01</minSeverity>
-            <capMods>
+      <operations>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/HediffDef[defName = "BabyState0"]/stages</xpath>
+          <value>
+            <stages>
               <li>
-                <capacity>Moving</capacity>
-                <setMax>0</setMax>
-              </li>
-            </capMods>
-          </li>
-          <li>
-            <label>toddler</label>
-            <minSeverity>0.5</minSeverity>
-            <capMods>
-              <li>
-                <capacity>Moving</capacity>
-                <offset>-0.4</offset>
+                <label>baby</label>
+                <minSeverity>0.01</minSeverity>
+                <capMods>
+                  <li>
+                    <capacity>Moving</capacity>
+                    <setMax>0</setMax>
+                  </li>
+                </capMods>
               </li>
               <li>
-                <capacity>Manipulation</capacity>
-                <setMax>0</setMax>
+                <label>toddler</label>
+                <minSeverity>0.5</minSeverity>
+                <capMods>
+                  <li>
+                    <capacity>Moving</capacity>
+                    <offset>-0.4</offset>
+                  </li>
+                  <li>
+                    <capacity>Manipulation</capacity>
+                    <setMax>0</setMax>
+                  </li>
+                </capMods>
               </li>
-            </capMods>
-          </li>
-          <li>
-            <label>child</label>
-            <minSeverity>0.75</minSeverity>
-          </li>
-          <li>
-            <label>teenager</label>
-            <minSeverity>0.9</minSeverity>
-          </li>
-        </stages>
-      </value>
-    </li>
-    <li Class="PatchOperationRemove">
-      <xpath>/Defs/ThingDef[
+              <li>
+                <label>child</label>
+                <minSeverity>0.75</minSeverity>
+              </li>
+              <li>
+                <label>teenager</label>
+                <minSeverity>0.9</minSeverity>
+              </li>
+            </stages>
+          </value>
+        </li>
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ThingDef[
         defName = "AMCrib"
         ]</xpath>
-    </li>      
-    </operations>
+        </li>
+      </operations>
     </match>
   </Operation>
-  
+
 </Patch>

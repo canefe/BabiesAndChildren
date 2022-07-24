@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
     <Operation Class="PatchOperationFindMod">
-       <mods>
-           <li>Protogen! Marley Race Mod</li>
-       </mods>
+        <mods>
+            <li>Protogen! Marley Race Mod</li>
+        </mods>
         <match Class="PatchOperationReplace">
             <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName = "Alien_Protogen"]/race/lifeStageAges</xpath>
             <value>
