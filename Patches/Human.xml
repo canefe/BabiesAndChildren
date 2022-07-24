@@ -7,14 +7,14 @@
       <minAge>1.5</minAge>
     </value>
   </Operation>
-  
+
   <Operation Class="PatchOperationReplace">
     <xpath>/Defs/ThingDef[defName = "Human"]/race/lifeStageAges/li[3]/minAge</xpath>
     <value>
       <minAge>5</minAge>
     </value>
   </Operation>
-  
+
   <Operation Class="PatchOperationReplace">
     <xpath>/Defs/ThingDef[defName = "Human"]/race/lifeStageAges/li[4]/minAge</xpath>
     <value>
@@ -28,36 +28,36 @@
       <bodySizeFactor>0.7</bodySizeFactor>
     </value>
   </Operation>
-  
+
   <Operation Class="BabiesAndChildren.HumanPatchConditional">
     <operations>
       <Operation Class="PatchOperationSequence">
         <operations>
-        <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName = "Human"]/race/ageGenerationCurve/points</xpath>
-          <value>
-            <points>
-              <li>({minage},0)</li>
-              <li>({minagep}, {a0})</li>
-              <li>(14,90)</li>
-              <li>(16,100)</li>
-              <li>(50,100)</li>
-              <li>(60,30)</li>
-              <li>(70,18)</li>
-              <li>(80,10)</li>
-              <li>(90,3)</li>
-              <li>(100,0)</li>
-            </points>
-          </value>
-        </li>
-      
-        <li Class="PatchOperationAdd">
-          <xpath>Defs/PawnKindDef[@Name="MercenaryBase" or @Name="PirateBase"]</xpath>
-          <value>
-            <minGenerationAge>10</minGenerationAge>
-          </value>
-        </li>
-      </operations>
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[defName = "Human"]/race/ageGenerationCurve/points</xpath>
+            <value>
+              <points>
+                <li>({minage},0)</li>
+                <li>({minagep}, {a0})</li>
+                <li>(14,90)</li>
+                <li>(16,100)</li>
+                <li>(50,100)</li>
+                <li>(60,30)</li>
+                <li>(70,18)</li>
+                <li>(80,10)</li>
+                <li>(90,3)</li>
+                <li>(100,0)</li>
+              </points>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/PawnKindDef[@Name="MercenaryBase" or @Name="PirateBase"]</xpath>
+            <value>
+              <minGenerationAge>10</minGenerationAge>
+            </value>
+          </li>
+        </operations>
       </Operation>
     </operations>
   </Operation>

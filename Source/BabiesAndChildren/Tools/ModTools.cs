@@ -42,7 +42,7 @@ namespace BabiesAndChildren
             {
                 string defName = thingDef.defName;
                 isRobot = defName.Contains("RSPeacekeeperDefender") || defName.Contains("RSPeacekeeperEnforcer") || defName.Contains("RSPeacekeeperSentinel");
-                
+
             }
 
             if (!isRobot && ChildrenBase.ModMechadroids_ON)
@@ -69,7 +69,7 @@ namespace BabiesAndChildren
                 case AgeStages.Child: return 0.12f;
                 case AgeStages.Teenager: return 0.80f;
                 default: return 1f;
-            } 
+            }
         }
         public static void ChangeRJWHediffSeverity(Pawn pawn, bool Is_SizeInit, MathTools.Fixed_Rand rand)
         {
@@ -119,6 +119,18 @@ namespace BabiesAndChildren
         public static bool RemoveFacialAnimationComps(ThingWithComps thing)
         {
             ThingComp comp = ChildrenUtility.GetCompByClassName(thing, "FacialAnimation.DrawFaceGraphicsComp");
+            CLog.Message("Removing da filter for " + thing);
+            foreach (ThingComp compz in thing.AllComps)
+            {
+                if (comp?.props?.compClass == null)
+                {
+                    continue;
+                }
+
+                var compClass = comp.props.compClass;
+
+                CLog.Warning(compClass.ToString());
+            }
             return comp != null && thing.AllComps.Remove(comp);
         }
 
@@ -136,6 +148,6 @@ namespace BabiesAndChildren
 
             return false;
         }
-        
+
     }
 }

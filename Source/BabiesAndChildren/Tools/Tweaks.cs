@@ -54,7 +54,7 @@ namespace BabiesAndChildren
             }
             return true;
         }
-        private XmlContainer operations;
+        private XmlContainer operations = null;
     }
 
 }

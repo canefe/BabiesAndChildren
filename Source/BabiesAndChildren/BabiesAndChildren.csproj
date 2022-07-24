@@ -1,152 +1,45 @@
-﻿<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CD7ABF9C-8F57-449D-8138-F4933B342BAB}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>BabiesAndChildren</RootNamespace>
-    <AssemblyName>BabiesAndChildren</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <NoWin32Manifest>False</NoWin32Manifest>
-    <NoStdLib>False</NoStdLib>
-    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    <DebugType>None</DebugType>
-    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <Optimize>True</Optimize>
-    <OutputPath>..\..\1.3\Assemblies\</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DebugType>pdbonly</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>false</Optimize>
-    <OutputPath>..\..\1.3\Assemblies\</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DebugType>none</DebugType>
-    <DebugSymbols>false</DebugSymbols>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DefineConstants>DEBUG;</DefineConstants>
-    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
-    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
-    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
-    <BaseAddress>4194304</BaseAddress>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <RegisterForComInterop>False</RegisterForComInterop>
-    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
-    <FileAlignment>4096</FileAlignment>
-  </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemDefinitionGroup>
-    <PackageReference ExcludeAssets="runtime" />
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup>
-    <Reference>
-      <Private>False</Private>
-    </Reference>
-  </ItemDefinitionGroup>
-  <ItemGroup>
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.3.3389">
-      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Lib.Harmony" Version="2.2.1">
-      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="UnlimitedHugs.Rimworld.HugsLib" Version="9.0.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="AlienRace">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\839005762\1.3\Assemblies\AlienRace.dll</HintPath>
-    </Reference>
-    <Reference Include="QuickFast">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2296697286\1.3\Assemblies\QuickFast.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="api\AgeStages.cs" />
-    <Compile Include="api\Traits.cs" />
-    <Compile Include="api\Races.cs" />
-    <Compile Include="api\Thoughts.cs" />
-    <Compile Include="Components\Growing_Comp.cs" />
-    <Compile Include="Components\ITab_Pawn_Watch.cs" />
-    <Compile Include="Defs\AgeStageExtensions.cs" />
-    <Compile Include="Defs\AlienChildDef.cs" />
-    <Compile Include="Defs\BnCDutyDefOf.cs" />
-    <Compile Include="Defs\BnCHediffDefOf.cs" />
-    <Compile Include="Harmony\DressPatientsPatches.cs" />
-    <Compile Include="Harmony\DubsBadHygienePatches.cs" />
-    <Compile Include="Harmony\MedPodPatches.cs" />
-    <Compile Include="Harmony\DubsApparelTweaksPatches.cs" />
-    <Compile Include="Harmony\ShowHairPatches.cs" />
-    <Compile Include="Harmony\FacialAnimationPatches.cs" />
-    <Compile Include="Harmony\JobGiverPatches.cs" />
-    <Compile Include="Harmony\PawnGeneratorPatches.cs" />
-    <Compile Include="Harmony\AlienRacePatches.cs" />
-    <Compile Include="Harmony\MiscPatches.cs" />
-    <Compile Include="Harmony\NeedPatches.cs" />
-    <Compile Include="Harmony\PawnGraphicSetPatches.cs" />
-    <Compile Include="Harmony\PawnRendererPatches.cs" />
-    <Compile Include="Harmony\RestUtilityPatches.cs" />
-    <Compile Include="Hediffs\Hediff_ChildhoodStages.cs" />
-    <Compile Include="Initializer.cs" />
-    <Compile Include="Jobs\JobDriver_FeedBaby.cs" />
-    <Compile Include="Jobs\JobDriver_BabyNuzzle.cs" />
-    <Compile Include="Jobs\JobDriver_FollowLead.cs" />
-    <Compile Include="Jobs\JobDriver_PlayAround.cs" />
-    <Compile Include="Jobs\JobDriver_PlayWithBaby.cs" />
-    <Compile Include="Defs\BnCTraitDefOf.cs" />
-    <Compile Include="Jobs\JobGiver_PlayTime.cs" />
-    <Compile Include="Jobs\LordJob_PlayTime.cs" />
-    <Compile Include="Jobs\LordToil_PlayTime.cs" />
-    <Compile Include="Jobs\WorkGiver_TakeBabyToCrib.cs" />
-    <Compile Include="Jobs\WorkGiver_TakeBabyToBedAndFeed.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Defs\BackstoryDef.cs" />
-    <Compile Include="Settings\BnCSettings.cs" />
-    <Compile Include="Settings\RaceSizeEditor.cs" />
-    <Compile Include="Settings\SettingsController.cs" />
-    <Compile Include="Thoughts\ThoughtWorker_ScaredOfTheDark.cs" />
-    <Compile Include="Tools\BabyTools.cs" />
-    <Compile Include="Tools\DebugActions.cs" />
-    <Compile Include="Thoughts\ThoughtWorker_NearParents.cs" />
-    <Compile Include="Jobs\JobDriver_DisciplineChild.cs" />
-    <Compile Include="Jobs\JobDriver_HugFriend.cs" />
-    <Compile Include="Jobs\JobDriver_ScoldChild.cs" />
-    <Compile Include="Hediffs\Hediff_UnhappyBaby.cs" />
-    <Compile Include="Thoughts\ThoughtWorker_CryingBaby.cs" />
-    <Compile Include="ChildrenBase.cs" />
-    <Compile Include="Tools\FloatMenuUtility.cs" />
-    <Compile Include="Tools\LifeStageUtility.cs" />
-    <Compile Include="Tools\StoryUtility.cs" />
-    <Compile Include="Tools\VerseExposed.cs" />
-    <Compile Include="Thoughts\ThoughtWorker_CarryingToy.cs" />
-    <Compile Include="Tools\ChildrenUtility.cs" />
-    <Compile Include="Tools\BnCLog.cs" />
-    <Compile Include="Tools\GraphicTools.cs" />
-    <Compile Include="Tools\HealthUtility.cs" />
-    <Compile Include="Tools\MathTools.cs" />
-    <Compile Include="Tools\ModTools.cs" />
-    <Compile Include="Tools\RaceUtility.cs" />
-    <Compile Include="Tools\Tweaks.cs" />
-    <Compile Include="Tools\WatchCardUtility.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net480</TargetFramework>
+		<PlatformTarget>x64</PlatformTarget>
+
+		<!-- Modify [RootNamespace], [AssemblyName], [OutputPath], [VersionPrefix] -->
+		<RootNamespace>BabiesAndChildren</RootNamespace>
+		<AssemblyName>BabiesAndChildren</AssemblyName>
+		<OutputPath>..\..\1.3\Assemblies\</OutputPath>
+		<VersionPrefix>1.0.0.0</VersionPrefix>
+
+		<!-- do not generate pdb file -->
+		<DebugType>none</DebugType>
+
+		<DebugSymbols>false</DebugSymbols>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.3.3389">
+			<IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Lib.Harmony" Version="2.2.2">
+			<IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="UnlimitedHugs.Rimworld.HugsLib" Version="9.0.1">
+			<IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="AlienRace">
+			<HintPath>..\..\..\..\..\..\workshop\content\294100\839005762\1.3\Assemblies\AlienRace.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="QuickFast">
+			<HintPath>..\..\..\..\..\..\workshop\content\294100\2296697286\1.3\Assemblies\QuickFast.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
 </Project>

@@ -370,6 +370,9 @@ namespace BabiesAndChildren.Harmony
         }
     }
 
+    //TODO: FIND A BETTER WAY TO ENABLE TODDLERS TO USE PLAY INTERACTION
+    // THIS IS LAGGY
+    
     [HarmonyPatch(typeof(InteractionUtility), "CanInitiateInteraction")]
     internal static class Pawn_InteractionUtility_CanInitiateInteraction_Patch
     {

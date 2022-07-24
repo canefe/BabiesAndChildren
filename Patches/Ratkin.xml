@@ -9,7 +9,7 @@
       <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName = "Ratkin"]/race/ageGenerationCurve/points</xpath>
       <value>
         <points>
-		  <li>(4,0)</li>
+          <li>(4,0)</li>
           <li>(5,10)</li>
           <li>(8,40)</li>
           <li>(14,60)</li>
@@ -38,12 +38,12 @@
           <li>(1, 1)</li>
           <li>(2, 0.4)</li>
           <li>(3, 0.1)</li>
-		  <li>(3.5, 0)</li>
+          <li>(3.5, 0)</li>
         </points>
       </value>
     </match>
   </Operation>
-    <Operation Class="PatchOperationFindMod">
+  <Operation Class="PatchOperationFindMod">
     <mods>
       <li>NewRatkinPlus</li>
     </mods>

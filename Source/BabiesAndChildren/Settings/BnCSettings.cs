@@ -224,7 +224,7 @@ namespace BabiesAndChildren
                 {
                     WidgetRow widgetRow = new WidgetRow(rect.x, listing_Standard.CurHeight, UIDirection.RightThenUp, 99999f, 1f);
                     widgetRow.Label(label[i], rect.width * 0.8f, null, -1f);
-                    if(label[i] != "Human")
+                    if (label[i] != "Human")
                         widgetRow.ToggleableIcon(ref flag, TexButton.IconBook, "Disable/Enable race (restart needed)", null, null);
                     if (widgetRow.ButtonIcon(TexButton.ToggleTweak, "Size settings"))
                     {
@@ -272,14 +272,15 @@ namespace BabiesAndChildren
             }
             listing_Standard.End();
             Widgets.EndScrollView();
-            
+
         }
         public static bool Contai(string source, string toCheck, StringComparison comp)
         {
             return source != null && source.IndexOf(toCheck, comp) >= 0;
         }
 
-        private static void AddSettings (Listing_Standard listingStandard, Rect viewRect){
+        private static void AddSettings(Listing_Standard listingStandard, Rect viewRect)
+        {
             listingStandard.Gap(4f);
             //Reset button
             if (listingStandard.ButtonText("BnCSetting_Init".Translate()))
@@ -443,7 +444,7 @@ namespace BabiesAndChildren
         }
 
         public static void DoWindowContents(Rect inRect)
-        {      
+        {
             inRect.height = inRect.height + 1200f;
             //30f for top page description and bottom close button
             Rect outRect = new Rect(0f, 30f, inRect.width, 550f);
