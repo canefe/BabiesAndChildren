@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Issues -->
+	<IssueDef>
+		<defName>BnC_ChildSlavery</defName>
+		<label>child slavery</label>
+		<iconPath>UI/Issues/ChildSlave</iconPath>
+	</IssueDef>
+
+	<HistoryEventDef>
+		<defName>BnC_Child_SoldSlave</defName>
+		<label>sold slave</label>
+	</HistoryEventDef>
+
+	<HistoryEventDef>
+		<defName>BnC_Child_EnslavedPrisoner</defName>
+		<label>enslaved prisoner</label>
+	</HistoryEventDef>
+
+	<HistoryEventDef>
+		<defName>BnC_Child_EnslavedPrisonerNotPreviouslyEnslaved</defName>
+		<label>enslaved prisoner not previously enslaved</label>
+	</HistoryEventDef>
+
+	<!-- Precepts -->
+
+	<!-- Abhorrent -->
+
+	<PreceptDef>
+		<defName>BnC_ChildSlavery_Abhorrent</defName>
+		<issue>BnC_ChildSlavery</issue>
+		<label>abhorrent</label>
+		<description>Owning or trading children is deeply evil.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>40</displayOrderInIssue>
+		<displayOrderInImpact>1000</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+		<associatedMemes>
+			<li>Guilty</li>
+			<li>Individualist</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>BnC_Child_Slavery_Abhorrent_SlavesInColony</thought>
+				<description>Each child slave in colony</description>
+			</li>
+			<li Class="PreceptComp_UnwillingToDo">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+			</li>
+			<li Class="PreceptComp_UnwillingToDo">
+				<eventDef>BnC_Child_EnslavedPrisoner</eventDef>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Know_Abhorrent</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_EnslavedPrisoner</eventDef>
+				<thought>BnC_Child_EnslavedPrisoner_Know_Abhorrent</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Know_Abhorrent_Mood</thought>
+				<description>Someone sold an child slave</description>
+			</li>
+		</comps>
+	</PreceptDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_Slavery_Abhorrent_SlavesInColony</defName>
+		<workerClass>BabiesAndChildren.ThoughtWorker_Precept_SlavesInColony</workerClass>
+		<stages>
+			<li>
+				<label>child slaves in colony</label>
+				<description>We're keeping child slaves. It's barbaric.</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Know_Abhorrent</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>15</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>sold child slave</label>
+				<baseOpinionOffset>-30</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Know_Abhorrent_Mood</defName>
+		<thoughtClass>Thought_Memory</thoughtClass>
+		<durationDays>6</durationDays>
+		<stackLimit>5</stackLimit>
+		<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+		<stages>
+			<li>
+				<label>child slave sold</label>
+				<description>We sold an child into slavery. It was an abhorrent, barbaric act.</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_EnslavedPrisoner_Know_Abhorrent</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>15</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>enslaved child prisoner</label>
+				<baseOpinionOffset>-30</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+
+	<!-- Horrible -->
+
+	<PreceptDef>
+		<defName>BnC_ChildSlavery_Horrible</defName>
+		<issue>BnC_ChildSlavery</issue>
+		<label>horrible</label>
+		<description>Owning or trading children is a horrible thing.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>1000</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+		<associatedMemes>
+			<li>Guilty</li>
+			<li>Individualist</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>BnC_Child_Slavery_Horrible_SlavesInColony</thought>
+				<description>Each child slave in colony</description>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Horrible</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>BnC_Child_EnslavedPrisoner</eventDef>
+				<thought>BnC_Child_EnslavedPrisoner_Horrible</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Know_Horrible</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_EnslavedPrisoner</eventDef>
+				<thought>BnC_Child_EnslavedPrisoner_Know_Horrible</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Know_Horrible_Mood</thought>
+				<description>Someone sold an child slave</description>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_EnslavedPrisoner</eventDef>
+				<thought>BnC_Child_EnslavedPrisoner_Know_Horrible_Mood</thought>
+				<description>Someone enslaved an child prisoner</description>
+			</li>
+		</comps>
+	</PreceptDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_Slavery_Horrible_SlavesInColony</defName>
+		<workerClass>BabiesAndChildren.ThoughtWorker_Precept_SlavesInColony</workerClass>
+		<stages>
+			<li>
+				<label>child slaves in colony</label>
+				<description>We're keeping child slaves. It's wrong.</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Horrible</defName>
+		<durationDays>6</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>sold child slave</label>
+				<description>I sold an child into slavery. I'm not sure I can forgive myself.</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_EnslavedPrisoner_Horrible</defName>
+		<durationDays>6</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>enslaved child prisoner</label>
+				<description>I forced an child into slavery. How can I justify that?</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Know_Horrible</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>15</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>sold child slave</label>
+				<baseOpinionOffset>-20</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Know_Horrible_Mood</defName>
+		<thoughtClass>Thought_Memory</thoughtClass>
+		<durationDays>6</durationDays>
+		<stackLimit>5</stackLimit>
+		<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+		<stages>
+			<li>
+				<label>child slave sold</label>
+				<description>We sold an child into slavery. What a horrible thing to do.</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_EnslavedPrisoner_Know_Horrible</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>15</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>enslaved child prisoner</label>
+				<baseOpinionOffset>-20</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_EnslavedPrisoner_Know_Horrible_Mood</defName>
+		<thoughtClass>Thought_Memory</thoughtClass>
+		<durationDays>6</durationDays>
+		<stackLimit>5</stackLimit>
+		<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+		<stages>
+			<li>
+				<label>child prisoner enslaved</label>
+				<description>We enslaved an child. What a horrible thing to do to another sapient being.</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<!-- Disapproved -->
+
+	<PreceptDef>
+		<defName>BnC_ChildSlavery_Disapproved</defName>
+		<issue>BnC_ChildSlavery</issue>
+		<label>disapproved</label>
+		<description>Child slavery is part of life, though it is extremely distasteful.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>20</displayOrderInIssue>
+		<displayOrderInImpact>1000</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+		<associatedMemes>
+			<li>Guilty</li>
+			<li>Individualist</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>BnC_Child_Slavery_Disapproved_SlavesInColony</thought>
+				<description>Each child slave in colony</description>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Disapproved</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>BnC_Child_EnslavedPrisoner</eventDef>
+				<thought>BnC_Child_EnslavedPrisoner_Disapproved</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Know_Disapproved</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_EnslavedPrisoner</eventDef>
+				<thought>BnC_Child_EnslavedPrisoner_Know_Disapproved</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Know_Disapproved_Mood</thought>
+				<description>Someone sold an child slave</description>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_EnslavedPrisoner</eventDef>
+				<thought>BnC_Child_EnslavedPrisoner_Know_Disapproved_Mood</thought>
+				<description>Someone enslaved an child prisoner</description>
+			</li>
+		</comps>
+	</PreceptDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_Slavery_Disapproved_SlavesInColony</defName>
+		<workerClass>BabiesAndChildren.ThoughtWorker_Precept_SlavesInColony</workerClass>
+		<stages>
+			<li>
+				<label>child slaves in colony</label>
+				<description>We're keeping child slaves. Even if it's necessary, it's distasteful and I wish we wouldn't.</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Disapproved</defName>
+		<durationDays>6</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>sold child slave</label>
+				<description>I sold an child into slavery. I hope nothing terrible happens to them.</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_EnslavedPrisoner_Disapproved</defName>
+		<durationDays>6</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>enslaved child prisoner</label>
+				<description>I enslaved an child. It's hard to justify such actions.</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Know_Disapproved</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>15</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>sold child slave</label>
+				<baseOpinionOffset>-10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Know_Disapproved_Mood</defName>
+		<thoughtClass>Thought_Memory</thoughtClass>
+		<durationDays>6</durationDays>
+		<stackLimit>5</stackLimit>
+		<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+		<stages>
+			<li>
+				<label>child slave sold</label>
+				<description>We sold an child into slavery. We shouldn't have done that.</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_EnslavedPrisoner_Know_Disapproved</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>15</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>enslaved child prisoner</label>
+				<baseOpinionOffset>-10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_EnslavedPrisoner_Know_Disapproved_Mood</defName>
+		<thoughtClass>Thought_Memory</thoughtClass>
+		<durationDays>6</durationDays>
+		<stackLimit>5</stackLimit>
+		<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+		<stages>
+			<li>
+				<label>child prisoner enslaved</label>
+				<description>We enslaved an child. We shouldn't have done that.</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<!-- Acceptable -->
+
+	<PreceptDef>
+		<defName>BnC_ChildSlavery_Acceptable</defName>
+		<issue>BnC_ChildSlavery</issue>
+		<label>acceptable</label>
+		<description>Slavery of child races is a normal, unremarkable part of life.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>10</displayOrderInIssue>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+		<approvesOfSlavery>true</approvesOfSlavery>
+	</PreceptDef>
+
+	<!-- Honorable -->
+
+	<PreceptDef>
+		<defName>BnC_ChildSlavery_Honorable</defName>
+		<issue>BnC_ChildSlavery</issue>
+		<label>honorable</label>
+		<description>Owning child slaves are honorable and respected as they are cheap work force.</description>
+		<impact>High</impact>
+		<displayOrderInIssue>0</displayOrderInIssue>
+		<displayOrderInImpact>1000</displayOrderInImpact>
+		<associatedMemes>
+			<li>Supremacist</li>
+			<li>Collectivist</li>
+			<li>PainIsVirtue</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>BnC_Child_Slavery_Honorable_SlavesInColony</thought>
+				<description>Each child slave in colony</description>
+			</li>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>BnC_Child_Slavery_Honorable_NoSlavesInColony</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Honorable</thought>
+				<onlyForNonSlaves>true</onlyForNonSlaves>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>BnC_Child_EnslavedPrisonerNotPreviouslyEnslaved</eventDef>
+				<thought>BnC_Child_EnslavedPrisoner_Honorable</thought>
+				<onlyForNonSlaves>true</onlyForNonSlaves>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Know_Honorable</thought>
+				<onlyForNonSlaves>true</onlyForNonSlaves>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_EnslavedPrisonerNotPreviouslyEnslaved</eventDef>
+				<thought>BnC_Child_EnslavedPrisoner_Know_Honorable</thought>
+				<onlyForNonSlaves>true</onlyForNonSlaves>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_SoldSlave</eventDef>
+				<thought>BnC_Child_SoldSlave_Know_Honorable_Mood</thought>
+				<description>Someone sold an child slave</description>
+				<onlyForNonSlaves>true</onlyForNonSlaves>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BnC_Child_EnslavedPrisonerNotPreviouslyEnslaved</eventDef>
+				<thought>BnC_Child_EnslavedPrisoner_Know_Honorable_Mood</thought>
+				<description>Someone enslaved an child prisoner</description>
+				<onlyForNonSlaves>true</onlyForNonSlaves>
+			</li>
+		</comps>
+		<approvesOfSlavery>true</approvesOfSlavery>
+	</PreceptDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_Slavery_Honorable_SlavesInColony</defName>
+		<workerClass>BabiesAndChildren.ThoughtWorker_Precept_SlavesInColony</workerClass>
+		<stages>
+			<li>
+				<label>child slaves in colony</label>
+				<description>We've got child slaves. It means we're on the right path.</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_Slavery_Honorable_NoSlavesInColony</defName>
+		<workerClass>BabiesAndChildren.ThoughtWorker_Precept_Slavery_NoSlavesInColony</workerClass>
+		<stages>
+			<li>
+				<label>no child slaves in colony</label>
+				<description>Without child slaves, nobody will respect us.</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Honorable</defName>
+		<durationDays>6</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>sold child slave</label>
+				<description>I sold an child into slavery. It'll make people notice my stature.</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_EnslavedPrisoner_Honorable</defName>
+		<durationDays>6</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>enslaved child prisoner</label>
+				<description>I took an child into slavery. With no choice, they had to submit to me.</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Know_Honorable</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>25</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>sold child slave</label>
+				<baseOpinionOffset>10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_SoldSlave_Know_Honorable_Mood</defName>
+		<thoughtClass>Thought_Memory</thoughtClass>
+		<durationDays>6</durationDays>
+		<stackLimit>5</stackLimit>
+		<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+		<stages>
+			<li>
+				<label>child slave sold</label>
+				<description>We sold an child into slavery! A great display of our honor and power.</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_EnslavedPrisoner_Know_Honorable</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>15</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>enslaved child prisoner</label>
+				<baseOpinionOffset>10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BnC_Child_EnslavedPrisoner_Know_Honorable_Mood</defName>
+		<thoughtClass>Thought_Memory</thoughtClass>
+		<durationDays>6</durationDays>
+		<stackLimit>5</stackLimit>
+		<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+		<stages>
+			<li>
+				<label>child prisoner enslaved</label>
+				<description>We enslaved an child. Now they know our honor and power!</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+
+
+
+
+
+
+
+
+
+
+
+</Defs>

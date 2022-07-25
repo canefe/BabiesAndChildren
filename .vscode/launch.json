@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build dll",
             "args": [],
-            "program": "../../../RimWorldWin64.exe",
+            "program": "../../RimWorldWin64.exe",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "internalConsoleOptions":"neverOpen",

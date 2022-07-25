@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+    <IssueDef>
+        <defName>BnC_Children</defName>
+        <label>children</label>
+        <iconPath>UI/Issues/Children</iconPath>
+    </IssueDef>
+
+
+
+
+
+    <PreceptDef>
+        <defName>BnC_Children_Abhorrent</defName>
+        <issue>BnC_Children</issue>
+        <label>abhorrent</label>
+        <description>Children are a total waste of resources.</description>
+        <impact>Medium</impact>
+        <displayOrderInIssue>60</displayOrderInIssue>
+        <conflictingMemes>
+            <li>HAR_Xenophilia</li>
+        </conflictingMemes>
+        <associatedMemes>
+            <li>HAR_Xenophobia</li>
+        </associatedMemes>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>BnC_Children_Abhorrent</thought>
+            </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>BnC_Children_Abhorrent_Social</thought>
+            </li>
+
+
+        </comps>
+    </PreceptDef>
+
+    <ThoughtDef>
+        <defName>BnC_Children_Abhorrent</defName>
+        <workerClass>BabiesAndChildren.ThoughtWorker_Precept_Children</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <stages>
+            <li>
+                <label>children in the colony</label>
+                <description>Children are nothing but waste of resources. We shouldn't have them in our colony.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>BnC_Children_Abhorrent_Social</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>BabiesAndChildren.ThoughtWorker_Precept_Children_Social</workerClass>
+        <stages>
+            <li>
+                <label>useless child!</label>
+                <baseOpinionOffset>-10</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+
+    <PreceptDef>
+        <defName>BnC_Children_Standard</defName>
+        <issue>BnC_Children</issue>
+        <label>neutral</label>
+        <description>Children are living beings just like the rest of us.</description>
+        <impact>Low</impact>
+        <displayOrderInIssue>30</displayOrderInIssue>
+        <defaultSelectionWeight>1</defaultSelectionWeight>
+
+    </PreceptDef>
+
+
+
+    <PreceptDef>
+        <defName>BnC_Children_Respected</defName>
+        <issue>BnC_Children</issue>
+        <label>respected</label>
+        <description>Children are our future and we should respect them.</description>
+        <impact>Low</impact>
+        <displayOrderInIssue>10</displayOrderInIssue>
+        <conflictingMemes>
+            <li>HAR_Xenophobia</li>
+        </conflictingMemes>
+        <associatedMemes>
+            <li>HAR_Xenophilia</li>
+        </associatedMemes>
+        <comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>BnC_Children_Respected</thought>
+			</li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>BnC_Children_Respected_Social</thought>
+            </li>
+        </comps>
+    </PreceptDef>
+    <ThoughtDef>
+        <defName>BnC_Children_Respected</defName>
+        <workerClass>BabiesAndChildren.ThoughtWorker_Precept_Children</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <stages>
+            <li>
+                <label>children in the colony</label>
+                <description>I am glad to know there are children who will take after our colony in the future.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+    <ThoughtDef>
+        <defName>BnC_Children_Respected_Social</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>BabiesAndChildren.ThoughtWorker_Precept_Children_Social</workerClass>
+        <stages>
+            <li>
+                <label>respect for children</label>
+                <baseOpinionOffset>15</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+
+</Defs>
