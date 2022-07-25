@@ -119,18 +119,6 @@ namespace BabiesAndChildren
         public static bool RemoveFacialAnimationComps(ThingWithComps thing)
         {
             ThingComp comp = ChildrenUtility.GetCompByClassName(thing, "FacialAnimation.DrawFaceGraphicsComp");
-            CLog.Message("Removing da filter for " + thing);
-            foreach (ThingComp compz in thing.AllComps)
-            {
-                if (comp?.props?.compClass == null)
-                {
-                    continue;
-                }
-
-                var compClass = comp.props.compClass;
-
-                CLog.Warning(compClass.ToString());
-            }
             return comp != null && thing.AllComps.Remove(comp);
         }
 

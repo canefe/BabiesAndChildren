@@ -11,6 +11,9 @@
     <stages>
       <li>
         <label>baby</label>
+        <statFactors>
+          <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">3</CertaintyLossFactor>
+        </statFactors>
         <minSeverity>0.01</minSeverity>
         <capMods>
           <li>
@@ -29,6 +32,9 @@
       </li>
       <li>
         <label>toddler</label>
+        <statFactors>
+          <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2.5</CertaintyLossFactor>
+        </statFactors>
         <minSeverity>0.5</minSeverity>
         <capMods>
           <li>
@@ -47,6 +53,9 @@
       </li>
       <li>
         <label>child</label>
+        <statFactors>
+          <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2</CertaintyLossFactor>
+        </statFactors>
         <minSeverity>0.75</minSeverity>
         <capMods>
           <li>
@@ -65,6 +74,9 @@
       </li>
       <li>
         <label>teenager</label>
+        <statFactors>
+          <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</CertaintyLossFactor>
+        </statFactors>
         <minSeverity>0.9</minSeverity>
       </li>
     </stages>

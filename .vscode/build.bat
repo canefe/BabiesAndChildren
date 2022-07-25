@@ -1,3 +1,3 @@
 .echo off
 REM build dll
-dotnet build
+dotnet build Source
