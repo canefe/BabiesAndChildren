@@ -10,14 +10,12 @@ assignees: ''
 **Describe the bug**
 A clear and concise description of what the bug is.
 
-**To Reproduce**
-
-** ModList: **
+**ModList:**
 * CSL
 * Facial Animation
 * BabiesAndChildren
 
-** How to reproduce in game? **
+**How to reproduce in game?**
 * Spawn raiders. 
 * Child raiders will be invisible.
 
