@@ -19,12 +19,6 @@
         <description>Children are a total waste of resources.</description>
         <impact>Medium</impact>
         <displayOrderInIssue>60</displayOrderInIssue>
-        <conflictingMemes>
-            <li>HAR_Xenophilia</li>
-        </conflictingMemes>
-        <associatedMemes>
-            <li>HAR_Xenophobia</li>
-        </associatedMemes>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>BnC_Children_Abhorrent</thought>
@@ -83,12 +77,6 @@
         <description>Children are our future and we should respect them.</description>
         <impact>Low</impact>
         <displayOrderInIssue>10</displayOrderInIssue>
-        <conflictingMemes>
-            <li>HAR_Xenophobia</li>
-        </conflictingMemes>
-        <associatedMemes>
-            <li>HAR_Xenophilia</li>
-        </associatedMemes>
         <comps>
 			<li Class="PreceptComp_SituationalThought">
 				<thought>BnC_Children_Respected</thought>
