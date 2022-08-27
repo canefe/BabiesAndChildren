@@ -129,7 +129,8 @@ namespace BabiesAndChildren
                 {
                     ComponentCache_ResetCompCache_Info = AccessTools.Method("PerformanceOptimizer.ComponentCache:ResetCompCache");
                 }
-                ComponentCache_ResetCompCache_Info.Invoke(null, new object[] { thing });
+                // A null check here in case if players have an old version of Performance Optimizer without this method
+                ComponentCache_ResetCompCache_Info?.Invoke(null, new object[] { thing });
             }
             return result;
         }
