@@ -41,7 +41,8 @@ namespace BabiesAndChildren
         public static bool ModSOS2_ON;
         //Dubs Apparel Tweaks
         public static bool ModDAT_ON;
-
+        //Performance Optimizer
+        public static bool ModPO_ON;
         private ChildrenBase()
         {
             Instance = this;

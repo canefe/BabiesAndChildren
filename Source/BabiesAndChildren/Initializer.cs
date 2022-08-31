@@ -23,6 +23,7 @@ namespace BabiesAndChildren
             ChildrenBase.ModMedpod_ON = ModTools.IsModOn("MedPod");
             ChildrenBase.ModSOS2_ON = ModTools.IsModOn("Save Our Ship 2");
             ChildrenBase.ModDAT_ON = ModTools.IsModOn("Dubs Apparel Tweaks");
+            ChildrenBase.ModPO_ON = ModTools.IsModOn("Performance Optimizer");
 
             if (ChildrenBase.ModHAR_ON)
             {
