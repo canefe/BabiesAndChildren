@@ -1,6 +1,8 @@
 using System;
+using System.Reflection;
 using BabiesAndChildren.api;
 using BabiesAndChildren.Tools;
+using HarmonyLib;
 using RimWorld.BaseGen;
 using UnityEngine;
 using Verse;
@@ -116,10 +118,21 @@ namespace BabiesAndChildren
             }
         }
 
+        public static MethodInfo ComponentCache_ResetCompCache_Info;
         public static bool RemoveFacialAnimationComps(ThingWithComps thing)
         {
             ThingComp comp = ChildrenUtility.GetCompByClassName(thing, "FacialAnimation.DrawFaceGraphicsComp");
-            return comp != null && thing.AllComps.Remove(comp);
+            bool result = comp != null && thing.AllComps.Remove(comp);
+            if (result && ChildrenBase.ModPO_ON)
+            {
+                if (ComponentCache_ResetCompCache_Info is null)
+                {
+                    ComponentCache_ResetCompCache_Info = AccessTools.Method("PerformanceOptimizer.ComponentCache:ResetCompCache");
+                }
+                // A null check here in case if players have an old version of Performance Optimizer without this method
+                ComponentCache_ResetCompCache_Info?.Invoke(null, new object[] { thing });
+            }
+            return result;
         }
 
         public static bool ShouldHideHair(Pawn pawn)
