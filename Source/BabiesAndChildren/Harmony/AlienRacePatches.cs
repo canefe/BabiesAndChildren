@@ -56,7 +56,7 @@ namespace BabiesAndChildren.Harmony
         public static GraphicMeshSet GetModifiedHairMeshSet(float hairSizeFactor, Pawn pawn)
         {
             GraphicMeshSet result;
-            if (pawn.story.crownType == CrownType.Average)
+            if (pawn.story.headType.narrow == false)
             {
                 if (!humanlikeHairAverageSetModified.ContainsKey(hairSizeFactor))
                 {
@@ -68,7 +68,7 @@ namespace BabiesAndChildren.Harmony
             }
             else
             {
-                if (pawn.story.crownType == CrownType.Narrow)
+                if (pawn.story.headType.narrow)
                 {
                     if (!humanlikeHairNarrowSetModified.ContainsKey(hairSizeFactor))
                     {

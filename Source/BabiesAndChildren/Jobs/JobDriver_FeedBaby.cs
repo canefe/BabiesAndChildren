@@ -168,7 +168,7 @@ namespace BabiesAndChildren
                     return false;
             }
 
-            if (!FoodUtility.TryFindBestFoodSourceFor_NewTemp(pawn, pawn2,
+            if (!FoodUtility.TryFindBestFoodSourceFor(pawn, pawn2,
                 pawn2.needs.food.CurCategory == HungerCategory.Starving, out var thing, out var thingDef, false))
             {
                 JobFailReason.Is("NoFood".Translate(), null);
@@ -189,7 +189,7 @@ namespace BabiesAndChildren
             Thing foodInInv = FoodUtility.BestFoodInInventory(pawn, pawn2, FoodPreferability.MealSimple);
             if (foodInInv == null)
             {
-                FoodUtility.TryFindBestFoodSourceFor_NewTemp(pawn, pawn2,
+                FoodUtility.TryFindBestFoodSourceFor(pawn, pawn2,
                     pawn2.needs.food.CurCategory == HungerCategory.Starving, out thing, out thingDef, false);
             }
             else
@@ -200,7 +200,7 @@ namespace BabiesAndChildren
 
             if (thing == null) return null;
 
-            float nutrition = FoodUtility.GetNutrition(thing, thingDef);
+            float nutrition = FoodUtility.GetNutrition(pawn2, thing, thingDef);
             var feedBaby = new Job(DefDatabase<JobDef>.GetNamed("FoodFeedBaby"), thing, pawn2)
             {
                 count = FoodUtility.WillIngestStackCountOf(pawn2, thingDef, nutrition)

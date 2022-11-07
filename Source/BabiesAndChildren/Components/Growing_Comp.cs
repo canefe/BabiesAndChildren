@@ -39,8 +39,8 @@ namespace BabiesAndChildren
         public Pawn Pawn => (Pawn) parent;
         public CompProperties_Growing Props => (CompProperties_Growing) props;
 
-        private static readonly Backstory Childhood_Disabled = BackstoryDatabase.allBackstories["CustomBackstory_NA_Childhood_Disabled"];
-        private static readonly Backstory Rimchild = BackstoryDatabase.allBackstories["CustomBackstory_Rimchild"];
+        private static readonly BackstoryDef Childhood_Disabled = DefDatabase<BackstoryDef>.AllDefsListForReading.FirstOrDefault(x => x.defName.Contains("CustomBackstory_NA_Childhood_Disabled"));
+        private static readonly BackstoryDef Rimchild = DefDatabase<BackstoryDef>.AllDefsListForReading.FirstOrDefault(x => x.defName.Contains("CustomBackstory_Rimchild"));
         private int lastTeenCheckTick = 0;
         public override void PostExposeData()
         {
@@ -337,7 +337,7 @@ namespace BabiesAndChildren
 
             if (ageStage == AgeStages.Baby)
             {
-                if (Pawn.story.childhood != Childhood_Disabled)
+                if (Pawn.story.Childhood != Childhood_Disabled)
                 {
                     StoryUtility.ChangeChildhood(Pawn);
                 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Hiver_Soldier Hiver_Prince Hiver_Queen Hiver_Worker-->
+	<BabiesAndChildren.AlienChildDef>
+		<defName>Hiver_Soldier</defName>
+		<disableBackstories>true</disableBackstories>
+	</BabiesAndChildren.AlienChildDef>
+
+	<BabiesAndChildren.AlienChildDef>
+		<defName>Hiver_Queen</defName>
+		<disableBackstories>true</disableBackstories>
+	</BabiesAndChildren.AlienChildDef>
+
+	<BabiesAndChildren.AlienChildDef>
+		<defName>Hiver_Worker</defName>
+		<disableBackstories>true</disableBackstories>
+	</BabiesAndChildren.AlienChildDef>
+
+	<BabiesAndChildren.AlienChildDef>
+		<defName>Hiver_Prince</defName>
+		<disableBackstories>true</disableBackstories>
+	</BabiesAndChildren.AlienChildDef>
+</Defs>

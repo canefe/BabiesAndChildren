@@ -42,9 +42,13 @@ namespace BabiesAndChildren
                 {
                     if (RaceUtility.PawnUsesChildren(pawn) && AgeStages.GetAgeStage(pawn) < AgeStages.Child)
                     {
-                        if (pawn.story.childhood == BackstoryDatabase.allBackstories["CustomBackstory_NA_Childhood_Disabled"])
+
+                        if (pawn.story.Childhood == DefDatabase<BackstoryDef>.AllDefsListForReading.FirstOrDefault(x =>
+                                x.defName.Contains("CustomBackstory_NA_Childhood_Disabled"))) 
                         {
-                            pawn.story.childhood = BackstoryDatabase.allBackstories["CustomBackstory_Rimchild"];
+                            pawn.story.Childhood =
+                                DefDatabase<BackstoryDef>.AllDefsListForReading.FirstOrDefault(x =>
+                                    x.defName.Contains("CustomBackstory_Rimchild"));
                             pawn.Notify_DisabledWorkTypesChanged();
                             pawn.skills.Notify_SkillDisablesChanged();
                             MeditationFocusTypeAvailabilityCache.ClearFor(pawn);

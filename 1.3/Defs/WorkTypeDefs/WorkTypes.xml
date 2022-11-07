@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkTypeDef>
+    <defName>Childcare</defName>
+    <labelShort>Childcare</labelShort>
+    <pawnLabel>Childcarer</pawnLabel>
+    <gerundLabel>Childcaring</gerundLabel>
+    <description>Take care of babies and manage children.</description>
+    <verb>Care for</verb>
+    <naturalPriority>1270</naturalPriority>
+    <relevantSkills>
+      <li>Social</li>
+    </relevantSkills>
+  	<requireCapableColonist>true</requireCapableColonist>
+    <workTags>
+      <li>Caring</li>
+    </workTags>
+  </WorkTypeDef>
+
+  <WorkTypeDef>
+    <defName>BnC_Watch</defName>
+    <labelShort>Watch</labelShort>
+    <pawnLabel>Apprentice</pawnLabel>
+    <gerundLabel>Watching</gerundLabel>
+    <description>Watch others doing jobs and learn from them.</description>
+    <verb>Watch</verb>
+    <naturalPriority>50</naturalPriority>
+    <relevantSkills>
+      <li>Intellectual</li>
+    </relevantSkills>
+  </WorkTypeDef>
+
+</Defs>
