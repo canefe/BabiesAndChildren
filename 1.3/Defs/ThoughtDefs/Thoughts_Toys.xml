@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThoughtDef>
+    <defName>ChildWithToys</defName>
+    <workerClass>BabiesAndChildren.ThoughtWorker_CarryingToy</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <!-- 인형이 없는아이 : 보통 -->
+      <li>
+        <!-- 0 -->
+        <label>no dolls(poor)</label>
+        <description>Our base is so poor that we can't afford to make dolls. Well, I'll hold it in.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 1 -->
+        <label>no dolls(average)</label>
+        <description>If we can afford it, we'd better make a doll. I wish I had at least one. If I had a doll, it would be nice to sleep.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 2 -->
+        <label>no dolls(rich)</label>
+        <description>Adults wear nice clothes, but I don't have a doll! That's too much!!!</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+      <!-- 인형이 없는아이 : 탐욕,질투심 -->
+      <li>
+        <!-- 3 -->
+        <label>no dolls(poor)(greedy)</label>
+        <description>I understand our base is poor, but don't we have enough time to make a doll for me? I can't sleep without a doll.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 4 -->
+        <label>no dolls(average)(greedy)</label>
+        <description>If we can afford it, I should have a doll! Something's wrong with this!!</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 5 -->
+        <label>no dolls(rich)(greedy)</label>
+        <description>The kid at the next base has a legendary doll. If you don't give me the doll right now, I'll blow up our base!</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+      <!-- 인형이 없는아이 : 검소 -->
+      <li>
+        <!-- 6 -->
+        <label>no dolls(poor)(ascetic)</label>
+        <description>Our base is poor, so we should save supplies.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 7 -->
+        <label>no dolls(average)(ascetic)</label>
+        <description>I don't have to have any dolls.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 8 -->
+        <label>no dolls(rich)(ascetic)</label>
+        <description>I wish I had at least one.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <!-- 인형을 가지고 있는 아이 : 보통 -->
+      <li>
+        <!-- 9 -->
+        <label>hating a terrible doll</label>
+        <description>This is a monster doll!! I hate monster dolls! Arghhh!</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 10 -->
+        <label>slightly disappointed with a poor doll</label>
+        <description>Thank you for making it, but It's a little....</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 11 -->
+        <label>satisfied with an normal doll</label>
+        <description>It's good to have a doll. I can play many games with this.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 12 -->
+        <label>feeling good with a nice doll</label>
+        <description>Wow! The doll is cool. I'm so happy to have someone with high tailoring skill.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 13 -->
+        <label>feeling so good with a excellent doll</label>
+        <description>I love this doll. I always sleep with this when I sleep.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 14 -->
+        <label>impressed by the masterwork doll</label>
+        <description>I'm careful when I hug this doll in case it breaks. thank you so much for making it.</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 15 -->
+        <label>Impressed by the Legendary Doll</label>
+        <description>I'm the only one in the rimworld who has a doll like this, right? Right? I'm so happy.</description>
+        <baseMoodEffect>20</baseMoodEffect>
+      </li>
+      <!-- 인형을 가지고 있는 아이 : 탐욕,질투심 -->
+      <li>
+        <!-- 16 -->
+        <label>hating a terrible doll(greedy)</label>
+        <description>Argh! The doll is so horrible. It's so gross. Ahhhh!!</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 17 -->
+        <label>disappointed with a poor doll(greedy)</label>
+        <description>Is this a doll? I'd rather use it as a weapon, so I think it's better to hit the mechanoid with this.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 18 -->
+        <label>slightly disappointed with a doll(greedy)</label>
+        <description>Well, I'm going to carry this. If I don't have a doll, the kids next base tease me.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 19 -->
+        <label>satisfied with an cool doll(greedy)</label>
+        <description>The good quality doll is not bad, but I need a excellent doll on TV.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 20 -->
+        <label>feeling good with the excellent doll(greedy)</label>
+        <description>This is a doll that suits me. It's beautiful and cool. It's cool when I carry it around.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 21 -->
+        <label>impressed by the masterwork doll(greedy)</label>
+        <description>It's a doll that looks so good on me. You have to be careful when you hug this doll in case it's too precious to break! The durability point has already decreased! Ewwwow.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 22 -->
+        <label>impressed by the Legendary Doll(greedy)</label>
+        <description>Hehe! I'm the only one in the rimworld with a doll like this, right? I'm going to brag to my friends! Heh heh heh heh.</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+      <!-- 인형을 가지고 있는 아이 : 검소 -->
+      <li>
+        <!-- 23 -->
+        <label>satisfied with the terrible doll(ascetic)</label>
+        <description>Dolls can be ugly. But I'm fine. I feel better because I don't have to worry about durability.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 24 -->
+        <label>feeling good with a poor doll(ascetic)</label>
+        <description>I like this kind of doll. I like the simplicity.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 25 -->
+        <label>a normal doll(ascetic)</label>
+        <description>Well, It's good to play with dolls, But it's not good for me to carry this around roughly.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 26 -->
+        <label>a little uncomfortable with a cool doll(ascetic)</label>
+        <description>This doll is too good for me. I'm afraid it'll break.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 27 -->
+        <label>uncomfortable with a excellent doll(ascetic)</label>
+        <description>This doll doesn't suit me. It's uncomfortable to carry this around.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 28 -->
+        <label>very uncomfortable with a masterwork doll(ascetic)</label>
+        <description>I can't do anything because I'm afraid this doll will break. What do I do?!</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+      <li>
+        <!-- 29 -->
+        <label>extremely uncomfortable with a legendary doll(ascetic)</label>
+        <description>If it breaks, Do I have to take out my organs and sell them? What? Please tell me it's not.</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

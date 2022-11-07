@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<BabiesAndChildren.AlienChildDef>
+		<defName>Alien_Cutebold</defName>
+		<babyGraphic>Cutebold/Bodies/Simple/Naked_Cutebold_Newborn_south</babyGraphic>
+		<toddlerGraphic>Cutebold/Bodies/Simple/Naked_Cutebold_Toddler</toddlerGraphic>
+	</BabiesAndChildren.AlienChildDef>
+</Defs>

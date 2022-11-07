@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+    <defName>BnC_Play_Xylophone</defName>
+    <driverClass>JobDriver_SitFacingBuilding</driverClass>
+    <reportString>playing xylophone.</reportString>
+    <joyDuration>4000</joyDuration>
+    <joyMaxParticipants>1</joyMaxParticipants>
+    <joySkill>Artistic</joySkill>
+    <joyXpPerTick>0.002</joyXpPerTick>
+    <joyKind>Gaming_Cerebral</joyKind>
+    <taleOnCompletion>PlayedGame</taleOnCompletion>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JoyGiverDef>
+    <defName>BnC_Play_Xylophone</defName>
+    <giverClass>JoyGiver_InteractBuildingSitAdjacent</giverClass>
+    <baseChance>2</baseChance>
+    <thingDefs>
+      <li>BnC_Xylophone</li>
+    </thingDefs>
+    <jobDef>BnC_Play_Xylophone</jobDef>
+    <requireChair>false</requireChair>
+    <joyKind>Gaming_Cerebral</joyKind>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </JoyGiverDef>
+
+</Defs>

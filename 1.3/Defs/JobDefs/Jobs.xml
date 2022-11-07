@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <JobDef>
+	<defName>DisciplineChild</defName>
+	<driverClass>BabiesAndChildren.JobDriver_DisciplineChild</driverClass>
+	<reportString>Disciplining TargetA.</reportString>
+  </JobDef> 
+  
+  <JobDef>
+	<defName>ScoldChild</defName>
+	<driverClass>BabiesAndChildren.JobDriver_ScoldChild</driverClass>
+	<reportString>Scolding TargetA.</reportString>
+  </JobDef>
+  
+  <JobDef>
+	<defName>BreastfeedBaby</defName>
+	<driverClass>BabiesAndChildren.JobDriver_BreastfeedBaby</driverClass>
+	<reportString>Breastfeeding TargetA.</reportString>
+  </JobDef>
+
+	<JobDef>
+	<defName>FoodFeedBaby</defName>
+	<driverClass>RimWorld.JobDriver_FoodFeedPatient</driverClass>
+	<reportString>Feeding TargetA.</reportString>
+	</JobDef>
+  
+  <JobDef>
+	<defName>TakeBabyToBedAndFeed</defName>
+	<driverClass>BabiesAndChildren.JobDriver_TakeBabyToBedAndFeed</driverClass>
+	<reportString>Taking TargetB to crib to feed TargetA.</reportString>
+  </JobDef>
+	
+  <JobDef>
+	<defName>TakeBabyToCrib</defName>
+	<driverClass>JobDriver_TakeToBed</driverClass>
+	<reportString>Taking TargetA to crib.</reportString>
+  </JobDef>
+
+  <JobDef>
+	<defName>PlayWithBaby</defName>
+	<driverClass>BabiesAndChildren.JobDriver_PlayWithBaby</driverClass>
+	<reportString>Playing with TargetA.</reportString>
+	<joyDuration>1500</joyDuration>
+	<joyGainRate>1</joyGainRate>
+	<joyKind>Social</joyKind>
+  </JobDef>
+
+  <JobDef>
+    <defName>PlayAround</defName>
+    <driverClass>BabiesAndChildren.JobDriver_PlayAround</driverClass>
+    <reportString>playing.</reportString>
+  </JobDef>
+
+  <JobDef>
+    <defName>BnC_Watch</defName>
+    <driverClass>BabiesAndChildren.JobDriver_FollowLead</driverClass>
+    <reportString>watching TargetA.</reportString>
+  </JobDef>
+</Defs>

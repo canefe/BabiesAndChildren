@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 
-  <BackstoryDef>
+  <BabiesAndChildren.BackstoryDef>
     <defName>NA_Childhood_Disabled</defName>
     <title>Baby</title>
     <titleShort>Baby</titleShort>
-    <baseDesc>Still growing.</baseDesc>
+    <baseDescription>Still growing.</baseDescription>
     <slot>Childhood</slot>
     <workDisables>
       <li>Animals</li>
@@ -28,45 +28,45 @@
       <li>Civil</li>
     </spawnCategories>
     <shuffleable>false</shuffleable>
-  </BackstoryDef>
+  </BabiesAndChildren.BackstoryDef>
   
-  <BackstoryDef>
+  <BabiesAndChildren.BackstoryDef>
     <defName>NA_Childhood</defName>
     <title>Child</title>
     <titleShort>Child</titleShort>
-    <baseDesc>Still growing.</baseDesc>
+    <baseDescription>Still growing.</baseDescription>
     <slot>Childhood</slot>
     <workDisables />
     <spawnCategories>
       <li>Civil</li>
     </spawnCategories>
     <shuffleable>false</shuffleable>
-  </BackstoryDef>
+  </BabiesAndChildren.BackstoryDef>
   
-  <BackstoryDef>
+  <BabiesAndChildren.BackstoryDef>
     <defName>NA_Adulthood</defName>
     <title>N/A</title>
     <titleShort>N/A</titleShort>
-    <baseDesc>Not yet applicable</baseDesc>
+    <baseDescription>Not yet applicable</baseDescription>
     <slot>Adulthood</slot>
     <workDisables />
     <spawnCategories>
       <li>Civil</li>
     </spawnCategories>
     <shuffleable>false</shuffleable>
-  </BackstoryDef>
+  </BabiesAndChildren.BackstoryDef>
   
-  <BackstoryDef>
+  <BabiesAndChildren.BackstoryDef>
     <defName>Rimchild</defName>
     <title>Rimworld child</title>
     <titleShort>Rimchild</titleShort>
-    <baseDesc>{PAWN_nameDef} was born and raised on a rimworld in the outer reaches of the galaxy.</baseDesc>
+    <baseDescription>{PAWN_nameDef} was born and raised on a rimworld in the outer reaches of the galaxy.</baseDescription>
     <slot>Childhood</slot>
     <workDisables />
     <spawnCategories>
       <li>Civil</li>
     </spawnCategories>
     <shuffleable>false</shuffleable>
-  </BackstoryDef>
+  </BabiesAndChildren.BackstoryDef>
 
 </Defs>

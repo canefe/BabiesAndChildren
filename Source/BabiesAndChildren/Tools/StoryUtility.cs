@@ -3,6 +3,7 @@ using AlienRace;
 using BabiesAndChildren.api;
 using RimWorld;
 using Verse;
+using BackstoryDef = RimWorld.BackstoryDef;
 
 namespace BabiesAndChildren.Tools
 {
@@ -11,8 +12,8 @@ namespace BabiesAndChildren.Tools
     /// </summary>
     public static class StoryUtility
     {
-        private static readonly Backstory Childhood_Disabled = BackstoryDatabase.allBackstories["CustomBackstory_NA_Childhood_Disabled"];
-        private static readonly Backstory Rimchild = BackstoryDatabase.allBackstories["CustomBackstory_Rimchild"];
+        private static readonly BackstoryDef Childhood_Disabled = DefDatabase<BackstoryDef>.AllDefsListForReading.FirstOrDefault(x => x.defName.Contains("CustomBackstory_NA_Childhood_Disabled"));
+        private static readonly BackstoryDef Rimchild = DefDatabase<BackstoryDef>.AllDefsListForReading.FirstOrDefault(x => x.defName.Contains("CustomBackstory_Rimchild"));
         
         /// <summary>
         /// This method will roll for a chance to make the pawn Asexual, Bisexual, or Gay
@@ -174,12 +175,12 @@ namespace BabiesAndChildren.Tools
         /// Will also update childhood for children based on AgeStage if no new childhood is provided.
         /// </summary>
         /// <returns>Whether the childhood changed</returns>
-        public static bool ChangeChildhood(Pawn pawn, Backstory newChildhood = null)
+        public static bool ChangeChildhood(Pawn pawn, BackstoryDef newChildhood = null)
         {
             
             if (pawn == null) return false;
 
-            Backstory currentChildhood = pawn.story.childhood;
+            BackstoryDef currentChildhood = pawn.story.Childhood;
             
             var comp = pawn.TryGetComp<Growing_Comp>();
             if (newChildhood == null)
@@ -208,7 +209,7 @@ namespace BabiesAndChildren.Tools
             if (newChildhood == null || newChildhood == currentChildhood) 
                 return false;
             
-            pawn.story.childhood = newChildhood;
+            pawn.story.Childhood = newChildhood;
             pawn.Notify_DisabledWorkTypesChanged();
             pawn.skills.Notify_SkillDisablesChanged();
             MeditationFocusTypeAvailabilityCache.ClearFor(pawn);

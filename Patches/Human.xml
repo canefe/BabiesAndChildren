@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName = "Human"]/race/lifeStageAges/li[2]/minAge</xpath>
+  <Operation Class="PatchOperationInsert">
+    <xpath>/Defs/ThingDef[defName="Human"]/race/lifeStageAges/li[2]</xpath>
     <value>
-      <minAge>1.5</minAge>
+      <li>
+        <def>HumanlikeToddler</def>
+        <minAge>1.5</minAge>
+      </li>
     </value>
   </Operation>
 
@@ -14,14 +17,7 @@
       <minAge>5</minAge>
     </value>
   </Operation>
-
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName = "Human"]/race/lifeStageAges/li[4]/minAge</xpath>
-    <value>
-      <minAge>14</minAge>
-    </value>
-  </Operation>
-
+  
   <Operation Class="PatchOperationReplace">
     <xpath>/Defs/LifeStageDef[defName="HumanlikeTeenager"]/bodySizeFactor</xpath>
     <value>

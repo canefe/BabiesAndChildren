@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <ThoughtDef>
+    <defName>NearParent</defName>
+    <workerClass>BabiesAndChildren.ThoughtWorker_NearParents</workerClass>
+    <stages>
+      <li>
+        <label>near mom</label>
+        <description>My mother is near me. I feel safe.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>near dad</label>
+        <description>My father is near me. I feel safe.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>near mom and dad</label>
+        <description>My parents are with me. I feel safe and loved.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef> 
+  
+  <ThoughtDef>
+    <defName>ScaredOfTheDark</defName>
+    <workerClass>BabiesAndChildren.ThoughtWorker_ScaredOfTheDark</workerClass>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+      <li>Undergrounder</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>scared of the dark</label>
+        <description>It's too dark! I can see monsters creeping in the shadows!</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef> 
+  
+  <ThoughtDef>
+    <defName>GotToldOff</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <nullifyingTraits>
+      <li>Abrasive</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+       <label>got in trouble</label>
+       <description>I got in trouble for doing something I shouldn't have.</description>
+       <baseMoodEffect>-5</baseMoodEffect>
+     </li>
+   </stages>
+ </ThoughtDef>
+ 
+  <ThoughtDef>
+    <defName>GotDisciplined</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>got a beating</label>
+        <description>I got beaten as punishment.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef> 
+
+  <ThoughtDef>
+    <defName>GotFed</defName>
+    <durationDays>0.5</durationDays>
+    <stackLimit>1</stackLimit>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>was fed</label>
+        <description>I was fed by a loving caretaker.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>  
+
+<ThoughtDef>
+  <defName>BabyGames</defName>
+  <thoughtClass>Thought_MemorySocialCumulative</thoughtClass>
+  <stackLimit>300</stackLimit>
+  <maxCumulatedOpinionOffset>10</maxCumulatedOpinionOffset>
+  <nullifyingTraits>
+    <li>Psychopath</li>
+  </nullifyingTraits>
+  <stages>
+    <li>
+      <label>played with me</label>
+      <baseOpinionOffset>0.66</baseOpinionOffset>
+    </li>
+  </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>ChildGames</defName>
+  <thoughtClass>Thought_MemorySocialCumulative</thoughtClass>
+  <stackLimit>300</stackLimit>
+  <maxCumulatedOpinionOffset>10</maxCumulatedOpinionOffset>
+  <nullifyingTraits>
+    <li>Psychopath</li>
+  </nullifyingTraits>
+  <stages>
+    <li>
+      <label>played together</label>
+      <baseOpinionOffset>0.66</baseOpinionOffset>
+    </li>
+  </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>JustBorn</defName>
+  <durationDays>7</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>just born</label>
+     <description>What's going on? It's too bright out here, I don't like it!</description>
+     <baseMoodEffect>-5</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingGood</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling good</label>
+     <description>It feels like a good day!</description>
+     <baseMoodEffect>5</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingBored</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling bored</label>
+     <description>I am sure rest of the day will be boring as hell.</description>
+     <baseMoodEffect>-2</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingBad</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling bad</label>
+     <description>I feel bad. It's just a bad day.</description>
+     <baseMoodEffect>-5</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingStressed</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling stressed</label>
+     <description>Thought of living makes me stressed.</description>
+     <baseMoodEffect>-3</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingTired</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling tired</label>
+     <description>I am tired of life. Can't just things pause for a moment?</description>
+     <baseMoodEffect>-2</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingCheerful</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling cheerful</label>
+     <description>What a good day. I expect more exciting stuff today!</description>
+     <baseMoodEffect>8</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+<ThoughtDef>
+  <defName>TeenFeelingSad</defName>
+  <durationDays>1</durationDays>
+  <stackLimit>1</stackLimit>
+  <stages>
+    <li>
+     <label>teenager: feeling sad</label>
+     <description>I just feel sad. Nobody understands my feelings.</description>
+     <baseMoodEffect>-6</baseMoodEffect>
+   </li>
+ </stages>
+</ThoughtDef>
+
+</Defs>

@@ -41,7 +41,7 @@ namespace BabiesAndChildren
 							break;
 						}
 							//Pawn pawn = PawnGenerator.GeneratePawn(pDefs.RandomElement());
-							Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pDefs.RandomElement(), null, PawnGenerationContext.NonPlayer, -1, true, false, false, false, true, true, 20f, false, true, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, 10f, null, Gender.Female, null, null, null, null, null, false, false, false));
+							Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pDefs.RandomElement(), null, PawnGenerationContext.NonPlayer, -1, true, false, false, false, true, 0f, false, false, true, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, 10f, null, Gender.Female, null, null, null, null, false, false, false, false));
 						if (pawn.def.race.Humanlike)
 						{
 							this.pawn = pawn;

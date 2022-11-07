@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<!-- Basic -->
+	<WorkGiverDef>
+		<defName>FeedBaby</defName>
+		<label>breastfeed baby</label>
+		<giverClass>BabiesAndChildren.WorkGiver_BreastfeedBaby</giverClass>
+		<workType>Childcare</workType>
+		<verb>breastfeed</verb>
+		<gerund>breastfeeding</gerund>
+		<priorityInType>45</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<!-- Childcare -->
+
+	<WorkGiverDef>
+		<defName>FoodFeedBaby</defName>
+		<label>feed baby</label>
+		<giverClass>BabiesAndChildren.WorkGiver_FoodFeedBaby</giverClass>
+		<workType>Childcare</workType>
+		<verb>feed</verb>
+		<gerund>feeding</gerund>
+		<priorityInType>75</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>TakeBabyToCribAndFeed</defName>
+		<label>feed baby in bed</label>
+		<giverClass>BabiesAndChildren.WorkGiver_TakeBabyToBedAndFeed</giverClass>
+		<workType>Childcare</workType>
+		<verb>feed baby in bed</verb>
+		<gerund>feeding</gerund>
+		<priorityInType>75</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>TakeBabyToCrib</defName>
+		<label>take baby to crib</label>
+		<giverClass>BabiesAndChildren.WorkGiver_TakeBabyToCrib</giverClass>
+		<workType>Childcare</workType>
+		<verb>take to crib</verb>
+		<gerund>tucking in</gerund>
+		<priorityInType>65</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+	
+	<WorkGiverDef>
+		<defName>PlayWithBaby</defName>
+		<label>play with baby</label>
+		<giverClass>BabiesAndChildren.WorkGiver_PlayWithBaby</giverClass>
+		<workType>Childcare</workType>
+		<verb>play with baby</verb>
+		<gerund>playing with baby</gerund>
+		<priorityInType>50</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>BnC_WatchAdult</defName>
+		<label>watching</label>
+		<giverClass>BabiesAndChildren.WorkGiver_FollowLead</giverClass>
+		<workType>BnC_Watch</workType>
+		<verb>to watch</verb>
+		<gerund>watching</gerund>
+		<priorityInType>135</priorityInType>
+		<requiredCapacities>
+			<li>Sight</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+</Defs>

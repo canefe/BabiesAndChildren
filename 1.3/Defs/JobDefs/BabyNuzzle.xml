@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThinkTreeDef>
+	<defName>BabyNuzzleTree</defName>
+	<insertTag>Humanlike_PostDuty</insertTag>
+	<insertPriority>11</insertPriority>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="ThinkNode_ConditionalHasFaction">
+          <subNodes>
+            <li Class="BabiesAndChildren.ThinkNode_ChancePerHour_BabyNuzzle">
+              <subNodes>
+                <li Class="ThinkNode_Tagger">
+                  <tagToGive>Misc</tagToGive>
+                  <subNodes>
+                    <li Class="BabiesAndChildren.JobGiver_BabyNuzzle" />
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>-
+  
+  <JobDef>
+    <defName>BabyNuzzle</defName>
+    <driverClass>BabiesAndChildren.JobDriver_BabyNuzzle</driverClass>
+    <reportString>acting cute TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+ 
+  <InteractionDef>
+    <defName>BabyNuzzle</defName>
+    <label>babynuzzle</label>
+    <interactionMote>Mote_Thought</interactionMote>
+    <symbol>Things/Motes/SpeechSymbols/BabyNuzzle</symbol>
+    <workerClass>BabiesAndChildren.InteractionWorker_BabyNuzzle</workerClass>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry(p=2)->[INITIATOR_nameDef] [nuzzleadverb] [nuzzled] [RECIPIENT_nameDef].</li>
+        <li>r_logentry->[INITIATOR_nameDef] [nuzzleadverb] rubbed [INITIATOR_possessive] nose against [RECIPIENT_nameDef]'s [rubbedpart].</li>
+
+        <li>nuzzled(p=2)->nuzzled</li>
+        <li>nuzzled->snuggled up to</li>
+
+        <li>nuzzleadverb(p=4)-></li>
+        <li>nuzzleadverb->gently</li>
+        <li>nuzzleadverb->encouragingly</li>
+        <li>nuzzleadverb->happily</li>
+        <li>nuzzleadverb->softly</li>
+        <li>nuzzleadverb->supportively</li>
+        <li>nuzzleadverb->lightly</li>
+        <li>nuzzleadverb->warmly</li>
+        <li>nuzzleadverb->plaintively</li>
+        <li>nuzzleadverb->lovingly</li>
+        <li>nuzzleadverb->affectionately</li>
+
+        <li>rubbedpart->leg</li>
+        <li>rubbedpart->knee</li>
+        <li>rubbedpart->foot</li>
+        <li>rubbedpart->elbow</li>
+        <li>rubbedpart->hip</li>
+        <li>rubbedpart->shoulder</li>
+        <li>rubbedpart->hand</li>
+        <li>rubbedpart->side</li>
+        <li>rubbedpart->arm</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+ 
+  <ThoughtDef>
+    <defName>BabyNuzzled</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>3</stackLimit>
+    <stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>the cuteness of a child</label>
+        <description>Oh, baby, you're so cute.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+    <ThoughtDef>
+    <defName>ReceivedPraise</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>3</stackLimit>
+    <stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>praised for being cute</label>
+        <description>I was Praised for being cute. feel good.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+</Defs>

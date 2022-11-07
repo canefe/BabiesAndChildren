@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <PawnKindDef ParentName="BasePlayerPawnKind">
+    <defName>ChildColonist</defName>
+    <label>colonist child</label>
+    <defaultFactionType>PlayerColony</defaultFactionType>
+    <initialWillRange>3~7</initialWillRange>
+    <initialResistanceRange>15~23</initialResistanceRange>
+    <backstoryCategories>
+      <li>Civil</li>
+    </backstoryCategories>
+    <chemicalAddictionChance>0.06</chemicalAddictionChance>
+    <minGenerationAge>4</minGenerationAge>
+    <maxGenerationAge>10</maxGenerationAge>
+    <apparelTags>
+      <li>Spacer</li>
+    </apparelTags>
+    <apparelMoney>
+      <min>1000</min>
+      <max>2400</max>
+    </apparelMoney>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+  </PawnKindDef> 
+</Defs>

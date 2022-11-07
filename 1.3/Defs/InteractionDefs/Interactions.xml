@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <InteractionDef>
+    <defName>ScoldChild</defName>
+    <label>scold</label>
+    <workerClass>BabiesAndChildren.InteractionWorker_ScoldChild</workerClass>
+    <symbol>Things/Motes/SpeechSymbols/Scold</symbol>
+    <socialFightBaseChance>0.0</socialFightBaseChance>
+    <recipientThought>GotToldOff</recipientThought>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->Scolded [RECIPIENT_nameDef].</li>
+      </rulesStrings>
+    </logRulesInitiator>
+    <logRulesRecipient>
+      <rulesStrings>
+        <li>r_logentry->Was scolded by [INITIATOR_nameDef].</li>
+      </rulesStrings>
+    </logRulesRecipient>
+  </InteractionDef>
+  
+  <InteractionDef>
+    <defName>HugFriend</defName>
+    <label>hug</label>
+    <workerClass>BabiesAndChildren.InteractionWorker_HugFriend</workerClass>
+    <symbol>Things/Mote/SpeechSymbols/KindWords</symbol>
+    <socialFightBaseChance>0.0</socialFightBaseChance>
+    <recipientThought>GotHugged</recipientThought>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->Hugged [RECIPIENT_nameDef].</li>
+      </rulesStrings>
+    </logRulesInitiator>
+    <logRulesRecipient>
+      <rulesStrings>
+        <li>r_logentry->Was hugged by [INITIATOR_nameDef].</li>
+      </rulesStrings>
+    </logRulesRecipient>
+  </InteractionDef>
+
+  <InteractionDef>
+    <defName>BabyGames</defName>
+    <label>play</label>
+    <workerClass>BabiesAndChildren.InteractionWorker_BabyGames</workerClass>
+    <symbol>Things/Mote/SpeechSymbols/KindWords</symbol>
+    <initiatorXpGainSkill>Social</initiatorXpGainSkill>
+    <initiatorXpGainAmount>4</initiatorXpGainAmount>
+    <recipientThought>BabyGames</recipientThought>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] and [RECIPIENT_nameDef] played [babygame].</li>
+        <li>r_logentry->[INITIATOR_nameDef] played [babygame] with [RECIPIENT_nameDef].</li>
+
+        <li>babygame->peek-a-boo</li>
+        <li>babygame->pattycake</li>
+        <li>babygame->tickle</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+
+
+  <InteractionDef>
+    <defName>PlayTime</defName>
+    <label>play</label>
+    <workerClass>BabiesAndChildren.InteractionWorker_PlayTime</workerClass>
+    <symbol>Things/Motes/SpeechSymbols/ChildGames</symbol>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] asked [RECIPIENT_nameDef] to play with [INITIATOR_objective].</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+
+</Defs>
