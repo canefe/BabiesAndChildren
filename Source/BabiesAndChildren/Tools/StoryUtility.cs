@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using AlienRace;
 using BabiesAndChildren.api;
 using RimWorld;
 using Verse;
@@ -143,27 +142,7 @@ namespace BabiesAndChildren.Tools
                 pawn.style.beardDef = BeardDefOf.NoBeard;
                 return true;
             } 
-            if (ChildrenBase.ModHAR_ON && pawn.def is ThingDef_AlienRace thingDef)
-            {
-                List<BodyTypeDef> bodyTypes = thingDef.alienRace.generalSettings.alienPartGenerator.alienbodytypes;
-                if (bodyTypes.NullOrEmpty())
-                    return false;
-
-                if (bodyTypes.Contains(bodyTypeDef))
-                {
-                    pawn.story.bodyType = bodyTypeDef;
-                    return true;
-                }
-
-                //can't set to desired to body type but leaving an invalid one
-                //leads to pink boxes
-                if (!bodyTypes.Contains(pawn.story.bodyType))
-                {
-                    pawn.story.bodyType = bodyTypes.RandomElement<BodyTypeDef>();
-                    return false;
-                }
-                
-            }
+            
             //pawn's which are not humans or alien races is out of the scope of this mod
             return false;
         }
