@@ -25,16 +25,6 @@ namespace BabiesAndChildren
             ChildrenBase.ModDAT_ON = ModTools.IsModOn("Dubs Apparel Tweaks");
             ChildrenBase.ModPO_ON = ModTools.IsModOn("Performance Optimizer");
 
-            if (ChildrenBase.ModHAR_ON)
-            {
-                CLog.Message("Humanoid Alien Races 2.0 is active. Enabling Alien children support.");
-                AlienRacePatches.Patch();
-            }
-            else
-            {
-                ChildrenSizePatch.Patch();
-            }
-
             if (ChildrenBase.ModCSL_ON)
             {
                 CLog.Message("CSL is active.");
@@ -96,7 +86,6 @@ namespace BabiesAndChildren
             if (ChildrenBase.ModDAT_ON)
             {
                 CLog.Message("Patching Dubs Apparel Tweaks");
-                DubsApparelTweaksPatches.Patch();
             }
 
             if (BnCSettings.AlienBodySize ==  0.842f || BnCSettings.HumanHeadSize == 0.922f || BnCSettings.HumanHairSize == 0.730f)
