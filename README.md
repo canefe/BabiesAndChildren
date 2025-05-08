@@ -1,6 +1,9 @@
 
 # Babies and Children 1.3 
 
+> [!WARNING]
+> This mod is archived and no longer maintained. It will not receive further updates. Biotech DLC now includes native support for children mechanics.
+
 <img src="https://steamuserimages-a.akamaihd.net/ugc/1709665766319249337/EF6ECFC4D93F1F520809E7D320770C94DEEC10D3/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="drawing" width="800"/>
 
 [![GitHub issues](https://img.shields.io/github/issues/canefe/BabiesAndChildren?style=for-the-badge)](https://github.com/canefe/BabiesAndChildren/issues) [![GitHub stars](https://img.shields.io/github/stars/canefe/BabiesAndChildren?style=for-the-badge)](https://github.com/canefe/BabiesAndChildren/stargazers) [![GitHub stars](https://img.shields.io/badge/RIMWORLD-1.3-orange?style=for-the-badge)]()
