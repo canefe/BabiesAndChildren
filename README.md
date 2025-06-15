@@ -77,7 +77,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2559574784
 
 # Credits
 
-###  **cometopapa** 
+###  **canefe** 
 Continued the mod to 1.3 and the current maintainer.
 
 ### **lellel**
